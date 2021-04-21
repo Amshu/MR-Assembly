@@ -15,12 +15,12 @@ E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57875
+52877
 Successfully changed project path to: E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
 E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 58.52 ms, found 7 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Refreshing native plugins compatible for Editor in 105.66 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.94 ms.
 Initialize engine version: 2020.3.4f1 (0abb6314276a)
 [Subsystems] Discovering subsystems at path E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR/Assets
@@ -31,303 +31,87 @@ Direct3D:
     Vendor:   
     VRAM:     8088 MB
     Driver:   27.21.14.6589
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
 Initialize mono
 Mono path[0] = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/Managed'
 Mono path[1] = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56008
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56592
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004245 seconds.
+Registered in 0.004153 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 46.96 ms, found 7 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Refreshing native plugins compatible for Editor in 71.61 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.970 seconds
+- Completed reload, in  2.115 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006613 seconds.
+Registered in 0.009710 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 46.60 ms, found 7 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-[XR] Error loading subsystem: Display (1) (header mismatch?)
-Mono: successfully reloaded assembly
-- Completed reload, in  1.952 seconds
-Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
-Refreshing native plugins compatible for Editor in 0.58 ms, found 7 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3126 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 134.6 MB.
-System memory in use after: 134.1 MB.
-
-Unloading 526 unused Assets to reduce memory usage. Loaded Objects now: 3474.
-Total: 3.393900 ms (FindLiveObjects: 0.317600 ms CreateObjectMapping: 0.196200 ms MarkObjects: 2.240300 ms  DeleteObjects: 0.638900 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1
-  artifactKey: Guid(c10a4ce5b4ab78b48af2d90b0da14b80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1 using Guid(c10a4ce5b4ab78b48af2d90b0da14b80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd490156286979e00da57ef8734dfff45') in 0.008117 seconds
-  Import took 0.012094 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000169 seconds.
-  path: Assets/Samples/Mixed Reality Toolkit Examples
-  artifactKey: Guid(3e4b4496bdeb43843bb2ce023335ddee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Samples/Mixed Reality Toolkit Examples using Guid(3e4b4496bdeb43843bb2ce023335ddee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78d525f2a7a58647d74c0369502d7b58') in 0.005284 seconds
-  Import took 0.009606 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000158 seconds.
-  path: Assets/Samples
-  artifactKey: Guid(0a1fd02a00099bf4ea75b5be06ddc6f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Samples using Guid(0a1fd02a00099bf4ea75b5be06ddc6f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac1af7c442e3c93e3b20fac4c764c9f6') in 0.005026 seconds
-  Import took 0.009163 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000160 seconds.
-  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - HandTracking
-  artifactKey: Guid(07484351af0c60a44bcf8f5379b1f05a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - HandTracking using Guid(07484351af0c60a44bcf8f5379b1f05a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72aaee2b62a796ffb42886b046e82d5c') in 0.006147 seconds
-  Import took 0.010022 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000157 seconds.
-  path: Assets/MRTK
-  artifactKey: Guid(7612cb791622bff4e98737af4a719cc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MRTK using Guid(7612cb791622bff4e98737af4a719cc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37587a7f1a5845afc1f8cf5579180921') in 0.004799 seconds
-  Import took 0.008600 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000170 seconds.
-  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - HandTracking/Scenes
-  artifactKey: Guid(d26243c9f26f7934aa6f7563c2908601) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - HandTracking/Scenes using Guid(d26243c9f26f7934aa6f7563c2908601) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '297248525eaeb1977be94226f99a5338') in 0.004895 seconds
-  Import took 0.008690 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.791024 seconds.
-  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - HandTracking/Scenes/HandInteractionExamples.unity
-  artifactKey: Guid(3dd4a396b5225f8469b9a1eb608bfa57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - HandTracking/Scenes/HandInteractionExamples.unity using Guid(3dd4a396b5225f8469b9a1eb608bfa57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fabe0fccbb1be59eb21d57c57531635b') in 0.011349 seconds
-  Import took 0.015168 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 12.474239 seconds.
-  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - HandTracking/Profiles
-  artifactKey: Guid(1f6f0f1038cfd774e8c11f33e567b2fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - HandTracking/Profiles using Guid(1f6f0f1038cfd774e8c11f33e567b2fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b9c1aeb453ff8b460e812b184bfd5a0') in 0.005889 seconds
-  Import took 0.009759 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 12.944833 seconds.
-  path: Assets/MixedRealityToolkit.Generated
-  artifactKey: Guid(ecbb07610a9c09c4b85a9cb5c1acff30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MixedRealityToolkit.Generated using Guid(ecbb07610a9c09c4b85a9cb5c1acff30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0b776cae6fdc388ff1971f74b128598') in 0.005109 seconds
-  Import took 0.009050 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006843 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.63 ms, found 7 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Error when attempting to update scene info fields. Scene info data may be stale.
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
-Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
-
-(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
-
-Mono: successfully reloaded assembly
-- Completed reload, in  1.572 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(21) subTarget(0) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.62 ms, found 7 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3037 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 128.1 MB.
-System memory in use after: 128.0 MB.
-
-Unloading 88 unused Assets to reduce memory usage. Loaded Objects now: 3478.
-Total: 2.662900 ms (FindLiveObjects: 0.446300 ms CreateObjectMapping: 0.197200 ms MarkObjects: 1.904400 ms  DeleteObjects: 0.114000 ms)
-
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 7.92 ms, found 7 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 16 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 65.3 MB.
-System memory in use after: 65.6 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3478.
-Total: 2.616500 ms (FindLiveObjects: 0.400700 ms CreateObjectMapping: 0.193400 ms MarkObjects: 1.961500 ms  DeleteObjects: 0.059700 ms)
-
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 6.70 ms, found 7 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 16 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 65.4 MB.
-System memory in use after: 65.6 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3478.
-Total: 2.921000 ms (FindLiveObjects: 0.597200 ms CreateObjectMapping: 0.306000 ms MarkObjects: 1.972100 ms  DeleteObjects: 0.044700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  colorSpace: 1 -> 0
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 8.44 ms, found 7 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 16 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 65.4 MB.
-System memory in use after: 65.6 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3478.
-Total: 2.962000 ms (FindLiveObjects: 0.275800 ms CreateObjectMapping: 0.209500 ms MarkObjects: 2.425800 ms  DeleteObjects: 0.049200 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007860 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.66 ms, found 7 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Error when attempting to update scene info fields. Scene info data may be stale.
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
-Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
-
-(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
-
-Mono: successfully reloaded assembly
-- Completed reload, in  1.811 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.60 ms, found 7 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3039 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 128.3 MB.
-System memory in use after: 128.1 MB.
-
-Unloading 89 unused Assets to reduce memory usage. Loaded Objects now: 3485.
-Total: 4.876100 ms (FindLiveObjects: 0.586400 ms CreateObjectMapping: 0.626400 ms MarkObjects: 3.452600 ms  DeleteObjects: 0.208300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 6.92 ms, found 7 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 16 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 65.5 MB.
-System memory in use after: 65.7 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3485.
-Total: 2.539300 ms (FindLiveObjects: 0.314300 ms CreateObjectMapping: 0.187700 ms MarkObjects: 1.986000 ms  DeleteObjects: 0.050000 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.008057 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.69 ms, found 10 plugins.
-Preloading 1 native plugins for Editor in 1.25 ms.
+Refreshing native plugins compatible for Editor in 72.37 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.13 ms.
 [XR] OculusXRPlugin: registering subsystems
 [XR] Unable to register display lifecyle provider: [1]
 [XR] Oculus Input lifecycle provider registered.
 [XR] Unable to register input lifecyle provider: [1]
-NullReferenceException: Object reference not set to an instance of an object
-  at Unity.XR.Oculus.OculusLoader.AssetPathToAbsolutePath (System.String assetPath) [0x00048] in E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\PackageCache\com.unity.xr.oculus@1.9.0\Runtime\OculusLoader.cs:249 
-  at Unity.XR.Oculus.OculusLoader.EditorLoadOVRPlugin () [0x0007b] in E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\PackageCache\com.unity.xr.oculus@1.9.0\Runtime\OculusLoader.cs:234 
-
-(Filename: Library/PackageCache/com.unity.xr.oculus@1.9.0/Runtime/OculusLoader.cs Line: 249)
-
-Error when attempting to update scene info fields. Scene info data may be stale.
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
-Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
-
-(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
-
+[XR] OVRP version 1.59.0
+[XR] Error loading subsystem: Display (1) (header mismatch?)
+[XR] [XR Mesh Provider]: RegisterLifecycleProvider.
+[XR] [XR Input Provider]: RegisterLifecycleProvider.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.629 seconds
+- Completed reload, in  2.204 seconds
 Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.68 ms, found 10 plugins.
-Preloading 1 native plugins for Editor in 0.11 ms.
-Unloading 3065 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 129.1 MB.
-System memory in use after: 129.0 MB.
-
-Unloading 89 unused Assets to reduce memory usage. Loaded Objects now: 3517.
-Total: 2.309600 ms (FindLiveObjects: 0.292000 ms CreateObjectMapping: 0.164000 ms MarkObjects: 1.728900 ms  DeleteObjects: 0.123800 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
-Received Prepare
-Switching build target platform(13) subTarget(537395200) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 7.05 ms, found 10 plugins.
-Preloading 1 native plugins for Editor in 0.16 ms.
-Unloading 16 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 65.8 MB.
-System memory in use after: 66.0 MB.
+Worker process is ready to serve import requests
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
+Refreshing native plugins compatible for Editor in 0.91 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 3697 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 164.0 MB.
+System memory in use after: 163.5 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3517.
-Total: 3.168200 ms (FindLiveObjects: 0.501700 ms CreateObjectMapping: 0.265200 ms MarkObjects: 2.348900 ms  DeleteObjects: 0.050600 ms)
+Unloading 552 unused Assets to reduce memory usage. Loaded Objects now: 4066.
+Total: 4.089400 ms (FindLiveObjects: 0.390200 ms CreateObjectMapping: 0.294800 ms MarkObjects: 2.850200 ms  DeleteObjects: 0.553200 ms)
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  buildTarget: platform 13, subtarget 524288, extendedPlatform 0 -> platform 13, subtarget 537395200, extendedPlatform 0
-  graphicsApiMask: 2048 -> 2099200
+========================================================================
+Received Import Request.
+  path: Assets/Oculus
+  artifactKey: Guid(413e830a447b4834ebb292dc5ea2224a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus using Guid(413e830a447b4834ebb292dc5ea2224a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b97737551e4655bed969dc03a1f4b987') in 0.008761 seconds
+  Import took 0.013680 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000160 seconds.
+  path: Assets/Oculus/OculusProjectConfig.asset
+  artifactKey: Guid(5bc4850dfd5d50c4a9e4194db309b0f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/OculusProjectConfig.asset using Guid(5bc4850dfd5d50c4a9e4194db309b0f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7c600db76ebcf15dadbd122b795fddf') in 0.037164 seconds
+  Import took 0.041639 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.167820 seconds.
+  path: Assets/Oculus/OculusProjectConfig.asset
+  artifactKey: Guid(5bc4850dfd5d50c4a9e4194db309b0f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/OculusProjectConfig.asset using Guid(5bc4850dfd5d50c4a9e4194db309b0f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a985f350131f5ccacab0f81d21aa7a9c') in 0.005176 seconds
+  Import took 0.011000 seconds .
+
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.016052 seconds.
+Registered in 0.012545 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.96 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.12 ms.
-NullReferenceException: Object reference not set to an instance of an object
-  at Unity.XR.Oculus.OculusLoader.AssetPathToAbsolutePath (System.String assetPath) [0x00048] in E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\PackageCache\com.unity.xr.oculus@1.9.0\Runtime\OculusLoader.cs:249 
-  at Unity.XR.Oculus.OculusLoader.EditorLoadOVRPlugin () [0x0007b] in E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\PackageCache\com.unity.xr.oculus@1.9.0\Runtime\OculusLoader.cs:234 
-
-(Filename: Library/PackageCache/com.unity.xr.oculus@1.9.0/Runtime/OculusLoader.cs Line: 249)
-
+Refreshing native plugins compatible for Editor in 1.18 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.13 ms.
 Error when attempting to update scene info fields. Scene info data may be stale.
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
@@ -339,20 +123,43 @@ Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Lib
 (Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
 
 Mono: successfully reloaded assembly
-- Completed reload, in  1.999 seconds
+- Completed reload, in  1.783 seconds
 Platform modules already initialized, skipping
 Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
 Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Refreshing native plugins compatible for Editor in 1.13 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.14 ms.
-Unloading 3586 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 156.0 MB.
-System memory in use after: 148.9 MB.
+Refreshing native plugins compatible for Editor in 0.92 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.10 ms.
+Unloading 3546 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 157.3 MB.
+System memory in use after: 157.1 MB.
 
-Unloading 155 unused Assets to reduce memory usage. Loaded Objects now: 3992.
-Total: 6.563000 ms (FindLiveObjects: 0.527100 ms CreateObjectMapping: 0.254900 ms MarkObjects: 2.013200 ms  DeleteObjects: 3.766600 ms)
+Unloading 114 unused Assets to reduce memory usage. Loaded Objects now: 4070.
+Total: 3.378200 ms (FindLiveObjects: 0.522900 ms CreateObjectMapping: 0.292800 ms MarkObjects: 2.439200 ms  DeleteObjects: 0.121900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 19.21 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.11 ms.
+Unloading 39 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 80.7 MB.
+System memory in use after: 80.9 MB.
+
+Unloading 39 unused Assets to reduce memory usage. Loaded Objects now: 4070.
+Total: 3.356700 ms (FindLiveObjects: 0.460700 ms CreateObjectMapping: 0.270100 ms MarkObjects: 2.560000 ms  DeleteObjects: 0.064400 ms)
+
+========================================================================
+Received Prepare
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 17.66 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.19 ms.
+Unloading 39 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 80.7 MB.
+System memory in use after: 80.9 MB.
+
+Unloading 39 unused Assets to reduce memory usage. Loaded Objects now: 4070.
+Total: 3.804400 ms (FindLiveObjects: 0.348900 ms CreateObjectMapping: 0.230300 ms MarkObjects: 3.149300 ms  DeleteObjects: 0.074400 ms)
+
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

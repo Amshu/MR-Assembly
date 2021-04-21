@@ -1,61 +1,93 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.4f1 (0abb6314276a) revision 703331'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Pro; OS build 19042.928; Version 2009; 64bit' Language: 'en' Physical Memory: 32725 MB
+OS: 'Windows 10 Enterprise; OS build 19042.928; Version 2009; 64bit' Language: 'en' Physical Memory: 32654 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
-E:\2. Softwares\Unity\2020.3.4f1\Editor\Unity.exe
+C:\Program Files\Unity\Hub\Editor\2020.3.4f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
+D:/1. Unity Projects/HYDAC/MR Assembly/HYDAC_MR
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52877
-Successfully changed project path to: E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
-E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
+50060
+Successfully changed project path to: D:/1. Unity Projects/HYDAC/MR Assembly/HYDAC_MR
+D:/1. Unity Projects/HYDAC/MR Assembly/HYDAC_MR
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 105.66 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.94 ms.
+Refreshing native plugins compatible for Editor in 167.68 ms, found 14 plugins.
+Preloading 1 native plugins for Editor in 0.95 ms.
 Initialize engine version: 2020.3.4f1 (0abb6314276a)
-[Subsystems] Discovering subsystems at path E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR/Assets
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/1. Unity Projects/HYDAC/MR Assembly/HYDAC_MR/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1070 (ID=0x1b81)
+    Renderer: NVIDIA GeForce GTX TITAN X (ID=0x17c2)
     Vendor:   
-    VRAM:     8088 MB
+    VRAM:     12238 MB
     Driver:   27.21.14.6589
 Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
 Initialize mono
-Mono path[0] = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/Managed'
-Mono path[1] = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56592
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56372
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
-Register platform support module: E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004153 seconds.
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002188 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 71.61 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.09 ms.
+Refreshing native plugins compatible for Editor in 125.92 ms, found 14 plugins.
+Preloading 1 native plugins for Editor in 0.08 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.115 seconds
+- Completed reload, in  1.979 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.009710 seconds.
+Registered in 0.014435 seconds.
 Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 72.37 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.13 ms.
+Refreshing native plugins compatible for Editor in 141.03 ms, found 14 plugins.
+Preloading 1 native plugins for Editor in 3.07 ms.
+[2021/04/21 13:47:56] 
+[2021/04/21 13:47:56] executing command plugin4unity.checkLicense
+[2021/04/21 13:47:56] 
+[2021/04/21 13:47:56] executing command importsdk.checkLicense
+                                                         Command execution time : 0.000 s
+                                                         [2021/04/21 13:47:56] Command execution time : 0.001 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
 [XR] OculusXRPlugin: registering subsystems
 [XR] Unable to register display lifecyle provider: [1]
 [XR] Oculus Input lifecycle provider registered.
@@ -65,101 +97,866 @@ Preloading 1 native plugins for Editor in 0.13 ms.
 [XR] [XR Mesh Provider]: RegisterLifecycleProvider.
 [XR] [XR Input Provider]: RegisterLifecycleProvider.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.204 seconds
+- Completed reload, in  2.774 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
-Refreshing native plugins compatible for Editor in 0.91 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.09 ms.
-Unloading 3697 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 164.0 MB.
-System memory in use after: 163.5 MB.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 2.70 ms, found 14 plugins.
+Preloading 1 native plugins for Editor in 0.06 ms.
+Unloading 3994 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 174.3 MB.
+System memory in use after: 173.8 MB.
 
-Unloading 552 unused Assets to reduce memory usage. Loaded Objects now: 4066.
-Total: 4.089400 ms (FindLiveObjects: 0.390200 ms CreateObjectMapping: 0.294800 ms MarkObjects: 2.850200 ms  DeleteObjects: 0.553200 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Oculus
-  artifactKey: Guid(413e830a447b4834ebb292dc5ea2224a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Oculus using Guid(413e830a447b4834ebb292dc5ea2224a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b97737551e4655bed969dc03a1f4b987') in 0.008761 seconds
-  Import took 0.013680 seconds .
+Unloading 676 unused Assets to reduce memory usage. Loaded Objects now: 4239.
+Total: 5.009400 ms (FindLiveObjects: 0.669900 ms CreateObjectMapping: 0.237600 ms MarkObjects: 3.283200 ms  DeleteObjects: 0.815800 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000160 seconds.
-  path: Assets/Oculus/OculusProjectConfig.asset
-  artifactKey: Guid(5bc4850dfd5d50c4a9e4194db309b0f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Oculus/OculusProjectConfig.asset using Guid(5bc4850dfd5d50c4a9e4194db309b0f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7c600db76ebcf15dadbd122b795fddf') in 0.037164 seconds
-  Import took 0.041639 seconds .
+  path: Assets/Plugins 1
+  artifactKey: Guid(73677f14b02fd544c9a3a6fce0f9fa4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins 1 using Guid(73677f14b02fd544c9a3a6fce0f9fa4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c3128966e1ce16675b54e3798c694a1') in 0.013384 seconds
+  Import took 0.022974 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 23.167820 seconds.
-  path: Assets/Oculus/OculusProjectConfig.asset
-  artifactKey: Guid(5bc4850dfd5d50c4a9e4194db309b0f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Oculus/OculusProjectConfig.asset using Guid(5bc4850dfd5d50c4a9e4194db309b0f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a985f350131f5ccacab0f81d21aa7a9c') in 0.005176 seconds
-  Import took 0.011000 seconds .
+  Time since last request: 1.459131 seconds.
+  path: Assets/Plugins
+  artifactKey: Guid(61701aead2c86d0499f507c5fd21167c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins using Guid(61701aead2c86d0499f507c5fd21167c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d4efb6d43f2cc407bef9895073995f6') in 0.006275 seconds
+  Import took 0.015880 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.039082 seconds.
+  path: Assets/Samples
+  artifactKey: Guid(0a1fd02a00099bf4ea75b5be06ddc6f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples using Guid(0a1fd02a00099bf4ea75b5be06ddc6f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a576d81f931cb965b9147c922d4f8fc') in 0.007527 seconds
+  Import took 0.016011 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.074753 seconds.
+  path: Assets/Samples/Mixed Reality Toolkit Examples
+  artifactKey: Guid(3e4b4496bdeb43843bb2ce023335ddee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Mixed Reality Toolkit Examples using Guid(3e4b4496bdeb43843bb2ce023335ddee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59a963fb3dd3c82aed32ddf63ea77e93') in 0.006837 seconds
+  Import took 0.015704 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.952394 seconds.
+  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1
+  artifactKey: Guid(c10a4ce5b4ab78b48af2d90b0da14b80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1 using Guid(c10a4ce5b4ab78b48af2d90b0da14b80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97b9265dfb4aab3960c5d18049ab1a84') in 0.008222 seconds
+  Import took 0.017932 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.495267 seconds.
+  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - HandTracking
+  artifactKey: Guid(07484351af0c60a44bcf8f5379b1f05a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - HandTracking using Guid(07484351af0c60a44bcf8f5379b1f05a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7fcc7ef50db13e102ec525216f8fff1') in 0.008578 seconds
+  Import took 0.016814 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.055557 seconds.
+  path: Assets/XR
+  artifactKey: Guid(05b39c657063c604996b40960afb5ff9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/XR using Guid(05b39c657063c604996b40960afb5ff9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4ecbe13ba247ad6b33108af566a8801') in 0.007968 seconds
+  Import took 0.017137 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.048310 seconds.
+  path: Assets/XR/XRGeneralSettings.asset
+  artifactKey: Guid(17ee7f5829dea7b45a424ae430a69be5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/XR/XRGeneralSettings.asset using Guid(17ee7f5829dea7b45a424ae430a69be5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1400089dc61bddf5bf3378f4620d2842') in 0.030890 seconds
+  Import took 0.038788 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.012545 seconds.
+Registered in 0.020546 seconds.
 Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.18 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.13 ms.
+Refreshing native plugins compatible for Editor in 2.51 ms, found 14 plugins.
+Preloading 1 native plugins for Editor in 0.05 ms.
+
+[2021/04/21 13:49:22] executing command plugin4unity.checkLicense
+[2021/04/21 13:49:22] 
+[2021/04/21 13:49:22] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/21 13:49:22] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
 Error when attempting to update scene info fields. Scene info data may be stale.
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
 UnityEngine.Logger:Log (UnityEngine.LogType,object)
 UnityEngine.Debug:LogWarning (object)
-Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
-Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
 
-(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
 
 Mono: successfully reloaded assembly
-- Completed reload, in  1.783 seconds
+- Completed reload, in  2.440 seconds
 Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
 Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Refreshing native plugins compatible for Editor in 0.92 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.10 ms.
-Unloading 3546 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 157.3 MB.
-System memory in use after: 157.1 MB.
+Refreshing native plugins compatible for Editor in 2.27 ms, found 14 plugins.
+Preloading 1 native plugins for Editor in 0.04 ms.
+Unloading 3871 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 219.3 MB.
+System memory in use after: 204.0 MB.
 
-Unloading 114 unused Assets to reduce memory usage. Loaded Objects now: 4070.
-Total: 3.378200 ms (FindLiveObjects: 0.522900 ms CreateObjectMapping: 0.292800 ms MarkObjects: 2.439200 ms  DeleteObjects: 0.121900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Refreshing native plugins compatible for Editor in 19.21 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.11 ms.
-Unloading 39 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 80.7 MB.
-System memory in use after: 80.9 MB.
-
-Unloading 39 unused Assets to reduce memory usage. Loaded Objects now: 4070.
-Total: 3.356700 ms (FindLiveObjects: 0.460700 ms CreateObjectMapping: 0.270100 ms MarkObjects: 2.560000 ms  DeleteObjects: 0.064400 ms)
+Unloading 35868 unused Assets to reduce memory usage. Loaded Objects now: 4246.
+Total: 75.563900 ms (FindLiveObjects: 3.619100 ms CreateObjectMapping: 3.852300 ms MarkObjects: 3.153800 ms  DeleteObjects: 64.937500 ms)
 
 ========================================================================
-Received Prepare
-Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Refreshing native plugins compatible for Editor in 17.66 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.19 ms.
-Unloading 39 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 80.7 MB.
-System memory in use after: 80.9 MB.
+Received Import Request.
+  Time since last request: 175.397160 seconds.
+  path: Assets/HYDAC_EView
+  artifactKey: Guid(1f71170423490644792194e52f9154b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView using Guid(1f71170423490644792194e52f9154b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd17c13c22f8c002a97f30c83a137add') in 0.022962 seconds
+  Import took 0.032949 seconds .
 
-Unloading 39 unused Assets to reduce memory usage. Loaded Objects now: 4070.
-Total: 3.804400 ms (FindLiveObjects: 0.348900 ms CreateObjectMapping: 0.230300 ms MarkObjects: 3.149300 ms  DeleteObjects: 0.074400 ms)
+========================================================================
+Received Import Request.
+  Time since last request: 1.449707 seconds.
+  path: Assets/HYDAC_EView/_Scenes
+  artifactKey: Guid(dc73074ac2563f84bb137fc33aa8a6eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/_Scenes using Guid(dc73074ac2563f84bb137fc33aa8a6eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ae3cd9dc4949e320c25b11903403cd0') in 0.006510 seconds
+  Import took 0.016667 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.482783 seconds.
+  path: Assets/HYDAC_EView/_Scenes/Cooler Model.unity
+  artifactKey: Guid(231bf84177fd07848952359174ef28a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/_Scenes/Cooler Model.unity using Guid(231bf84177fd07848952359174ef28a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '734c32177cc68c2c4e6c940bf5f89269') in 0.035682 seconds
+  Import took 0.043837 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 34.062869 seconds.
+  path: Assets/3DModels
+  artifactKey: Guid(c642a5450a60abb46b6daa2dc42186b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels using Guid(c642a5450a60abb46b6daa2dc42186b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3e9d50c32a4624d8153c14d8fbd82e3') in 0.006566 seconds
+  Import took 0.016519 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.141098 seconds.
+  path: Assets/3DModels/601129.sldprt.prefab
+  artifactKey: Guid(208fa215428cafc4b9557d38fd4ee375) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/601129.sldprt.prefab using Guid(208fa215428cafc4b9557d38fd4ee375) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cdfa476d9b5de42e076ad034f7be020') in 0.312243 seconds
+  Import took 0.320529 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/3DModels/03143575 eb023371 radiatore sc1-1-0 el2-3-0 ibp.sldasm.prefab
+  artifactKey: Guid(27325eb820bd1954095327b2ec2c7d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/03143575 eb023371 radiatore sc1-1-0 el2-3-0 ibp.sldasm.prefab using Guid(27325eb820bd1954095327b2ec2c7d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d5149676a35bd4dcfa89a8b0959cbf4') in 0.041606 seconds
+  Import took 0.048723 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000308 seconds.
+  path: Assets/3DModels/603914.SLDPRT.prefab
+  artifactKey: Guid(3a63ce7a1f02dee409af0f4264496c1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/603914.SLDPRT.prefab using Guid(3a63ce7a1f02dee409af0f4264496c1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e68f23203473d37c4c2a8a81cac32d1') in 0.022126 seconds
+  Import took 0.029094 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000336 seconds.
+  path: Assets/3DModels/601206.sldprt.prefab
+  artifactKey: Guid(684c289e667ec184babdd593b004661e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/601206.sldprt.prefab using Guid(684c289e667ec184babdd593b004661e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52e867c38cef2b75d3b4ec896339bfc8') in 0.025759 seconds
+  Import took 0.034575 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000385 seconds.
+  path: Assets/3DModels/3517836-SWP-000.SLDPRT.prefab
+  artifactKey: Guid(ea2fe72a83fb2134da7e02d94f0008fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3517836-SWP-000.SLDPRT.prefab using Guid(ea2fe72a83fb2134da7e02d94f0008fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89e75c5f50cc10b5378b4cfd1068b891') in 0.028924 seconds
+  Import took 0.037288 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000267 seconds.
+  path: Assets/3DModels/IBP Integrated Bypass Pressure.SLDPRT.prefab
+  artifactKey: Guid(1c86df75f7d912b47a9989fb058b7948) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/IBP Integrated Bypass Pressure.SLDPRT.prefab using Guid(1c86df75f7d912b47a9989fb058b7948) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '920175f30b132f7bd122f0ca16cd097b') in 0.051529 seconds
+  Import took 0.058305 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000306 seconds.
+  path: Assets/3DModels/3411248 LABEL SECURITY.SLDPRT.prefab
+  artifactKey: Guid(51603fdba9c125d418216416859ab309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3411248 LABEL SECURITY.SLDPRT.prefab using Guid(51603fdba9c125d418216416859ab309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87bb4f0ec25b5394757c4bed3e7bf4dc') in 0.040091 seconds
+  Import took 0.046144 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000290 seconds.
+  path: Assets/3DModels/3517822-SWP-000.SLDPRT.prefab
+  artifactKey: Guid(35997c30ea5ebc647ae845c5edeb01fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3517822-SWP-000.SLDPRT.prefab using Guid(35997c30ea5ebc647ae845c5edeb01fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ca2383089bf369db8691f96b657d683') in 0.026548 seconds
+  Import took 0.033999 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/3DModels/3860383-SWP-000.SLDPRT 1.prefab
+  artifactKey: Guid(759ae9b3524dbd240bedcf8d36ea7ac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3860383-SWP-000.SLDPRT 1.prefab using Guid(759ae9b3524dbd240bedcf8d36ea7ac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f273256222b180a5dd3f54168e0aaa72') in 0.142527 seconds
+  Import took 0.149223 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000266 seconds.
+  path: Assets/3DModels/RONDELLA M6 BN733.SLDPRT.prefab
+  artifactKey: Guid(4feb158205223cd4ea4abdad111c1b0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/RONDELLA M6 BN733.SLDPRT.prefab using Guid(4feb158205223cd4ea4abdad111c1b0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '871f7264a3c3f89e9f88d2725e1299f0') in 0.020423 seconds
+  Import took 0.026705 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/3DModels/eb002352 BYPASS PRESSIONE 19x62.SLDASM.prefab
+  artifactKey: Guid(9d8bb9b41a6c04f45a6d1a0c8e25f552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/eb002352 BYPASS PRESSIONE 19x62.SLDASM.prefab using Guid(9d8bb9b41a6c04f45a6d1a0c8e25f552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab3a6c08eb742d116be9acb3b7042ddf') in 0.038533 seconds
+  Import took 0.048153 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000265 seconds.
+  path: Assets/3DModels/2506341 PLUG G1 1 1-4.SLDPRT.prefab
+  artifactKey: Guid(07574f732acc698448fbde262e9dfa89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/2506341 PLUG G1 1 1-4.SLDPRT.prefab using Guid(07574f732acc698448fbde262e9dfa89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee5e52cad49d56fcbf5d1cadb33ebcf5') in 0.024242 seconds
+  Import took 0.031311 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/3DModels/eb063341 raccordo x BYP-lavorazione.SLDPRT.prefab
+  artifactKey: Guid(f520f5c4f6930a441bc48dca48c7c1d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/eb063341 raccordo x BYP-lavorazione.SLDPRT.prefab using Guid(f520f5c4f6930a441bc48dca48c7c1d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ead041bc55c3421d4f25e20e972f08f') in 0.023686 seconds
+  Import took 0.030163 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000310 seconds.
+  path: Assets/3DModels/3860527-SWP-000.SLDPRT.prefab
+  artifactKey: Guid(5fa7994fe20bf3e47a16657114769cc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3860527-SWP-000.SLDPRT.prefab using Guid(5fa7994fe20bf3e47a16657114769cc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4f0d36ff5eb5e5dba8e600e15050b82') in 0.024524 seconds
+  Import took 0.030712 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000279 seconds.
+  path: Assets/3DModels/3860641-SWA-000.SLDASM.prefab
+  artifactKey: Guid(a9beea270aecc2a45ac79e825fa440a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3860641-SWA-000.SLDASM.prefab using Guid(a9beea270aecc2a45ac79e825fa440a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11ef9fb0e08e0408393a4fdce55b7253') in 0.030418 seconds
+  Import took 0.037958 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000268 seconds.
+  path: Assets/3DModels/3895411-SWP-000.SLDPRT.prefab
+  artifactKey: Guid(18e29508e5db4ca458c3ccbc5f024dba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3895411-SWP-000.SLDPRT.prefab using Guid(18e29508e5db4ca458c3ccbc5f024dba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '189bf69d6044a9e25f99438fec45db7c') in 0.022902 seconds
+  Import took 0.029465 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/3DModels/3538603-SWA-000.SLDASM.prefab
+  artifactKey: Guid(fc781fe513c39284e8a4ecc420225274) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3538603-SWA-000.SLDASM.prefab using Guid(fc781fe513c39284e8a4ecc420225274) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '191baf2513ae120da23ff5aec911d59b') in 0.029509 seconds
+  Import took 0.036301 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000266 seconds.
+  path: Assets/3DModels/HYDAC_2506562 18CM.SLDPRT.prefab
+  artifactKey: Guid(cf16513b21c01594c9091867a888d7c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/HYDAC_2506562 18CM.SLDPRT.prefab using Guid(cf16513b21c01594c9091867a888d7c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f727c3b12cbaf21afdf96e0a96f79ab6') in 0.027512 seconds
+  Import took 0.034860 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000314 seconds.
+  path: Assets/3DModels/ZG330001 OK-EL3 FINGER GUARD.SLDPRT 1.prefab
+  artifactKey: Guid(9e5627be40a48fb4383e92049145bf15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/ZG330001 OK-EL3 FINGER GUARD.SLDPRT 1.prefab using Guid(9e5627be40a48fb4383e92049145bf15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ff719ae610b5a89ea5cdf4e2ea6dc68') in 0.024195 seconds
+  Import took 0.032640 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/3DModels/eb023371 radiatore SC1-1-0 EL2-3-0 IBP.SLDPRT.prefab
+  artifactKey: Guid(798a7c7ab3331ed47b83f724e192e217) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/eb023371 radiatore SC1-1-0 EL2-3-0 IBP.SLDPRT.prefab using Guid(798a7c7ab3331ed47b83f724e192e217) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9d9af44c8d1c8d2fae16fe10bba2a19') in 0.021430 seconds
+  Import took 0.028073 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000291 seconds.
+  path: Assets/3DModels/3221656_DISTANZIATORE D40X30XD8-5.SLDPRT.prefab
+  artifactKey: Guid(183a151b0e4ef224d8a2fb75f06986ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3221656_DISTANZIATORE D40X30XD8-5.SLDPRT.prefab using Guid(183a151b0e4ef224d8a2fb75f06986ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73e4d8762d3814ebeea3012e48f81d09') in 0.018415 seconds
+  Import took 0.024559 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/3DModels/4028961 AC-LN2H 1.0 F A 1 IBP3.SLDASM.prefab
+  artifactKey: Guid(b6a371e00d1f3474ead015098b931f3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/4028961 AC-LN2H 1.0 F A 1 IBP3.SLDASM.prefab using Guid(b6a371e00d1f3474ead015098b931f3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fdebd44db7e6bd4968a1ff66493b991') in 8.808081 seconds
+  Import took 8.841016 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000337 seconds.
+  path: Assets/3DModels/3860383-SWP-000.SLDPRT 2.prefab
+  artifactKey: Guid(3ce66941d1f36fe49b7da7eeba87a62d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3860383-SWP-000.SLDPRT 2.prefab using Guid(3ce66941d1f36fe49b7da7eeba87a62d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52b0b7dbdeb5d5ab8e64925bb00a560c') in 0.148891 seconds
+  Import took 0.156466 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/3DModels/3047497 ZU3D4004 SAFETY WASCHER OK-EL3S-H.SLDPRT.prefab
+  artifactKey: Guid(89f2e590ab90ae3428423beecebb607e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3047497 ZU3D4004 SAFETY WASCHER OK-EL3S-H.SLDPRT.prefab using Guid(89f2e590ab90ae3428423beecebb607e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '738ef3706ef8811c1c42ff6efc9ffdbd') in 0.018574 seconds
+  Import took 0.025459 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Assets/3DModels/2352696 E-MotorIMB5 BG 63-0.25kW-2 Poles 415V-50Hz IP66 Alloy TECO.SLDPRT 1.prefab
+  artifactKey: Guid(d80317b32f2746841b5e0d2f277ae6cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/2352696 E-MotorIMB5 BG 63-0.25kW-2 Poles 415V-50Hz IP66 Alloy TECO.SLDPRT 1.prefab using Guid(d80317b32f2746841b5e0d2f277ae6cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4bdd0bc36593b3b6362f46ac5d6e95f9') in 7.955227 seconds
+  Import took 7.990360 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000284 seconds.
+  path: Assets/3DModels/eb063342 tubo olio speciale BYP 19x62 - CINA.SLDPRT.prefab
+  artifactKey: Guid(43f3cbde27c2c33409d81036db27c754) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/eb063342 tubo olio speciale BYP 19x62 - CINA.SLDPRT.prefab using Guid(43f3cbde27c2c33409d81036db27c754) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9c208a8e898ce06af6e6330c44a21bb') in 0.037402 seconds
+  Import took 0.044451 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000363 seconds.
+  path: Assets/3DModels/2506823-SWP-000.SLDPRT.prefab
+  artifactKey: Guid(3dea7a42897357c44b15ceb082122c1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/2506823-SWP-000.SLDPRT.prefab using Guid(3dea7a42897357c44b15ceb082122c1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2393ed2be459b769adbcc91f886ee5a') in 0.019547 seconds
+  Import took 0.026957 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000275 seconds.
+  path: Assets/3DModels/10000087871-SDP-000.SLDPRT.prefab
+  artifactKey: Guid(d1da6acb2d28dbd4e99b6f2ce918cccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/10000087871-SDP-000.SLDPRT.prefab using Guid(d1da6acb2d28dbd4e99b6f2ce918cccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfd56140844c0e4db589769530f871e1') in 0.020615 seconds
+  Import took 0.027315 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000286 seconds.
+  path: Assets/3DModels/613397.sldprt.prefab
+  artifactKey: Guid(b53ea9825eedecf4a81d540870197bce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/613397.sldprt.prefab using Guid(b53ea9825eedecf4a81d540870197bce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5c1e949eb49ff0cb6298afdabc9f693') in 0.019061 seconds
+  Import took 0.026207 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/3DModels/601969.SLDPRT.prefab
+  artifactKey: Guid(8bf88afe67e0f7b478d2b0fbc10d0f3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/601969.SLDPRT.prefab using Guid(8bf88afe67e0f7b478d2b0fbc10d0f3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a388d35c1d64b7f2e6df0df59c5b5d9') in 0.020812 seconds
+  Import took 0.029317 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000363 seconds.
+  path: Assets/3DModels/3859835-SWA-000.SLDASM.prefab
+  artifactKey: Guid(0f5a166cb48357440acf4fff7a1c9152) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3859835-SWA-000.SLDASM.prefab using Guid(0f5a166cb48357440acf4fff7a1c9152) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc8e9acc5262a9c09afdc377a687ce94') in 0.034400 seconds
+  Import took 0.042399 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000272 seconds.
+  path: Assets/3DModels/2352696 E-MotorIMB5 BG 63-0.25kW-2 Poles 415V-50Hz IP66 Alloy TECO.SLDPRT.prefab
+  artifactKey: Guid(52444de118278944583f41b66dd7912a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/2352696 E-MotorIMB5 BG 63-0.25kW-2 Poles 415V-50Hz IP66 Alloy TECO.SLDPRT.prefab using Guid(52444de118278944583f41b66dd7912a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc9e5cfb26635e6b6d0dfdcf9ed5b610') in 8.872132 seconds
+  Import took 8.906541 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000289 seconds.
+  path: Assets/3DModels/2507164_LABEL FAN DIRECTION - AIR FLOW.SLDPRT.prefab
+  artifactKey: Guid(4e3ff6ad3c31b2f4888a11b484b28539) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/2507164_LABEL FAN DIRECTION - AIR FLOW.SLDPRT.prefab using Guid(4e3ff6ad3c31b2f4888a11b484b28539) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd59bbd42b0e9fc648cc56d49df175a0') in 0.042768 seconds
+  Import took 0.051349 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000309 seconds.
+  path: Assets/3DModels/EB023371 profilo a U CINA.SLDPRT.prefab
+  artifactKey: Guid(ae1ee7c4c1c220b4da91b27f8dd4e7e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/EB023371 profilo a U CINA.SLDPRT.prefab using Guid(ae1ee7c4c1c220b4da91b27f8dd4e7e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e6ed044fa967ce2ff8cf0ebc5b4bbdf') in 0.022855 seconds
+  Import took 0.030337 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 109.122602 seconds.
+  path: Assets/3DModels/New Material.mat
+  artifactKey: Guid(40770b87fae7e80428bbad66392cac10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/New Material.mat using Guid(40770b87fae7e80428bbad66392cac10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '788af61f9a18687fe2c8af729f46765a') in 0.134068 seconds
+  Import took 0.144474 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 61.763038 seconds.
+  path: Assets/3DModels/601129.sldprt.prefab
+  artifactKey: Guid(208fa215428cafc4b9557d38fd4ee375) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/601129.sldprt.prefab using Guid(208fa215428cafc4b9557d38fd4ee375) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb64c2f6064e1f846ee91a1b877c4a0a') in 0.033258 seconds
+  Import took 0.042796 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000327 seconds.
+  path: Assets/3DModels/603914.SLDPRT.prefab
+  artifactKey: Guid(3a63ce7a1f02dee409af0f4264496c1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/603914.SLDPRT.prefab using Guid(3a63ce7a1f02dee409af0f4264496c1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4dff30e08c77a45a3425700ad5bc03b') in 0.022053 seconds
+  Import took 0.030096 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000252 seconds.
+  path: Assets/3DModels/601206.sldprt.prefab
+  artifactKey: Guid(684c289e667ec184babdd593b004661e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/601206.sldprt.prefab using Guid(684c289e667ec184babdd593b004661e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b0784fb29a8356587fa324171396126') in 0.020033 seconds
+  Import took 0.026593 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000263 seconds.
+  path: Assets/3DModels/601129.sldprt.prefab
+  artifactKey: Guid(208fa215428cafc4b9557d38fd4ee375) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/601129.sldprt.prefab using Guid(208fa215428cafc4b9557d38fd4ee375) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb64c2f6064e1f846ee91a1b877c4a0a') in 0.024608 seconds
+  Import took 0.031728 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/3DModels/2352696 E-MotorIMB5 BG 63-0.25kW-2 Poles 415V-50Hz IP66 Alloy TECO.SLDPRT 1.prefab
+  artifactKey: Guid(d80317b32f2746841b5e0d2f277ae6cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/2352696 E-MotorIMB5 BG 63-0.25kW-2 Poles 415V-50Hz IP66 Alloy TECO.SLDPRT 1.prefab using Guid(d80317b32f2746841b5e0d2f277ae6cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '404a8ee2cd13942a0dbaf60f8e4e06e0') in 7.506563 seconds
+  Import took 7.540328 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000298 seconds.
+  path: Assets/3DModels/601206.sldprt.prefab
+  artifactKey: Guid(684c289e667ec184babdd593b004661e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/601206.sldprt.prefab using Guid(684c289e667ec184babdd593b004661e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b0784fb29a8356587fa324171396126') in 0.035331 seconds
+  Import took 0.042244 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000318 seconds.
+  path: Assets/3DModels/613397.sldprt.prefab
+  artifactKey: Guid(b53ea9825eedecf4a81d540870197bce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/613397.sldprt.prefab using Guid(b53ea9825eedecf4a81d540870197bce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b4347c5ede9e42c276405fa10f412d3') in 0.019473 seconds
+  Import took 0.026320 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000314 seconds.
+  path: Assets/3DModels/601969.SLDPRT.prefab
+  artifactKey: Guid(8bf88afe67e0f7b478d2b0fbc10d0f3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/601969.SLDPRT.prefab using Guid(8bf88afe67e0f7b478d2b0fbc10d0f3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfc3d74143a23ab55ff6ddfd15b84c32') in 0.026612 seconds
+  Import took 0.034479 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.876185 seconds.
+  path: Assets/3DModels/2352696 E-MotorIMB5 BG 63-0.25kW-2 Poles 415V-50Hz IP66 Alloy TECO.SLDPRT.prefab
+  artifactKey: Guid(52444de118278944583f41b66dd7912a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/2352696 E-MotorIMB5 BG 63-0.25kW-2 Poles 415V-50Hz IP66 Alloy TECO.SLDPRT.prefab using Guid(52444de118278944583f41b66dd7912a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '537c4766f1a81365fce5890d3cba9493') in 7.676444 seconds
+  Import took 7.710270 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2278.733293 seconds.
+  path: Assets/3DModels/2506341 PLUG G1 1 1-4.SLDPRT.prefab
+  artifactKey: Guid(07574f732acc698448fbde262e9dfa89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/2506341 PLUG G1 1 1-4.SLDPRT.prefab using Guid(07574f732acc698448fbde262e9dfa89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6f521feb21c4273f45942addea7f89e') in 0.050137 seconds
+  Import took 0.060531 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/3DModels/03143575 eb023371 radiatore sc1-1-0 el2-3-0 ibp.sldasm.prefab
+  artifactKey: Guid(27325eb820bd1954095327b2ec2c7d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/03143575 eb023371 radiatore sc1-1-0 el2-3-0 ibp.sldasm.prefab using Guid(27325eb820bd1954095327b2ec2c7d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd379009a791d23ba0641bd99bc973fa') in 0.037332 seconds
+  Import took 0.044891 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000364 seconds.
+  path: Assets/3DModels/3411248 LABEL SECURITY.SLDPRT.prefab
+  artifactKey: Guid(51603fdba9c125d418216416859ab309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3411248 LABEL SECURITY.SLDPRT.prefab using Guid(51603fdba9c125d418216416859ab309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fdc7f9ee879e13bfbf94160677d48c0') in 0.040461 seconds
+  Import took 0.049509 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000252 seconds.
+  path: Assets/3DModels/3221656_DISTANZIATORE D40X30XD8-5.SLDPRT.prefab
+  artifactKey: Guid(183a151b0e4ef224d8a2fb75f06986ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3221656_DISTANZIATORE D40X30XD8-5.SLDPRT.prefab using Guid(183a151b0e4ef224d8a2fb75f06986ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59e5ef0ce27c7d4edf93ecca3da65933') in 0.028346 seconds
+  Import took 0.038636 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000313 seconds.
+  path: Assets/3DModels/2506823-SWP-000.SLDPRT.prefab
+  artifactKey: Guid(3dea7a42897357c44b15ceb082122c1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/2506823-SWP-000.SLDPRT.prefab using Guid(3dea7a42897357c44b15ceb082122c1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44e58e74757a97e3e976ab8fc54a6ea8') in 0.023196 seconds
+  Import took 0.032180 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000244 seconds.
+  path: Assets/3DModels/2507164_LABEL FAN DIRECTION - AIR FLOW.SLDPRT.prefab
+  artifactKey: Guid(4e3ff6ad3c31b2f4888a11b484b28539) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/2507164_LABEL FAN DIRECTION - AIR FLOW.SLDPRT.prefab using Guid(4e3ff6ad3c31b2f4888a11b484b28539) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '260b6e0101682b17d98b844f651f7186') in 0.028692 seconds
+  Import took 0.036112 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 151.782543 seconds.
+  path: Assets/3DModels/3047497 ZU3D4004 SAFETY WASCHER OK-EL3S-H.SLDPRT.prefab
+  artifactKey: Guid(89f2e590ab90ae3428423beecebb607e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3047497 ZU3D4004 SAFETY WASCHER OK-EL3S-H.SLDPRT.prefab using Guid(89f2e590ab90ae3428423beecebb607e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '782724b619f4183f500ca2c56927f0d1') in 0.023972 seconds
+  Import took 0.033887 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000346 seconds.
+  path: Assets/3DModels/3517836-SWP-000.SLDPRT.prefab
+  artifactKey: Guid(ea2fe72a83fb2134da7e02d94f0008fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3517836-SWP-000.SLDPRT.prefab using Guid(ea2fe72a83fb2134da7e02d94f0008fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'def40111c2da2ed756d9e0a5fa8cd5dd') in 0.027422 seconds
+  Import took 0.037891 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000307 seconds.
+  path: Assets/3DModels/IBP Integrated Bypass Pressure.SLDPRT.prefab
+  artifactKey: Guid(1c86df75f7d912b47a9989fb058b7948) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/IBP Integrated Bypass Pressure.SLDPRT.prefab using Guid(1c86df75f7d912b47a9989fb058b7948) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82064834cbed740643f31fb986a4ef87') in 0.053027 seconds
+  Import took 0.060833 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000280 seconds.
+  path: Assets/3DModels/3517822-SWP-000.SLDPRT.prefab
+  artifactKey: Guid(35997c30ea5ebc647ae845c5edeb01fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3517822-SWP-000.SLDPRT.prefab using Guid(35997c30ea5ebc647ae845c5edeb01fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b83427f6ef99e3e1652210a6a7caf9f3') in 0.028161 seconds
+  Import took 0.036439 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000378 seconds.
+  path: Assets/3DModels/3860383-SWP-000.SLDPRT 1.prefab
+  artifactKey: Guid(759ae9b3524dbd240bedcf8d36ea7ac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3860383-SWP-000.SLDPRT 1.prefab using Guid(759ae9b3524dbd240bedcf8d36ea7ac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2a489410b0fed1cde24852464d732d3') in 0.140592 seconds
+  Import took 0.150472 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000440 seconds.
+  path: Assets/3DModels/RONDELLA M6 BN733.SLDPRT.prefab
+  artifactKey: Guid(4feb158205223cd4ea4abdad111c1b0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/RONDELLA M6 BN733.SLDPRT.prefab using Guid(4feb158205223cd4ea4abdad111c1b0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4c008f27dc76c81149e9c029f326f8c') in 0.023333 seconds
+  Import took 0.031291 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000311 seconds.
+  path: Assets/3DModels/eb002352 BYPASS PRESSIONE 19x62.SLDASM.prefab
+  artifactKey: Guid(9d8bb9b41a6c04f45a6d1a0c8e25f552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/eb002352 BYPASS PRESSIONE 19x62.SLDASM.prefab using Guid(9d8bb9b41a6c04f45a6d1a0c8e25f552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63594242be6a5fd9b16e15a52f0b0c19') in 0.032988 seconds
+  Import took 0.041055 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000267 seconds.
+  path: Assets/3DModels/3860527-SWP-000.SLDPRT.prefab
+  artifactKey: Guid(5fa7994fe20bf3e47a16657114769cc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3860527-SWP-000.SLDPRT.prefab using Guid(5fa7994fe20bf3e47a16657114769cc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6fbcaa5c21922efc4f2f899c8580a88') in 0.025214 seconds
+  Import took 0.032590 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/3DModels/3860641-SWA-000.SLDASM.prefab
+  artifactKey: Guid(a9beea270aecc2a45ac79e825fa440a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3860641-SWA-000.SLDASM.prefab using Guid(a9beea270aecc2a45ac79e825fa440a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1dafee357e21badbb25001556ec3ace6') in 0.026397 seconds
+  Import took 0.034045 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/3DModels/3895411-SWP-000.SLDPRT.prefab
+  artifactKey: Guid(18e29508e5db4ca458c3ccbc5f024dba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3895411-SWP-000.SLDPRT.prefab using Guid(18e29508e5db4ca458c3ccbc5f024dba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0902d1f3e13e3f18ef828163925e5441') in 0.020203 seconds
+  Import took 0.027165 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/3DModels/3538603-SWA-000.SLDASM.prefab
+  artifactKey: Guid(fc781fe513c39284e8a4ecc420225274) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3538603-SWA-000.SLDASM.prefab using Guid(fc781fe513c39284e8a4ecc420225274) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1244e97fc07626856d7d8356b55a030d') in 0.026761 seconds
+  Import took 0.033746 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000272 seconds.
+  path: Assets/3DModels/HYDAC_2506562 18CM.SLDPRT.prefab
+  artifactKey: Guid(cf16513b21c01594c9091867a888d7c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/HYDAC_2506562 18CM.SLDPRT.prefab using Guid(cf16513b21c01594c9091867a888d7c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1567b258516cebc5b67b3444ba99c5e3') in 0.027505 seconds
+  Import took 0.035054 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000280 seconds.
+  path: Assets/3DModels/ZG330001 OK-EL3 FINGER GUARD.SLDPRT 1.prefab
+  artifactKey: Guid(9e5627be40a48fb4383e92049145bf15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/ZG330001 OK-EL3 FINGER GUARD.SLDPRT 1.prefab using Guid(9e5627be40a48fb4383e92049145bf15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '697db54cc85cee5b20abd459c584c33c') in 0.025482 seconds
+  Import took 0.033955 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000252 seconds.
+  path: Assets/3DModels/eb023371 radiatore SC1-1-0 EL2-3-0 IBP.SLDPRT.prefab
+  artifactKey: Guid(798a7c7ab3331ed47b83f724e192e217) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/eb023371 radiatore SC1-1-0 EL2-3-0 IBP.SLDPRT.prefab using Guid(798a7c7ab3331ed47b83f724e192e217) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6ab0f400b28a1a8c5359dab25e53d74') in 0.019705 seconds
+  Import took 0.026910 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/3DModels/4028961 AC-LN2H 1.0 F A 1 IBP3.SLDASM.prefab
+  artifactKey: Guid(b6a371e00d1f3474ead015098b931f3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/4028961 AC-LN2H 1.0 F A 1 IBP3.SLDASM.prefab using Guid(b6a371e00d1f3474ead015098b931f3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dcc9e2fb8dbc349620fe53175c3d5fb') in 7.814700 seconds
+  Import took 7.850686 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/3DModels/3860383-SWP-000.SLDPRT 2.prefab
+  artifactKey: Guid(3ce66941d1f36fe49b7da7eeba87a62d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3860383-SWP-000.SLDPRT 2.prefab using Guid(3ce66941d1f36fe49b7da7eeba87a62d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8a7234faf2313485d82b86093af7130') in 0.140710 seconds
+  Import took 0.148882 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/3DModels/10000087871-SDP-000.SLDPRT.prefab
+  artifactKey: Guid(d1da6acb2d28dbd4e99b6f2ce918cccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/10000087871-SDP-000.SLDPRT.prefab using Guid(d1da6acb2d28dbd4e99b6f2ce918cccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f7b03ff63f0c7183d699bec524d9f20') in 0.021553 seconds
+  Import took 0.028721 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/3DModels/eb063341 raccordo x BYP-lavorazione.SLDPRT.prefab
+  artifactKey: Guid(f520f5c4f6930a441bc48dca48c7c1d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/eb063341 raccordo x BYP-lavorazione.SLDPRT.prefab using Guid(f520f5c4f6930a441bc48dca48c7c1d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e76aee8972ea6a413ade8c9bed6932c2') in 0.022378 seconds
+  Import took 0.029620 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/3DModels/eb063342 tubo olio speciale BYP 19x62 - CINA.SLDPRT.prefab
+  artifactKey: Guid(43f3cbde27c2c33409d81036db27c754) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/eb063342 tubo olio speciale BYP 19x62 - CINA.SLDPRT.prefab using Guid(43f3cbde27c2c33409d81036db27c754) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed25d66f874d5f6f48750e0e3cab17b2') in 0.020537 seconds
+  Import took 0.030577 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000354 seconds.
+  path: Assets/3DModels/EB023371 profilo a U CINA.SLDPRT.prefab
+  artifactKey: Guid(ae1ee7c4c1c220b4da91b27f8dd4e7e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/EB023371 profilo a U CINA.SLDPRT.prefab using Guid(ae1ee7c4c1c220b4da91b27f8dd4e7e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e560af0fb81a83bc56f220f0aa185ad') in 0.023583 seconds
+  Import took 0.032639 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000335 seconds.
+  path: Assets/3DModels/3859835-SWA-000.SLDASM.prefab
+  artifactKey: Guid(0f5a166cb48357440acf4fff7a1c9152) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DModels/3859835-SWA-000.SLDASM.prefab using Guid(0f5a166cb48357440acf4fff7a1c9152) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87e5bf406a9f447ae22d2dbb4eccc70b') in 0.031504 seconds
+  Import took 0.039762 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 52.821309 seconds.
+  path: Assets/HYDAC_EView/CAD Imports
+  artifactKey: Guid(c642a5450a60abb46b6daa2dc42186b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/CAD Imports using Guid(c642a5450a60abb46b6daa2dc42186b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96a8d1491c2e9f365a7efb1f1679319c') in 0.006463 seconds
+  Import took 0.015775 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 42.683109 seconds.
+  path: Assets/HYDAC_EView/IMPORTS
+  artifactKey: Guid(0de480a73e9c67e4b844a353c8bf7b02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS using Guid(0de480a73e9c67e4b844a353c8bf7b02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2845bf6eabb8783014eeac8698abdf2') in 0.006246 seconds
+  Import took 0.015021 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.918062 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/CAD Models
+  artifactKey: Guid(c642a5450a60abb46b6daa2dc42186b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/CAD Models using Guid(c642a5450a60abb46b6daa2dc42186b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07805b082d8e4d49c118b4226ff89a39') in 0.005778 seconds
+  Import took 0.015601 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 41.561002 seconds.
+  path: Assets/Resources
+  artifactKey: Guid(5d6cc34d8b14cea4b8b41005d2d956e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources using Guid(5d6cc34d8b14cea4b8b41005d2d956e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '477d2aa8d826ca71846e14791ee88fa9') in 0.007554 seconds
+  Import took 0.016704 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.066359 seconds.
+  path: Assets/Resources/OVRBuildConfig.asset
+  artifactKey: Guid(6e5c7ea23bd22154fa433c6f832d2854) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/OVRBuildConfig.asset using Guid(6e5c7ea23bd22154fa433c6f832d2854) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b9cb112ff9b1b3cbadfa28992122df9') in 0.008585 seconds
+  Import took 0.016464 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/Resources/OVRPlatformToolSettings.asset
+  artifactKey: Guid(c832a3b4df6ba2b488b8a3cbd6e2ded3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/OVRPlatformToolSettings.asset using Guid(c832a3b4df6ba2b488b8a3cbd6e2ded3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55f443e345a9113f1725a72e11de31de') in 0.017594 seconds
+  Import took 0.025351 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.615102 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(2a04a74f1c095674aa8ca83f3442521d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(2a04a74f1c095674aa8ca83f3442521d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84806ccf9418c52e6f6ba071678ec122') in 0.006303 seconds
+  Import took 0.015137 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.898182 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.42 ms, found 14 plugins.
+Preloading 1 native plugins for Editor in 0.05 ms.
+
+[2021/04/21 14:39:52] executing command plugin4unity.checkLicense
+[2021/04/21 14:39:52] 
+[2021/04/21 14:39:52] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/21 14:39:52] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  2.774 seconds
+Platform modules already initialized, skipping
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.31 ms, found 14 plugins.
+Preloading 1 native plugins for Editor in 0.04 ms.
+Unloading 3871 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.4 MB.
+System memory in use after: 212.2 MB.
+
+Unloading 35861 unused Assets to reduce memory usage. Loaded Objects now: 4292.
+Total: 77.790000 ms (FindLiveObjects: 3.547300 ms CreateObjectMapping: 4.434700 ms MarkObjects: 3.328200 ms  DeleteObjects: 66.478300 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
