@@ -1,13 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace HYDAC_EView._Scripts.MPart
+namespace HYDAC_EView.Scripts.MPart
 {
-    [RequireComponent(typeof(Outline))]
-    public class MachinePart : MonoBehaviour, IMachinePart
+    public class MachinePart : MonoBehaviour
     {
-        private MainManager m_manager;
-        
         [SerializeField] private SocMachinePartInfo mPartInfo = null;
         public SocMachinePartInfo PartInfo { get => mPartInfo; }
 
@@ -15,14 +12,6 @@ namespace HYDAC_EView._Scripts.MPart
         [SerializeField] private Transform mExplodedTransform = null;
 
         private bool _mLock = false;
-        private Outline _mOutline = null;
-
-        private void Awake()
-        {
-            _mOutline = GetComponent<Outline>();
-            _mOutline.enabled = false;
-        }
-
 
         private IEnumerator LerpPosition(Transform trans, Vector3 position, float timeTakenToDest)
         {
@@ -42,13 +31,18 @@ namespace HYDAC_EView._Scripts.MPart
 
         #region IMachinePart interface methods
 
-        int IMachinePart.GetAssemblyPosition()
+        public void Initialize()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        int GetAssemblyPosition()
         {
             return mPartInfo.assemblyPosition;
         }
 
 
-        void IMachinePart.Implode(float timeTakenToDest)
+        void Implode(float timeTakenToDest)
         {
             Debug.Log("#MachinePart#-------------------------Implode :");
             mPartInfo.PrintInfo();
@@ -60,7 +54,7 @@ namespace HYDAC_EView._Scripts.MPart
         }
 
 
-        void IMachinePart.Explode(float timeTakenToDest)
+        void Explode(float timeTakenToDest)
         {
             Debug.Log("#MachinePart#-------------------------Explode");
 
@@ -71,12 +65,9 @@ namespace HYDAC_EView._Scripts.MPart
         }
     
 
-        void IMachinePart.HighlightPart(bool toggle, Color highlightColor)
+        void HighlightPart(bool toggle, Material highlightMaterial)
         {
-            _mOutline.enabled = toggle;
 
-            if (toggle)
-                _mOutline.OutlineColor = highlightColor;
         }
 
         public string GetPartName()
@@ -85,6 +76,13 @@ namespace HYDAC_EView._Scripts.MPart
         }
 
         #endregion
+
+        public void SetPartInfo(SocMachinePartInfo info)
+        {
+#if UNITY_EDITOR
+            mPartInfo = info;
+#endif
+        }
 
     }
 }

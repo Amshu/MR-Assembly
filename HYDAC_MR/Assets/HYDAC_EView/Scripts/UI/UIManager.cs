@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using OculusSampleFramework;
 
-namespace HYDAC_EView._Scripts.UI
+namespace HYDAC_EView.Scripts.UI
 {
     [RequireComponent(typeof(MainManager))]
     public class UIManager : MonoBehaviour

@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using UnityEngine;
-using HYDAC_EView._Scripts.MPart;
+using HYDAC_EView.Scripts.MPart;
 
-namespace HYDAC_EView._Scripts
+namespace HYDAC_EView.Scripts
 {
     public class MainManager : MonoBehaviour
     {
@@ -87,16 +87,16 @@ namespace HYDAC_EView._Scripts
                     // Highlight previous part
                     if (partPosition == positionToChangeTo - 1)
                     {
-                        part.HighlightPart(true, mainSettings.previousAssemblyColor);
+                        part.HighlightPart(true, mainSettings.previousAssemblyMaterial);
                     }
                     // Highlight current part
                     else if(partPosition == positionToChangeTo)
                     {
-                        part.HighlightPart(true, mainSettings.currentAssemblyColor);
+                        part.HighlightPart(true, mainSettings.currentAssemblyMaterial);
                     }
                     else
                     {
-                        part.HighlightPart(false, mainSettings.currentAssemblyColor);
+                        part.HighlightPart(false, mainSettings.currentAssemblyMaterial);
                     }
                 }
                 else
@@ -106,11 +106,11 @@ namespace HYDAC_EView._Scripts
                     // Highlight next part
                     if(partPosition == positionToChangeTo + 1)
                     {
-                        part.HighlightPart(true, mainSettings.nextAssemblyColor);
+                        part.HighlightPart(true, mainSettings.nextAssemblyMaterial);
                     }
                     else
                     {
-                        part.HighlightPart(false, mainSettings.currentAssemblyColor);
+                        part.HighlightPart(false, mainSettings.currentAssemblyMaterial);
                     }
                 }
             }
