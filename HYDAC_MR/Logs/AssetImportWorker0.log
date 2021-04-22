@@ -1,65 +1,65 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.4f1 (0abb6314276a) revision 703331'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Pro; OS build 19042.928; Version 2009; 64bit' Language: 'en' Physical Memory: 32725 MB
+OS: 'Windows 10 Enterprise; OS build 19042.928; Version 2009; 64bit' Language: 'en' Physical Memory: 32654 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
-E:\2. Softwares\Unity\2020.3.4f1\Editor\Unity.exe
+C:\Program Files\Unity\Hub\Editor\2020.3.4f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
+D:/1. Unity Projects/HYDAC/MR Assembly/HYDAC_MR
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54660
-Successfully changed project path to: E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
-E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
+51379
+Successfully changed project path to: D:/1. Unity Projects/HYDAC/MR Assembly/HYDAC_MR
+D:/1. Unity Projects/HYDAC/MR Assembly/HYDAC_MR
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 1899.46 ms, found 20 plugins.
-Preloading 2 native plugins for Editor in 22.71 ms.
+Refreshing native plugins compatible for Editor in 171.75 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 1.71 ms.
 Initialize engine version: 2020.3.4f1 (0abb6314276a)
-[Subsystems] Discovering subsystems at path E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR/Assets
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/1. Unity Projects/HYDAC/MR Assembly/HYDAC_MR/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1070 (ID=0x1b81)
+    Renderer: NVIDIA GeForce GTX TITAN X (ID=0x17c2)
     Vendor:   
-    VRAM:     8088 MB
+    VRAM:     12238 MB
     Driver:   27.21.14.6589
 Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
 Initialize mono
-Mono path[0] = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/Managed'
-Mono path[1] = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56180
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56932
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
-Register platform support module: E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.148954 seconds.
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002012 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 87.55 ms, found 20 plugins.
-Preloading 2 native plugins for Editor in 0.18 ms.
+Refreshing native plugins compatible for Editor in 117.16 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.09 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  4.210 seconds
+- Completed reload, in  2.079 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.472055 seconds.
+Registered in 0.017392 seconds.
 Begin MonoManager ReloadAssembly
-Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
 UnityEngine.Logger:Log (UnityEngine.LogType,object)
 UnityEngine.Debug:LogError (object)
 UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
 
-Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
 UnityEngine.Logger:Log (UnityEngine.LogType,object)
@@ -68,14 +68,14 @@ UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
 
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 86.92 ms, found 20 plugins.
-Preloading 2 native plugins for Editor in 0.18 ms.
-[2021/04/21 21:26:06] 
-[2021/04/21 21:26:06] executing command plugin4unity.checkLicense
-[2021/04/21 21:26:06] 
-[2021/04/21 21:26:06] executing command importsdk.checkLicense
+Refreshing native plugins compatible for Editor in 131.97 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.14 ms.
+[2021/04/22  9:36:41] 
+[2021/04/22  9:36:41] executing command plugin4unity.checkLicense
+[2021/04/22  9:36:41] 
+[2021/04/22  9:36:41] executing command importsdk.checkLicense
                                                          Command execution time : 0.000 s
-                                                         [2021/04/21 21:26:06] Command execution time : 0.000 s
+                                                         [2021/04/22  9:36:41] Command execution time : 0.000 s
 The Pixyz Plugin for Unity requires a valid License.
 Please install yours via the License Manager or visit www.pixyz-software.com to get one
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
@@ -93,3 +93,1905 @@ UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 [XR] Oculus Input lifecycle provider registered.
 [XR] Unable to register input lifecyle provider: [1]
 [XR] OVRP version 1.59.0
+[XR] Error loading subsystem: Display (1) (header mismatch?)
+[XR] [XR Mesh Provider]: RegisterLifecycleProvider.
+[XR] [XR Input Provider]: RegisterLifecycleProvider.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.873 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 3.22 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.16 ms.
+Unloading 4104 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 181.8 MB.
+System memory in use after: 181.0 MB.
+
+Unloading 1059 unused Assets to reduce memory usage. Loaded Objects now: 4325.
+Total: 5.340200 ms (FindLiveObjects: 0.504000 ms CreateObjectMapping: 0.266700 ms MarkObjects: 3.478500 ms  DeleteObjects: 1.089600 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/HYDAC_EView/_Scenes/Cooler Model.unity
+  artifactKey: Guid(231bf84177fd07848952359174ef28a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/_Scenes/Cooler Model.unity using Guid(231bf84177fd07848952359174ef28a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ed147578dd33b91f46d58a4b4b71785') in 0.022719 seconds
+  Import took 0.030254 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.514387 seconds.
+  path: Assets/HYDAC_EView/_Scenes/2352696 E-MotorIMB5 BG 63-0.25kW-2 Poles 415V-50Hz IP66 Alloy TECO.SLDPRT (2).prefab
+  artifactKey: Guid(ecb160bb99a4f6f4588170ddcce38305) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/_Scenes/2352696 E-MotorIMB5 BG 63-0.25kW-2 Poles 415V-50Hz IP66 Alloy TECO.SLDPRT (2).prefab using Guid(ecb160bb99a4f6f4588170ddcce38305) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e778c9b155316374646b2266ad73555b') in 7.546465 seconds
+  Import took 7.598999 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 728.492271 seconds.
+  path: Assets/HYDAC_EView/_Scenes/HandInteractionExamples 2.unity
+  artifactKey: Guid(f787d26b46f04ab4d8102aa4b89f8349) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/_Scenes/HandInteractionExamples 2.unity using Guid(f787d26b46f04ab4d8102aa4b89f8349) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84f7a81729f9303cb7ac3b5a74cee1af') in 0.024065 seconds
+  Import took 0.033921 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.101687 seconds.
+  path: Assets/Pixyz/New Rule Set.asset
+  artifactKey: Guid(5859a062eea0a7941823b5e780301e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixyz/New Rule Set.asset using Guid(5859a062eea0a7941823b5e780301e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b88a009b0c2234463e9114e5ec79443e') in 0.011242 seconds
+  Import took 0.036442 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1322.531021 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Buttons/DefaultIconSet.asset
+  artifactKey: Guid(8b386ef895f7c924f8c4b03d1d3ed683) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Buttons/DefaultIconSet.asset using Guid(8b386ef895f7c924f8c4b03d1d3ed683) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c23e9657369bdb54ce0712a4685989b') in 0.140669 seconds
+  Import took 0.151400 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005083 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Buttons/DefaultIconSet.asset
+  artifactKey: Guid(8b386ef895f7c924f8c4b03d1d3ed683) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Buttons/DefaultIconSet.asset using Guid(8b386ef895f7c924f8c4b03d1d3ed683) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c23e9657369bdb54ce0712a4685989b') in 0.115203 seconds
+  Import took 0.124002 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.198530 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Buttons
+  artifactKey: Guid(a47a434f43e108f4c8a967a0c039cddd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Buttons using Guid(a47a434f43e108f4c8a967a0c039cddd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f67076a2e09f02b13dca67a5c282327e') in 0.038357 seconds
+  Import took 0.059462 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.021767 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 4.67 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.18 ms.
+
+[2021/04/22 10:17:28] executing command plugin4unity.checkLicense
+[2021/04/22 10:17:28] 
+[2021/04/22 10:17:28] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 10:17:28] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in 13.496 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 3.45 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.15 ms.
+Unloading 3948 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 225.7 MB.
+System memory in use after: 209.4 MB.
+
+Unloading 35888 unused Assets to reduce memory usage. Loaded Objects now: 4338.
+Total: 118.508300 ms (FindLiveObjects: 4.810700 ms CreateObjectMapping: 4.942500 ms MarkObjects: 5.017100 ms  DeleteObjects: 103.735800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 664.046166 seconds.
+  path: Assets/HYDAC_EView/MixedRealitySpeechCommandsProfile.asset
+  artifactKey: Guid(d3787d993c8a4014b9c954dd2260782a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/MixedRealitySpeechCommandsProfile.asset using Guid(d3787d993c8a4014b9c954dd2260782a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c7143f14e56108b24da5f3dafb686aa') in 0.068880 seconds
+  Import took 0.079784 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 44.059148 seconds.
+  path: Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Input System.asset
+  artifactKey: Guid(3296c8e5a50b425479398393f549e84b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Input System.asset using Guid(3296c8e5a50b425479398393f549e84b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d94f1a1a99c9c0d567e66939dde33f7') in 0.200626 seconds
+  Import took 0.214327 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000273 seconds.
+  path: Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Remote Play.asset
+  artifactKey: Guid(586e3734fb834204ea73cdc6eb39976e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Remote Play.asset using Guid(586e3734fb834204ea73cdc6eb39976e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffa2b60d8b6a61506dc5df24b9146281') in 0.087071 seconds
+  Import took 0.101553 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000287 seconds.
+  path: Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Input System.asset
+  artifactKey: Guid(3296c8e5a50b425479398393f549e84b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Input System.asset using Guid(3296c8e5a50b425479398393f549e84b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d94f1a1a99c9c0d567e66939dde33f7') in 0.051169 seconds
+  Import took 0.061731 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000244 seconds.
+  path: Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Remote Play.asset
+  artifactKey: Guid(586e3734fb834204ea73cdc6eb39976e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Remote Play.asset using Guid(586e3734fb834204ea73cdc6eb39976e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffa2b60d8b6a61506dc5df24b9146281') in 0.056975 seconds
+  Import took 0.069114 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 32.406028 seconds.
+  path: Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Input System.asset
+  artifactKey: Guid(3296c8e5a50b425479398393f549e84b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Input System.asset using Guid(3296c8e5a50b425479398393f549e84b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aaab4e41d8cf638a0fdd25926026b0ea') in 0.050199 seconds
+  Import took 0.085599 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Speech Commands.asset
+  artifactKey: Guid(38897a0e130c4a44ca6d3e1a3af97fe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Speech Commands.asset using Guid(38897a0e130c4a44ca6d3e1a3af97fe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b03cf422ba48db7eb8249bec2fd9316') in 0.012873 seconds
+  Import took 0.021677 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1820.645235 seconds.
+  path: Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Speech Commands.asset
+  artifactKey: Guid(38897a0e130c4a44ca6d3e1a3af97fe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Speech Commands.asset using Guid(38897a0e130c4a44ca6d3e1a3af97fe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d3d78429dba19940cca5a59a2096f5c') in 0.004866 seconds
+  Import took 0.014476 seconds .
+
+========================================================================
+Received Prepare
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 41.88 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.11 ms.
+Unloading 165 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 101.6 MB.
+System memory in use after: 101.8 MB.
+
+Unloading 166 unused Assets to reduce memory usage. Loaded Objects now: 4338.
+Total: 5.710200 ms (FindLiveObjects: 0.698900 ms CreateObjectMapping: 0.211100 ms MarkObjects: 4.672800 ms  DeleteObjects: 0.125900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.021065 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.49 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.10 ms.
+
+[2021/04/22 11:16:00] executing command plugin4unity.checkLicense
+[2021/04/22 11:16:00] 
+[2021/04/22 11:16:00] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 11:16:00] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.044 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.83 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.13 ms.
+Unloading 3988 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.2 MB.
+System memory in use after: 210.9 MB.
+
+Unloading 36025 unused Assets to reduce memory usage. Loaded Objects now: 4348.
+Total: 81.920200 ms (FindLiveObjects: 3.548000 ms CreateObjectMapping: 4.398700 ms MarkObjects: 3.745700 ms  DeleteObjects: 70.226100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 1305.260541 seconds.
+  path: Assets/MixedRealityToolkit.Generated/CustomProfiles
+  artifactKey: Guid(972a0c6d50cb59644a303a69e9fcb02f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MixedRealityToolkit.Generated/CustomProfiles using Guid(972a0c6d50cb59644a303a69e9fcb02f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5936eb51fd13db4960a3684619fd4a8') in 0.018415 seconds
+  Import took 0.028651 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.464794 seconds.
+  path: Assets/Samples
+  artifactKey: Guid(99ee49ab2ddd3be42a02d9ca3343760f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples using Guid(99ee49ab2ddd3be42a02d9ca3343760f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50595fb4190d2935aeff989cf1430701') in 0.007422 seconds
+  Import took 0.015879 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002725 seconds.
+  path: Assets/Samples
+  artifactKey: Guid(99ee49ab2ddd3be42a02d9ca3343760f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples using Guid(99ee49ab2ddd3be42a02d9ca3343760f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50595fb4190d2935aeff989cf1430701') in 0.001957 seconds
+  Import took 0.010973 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.105713 seconds.
+  path: Assets/Samples/Mixed Reality Toolkit Examples
+  artifactKey: Guid(7b0d057f91e691141a4576590f516a23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Mixed Reality Toolkit Examples using Guid(7b0d057f91e691141a4576590f516a23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be97341845edcebf6e3cb74571454372') in 0.032411 seconds
+  Import took 0.040902 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.460325 seconds.
+  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1
+  artifactKey: Guid(4353aa8e5bb15c741a241942287dffc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1 using Guid(4353aa8e5bb15c741a241942287dffc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5692b5bed6e27806f0de96753982d4fb') in 0.008807 seconds
+  Import took 0.018265 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.513495 seconds.
+  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - Input
+  artifactKey: Guid(418c7a975a89e4847bdc57a9f2a29113) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - Input using Guid(418c7a975a89e4847bdc57a9f2a29113) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e754be3ac71926e629811b3009d41fdc') in 0.008998 seconds
+  Import took 0.019130 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.724901 seconds.
+  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - Input/Scenes
+  artifactKey: Guid(a5c1db19ceed7e644aefcf2b7060933e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - Input/Scenes using Guid(a5c1db19ceed7e644aefcf2b7060933e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c501822e67f559221ddac2dcb14b5c33') in 0.068436 seconds
+  Import took 0.077148 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.709097 seconds.
+  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - Input/Scenes/Speech
+  artifactKey: Guid(9c15fbb83cd08344092e0a30b4b420a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - Input/Scenes/Speech using Guid(9c15fbb83cd08344092e0a30b4b420a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52590754dab989c4bf3b6b92ef938044') in 0.009101 seconds
+  Import took 0.019122 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.072423 seconds.
+  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - Input/Scenes/Speech/Speech.MixedRealityInputSystemProfile.asset
+  artifactKey: Guid(2a6b327d88d172543b7526be8cb2018e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - Input/Scenes/Speech/Speech.MixedRealityInputSystemProfile.asset using Guid(2a6b327d88d172543b7526be8cb2018e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02a96b6fd7578aef3145c4f29def3116') in 0.133916 seconds
+  Import took 0.144619 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - Input/Scenes/Speech/Speech.MixedRealityToolkitConfigurationProfile.asset
+  artifactKey: Guid(06c28c46a1cf2ac4f9e60a3dc9fe2f9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - Input/Scenes/Speech/Speech.MixedRealityToolkitConfigurationProfile.asset using Guid(06c28c46a1cf2ac4f9e60a3dc9fe2f9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7b2583c9db5d6b2177af19b2b07a0bd') in 0.059787 seconds
+  Import took 0.068895 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - Input/Scenes/Speech/Speech.MixedRealitySpeechCommandsProfile.asset
+  artifactKey: Guid(5b1a29a26a15b48449c76091b0db0658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - Input/Scenes/Speech/Speech.MixedRealitySpeechCommandsProfile.asset using Guid(5b1a29a26a15b48449c76091b0db0658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9d02744b9559619f0095563507530d9') in 0.010511 seconds
+  Import took 0.019540 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.082138 seconds.
+  path: Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - Input/Scenes/Speech/SpeechInputExamples.unity
+  artifactKey: Guid(7339e928ad0b8124ba1b349eca071ab6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Mixed Reality Toolkit Examples/2.6.1/Demos - Input/Scenes/Speech/SpeechInputExamples.unity using Guid(7339e928ad0b8124ba1b349eca071ab6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecb0a3b25c40f2e1651297c85363cd4d') in 0.870159 seconds
+  Import took 0.877343 seconds .
+
+========================================================================
+Received Prepare
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 40.71 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.08 ms.
+Unloading 165 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 101.0 MB.
+System memory in use after: 101.3 MB.
+
+Unloading 165 unused Assets to reduce memory usage. Loaded Objects now: 4348.
+Total: 6.801500 ms (FindLiveObjects: 0.601200 ms CreateObjectMapping: 0.247700 ms MarkObjects: 5.855600 ms  DeleteObjects: 0.094400 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.021687 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 6.68 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.21 ms.
+
+[2021/04/22 11:32:33] executing command plugin4unity.checkLicense
+[2021/04/22 11:32:33] 
+[2021/04/22 11:32:33] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 11:32:33] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  2.973 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.59 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.09 ms.
+Unloading 3988 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.3 MB.
+System memory in use after: 211.0 MB.
+
+Unloading 36025 unused Assets to reduce memory usage. Loaded Objects now: 4352.
+Total: 80.494300 ms (FindLiveObjects: 3.795100 ms CreateObjectMapping: 4.575000 ms MarkObjects: 3.778700 ms  DeleteObjects: 68.343400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.017400 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.75 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.10 ms.
+
+[2021/04/22 11:33:05] executing command plugin4unity.checkLicense
+[2021/04/22 11:33:05] 
+[2021/04/22 11:33:05] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 11:33:05] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  2.892 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.77 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.14 ms.
+Unloading 3905 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 222.5 MB.
+System memory in use after: 208.1 MB.
+
+Unloading 35854 unused Assets to reduce memory usage. Loaded Objects now: 4337.
+Total: 84.204300 ms (FindLiveObjects: 3.724600 ms CreateObjectMapping: 4.967100 ms MarkObjects: 3.741500 ms  DeleteObjects: 71.769900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.024881 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 5.73 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.14 ms.
+
+[2021/04/22 11:36:16] executing command plugin4unity.checkLicense
+[2021/04/22 11:36:16] 
+[2021/04/22 11:36:16] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 11:36:16] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  4.813 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 4.91 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.17 ms.
+Unloading 3904 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 222.5 MB.
+System memory in use after: 208.1 MB.
+
+Unloading 35834 unused Assets to reduce memory usage. Loaded Objects now: 4341.
+Total: 131.874100 ms (FindLiveObjects: 4.363000 ms CreateObjectMapping: 5.363300 ms MarkObjects: 8.597300 ms  DeleteObjects: 113.548500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.019840 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.92 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.11 ms.
+
+[2021/04/22 11:37:08] executing command plugin4unity.checkLicense
+[2021/04/22 11:37:08] 
+[2021/04/22 11:37:08] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 11:37:08] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.145 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 3.12 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.11 ms.
+Unloading 3951 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 226.0 MB.
+System memory in use after: 209.6 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4358.
+Total: 96.867700 ms (FindLiveObjects: 4.888200 ms CreateObjectMapping: 4.783800 ms MarkObjects: 4.056000 ms  DeleteObjects: 83.137300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.017910 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 3.13 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.13 ms.
+
+[2021/04/22 11:37:18] executing command plugin4unity.checkLicense
+[2021/04/22 11:37:18] 
+[2021/04/22 11:37:18] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 11:37:18] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.709 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 5.01 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.15 ms.
+Unloading 3951 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 226.0 MB.
+System memory in use after: 209.7 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4362.
+Total: 127.728600 ms (FindLiveObjects: 8.258700 ms CreateObjectMapping: 6.312200 ms MarkObjects: 6.242400 ms  DeleteObjects: 106.912000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 1332.362001 seconds.
+  path: Assets/HYDAC_EView/Prefabs
+  artifactKey: Guid(86f29913ca8be6141ba0b44f5c7146af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Prefabs using Guid(86f29913ca8be6141ba0b44f5c7146af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82364b91bcdd2e47e8faf308bff9a971') in 0.023888 seconds
+  Import took 0.032948 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 29.196234 seconds.
+  path: Assets/HYDAC_EView/Prefabs/ToggleFeaturesPanel.prefab
+  artifactKey: Guid(2e3c9bc1ebfe5fc42946200140859f81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Prefabs/ToggleFeaturesPanel.prefab using Guid(2e3c9bc1ebfe5fc42946200140859f81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2024a78f80d3491808f6aadc2dcd4dd') in 1.042543 seconds
+  Import took 1.057469 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.739854 seconds.
+  path: Assets/HYDAC_EView/Prefabs/ToggleFeaturesPanel.prefab
+  artifactKey: Guid(2e3c9bc1ebfe5fc42946200140859f81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Prefabs/ToggleFeaturesPanel.prefab using Guid(2e3c9bc1ebfe5fc42946200140859f81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27ec87c3059a65463b7b5073d81f6618') in 0.211049 seconds
+  Import took 0.224368 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.026324 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.62 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.11 ms.
+
+[2021/04/22 12:04:38] executing command plugin4unity.checkLicense
+[2021/04/22 12:04:38] 
+[2021/04/22 12:04:38] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 12:04:38] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.284 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.76 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.09 ms.
+Unloading 3951 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 226.4 MB.
+System memory in use after: 210.0 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4367.
+Total: 88.842700 ms (FindLiveObjects: 3.578200 ms CreateObjectMapping: 4.307900 ms MarkObjects: 3.776900 ms  DeleteObjects: 77.178000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 2164.510241 seconds.
+  path: Assets/Resources
+  artifactKey: Guid(5fd4c2a86982f5942b67260473d1cfdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources using Guid(5fd4c2a86982f5942b67260473d1cfdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5cbf2ab68bc1bf371f767b088f421e8') in 0.024164 seconds
+  Import took 0.034840 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.333933 seconds.
+  path: Assets/Oculus
+  artifactKey: Guid(413e830a447b4834ebb292dc5ea2224a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus using Guid(413e830a447b4834ebb292dc5ea2224a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c3c7db41b4353c0ebd74984a550b7b5') in 0.008102 seconds
+  Import took 0.017926 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 312.160781 seconds.
+  path: Assets/HYDAC_EView/_Scripts
+  artifactKey: Guid(cc04faa94864b1c4392ce5935fb826b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/_Scripts using Guid(cc04faa94864b1c4392ce5935fb826b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f8dd15fef2997a7c1f83d0a4c90092b') in 0.007522 seconds
+  Import took 0.017104 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.710720 seconds.
+  path: Assets/HYDAC_EView/_Scripts/CustomExplodeViewController.cs
+  artifactKey: Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/_Scripts/CustomExplodeViewController.cs using Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ad683d677f8312e6be15ea4feee41d1') in 0.021435 seconds
+  Import took 0.031458 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.020670 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.54 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.10 ms.
+
+[2021/04/22 12:21:39] executing command plugin4unity.checkLicense
+[2021/04/22 12:21:39] 
+[2021/04/22 12:21:39] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 12:21:39] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.478 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.79 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.09 ms.
+Unloading 3952 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 226.5 MB.
+System memory in use after: 210.1 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4372.
+Total: 88.503400 ms (FindLiveObjects: 3.683600 ms CreateObjectMapping: 4.371600 ms MarkObjects: 4.781500 ms  DeleteObjects: 75.664300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.020187 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 3.61 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.11 ms.
+
+[2021/04/22 12:22:07] executing command plugin4unity.checkLicense
+[2021/04/22 12:22:07] 
+[2021/04/22 12:22:07] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 12:22:07] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.890 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.66 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.10 ms.
+Unloading 3952 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.3 MB.
+System memory in use after: 210.9 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4376.
+Total: 92.937200 ms (FindLiveObjects: 3.986700 ms CreateObjectMapping: 4.370400 ms MarkObjects: 5.138800 ms  DeleteObjects: 79.438600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 41.326157 seconds.
+  path: Assets/HYDAC_EView/_Scripts/CustomExplodeViewController.cs
+  artifactKey: Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/_Scripts/CustomExplodeViewController.cs using Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3d41eee1ca8047b2f1be26fc66423a3') in 0.016388 seconds
+  Import took 0.032078 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.020258 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.62 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.12 ms.
+
+[2021/04/22 12:22:30] executing command plugin4unity.checkLicense
+[2021/04/22 12:22:30] 
+[2021/04/22 12:22:30] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 12:22:30] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.000 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.94 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.12 ms.
+Unloading 3952 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.3 MB.
+System memory in use after: 211.0 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4380.
+Total: 83.647500 ms (FindLiveObjects: 3.789600 ms CreateObjectMapping: 4.339700 ms MarkObjects: 4.058700 ms  DeleteObjects: 71.457900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 22.632647 seconds.
+  path: Assets/HYDAC_EView/_Scripts/CustomExplodeViewController.cs
+  artifactKey: Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/_Scripts/CustomExplodeViewController.cs using Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83313a048db0ab8381e57370f38b1adc') in 0.014846 seconds
+  Import took 0.024069 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.767727 seconds.
+  path: Assets/HYDAC_EView/Scripts
+  artifactKey: Guid(cc04faa94864b1c4392ce5935fb826b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts using Guid(cc04faa94864b1c4392ce5935fb826b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '359d01fabac076c12244098fe7d7032c') in 0.007941 seconds
+  Import took 0.018771 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.022728 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 3.14 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.12 ms.
+
+[2021/04/22 12:22:47] executing command plugin4unity.checkLicense
+[2021/04/22 12:22:47] 
+[2021/04/22 12:22:47] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 12:22:47] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.389 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.54 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.13 ms.
+Unloading 3952 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.4 MB.
+System memory in use after: 211.0 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4384.
+Total: 85.191200 ms (FindLiveObjects: 3.842800 ms CreateObjectMapping: 4.429900 ms MarkObjects: 4.791600 ms  DeleteObjects: 72.125000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 16.072190 seconds.
+  path: Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs
+  artifactKey: Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs using Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa17f218f2f531ed437d51d1eaf5f826') in 0.042372 seconds
+  Import took 0.059805 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.024992 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 4.33 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.16 ms.
+
+[2021/04/22 12:23:03] executing command plugin4unity.checkLicense
+[2021/04/22 12:23:03] 
+[2021/04/22 12:23:03] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 12:23:03] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.152 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 3.61 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.15 ms.
+Unloading 3952 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.4 MB.
+System memory in use after: 211.0 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4388.
+Total: 127.229800 ms (FindLiveObjects: 7.336400 ms CreateObjectMapping: 4.557900 ms MarkObjects: 6.643000 ms  DeleteObjects: 108.689500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 18.570926 seconds.
+  path: Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs
+  artifactKey: Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs using Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6592bc74f68471dba7620acd5c8ec750') in 0.017310 seconds
+  Import took 0.029726 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.711302 seconds.
+  path: Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs
+  artifactKey: Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs using Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c80847fe440e38c258fce3e329423a82') in 0.002493 seconds
+  Import took 0.014028 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.309591 seconds.
+  path: Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs
+  artifactKey: Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs using Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f01b85e90f03b158bdc779e91d242cd') in 0.002183 seconds
+  Import took 0.014816 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.763313 seconds.
+  path: Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs
+  artifactKey: Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs using Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '040baa4239bbe49df13234e662eecbb9') in 0.002679 seconds
+  Import took 0.013097 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.023339 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.63 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.10 ms.
+
+[2021/04/22 12:24:17] executing command plugin4unity.checkLicense
+[2021/04/22 12:24:17] 
+[2021/04/22 12:24:17] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 12:24:17] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.216 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 3.31 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.16 ms.
+Unloading 3952 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.4 MB.
+System memory in use after: 211.1 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4392.
+Total: 93.433900 ms (FindLiveObjects: 3.784200 ms CreateObjectMapping: 4.789200 ms MarkObjects: 4.274700 ms  DeleteObjects: 80.583500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 46.018435 seconds.
+  path: Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs
+  artifactKey: Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs using Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9e74949dc64ce4853ea3cbb0049ca76') in 0.020701 seconds
+  Import took 0.031989 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.136507 seconds.
+  path: Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs
+  artifactKey: Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs using Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9e74949dc64ce4853ea3cbb0049ca76') in 0.002348 seconds
+  Import took 0.018723 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.025881 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.93 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.13 ms.
+
+[2021/04/22 12:25:02] executing command plugin4unity.checkLicense
+[2021/04/22 12:25:02] 
+[2021/04/22 12:25:02] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 12:25:02] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  2.989 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.76 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.09 ms.
+Unloading 3952 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.5 MB.
+System memory in use after: 211.2 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4396.
+Total: 82.080700 ms (FindLiveObjects: 3.754300 ms CreateObjectMapping: 4.844300 ms MarkObjects: 3.959700 ms  DeleteObjects: 69.520400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 59.336363 seconds.
+  path: Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs
+  artifactKey: Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs using Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b91364cca720d35a64d1effbc8cafdd') in 0.020273 seconds
+  Import took 0.033188 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.019044 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.53 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.12 ms.
+
+[2021/04/22 12:26:02] executing command plugin4unity.checkLicense
+[2021/04/22 12:26:02] 
+[2021/04/22 12:26:02] executing command importsdk.checkLicense
+Command execution time : 0.001 s
+[2021/04/22 12:26:02] Command execution time : 0.001 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.058 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.99 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.09 ms.
+Unloading 3952 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.5 MB.
+System memory in use after: 211.2 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4400.
+Total: 84.857800 ms (FindLiveObjects: 3.761400 ms CreateObjectMapping: 4.343700 ms MarkObjects: 4.881800 ms  DeleteObjects: 71.869000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 1239.742981 seconds.
+  path: Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs
+  artifactKey: Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs using Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4c96139a0ce1f13b1a93d6da423eb07') in 0.023690 seconds
+  Import took 0.060079 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.022075 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 3.67 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.13 ms.
+
+[2021/04/22 12:46:48] executing command plugin4unity.checkLicense
+[2021/04/22 12:46:48] 
+[2021/04/22 12:46:48] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 12:46:48] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  2.923 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.59 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.09 ms.
+Unloading 3952 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.6 MB.
+System memory in use after: 211.2 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4404.
+Total: 83.362900 ms (FindLiveObjects: 4.045100 ms CreateObjectMapping: 4.296600 ms MarkObjects: 4.079700 ms  DeleteObjects: 70.939300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 43.261513 seconds.
+  path: Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs
+  artifactKey: Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs using Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0a40f7f0c77a7e868546d97e88622c9') in 0.038102 seconds
+  Import took 0.049229 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.024782 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.94 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.18 ms.
+
+[2021/04/22 12:47:28] executing command plugin4unity.checkLicense
+[2021/04/22 12:47:28] 
+[2021/04/22 12:47:28] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 12:47:28] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.608 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 3.01 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.10 ms.
+Unloading 3952 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.6 MB.
+System memory in use after: 211.3 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4408.
+Total: 85.684300 ms (FindLiveObjects: 3.563000 ms CreateObjectMapping: 4.351300 ms MarkObjects: 4.083200 ms  DeleteObjects: 73.684100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 31.437545 seconds.
+  path: Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs
+  artifactKey: Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/CustomExplodeViewController.cs using Guid(d37eb33d69f7d9d419ad89bf45a7200d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec17acd78608271c1c16bd01d4ee18b1') in 0.014370 seconds
+  Import took 0.026677 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.025195 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.82 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.16 ms.
+
+[2021/04/22 12:47:58] executing command plugin4unity.checkLicense
+[2021/04/22 12:47:58] 
+[2021/04/22 12:47:58] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 12:47:58] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.200 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.43 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.09 ms.
+Unloading 3952 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.7 MB.
+System memory in use after: 211.3 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4412.
+Total: 82.888900 ms (FindLiveObjects: 3.898100 ms CreateObjectMapping: 4.577400 ms MarkObjects: 4.441700 ms  DeleteObjects: 69.969300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 471.821838 seconds.
+  path: Assets/HYDAC_EView/Scripts/IMachinePart.cs
+  artifactKey: Guid(25cf362973bbff444923f818c2273ad4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/IMachinePart.cs using Guid(25cf362973bbff444923f818c2273ad4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebc86b786ef67b063b03c55dffae0eaf') in 0.026764 seconds
+  Import took 0.038199 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.600534 seconds.
+  path: Assets/HYDAC_EView/Scripts/SocMachinePartInfo.cs
+  artifactKey: Guid(9fec03d94ec1a7640a5a5e4ade22d0a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/SocMachinePartInfo.cs using Guid(9fec03d94ec1a7640a5a5e4ade22d0a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcbcf7ae1455d0132250ca68d3e9c53f') in 0.007505 seconds
+  Import took 0.014952 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006691 seconds.
+  path: Assets/HYDAC_EView/Scripts/SocMachinePartInfo.cs
+  artifactKey: Guid(9fec03d94ec1a7640a5a5e4ade22d0a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/SocMachinePartInfo.cs using Guid(9fec03d94ec1a7640a5a5e4ade22d0a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcbcf7ae1455d0132250ca68d3e9c53f') in 0.001940 seconds
+  Import took 0.011343 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.018988 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: D:\1. Unity Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.50 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.10 ms.
+
+[2021/04/22 12:55:54] executing command plugin4unity.checkLicense
+[2021/04/22 12:55:54] 
+[2021/04/22 12:55:54] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22 12:55:54] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@9c279ba32238-1618973078430/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.071 seconds
+Platform modules already initialized, skipping
+Script is not up to date after domain reload: guid(ee65959ad1921fa40b9745d5caf7d04c) path("Assets/HYDAC_EView/Scripts/BTN_MachinePart.cs") state(2)
+Script is not up to date after domain reload: guid(2c0da6895f942ff4899cc379ebeef122) path("Assets/HYDAC_EView/Scripts/MPart/MachinePart.cs") state(2)
+Script is not up to date after domain reload: guid(acbb15ae1efaa354687da58256a27862) path("Assets/HYDAC_EView/Scripts/UI/UIManager.cs") state(2)
+Script is not up to date after domain reload: guid(2573bdb6df8da604498ac49c86cc947a) path("Assets/HYDAC_EView/Scripts/SocMainSettings.cs") state(2)
+Script is not up to date after domain reload: guid(e694618adc44b8b468363a91ed3a6e0e) path("Assets/HYDAC_EView/Scripts/ENUMS.cs") state(2)
+Script is not up to date after domain reload: guid(a1b59c662c570f84e8ce6f12e763071e) path("Assets/HYDAC_EView/Scripts/MainManager.cs") state(2)
+Script is not up to date after domain reload: guid(99b4395e10a24df4e805642fef5b6706) path("Assets/HYDAC_EView/Scripts/MPart/SocMachinePartInfo.cs") state(2)
+Script is not up to date after domain reload: guid(d7a0351cfe51cb34c83c799eea4c604a) path("Assets/HYDAC_EView/Scripts/MPart/IMachinePart.cs") state(2)
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.59 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.09 ms.
+Unloading 3952 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.7 MB.
+System memory in use after: 211.4 MB.
+
+Unloading 35891 unused Assets to reduce memory usage. Loaded Objects now: 4416.
+Total: 82.667100 ms (FindLiveObjects: 3.704900 ms CreateObjectMapping: 4.405700 ms MarkObjects: 3.827900 ms  DeleteObjects: 70.726000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 175.806116 seconds.
+  path: Assets/MRTK/Shaders
+  artifactKey: Guid(63aafe7334152ec44ba61d40cef0d8a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MRTK/Shaders using Guid(63aafe7334152ec44ba61d40cef0d8a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b165032842ff8a1c3d080907218fea0f') in 0.021868 seconds
+  Import took 0.032580 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.746736 seconds.
+  path: Assets/Oculus/OculusProjectConfig.asset
+  artifactKey: Guid(5bc4850dfd5d50c4a9e4194db309b0f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/OculusProjectConfig.asset using Guid(5bc4850dfd5d50c4a9e4194db309b0f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bccfc22d0e7913f07fcc74bcbe460af') in 0.045523 seconds
+  Import took 0.104571 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010388 seconds.
+  path: Assets/Oculus/OculusProjectConfig.asset
+  artifactKey: Guid(5bc4850dfd5d50c4a9e4194db309b0f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/OculusProjectConfig.asset using Guid(5bc4850dfd5d50c4a9e4194db309b0f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bccfc22d0e7913f07fcc74bcbe460af') in 0.005603 seconds
+  Import took 0.014536 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.976231 seconds.
+  path: Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Remote Play.asset
+  artifactKey: Guid(586e3734fb834204ea73cdc6eb39976e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MixedRealityToolkit.Generated/CustomProfiles/Oculus Remote Play.asset using Guid(586e3734fb834204ea73cdc6eb39976e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6093b506c5a9e954bbe64a0c91d7d758') in 0.027135 seconds
+  Import took 0.036810 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.633866 seconds.
+  path: Assets/Plugins/MRTK.Tutorials.GettingStarted/Materials
+  artifactKey: Guid(e3e4502b516ed7b468f9bb5513b1d46c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/MRTK.Tutorials.GettingStarted/Materials using Guid(e3e4502b516ed7b468f9bb5513b1d46c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e6196423672ae74f554b936256b55a2') in 0.007699 seconds
+  Import took 0.017092 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.036790 seconds.
+  path: Assets/Plugins/MRTK.Tutorials.GettingStarted/Materials/XRAY.mat
+  artifactKey: Guid(40490daadb048134a8aed7b386e9c12c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/MRTK.Tutorials.GettingStarted/Materials/XRAY.mat using Guid(40490daadb048134a8aed7b386e9c12c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27fef85ff179f582179efeb89bfdef7c') in 0.244714 seconds
+  Import took 0.253894 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 123.939415 seconds.
+  path: Assets/HYDAC_EView/M_HighlightPart_Current.mat
+  artifactKey: Guid(e5bec7b0b4b8335449fb59dba7942ac0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/M_HighlightPart_Current.mat using Guid(e5bec7b0b4b8335449fb59dba7942ac0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f685e891aa173e279f6e170306bc9c23') in 0.210234 seconds
+  Import took 0.219355 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.733811 seconds.
+  path: Assets/Plugins/MRTK.Tutorials.GettingStarted/Materials/XRAY.mat
+  artifactKey: Guid(40490daadb048134a8aed7b386e9c12c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/MRTK.Tutorials.GettingStarted/Materials/XRAY.mat using Guid(40490daadb048134a8aed7b386e9c12c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '064140c010d69d948124af223d12c0e3') in 0.019321 seconds
+  Import took 0.028729 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.697394 seconds.
+  path: Assets/HYDAC_EView/M_HighlightPart_Current.mat
+  artifactKey: Guid(63ca2bc1ac9c65b42889aad112dda92f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/M_HighlightPart_Current.mat using Guid(63ca2bc1ac9c65b42889aad112dda92f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6236bec3941f3353287314bf6ed9398f') in 0.011618 seconds
+  Import took 0.020995 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 80.525344 seconds.
+  path: Assets/HYDAC_EView/M_HighlightPart_Current.mat
+  artifactKey: Guid(63ca2bc1ac9c65b42889aad112dda92f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/M_HighlightPart_Current.mat using Guid(63ca2bc1ac9c65b42889aad112dda92f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f4f89da7267fb21798763f40635e0f0') in 0.015169 seconds
+  Import took 0.024400 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/HYDAC_EView/M_HighlightPart_Prerequisite.mat
+  artifactKey: Guid(77359e13ed3ce974d84144f709f4df49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/M_HighlightPart_Prerequisite.mat using Guid(77359e13ed3ce974d84144f709f4df49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8991dbfe132af11ed0bb2e90ffdba75c') in 0.016686 seconds
+  Import took 0.026224 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 171.659396 seconds.
+  path: Assets/HYDAC_EView/Scripts/SocMainSettings.cs
+  artifactKey: Guid(2573bdb6df8da604498ac49c86cc947a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/SocMainSettings.cs using Guid(2573bdb6df8da604498ac49c86cc947a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3746b7bb642a604c85fd4b1c3aeb6121') in 0.007906 seconds
+  Import took 0.017886 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.864762 seconds.
+  path: Assets/HYDAC_EView/Scripts/BTN_MachinePart.cs
+  artifactKey: Guid(ee65959ad1921fa40b9745d5caf7d04c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Scripts/BTN_MachinePart.cs using Guid(ee65959ad1921fa40b9745d5caf7d04c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c1110a1c6bcbef937be61e51bc1bebc') in 0.006740 seconds
+  Import took 0.015623 seconds .
+

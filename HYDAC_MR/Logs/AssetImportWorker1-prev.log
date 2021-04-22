@@ -1,0 +1,971 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.4f1 (0abb6314276a) revision 703331'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19042.928; Version 2009; 64bit' Language: 'en' Physical Memory: 32725 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+E:\2. Softwares\Unity\2020.3.4f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+54660
+Successfully changed project path to: E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
+E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 187.62 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 1.68 ms.
+Initialize engine version: 2020.3.4f1 (0abb6314276a)
+[Subsystems] Discovering subsystems at path E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1070 (ID=0x1b81)
+    Vendor:   
+    VRAM:     8088 MB
+    Driver:   27.21.14.6589
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Initialize mono
+Mono path[0] = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/Managed'
+Mono path[1] = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56428
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004128 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 87.09 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.18 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.037 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.046691 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 86.73 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.18 ms.
+[2021/04/21 21:26:12] 
+[2021/04/21 21:26:12] executing command plugin4unity.checkLicense
+[2021/04/21 21:26:12] 
+[2021/04/21 21:26:12] executing command importsdk.checkLicense
+                                                         Command execution time : 0.000 s
+                                                         [2021/04/21 21:26:12] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+[XR] OculusXRPlugin: registering subsystems
+[XR] Unable to register display lifecyle provider: [1]
+[XR] Oculus Input lifecycle provider registered.
+[XR] Unable to register input lifecyle provider: [1]
+[XR] OVRP version 1.59.0
+[XR] Error loading subsystem: Display (1) (header mismatch?)
+[XR] [XR Mesh Provider]: RegisterLifecycleProvider.
+[XR] [XR Input Provider]: RegisterLifecycleProvider.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.442 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
+Refreshing native plugins compatible for Editor in 2.11 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.22 ms.
+Unloading 4103 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 182.5 MB.
+System memory in use after: 181.7 MB.
+
+Unloading 1059 unused Assets to reduce memory usage. Loaded Objects now: 4323.
+Total: 3.991800 ms (FindLiveObjects: 0.729800 ms CreateObjectMapping: 0.393100 ms MarkObjects: 2.125200 ms  DeleteObjects: 0.742800 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/HYDAC_EView/_Scenes
+  artifactKey: Guid(dc73074ac2563f84bb137fc33aa8a6eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/_Scenes using Guid(dc73074ac2563f84bb137fc33aa8a6eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '426e6d279c99d478b769fc46147f1ae4') in 0.008213 seconds
+  Import took 0.013032 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/HYDAC_EView
+  artifactKey: Guid(1f71170423490644792194e52f9154b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView using Guid(1f71170423490644792194e52f9154b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be180ee2310332873af4203cefae79c2') in 0.004649 seconds
+  Import took 0.009008 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000151 seconds.
+  path: Assets/HYDAC_EView/_Scenes/Cooler Model.unity
+  artifactKey: Guid(231bf84177fd07848952359174ef28a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/_Scenes/Cooler Model.unity using Guid(231bf84177fd07848952359174ef28a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c52c9f8324a0aefcc0284d5137ed34a4') in 0.010361 seconds
+  Import took 0.014682 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000149 seconds.
+  path: Assets/HYDAC_EView/_Scenes/HandInteractionExamples 2.unity
+  artifactKey: Guid(f787d26b46f04ab4d8102aa4b89f8349) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/_Scenes/HandInteractionExamples 2.unity using Guid(f787d26b46f04ab4d8102aa4b89f8349) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '080880a8e6b28f819a12e56d33d92a5a') in 0.004740 seconds
+  Import took 0.009014 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3971.778133 seconds.
+  path: Assets/Pixyz
+  artifactKey: Guid(ebab80eef14ab48449388f510d32f172) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixyz using Guid(ebab80eef14ab48449388f510d32f172) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '632a57d7defe292c29cfc8642bfc22dd') in 0.005810 seconds
+  Import took 0.012649 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006893 seconds.
+  path: Assets/Pixyz
+  artifactKey: Guid(ebab80eef14ab48449388f510d32f172) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixyz using Guid(ebab80eef14ab48449388f510d32f172) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '632a57d7defe292c29cfc8642bfc22dd') in 0.001742 seconds
+  Import took 0.006689 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.309433 seconds.
+  path: Assets/Pixyz/New Rule Set.asset
+  artifactKey: Guid(5859a062eea0a7941823b5e780301e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixyz/New Rule Set.asset using Guid(5859a062eea0a7941823b5e780301e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03a3885c9eac5ddd2cfbce84572eef1c') in 0.039076 seconds
+  Import took 0.043923 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 247.385842 seconds.
+  path: Assets/Pixyz/New Rule Set.asset
+  artifactKey: Guid(5859a062eea0a7941823b5e780301e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixyz/New Rule Set.asset using Guid(5859a062eea0a7941823b5e780301e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cacea9ee69a3c59af7df6bdfb50c9027') in 0.084147 seconds
+  Import took 0.089715 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7830.514666 seconds.
+  path: Assets/HYDAC_EView/Prefabs
+  artifactKey: Guid(86f29913ca8be6141ba0b44f5c7146af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Prefabs using Guid(86f29913ca8be6141ba0b44f5c7146af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecc50d969b3f6a20b7ee77c6e12da855') in 0.006342 seconds
+  Import took 0.012411 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.194045 seconds.
+  path: Assets/HYDAC_EView/Prefabs/AirCooler
+  artifactKey: Guid(46e52d45a8d06ba4fa05987f4a5549fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Prefabs/AirCooler using Guid(46e52d45a8d06ba4fa05987f4a5549fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a67e3ff45f730f2c45911799d050fc6f') in 0.005494 seconds
+  Import took 0.011530 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 359.542159 seconds.
+  path: Assets/HYDAC_EView/Prefabs/AirCooler/Air Cooler Assembled.prefab
+  artifactKey: Guid(ec84de10c1f6de3428f267daff6b94bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Prefabs/AirCooler/Air Cooler Assembled.prefab using Guid(ec84de10c1f6de3428f267daff6b94bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '140a21d7b6a134dd52e3a21173854fd8') in 0.227861 seconds
+  Import took 0.234411 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 926.393471 seconds.
+  path: Assets/HYDAC_EView/Prefabs/AirCooler/Air Cooler Exploded Variant.prefab
+  artifactKey: Guid(a5792d71aa7ecdc45a710853143483f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/Prefabs/AirCooler/Air Cooler Exploded Variant.prefab using Guid(a5792d71aa7ecdc45a710853143483f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '731a20edc93a6cdfbc190c13a63efc70') in 0.026184 seconds
+  Import took 0.032977 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.149072 seconds.
+  path: Assets/HYDAC_EView/IMPORTS
+  artifactKey: Guid(0de480a73e9c67e4b844a353c8bf7b02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS using Guid(0de480a73e9c67e4b844a353c8bf7b02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '322c7fc50b954db244f7f8a5152971af') in 0.008640 seconds
+  Import took 0.014163 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1487.265783 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Sprites/DefaultIconsSpriteSheet.psd
+  artifactKey: Guid(20f25674b9512834f88938d45ed495d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Sprites/DefaultIconsSpriteSheet.psd using Guid(20f25674b9512834f88938d45ed495d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00ae27655360610a637797a29763d14c') in 0.114838 seconds
+  Import took 0.120790 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_right_black_scaled.png
+  artifactKey: Guid(8e8fc4c5d417b754280cd920d79a5e7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_right_black_scaled.png using Guid(8e8fc4c5d417b754280cd920d79a5e7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec035f6cd86a8005a883919de356a0cb') in 0.087305 seconds
+  Import took 0.092028 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000168 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/Icons/outline_info_white_48.png
+  artifactKey: Guid(8ab75dad8038478439f2394a7dc4b319) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/Icons/outline_info_white_48.png using Guid(8ab75dad8038478439f2394a7dc4b319) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '196efdfee6f4952cf4d3f76943c4c013') in 0.014302 seconds
+  Import took 0.018936 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000153 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_left_black_scaled.png
+  artifactKey: Guid(03b731c99d54dfb4abde4d7d1b1b9199) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_left_black_scaled.png using Guid(03b731c99d54dfb4abde4d7d1b1b9199) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4cffa4639e36bccf3a74ba3177dab8d') in 0.014123 seconds
+  Import took 0.018716 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000155 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_left_white_scaled.png
+  artifactKey: Guid(8485eaaddfc849647a3b00d6006e6bc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_left_white_scaled.png using Guid(8485eaaddfc849647a3b00d6006e6bc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bcacbc2fd831acecbff674828128f79') in 0.015738 seconds
+  Import took 0.020857 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000158 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusRemoteController_black.png
+  artifactKey: Guid(2b90b3ff0e9f24a43a1f8ffacaa12ca7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusRemoteController_black.png using Guid(2b90b3ff0e9f24a43a1f8ffacaa12ca7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebc08848ee960fcffed6b1c49b2c7099') in 0.063841 seconds
+  Import took 0.068697 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000154 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusRemoteController_black_scaled.png
+  artifactKey: Guid(4f391b0f78f0f294585d13e6e4ddbcc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusRemoteController_black_scaled.png using Guid(4f391b0f78f0f294585d13e6e4ddbcc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d4ea21bc3d955d43e7a54a93c783798') in 0.014743 seconds
+  Import took 0.019417 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000151 seconds.
+  path: Assets/Oculus/SampleFramework/Core/DebugUI/Textures/radio_over.png
+  artifactKey: Guid(d573cef9968bac840a82613c16823a0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/DebugUI/Textures/radio_over.png using Guid(d573cef9968bac840a82613c16823a0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7411a98ec9aadb89a0645cc031c5cdc9') in 0.017446 seconds
+  Import took 0.022208 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000163 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/Generic_controller_white_scaled.png
+  artifactKey: Guid(d7776e47f36f995458a92021b99f44d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/Generic_controller_white_scaled.png using Guid(d7776e47f36f995458a92021b99f44d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'beb7037212f855e3ed358b33884b5f61') in 0.016278 seconds
+  Import took 0.021409 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000162 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/Icons/hydac_med.png
+  artifactKey: Guid(98bf8949e2389ee47a34926090f4c5bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/Icons/hydac_med.png using Guid(98bf8949e2389ee47a34926090f4c5bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40ca2bc2662bc2ed3a1418ce6c2d5ff9') in 0.014714 seconds
+  Import took 0.019712 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000160 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_right_black_scaled.png
+  artifactKey: Guid(0ea40b842547d784082ebf2698d3f08b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_right_black_scaled.png using Guid(0ea40b842547d784082ebf2698d3f08b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a384d4aa479c9062e97ada589877ca91') in 0.014725 seconds
+  Import took 0.019998 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000149 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_right_white.png
+  artifactKey: Guid(6588fe8449020f74488b8b667ce2f435) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_right_white.png using Guid(6588fe8449020f74488b8b667ce2f435) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '511d71170f52b7ddfa25912cd44e78d8') in 0.026774 seconds
+  Import took 0.031964 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Assets/Oculus/SampleFramework/Core/DebugUI/Textures/separator.png
+  artifactKey: Guid(99e2846e72f06dc4fb23e772dca82743) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/DebugUI/Textures/separator.png using Guid(99e2846e72f06dc4fb23e772dca82743) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34c26ba7e1d55880849616383fc5aee5') in 0.014046 seconds
+  Import took 0.018788 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000141 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/Placeholder.png
+  artifactKey: Guid(2adc8135dd936004db37d5cead85f951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/Placeholder.png using Guid(2adc8135dd936004db37d5cead85f951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39a1d819af69a587923a489946a55e8e') in 0.019194 seconds
+  Import took 0.023813 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Right.png
+  artifactKey: Guid(11e4524f21fc6434abbbba83d70d0040) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Right.png using Guid(11e4524f21fc6434abbbba83d70d0040) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16a8aaa5bfa1c9a7cc68bc88501c99dc') in 0.019683 seconds
+  Import took 0.024724 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000154 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_left_black_scaled.png
+  artifactKey: Guid(d651fc00b471cfe44834a222e9433461) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_left_black_scaled.png using Guid(d651fc00b471cfe44834a222e9433461) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be700fa06cc32b91e6dcf7fe1eaf6eb2') in 0.014532 seconds
+  Import took 0.019273 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000155 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_UnShift_Symbols.png
+  artifactKey: Guid(f6f44dc3b387f9d48bcaaee0038969c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_UnShift_Symbols.png using Guid(f6f44dc3b387f9d48bcaaee0038969c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e07679e2722fc085a45230e9e8e5502c') in 0.019704 seconds
+  Import took 0.024346 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_left_white.png
+  artifactKey: Guid(788648182fdba814396e5258870a63f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_left_white.png using Guid(788648182fdba814396e5258870a63f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec07c84baccab0a384805a5d95c7eea2') in 0.026493 seconds
+  Import took 0.031496 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Assets/Oculus/SampleFramework/Core/DebugUI/Textures/slider_bar.png
+  artifactKey: Guid(71df6d228f4ab4245b9791d80663baa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/DebugUI/Textures/slider_bar.png using Guid(71df6d228f4ab4245b9791d80663baa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba45313c76697588406dd09f013f6fdd') in 0.014105 seconds
+  Import took 0.018942 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_left_white.png
+  artifactKey: Guid(68157127a1550704596f2546ea8893d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_left_white.png using Guid(68157127a1550704596f2546ea8893d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34c14673fa6332667e36f602004d2637') in 0.026449 seconds
+  Import took 0.031075 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000161 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Dictation.png
+  artifactKey: Guid(b575d7b7d87461b4ea9965b50e367249) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Dictation.png using Guid(b575d7b7d87461b4ea9965b50e367249) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cbbff8d73b0580eb9c36a04496338ed') in 0.019513 seconds
+  Import took 0.024347 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/Oculus/SampleFramework/Core/DebugUI/Textures/radio_on_off.png
+  artifactKey: Guid(f6e6acbe07068e448ada3d7aaeb72562) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/DebugUI/Textures/radio_on_off.png using Guid(f6e6acbe07068e448ada3d7aaeb72562) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a8a7cfab1cee3f4611214f4102c12ae') in 0.015616 seconds
+  Import took 0.020639 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000162 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/IconHandIdleLeft.png
+  artifactKey: Guid(4162248f738e54a438ae5c54e18f0784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/IconHandIdleLeft.png using Guid(4162248f738e54a438ae5c54e18f0784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15ffc0048368178e8f9469259de8a5e7') in 0.017908 seconds
+  Import took 0.022852 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000162 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MRTK_Logo_White.png
+  artifactKey: Guid(84643a20fa6b4fa7969ef84ad2e40992) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MRTK_Logo_White.png using Guid(84643a20fa6b4fa7969ef84ad2e40992) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34d442f1df7b1356f5b093a94405ccea') in 0.011034 seconds
+  Import took 0.015700 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000162 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Up.png
+  artifactKey: Guid(73830216a21a45e499598b2624ef723e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Up.png using Guid(73830216a21a45e499598b2624ef723e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a9389817191e56b2a166666c67385aa') in 0.018858 seconds
+  Import took 0.023541 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/Oculus/SampleFramework/Core/DebugUI/Textures/panel_background.PNG
+  artifactKey: Guid(d929e2a65a1cbc54dacdbdcdb33165e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/DebugUI/Textures/panel_background.PNG using Guid(d929e2a65a1cbc54dacdbdcdb33165e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0381c6ff23953feebba0f1b9c1afd8f') in 0.018125 seconds
+  Import took 0.022644 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000158 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusRemoteController_white_scaled.png
+  artifactKey: Guid(96d001f4572ca3e4485a62e1a049524e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusRemoteController_white_scaled.png using Guid(96d001f4572ca3e4485a62e1a049524e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4ff367db3db769b5976285d6347ba5b') in 0.013964 seconds
+  Import took 0.018588 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_left_white_scaled.png
+  artifactKey: Guid(2a95b12bf068e064988984ff0723e935) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_left_white_scaled.png using Guid(2a95b12bf068e064988984ff0723e935) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f398661350ef719d98055a8b0a1c5634') in 0.015074 seconds
+  Import took 0.020102 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Assets/Oculus/SampleFramework/Core/DebugUI/Textures/header.png
+  artifactKey: Guid(eee045d55647138479b30e687b81c7e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/DebugUI/Textures/header.png using Guid(eee045d55647138479b30e687b81c7e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c5a4e993db0ce9db83b65a0fb3eb128') in 0.014045 seconds
+  Import took 0.018633 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000155 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Shift_Symbols.png
+  artifactKey: Guid(1dde69ccd9583fa4f8dfab2b590119ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Shift_Symbols.png using Guid(1dde69ccd9583fa4f8dfab2b590119ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '183aedc79b7e39261b27d59cf6a00aaa') in 0.019683 seconds
+  Import took 0.024594 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000163 seconds.
+  path: Assets/Oculus/SampleFramework/Core/DebugUI/Textures/button9slice.png
+  artifactKey: Guid(eec623c29607b1447ac4dc6de3cdda6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/DebugUI/Textures/button9slice.png using Guid(eec623c29607b1447ac4dc6de3cdda6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '232ea8241445e44ac7398c4f42c460f5') in 0.013896 seconds
+  Import took 0.019762 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000160 seconds.
+  path: Assets/Oculus/SampleFramework/Core/DebugUI/Textures/radio_disabled.png
+  artifactKey: Guid(bdbd8a3ecf4a241499b36f4c13ded10b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/DebugUI/Textures/radio_disabled.png using Guid(bdbd8a3ecf4a241499b36f4c13ded10b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89e02f8bc59ae76487310149b26f0f07') in 0.014633 seconds
+  Import took 0.019671 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/IconHandUntrackedRight.png
+  artifactKey: Guid(e516b67fb96d9af4b83378670e1d4058) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/IconHandUntrackedRight.png using Guid(e516b67fb96d9af4b83378670e1d4058) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6fc8c45dbf52b1a712c1b9088428b8c') in 0.017263 seconds
+  Import took 0.022371 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/Oculus/VR/Textures/windowgui.png
+  artifactKey: Guid(a26663690a6580440963aa46e582c35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/VR/Textures/windowgui.png using Guid(a26663690a6580440963aa46e582c35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3d60f5396651a6548b44bff785b6ff1') in 0.019919 seconds
+  Import took 0.024764 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/ResetRotation.png
+  artifactKey: Guid(aa45486a0040b0942a3fe77bcba4ff4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/ResetRotation.png using Guid(aa45486a0040b0942a3fe77bcba4ff4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc6a8620981ea76967f633ecc3431ed1') in 0.014805 seconds
+  Import took 0.020059 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/Oculus/SampleFramework/Core/DebugUI/Textures/translucent_01.png
+  artifactKey: Guid(7ebd72557d873024e8afa355e92d435f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/DebugUI/Textures/translucent_01.png using Guid(7ebd72557d873024e8afa355e92d435f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a1a2e0c867aa058b103b4a71837055a') in 0.014384 seconds
+  Import took 0.019698 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/CircleIcon.png
+  artifactKey: Guid(4dc2af512aa3370419ccd40d0abd485b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/CircleIcon.png using Guid(4dc2af512aa3370419ccd40d0abd485b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4346e15883f2645a9afc5537bb5b887') in 0.019966 seconds
+  Import took 0.026012 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/IconHandIdleRight.png
+  artifactKey: Guid(84bd1d5b692eba545b145e3ef5333c38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/IconHandIdleRight.png using Guid(84bd1d5b692eba545b145e3ef5333c38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '741d6b8c49363c0414a2fd767d10611d') in 0.016809 seconds
+  Import took 0.021917 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_right_black.png
+  artifactKey: Guid(94c407cca90801e47aead1757ce0ae05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_right_black.png using Guid(94c407cca90801e47aead1757ce0ae05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c69a6c1aa02d92da0904d9bccf8a41e') in 0.027023 seconds
+  Import took 0.031873 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/Oculus/SampleFramework/Core/DebugUI/Textures/radio_on.png
+  artifactKey: Guid(5aeca7df47eecc94bb7fbb5d79cf2036) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/DebugUI/Textures/radio_on.png using Guid(5aeca7df47eecc94bb7fbb5d79cf2036) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '098c610b05a3629040987d267e39d745') in 0.014110 seconds
+  Import took 0.019344 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000159 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MRTK_Logo_Black.png
+  artifactKey: Guid(c2c00ef21cc44bcfa09695879e0ebecd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MRTK_Logo_Black.png using Guid(c2c00ef21cc44bcfa09695879e0ebecd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7d2386a9907d43efc7da0e5c77b194e') in 0.019294 seconds
+  Import took 0.024309 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/Icons/outline_skip_next_white_48.png
+  artifactKey: Guid(9d5f3b7346df7c849b7f2d2a8971319c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/Icons/outline_skip_next_white_48.png using Guid(9d5f3b7346df7c849b7f2d2a8971319c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18d70954e850616eca93899eee157352') in 0.015476 seconds
+  Import took 0.020490 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000160 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MouseCursor.png
+  artifactKey: Guid(3038942a8632b664795da551e3a65b25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MouseCursor.png using Guid(3038942a8632b664795da551e3a65b25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d7808d519ec13723c492627f8814859') in 0.013310 seconds
+  Import took 0.018313 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000158 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_right_white_scaled.png
+  artifactKey: Guid(417cf16dd6895c44f82149efa15170d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_right_white_scaled.png using Guid(417cf16dd6895c44f82149efa15170d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0a26c5c02b3614265320d2ff1e45d8e') in 0.016592 seconds
+  Import took 0.021681 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000163 seconds.
+  path: Assets/Oculus/SampleFramework/Core/DebugUI/Textures/slider_slider.png
+  artifactKey: Guid(871600bbe5c92eb45a948fe73ff8b1a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/DebugUI/Textures/slider_slider.png using Guid(871600bbe5c92eb45a948fe73ff8b1a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85c8411c2ea6bc28fbb13b51c88c8674') in 0.013915 seconds
+  Import took 0.018875 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000153 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Left.png
+  artifactKey: Guid(ec8b4073237c9724ba8422f71fda3694) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Left.png using Guid(ec8b4073237c9724ba8422f71fda3694) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4cfcecea3fba6523d5af55471bd5815') in 0.018295 seconds
+  Import took 0.023142 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusRemoteController_white.png
+  artifactKey: Guid(b98b3e1f52d80b34a8c2a7a75d3e70ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusRemoteController_white.png using Guid(b98b3e1f52d80b34a8c2a7a75d3e70ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d94861bc043ee5fe716b580d8e7af35') in 0.060138 seconds
+  Import took 0.065489 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/IconHandActiveLeft.png
+  artifactKey: Guid(a1bfd276cecd2504aa94f334850481d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/IconHandActiveLeft.png using Guid(a1bfd276cecd2504aa94f334850481d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '784b9e26a318012c19d351d31c2fbe42') in 0.016442 seconds
+  Import took 0.021433 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000158 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/IconHandActiveRight.png
+  artifactKey: Guid(c1ec574bfa2be924783de54868caee68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/IconHandActiveRight.png using Guid(c1ec574bfa2be924783de54868caee68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b51e8be20ab4e062934a5ce6048dc08') in 0.017746 seconds
+  Import took 0.023151 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000153 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_right_white.png
+  artifactKey: Guid(28ea40d50737d3c47af018f7f3ea24ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_right_white.png using Guid(28ea40d50737d3c47af018f7f3ea24ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '992586b1b59e59d3d25e3f5d2fa01935') in 0.027028 seconds
+  Import took 0.032667 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000167 seconds.
+  path: Assets/Oculus/SampleFramework/Core/DebugUI/Textures/radio_off.png
+  artifactKey: Guid(9a7a1aee5662d8e439db9465d2c3e3fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/DebugUI/Textures/radio_off.png using Guid(9a7a1aee5662d8e439db9465d2c3e3fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f02183fcb2e641f61751d9bf8ef24ee6') in 0.014662 seconds
+  Import took 0.020675 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000165 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_left_black.png
+  artifactKey: Guid(a7d0f692b982a754b8ae2353d5e88d64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/MotionController_left_black.png using Guid(a7d0f692b982a754b8ae2353d5e88d64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4759dbe1a30804b1d535438d1f37f367') in 0.027494 seconds
+  Import took 0.032629 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000188 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Backspace.png
+  artifactKey: Guid(5eb0b332d494ca84d9c38cf77ba0e12d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Backspace.png using Guid(5eb0b332d494ca84d9c38cf77ba0e12d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c27d7f0e026d11cfcdd8a5b3d4483096') in 0.020124 seconds
+  Import took 0.025509 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000167 seconds.
+  path: Assets/Oculus/SampleFramework/Core/DebugUI/Textures/button.png
+  artifactKey: Guid(749615b78f067c442b8275980b7ed7c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/DebugUI/Textures/button.png using Guid(749615b78f067c442b8275980b7ed7c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27f8ed9a658a1328eb79422f69685f09') in 0.016494 seconds
+  Import took 0.021721 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/IconHandUntrackedLeft.png
+  artifactKey: Guid(f87b5f944e8630e408748d05d33bed27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/IconHandUntrackedLeft.png using Guid(f87b5f944e8630e408748d05d33bed27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '827847d6f8b844fbec4777c941f94caf') in 0.017705 seconds
+  Import took 0.023461 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000163 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Down.png
+  artifactKey: Guid(161fc5872226601449a8143014ece469) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Down.png using Guid(161fc5872226601449a8143014ece469) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd70b3cb31ad934b4fad265f8f4a4c09') in 0.021148 seconds
+  Import took 0.026353 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/Generic_controller_black_scaled.png
+  artifactKey: Guid(01b6830a93a36904ab139325358f2d35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/Generic_controller_black_scaled.png using Guid(01b6830a93a36904ab139325358f2d35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2d5b754f6b41ab9f9aa83abf31c9586') in 0.016839 seconds
+  Import took 0.021869 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_left_black.png
+  artifactKey: Guid(f2237692de9624a4692e4b0440c5f476) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_left_black.png using Guid(f2237692de9624a4692e4b0440c5f476) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7223e7cbee941cec1306292ee976efd') in 0.027014 seconds
+  Import took 0.032199 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000151 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/Circle.png
+  artifactKey: Guid(7e29bd78484de85479d1437e5727d5a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Textures/Circle.png using Guid(7e29bd78484de85479d1437e5727d5a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cabc08ac7be4a4777f7a4121cd9a86a') in 0.014367 seconds
+  Import took 0.019275 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000146 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Close.png
+  artifactKey: Guid(7029cbbbce5f0ac4dbc4e93267bfddf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Experimental/NonNativeKeyboard/Icons/KeyboardKeyGlyphs_Close.png using Guid(7029cbbbce5f0ac4dbc4e93267bfddf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ebcb16c665e89946c032ecf10daee15') in 0.018570 seconds
+  Import took 0.022989 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000163 seconds.
+  path: Assets/Oculus/SampleFramework/Core/DebugUI/Textures/dialog.png
+  artifactKey: Guid(fd7cf88ee9b05f94f84bd7686a9669a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/DebugUI/Textures/dialog.png using Guid(fd7cf88ee9b05f94f84bd7686a9669a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2eb8e4ed7e9b5839d2d74e02d616582') in 0.014910 seconds
+  Import took 0.019670 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/Oculus/VR/Textures/handle.png
+  artifactKey: Guid(ce8f78b2b9292484e97f36ad9568fc4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/VR/Textures/handle.png using Guid(ce8f78b2b9292484e97f36ad9568fc4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4956ac003964bff91f43ec9edc0d4bde') in 0.013661 seconds
+  Import took 0.018291 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000151 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_right_black.png
+  artifactKey: Guid(0b431d73cc837214fbf67cab3535f975) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_right_black.png using Guid(0b431d73cc837214fbf67cab3535f975) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83e7c63d9b2264f3ecc0c534181c0cbd') in 0.025619 seconds
+  Import took 0.030590 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/Oculus/VR/Textures/handle.png
+  artifactKey: Guid(ce8f78b2b9292484e97f36ad9568fc4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/VR/Textures/handle.png using Guid(ce8f78b2b9292484e97f36ad9568fc4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4956ac003964bff91f43ec9edc0d4bde') in 0.005305 seconds
+  Import took 0.010022 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000149 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_right_white_scaled.png
+  artifactKey: Guid(2f3bf31bda2bd84439e477aac79990ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_right_white_scaled.png using Guid(2f3bf31bda2bd84439e477aac79990ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5026559a08adc671aa9cdcfe0f67694c') in 0.014769 seconds
+  Import took 0.019282 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005336 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_right_black.png
+  artifactKey: Guid(0b431d73cc837214fbf67cab3535f975) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.standardassets/Textures/OculusControllersTouch_right_black.png using Guid(0b431d73cc837214fbf67cab3535f975) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83e7c63d9b2264f3ecc0c534181c0cbd') in 0.017227 seconds
+  Import took 0.022122 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 1.077108 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 4.38 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.28 ms.
+
+[2021/04/22  1:49:09] executing command plugin4unity.checkLicense
+[2021/04/22  1:49:09] 
+[2021/04/22  1:49:09] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22  1:49:09] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  2.972 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 1.97 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.19 ms.
+Unloading 3949 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 223.7 MB.
+System memory in use after: 207.3 MB.
+
+Unloading 35889 unused Assets to reduce memory usage. Loaded Objects now: 4355.
+Total: 51.897200 ms (FindLiveObjects: 2.882600 ms CreateObjectMapping: 3.057500 ms MarkObjects: 2.382400 ms  DeleteObjects: 43.566500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.051080 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.79 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.19 ms.
+
+[2021/04/22  1:49:34] executing command plugin4unity.checkLicense
+[2021/04/22  1:49:34] 
+[2021/04/22  1:49:34] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22  1:49:34] Command execution time : 0.001 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  2.198 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 1.80 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.18 ms.
+Unloading 3949 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 223.8 MB.
+System memory in use after: 207.5 MB.
+
+Unloading 35889 unused Assets to reduce memory usage. Loaded Objects now: 4359.
+Total: 58.111400 ms (FindLiveObjects: 3.674400 ms CreateObjectMapping: 3.351100 ms MarkObjects: 2.408500 ms  DeleteObjects: 48.676400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.047231 seconds.
+Begin MonoManager ReloadAssembly
+Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Multiple scripted importers are targeting the extension 'gltf' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GltfAssetImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
+
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.07 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.25 ms.
+
+[2021/04/22  1:49:44] executing command plugin4unity.checkLicense
+[2021/04/22  1:49:44] 
+[2021/04/22  1:49:44] executing command importsdk.checkLicense
+Command execution time : 0.000 s
+[2021/04/22  1:49:44] Command execution time : 0.000 s
+The Pixyz Plugin for Unity requires a valid License.
+Please install yours via the License Manager or visit www.pixyz-software.com to get one
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Pixyz.Plugin4Unity.Native.NativeInterface:.cctor () (at Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs:26)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Plugins/PixyzPluginForUnity/Editor/Core/ManagedInterface.cs Line: 26)
+
+Error when attempting to update scene info fields. Scene info data may be stale.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:RefreshSceneInfoFieldsInScriptableObjects () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:313)
+Microsoft.MixedReality.Toolkit.Editor.SceneInfoUtils:InitializeOnLoad () (at Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs:231)
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@31d726bb1bbb-1618897758576/Core/Inspectors/PropertyDrawers/SceneInfoUtils.cs Line: 313)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  2.544 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 2.00 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.23 ms.
+Unloading 3949 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 223.9 MB.
+System memory in use after: 207.5 MB.
+
+Unloading 35889 unused Assets to reduce memory usage. Loaded Objects now: 4363.
+Total: 63.116100 ms (FindLiveObjects: 3.127300 ms CreateObjectMapping: 3.830500 ms MarkObjects: 2.685700 ms  DeleteObjects: 53.470900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 85.98 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.18 ms.
+Unloading 166 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 107.2 MB.
+System memory in use after: 107.4 MB.
+
+Unloading 166 unused Assets to reduce memory usage. Loaded Objects now: 4363.
+Total: 3.643400 ms (FindLiveObjects: 0.390900 ms CreateObjectMapping: 0.239300 ms MarkObjects: 2.917900 ms  DeleteObjects: 0.093900 ms)
+
+========================================================================
+Received Prepare
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 86.29 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.18 ms.
+Unloading 166 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 107.2 MB.
+System memory in use after: 107.4 MB.
+
+Unloading 166 unused Assets to reduce memory usage. Loaded Objects now: 4363.
+Total: 3.701100 ms (FindLiveObjects: 0.374000 ms CreateObjectMapping: 0.246700 ms MarkObjects: 2.972700 ms  DeleteObjects: 0.106500 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
