@@ -17,14 +17,14 @@ namespace HYDAC_EView.Scripts.UI
 
         public void OnImplodeAll(InteractableStateArgs obj)
         {
-            if (obj.NewInteractableState == InteractableState.ActionState)
-                _mMainManager.ChangeCurrentAssemblyPosition(0);
+            //if (obj.NewInteractableState == InteractableState.ActionState)
+                //_mMainManager.ChangeCurrentAssemblyPosition(0);
         }
     
         public void OnExplodeAll(InteractableStateArgs obj)
         {
-            if (obj.NewInteractableState == InteractableState.ActionState)
-                _mMainManager.ChangeCurrentAssemblyPosition(_mMainManager.NoOfAssemblies);
+            //if (obj.NewInteractableState == InteractableState.ActionState)
+               // _mMainManager.ChangeCurrentAssemblyPosition(_mMainManager.NoOfAssemblies);
         }
         
         // private void CreateUIButtons(IMachinePart[] parts)

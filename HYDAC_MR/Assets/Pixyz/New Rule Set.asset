@@ -26,10 +26,24 @@ MonoBehaviour:
       - '|'
       - True
     - isEnabled: 1
-      actionId: 1455705
+      actionId: 79878745
       serializedNames:
-      - distanceTolerance
-      - orientFaces
+      - strategy
+      - density
+      - precisionPreset
+      - precision
+      - selectionLevel
+      - neighborsPreservation
+      - considerTransparencyOpaque
+      - preserveCavities
+      - minimumCavitiesToPreserve
       serializedValues:
-      - 0.0001
-      - True
+      - 1
+      - 20
+      - 1024
+      - 1024
+      - 2
+      - 1
+      - False
+      - False
+      - 1

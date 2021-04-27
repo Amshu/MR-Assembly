@@ -13,7 +13,5 @@ namespace HYDAC_EView.Scripts
         public Material previousAssemblyMaterial;
         public Material currentAssemblyMaterial;
         public Material nextAssemblyMaterial;
-
-        public List<SocMachinePartInfo> machineParts = new List<SocMachinePartInfo>();
     }
 }

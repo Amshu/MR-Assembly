@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using UnityEngine;
 using HYDAC_EView.Scripts.MPart;
+using System.Collections.Generic;
+using Microsoft.MixedReality.Toolkit.UI;
 
 namespace HYDAC_EView.Scripts
 {
@@ -8,103 +10,124 @@ namespace HYDAC_EView.Scripts
     {
         [SerializeField] private SocMainSettings mainSettings;
         [SerializeField] private int mNoOfAssemblies = 0;
-        
-        public struct SState
-        {
-            public bool IsExploded;
-            public int CurrentAssemblyNo;
-        }
 
-        private static SState _currentState;
-        public SState GetCurrentState => _currentState;
+        private const string MachinePartInfoFolderPath = "MachinePartInfos";
 
-
+        public bool IsExploded;
+        public int CurrentAssemblyNo;
         public int startingPosition;
         
         public int NoOfAssemblies => mNoOfAssemblies;
 
-        private IMachinePart[] MachineParts { get; set; } = null;
+        private IMachinePart[] MachineParts;
         
         private void Awake()
         {
             GetMachineParts();
 
-            _currentState.IsExploded = false;
-            _currentState.CurrentAssemblyNo = startingPosition;
+            IsExploded = false;
+            CurrentAssemblyNo = startingPosition;
         }
         
         private void GetMachineParts()
         {
-            // Get all machine parts
-            MachineParts = FindObjectsOfType<MachinePart>() as IMachinePart[];
+            // Load from Resources
+            var machinePartInfos = Resources.LoadAll(MachinePartInfoFolderPath, typeof(IMachinePart));
+            if (machinePartInfos.Length < 1)
+            {
+                Debug.LogError("No Machine part infos found or loaded. Exiting Application");
+                Application.Quit();
+                return;
+            }
 
-            var parts = MachineParts.ToList();
+            // Cast each loaded object to IMachinePart
+            List<IMachinePart> parts = new List<IMachinePart>();
+            foreach(object ogj in machinePartInfos)
+            {
+                parts.Add(ogj as IMachinePart);
+            }
 
-            // Sort parts by assembly position
-            MachineParts = parts.OrderBy(x => x.GetAssemblyPosition()).ToArray();
+            // Set to main array
+            MachineParts = parts.ToArray();
+            if (MachineParts.Length < 1)
+            {
+                Debug.LogError("Error in casting to IMachinePart[]. Exiting Application");
+                Application.Quit();
+                return;
+            }
+
+            // Sort all parts by their assembly position
+            MachineParts = MachineParts.OrderBy(x => x.GetAssemblyPosition()).ToArray();
 
             // Get total number of assemblies
             mNoOfAssemblies = MachineParts[MachineParts.Length - 1].GetAssemblyPosition();
         }
 
-
-        public void TriggerAction(bool doExplode)
+        public void ToggleAll()
         {
-            _currentState.IsExploded = doExplode;
-
-            for (var i = 0; i < MachineParts.Length; i++)
+            foreach(IMachinePart part in MachineParts)
             {
-                var part = MachineParts[i];
-                var partPosition = part.GetAssemblyPosition();
-                
-                if (partPosition <= _currentState.CurrentAssemblyNo)
-                {
-                    part.Explode(mainSettings.positionTimeChange);
-                }
-                else
+                // If the current state is exploded then: 
+                // Implode
+                if (IsExploded)
                 {
                     part.Implode(mainSettings.positionTimeChange);
                 }
+                // Explode
+                else
+                {
+                    part.Explode(mainSettings.positionTimeChange);
+                }
             }
+
+            IsExploded = !IsExploded;
         }
 
 
-        public void ChangeCurrentAssemblyPosition(int positionToChangeTo)
+        public void OnSliderUpdate(SliderEventData sliderData)
         {
-            Debug.Log("#MainManager#-------------------------Changing assembly position to: " + positionToChangeTo);
+            ChangeCurrentAssemblyPosition((int)(sliderData.NewValue * 10));
+        }
 
-            _currentState.CurrentAssemblyNo = positionToChangeTo;
-            
+
+        private void ChangeCurrentAssemblyPosition(int assemblyPosition)
+        {
+            Debug.Log("#MainManager#-------------------------Changing assembly position to: " + assemblyPosition);
+
+            CurrentAssemblyNo = assemblyPosition;
+
             for (var i = 0; i < MachineParts.Length; i++)
             {
                 var part = MachineParts[i];
                 var partPosition = part.GetAssemblyPosition();
 
-                if (partPosition <= positionToChangeTo)
+                // If its less than or equal to the passed assembly position => Explode
+                if (partPosition <= assemblyPosition)
                 {
-                    //part.Explode(mainSettings.positionTimeChange);
+                    part.Explode(mainSettings.positionTimeChange);
 
                     // Highlight previous part
-                    if (partPosition == positionToChangeTo - 1)
+                    if (partPosition == assemblyPosition - 1)
                     {
                         part.HighlightPart(true, mainSettings.previousAssemblyMaterial);
                     }
                     // Highlight current part
-                    else if(partPosition == positionToChangeTo)
+                    else if(partPosition == assemblyPosition)
                     {
-                        part.HighlightPart(true, mainSettings.currentAssemblyMaterial);
+                        part.HighlightPart(false, mainSettings.currentAssemblyMaterial);
                     }
                     else
                     {
                         part.HighlightPart(false, mainSettings.currentAssemblyMaterial);
                     }
                 }
+                // If its greater than the passed assembly position => Implode
                 else
                 {
-                    //part.Implode(mainSettings.positionTimeChange);
+                    part.Implode(mainSettings.positionTimeChange);
 
                     // Highlight next part
-                    if(partPosition == positionToChangeTo + 1)
+                    if(partPosition == assemblyPosition + 1)
                     {
                         part.HighlightPart(true, mainSettings.nextAssemblyMaterial);
                     }
