@@ -15,12 +15,12 @@ E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-59165
+52377
 Successfully changed project path to: E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
 E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 217.36 ms, found 20 plugins.
-Preloading 2 native plugins for Editor in 1.85 ms.
+Refreshing native plugins compatible for Editor in 252.87 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 1.83 ms.
 Initialize engine version: 2020.3.4f1 (0abb6314276a)
 [Subsystems] Discovering subsystems at path E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path E:/1. Projects/HYDAC/MR Assembly/HYDAC_MR/Assets
@@ -37,21 +37,21 @@ Initialize mono
 Mono path[0] = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/Managed'
 Mono path[1] = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56336
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56420
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: E:/2. Softwares/Unity/2020.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004311 seconds.
+Registered in 0.004098 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 107.66 ms, found 20 plugins.
-Preloading 2 native plugins for Editor in 0.21 ms.
+Refreshing native plugins compatible for Editor in 113.29 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.23 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.191 seconds
+- Completed reload, in  2.510 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.051446 seconds.
+Registered in 0.051677 seconds.
 Begin MonoManager ReloadAssembly
 Multiple scripted importers are targeting the extension 'glb' and have all been rejected: Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor.GlbAssetImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Gltf.Importers.dll), Pixyz.ImportSDK.ScriptedImporter (assembly: E:\1. Projects\HYDAC\MR Assembly\HYDAC_MR\Library\ScriptAssemblies\Pixyz.PluginUnityEditor.Editor.dll) 
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
@@ -69,14 +69,14 @@ UnityEditor.AssetImporters.ScriptedImporter:RegisterScriptedImporters ()
 
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 114.99 ms, found 20 plugins.
-Preloading 2 native plugins for Editor in 0.21 ms.
-[2021/04/28  5:17:13] 
-[2021/04/28  5:17:13] executing command plugin4unity.checkLicense
-[2021/04/28  5:17:13] 
-[2021/04/28  5:17:13] executing command importsdk.checkLicense
+Refreshing native plugins compatible for Editor in 124.56 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.33 ms.
+[2021/04/28 14:54:26] 
+[2021/04/28 14:54:26] executing command plugin4unity.checkLicense
+[2021/04/28 14:54:26] 
+[2021/04/28 14:54:26] executing command importsdk.checkLicense
                                                          Command execution time : 0.000 s
-                                                         [2021/04/28  5:17:13] Command execution time : 0.000 s
+                                                         [2021/04/28 14:54:26] Command execution time : 0.000 s
 The Pixyz Plugin for Unity requires a valid License.
 Please install yours via the License Manager or visit www.pixyz-software.com to get one
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
@@ -98,235 +98,338 @@ UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 [XR] [XR Mesh Provider]: RegisterLifecycleProvider.
 [XR] [XR Input Provider]: RegisterLifecycleProvider.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.805 seconds
+- Completed reload, in  2.918 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
-Refreshing native plugins compatible for Editor in 1.85 ms, found 20 plugins.
-Preloading 2 native plugins for Editor in 0.22 ms.
+Refreshing native plugins compatible for Editor in 1.87 ms, found 20 plugins.
+Preloading 2 native plugins for Editor in 0.19 ms.
 Unloading 5431 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 240.3 MB.
-System memory in use after: 239.7 MB.
+System memory in use before: 240.6 MB.
+System memory in use after: 240.0 MB.
 
 Unloading 1074 unused Assets to reduce memory usage. Loaded Objects now: 5642.
-Total: 4.193600 ms (FindLiveObjects: 0.537600 ms CreateObjectMapping: 0.347200 ms MarkObjects: 2.573300 ms  DeleteObjects: 0.734500 ms)
+Total: 4.074000 ms (FindLiveObjects: 0.544900 ms CreateObjectMapping: 0.353800 ms MarkObjects: 2.468200 ms  DeleteObjects: 0.706200 ms)
 
 ========================================================================
 Received Import Request.
-  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Prefabs/Tooltips/Simple Line ToolTip.prefab
-  artifactKey: Guid(afaef0108a478c44a9eac26658bc29bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Prefabs/Tooltips/Simple Line ToolTip.prefab using Guid(afaef0108a478c44a9eac26658bc29bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b7256b89fd1bb69c790654249188b05') in 0.203094 seconds
-  Import took 0.210205 seconds .
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_warehouselamp_MetallicSmoothness.tga
+  artifactKey: Guid(fb56d340b18532a469ddadcc53a437b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_warehouselamp_MetallicSmoothness.tga using Guid(fb56d340b18532a469ddadcc53a437b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e24d0747aab7b9fc18588c45633d224') in 0.176716 seconds
+  Import took 0.184233 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 4035.031414 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/CAD Models/2506341 PLUG G1 1 1-4.SLDPRT.prefab
-  artifactKey: Guid(07574f732acc698448fbde262e9dfa89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/CAD Models/2506341 PLUG G1 1 1-4.SLDPRT.prefab using Guid(07574f732acc698448fbde262e9dfa89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f092d462e02b2e8b46d644968e818eca') in 0.050096 seconds
-  Import took 0.060815 seconds .
+  Time since last request: 0.000173 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_warehouselamp_Emission.tga
+  artifactKey: Guid(6b543df575e81ad4f9f24943dc0757d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_warehouselamp_Emission.tga using Guid(6b543df575e81ad4f9f24943dc0757d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccf5eb3af85a3f68aff905c61535de98') in 0.091009 seconds
+  Import took 0.097486 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.001887 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/CAD Models/2506341 PLUG G1 1 1-4.SLDPRT.prefab
-  artifactKey: Guid(07574f732acc698448fbde262e9dfa89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/CAD Models/2506341 PLUG G1 1 1-4.SLDPRT.prefab using Guid(07574f732acc698448fbde262e9dfa89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f092d462e02b2e8b46d644968e818eca') in 0.021894 seconds
-  Import took 0.028972 seconds .
+  Time since last request: 0.000168 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_DoorWalls_Normal.tga
+  artifactKey: Guid(b390b40e5f9933b4cbbcb5758a82cc54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_DoorWalls_Normal.tga using Guid(b390b40e5f9933b4cbbcb5758a82cc54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0acabc5cce2653f6c5bd4564e3dfb6dc') in 0.043295 seconds
+  Import took 0.050280 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.488162 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/CAD Models/2507164_LABEL FAN DIRECTION - AIR FLOW.SLDPRT.prefab
-  artifactKey: Guid(4e3ff6ad3c31b2f4888a11b484b28539) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/CAD Models/2507164_LABEL FAN DIRECTION - AIR FLOW.SLDPRT.prefab using Guid(4e3ff6ad3c31b2f4888a11b484b28539) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fac9ed008383d3af4be5a16336dd8ec') in 0.025551 seconds
-  Import took 0.033967 seconds .
+  Time since last request: 0.000179 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Aged/tex_ConcreteFloor-Albedo.tga
+  artifactKey: Guid(e15e387dc82f050469969ef1cb9c41ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Aged/tex_ConcreteFloor-Albedo.tga using Guid(e15e387dc82f050469969ef1cb9c41ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7904bb2bfc3a7c6ff0f5ee0988a6f026') in 0.048153 seconds
+  Import took 0.055697 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.481491 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/CAD Models/03143575 eb023371 radiatore sc1-1-0 el2-3-0 ibp.sldasm.prefab
-  artifactKey: Guid(27325eb820bd1954095327b2ec2c7d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/CAD Models/03143575 eb023371 radiatore sc1-1-0 el2-3-0 ibp.sldasm.prefab using Guid(27325eb820bd1954095327b2ec2c7d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2a409b0d97241d953feb3ae9226eb5a') in 0.027343 seconds
-  Import took 0.036146 seconds .
+  Time since last request: 0.000188 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_ConcreteFloor-MetSmooth.tga
+  artifactKey: Guid(989a6f1304528764c8ee9b5852e8b2d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_ConcreteFloor-MetSmooth.tga using Guid(989a6f1304528764c8ee9b5852e8b2d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '343c75b6ea0722c05e556e64c61ab3be') in 0.051638 seconds
+  Import took 0.059735 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.441166 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/CAD Models/3860383-SWP-000.SLDPRT 2.prefab
-  artifactKey: Guid(3ce66941d1f36fe49b7da7eeba87a62d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/CAD Models/3860383-SWP-000.SLDPRT 2.prefab using Guid(3ce66941d1f36fe49b7da7eeba87a62d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53c1ed18eea7b227d5042a94f8f200f7') in 0.086064 seconds
-  Import took 0.092973 seconds .
+  Time since last request: 0.000163 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/Images/CoolerLabel_Caution.png
+  artifactKey: Guid(446d17c1cb09192408771cc3c4160042) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/Images/CoolerLabel_Caution.png using Guid(446d17c1cb09192408771cc3c4160042) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '075d826d32a6be326f3c506a08548eaa') in 0.027644 seconds
+  Import took 0.034993 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.398920 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/CAD Models/10000087871-SDP-000.SLDPRT.prefab
-  artifactKey: Guid(d1da6acb2d28dbd4e99b6f2ce918cccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/CAD Models/10000087871-SDP-000.SLDPRT.prefab using Guid(d1da6acb2d28dbd4e99b6f2ce918cccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79d383889a43b52463ed5d83779dd458') in 0.018260 seconds
-  Import took 0.027537 seconds .
+  Time since last request: 0.000182 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/Images/CoolerLabel_Out.png
+  artifactKey: Guid(4599e3c07d8ceb049a8dd00f4573d61c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/Images/CoolerLabel_Out.png using Guid(4599e3c07d8ceb049a8dd00f4573d61c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ded61f1e5a16703e53548f9cd0e4a73b') in 0.020703 seconds
+  Import took 0.028719 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000369 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/CAD Models/10000087871-SDP-000.SLDPRT.prefab
-  artifactKey: Guid(d1da6acb2d28dbd4e99b6f2ce918cccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/CAD Models/10000087871-SDP-000.SLDPRT.prefab using Guid(d1da6acb2d28dbd4e99b6f2ce918cccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79d383889a43b52463ed5d83779dd458') in 0.017370 seconds
-  Import took 0.023936 seconds .
+  Time since last request: 0.000195 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_supportbeam_Normal.tga
+  artifactKey: Guid(5aed29386c19e4344980120a6518511d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_supportbeam_Normal.tga using Guid(5aed29386c19e4344980120a6518511d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b966aec3820362282d3a9f5102cdbc1') in 0.062514 seconds
+  Import took 0.074679 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.645289 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/CAD Models/EB023371 profilo a U CINA.SLDPRT.prefab
-  artifactKey: Guid(ae1ee7c4c1c220b4da91b27f8dd4e7e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/CAD Models/EB023371 profilo a U CINA.SLDPRT.prefab using Guid(ae1ee7c4c1c220b4da91b27f8dd4e7e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b9ac2fea4219d4d25056e064cee4541') in 0.016275 seconds
-  Import took 0.022653 seconds .
+  Time since last request: 0.000337 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/Images/CoolerLabel_In.png
+  artifactKey: Guid(2fd5fb582bbeffb44987e2194543e942) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/Images/CoolerLabel_In.png using Guid(2fd5fb582bbeffb44987e2194543e942) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4987aadb23289a54295fd4d296c622c4') in 0.032282 seconds
+  Import took 0.044930 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.795226 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/CAD Models/HYDAC_2506562 18CM.SLDPRT.prefab
-  artifactKey: Guid(cf16513b21c01594c9091867a888d7c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/CAD Models/HYDAC_2506562 18CM.SLDPRT.prefab using Guid(cf16513b21c01594c9091867a888d7c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e788b9171fe4bf01456747f7d3f13fc') in 0.020393 seconds
-  Import took 0.027689 seconds .
+  Time since last request: 0.000159 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_mezzWall_MetallicSmoothness.tga
+  artifactKey: Guid(70f21103e2727534fbcbd8da5ec3b4eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_mezzWall_MetallicSmoothness.tga using Guid(70f21103e2727534fbcbd8da5ec3b4eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c88b9f356fc92d3bb399c06fb83320e') in 0.051203 seconds
+  Import took 0.058138 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.613045 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/CAD Models/RONDELLA M6 BN733.SLDPRT.prefab
-  artifactKey: Guid(4feb158205223cd4ea4abdad111c1b0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/CAD Models/RONDELLA M6 BN733.SLDPRT.prefab using Guid(4feb158205223cd4ea4abdad111c1b0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a44cfb6afe2e2f78037f72272d8378b0') in 0.017266 seconds
-  Import took 0.026072 seconds .
+  Time since last request: 0.000170 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_BrownBrick-Normal.tga
+  artifactKey: Guid(d59a0b36afe97f14ab85cc973ca0fbf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_BrownBrick-Normal.tga using Guid(d59a0b36afe97f14ab85cc973ca0fbf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6983ae44a83152398e2caafb86dbc85') in 0.046734 seconds
+  Import took 0.053429 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.322572 seconds.
-  path: Assets/Pixyz/Editor
-  artifactKey: Guid(2287e772d22391749bb740d079ba4a91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Pixyz/Editor using Guid(2287e772d22391749bb740d079ba4a91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57dbb59f164da2f6ab1febfae0e14a86') in 0.005195 seconds
-  Import took 0.011857 seconds .
+  Time since last request: 0.000172 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_CeilWinEmission.tga
+  artifactKey: Guid(b79bb4355034bb34b8d3b57b802de381) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_CeilWinEmission.tga using Guid(b79bb4355034bb34b8d3b57b802de381) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c5139df817036f887592357ad00dd9f') in 0.009704 seconds
+  Import took 0.016715 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.030203 seconds.
-  path: Assets/Plugins/PixyzPluginForUnity
-  artifactKey: Guid(01c132b33980b0049b7f823ce0299f7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Plugins/PixyzPluginForUnity using Guid(01c132b33980b0049b7f823ce0299f7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd2baed8ee2f1dfcf0c08c29c373c701') in 0.005181 seconds
-  Import took 0.011566 seconds .
+  Time since last request: 0.000175 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_BrownBrick-Occlusion.tga
+  artifactKey: Guid(fa6cfb076da23fa4c8745b282b8afdc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_BrownBrick-Occlusion.tga using Guid(fa6cfb076da23fa4c8745b282b8afdc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43349a7682d0a6e78e554839e2706d3a') in 0.044026 seconds
+  Import took 0.050482 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.389564 seconds.
-  path: Assets/Plugins/PixyzPluginForUnity/Runtime
-  artifactKey: Guid(2c2db83586d7af04c9872fca80ae3cc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Plugins/PixyzPluginForUnity/Runtime using Guid(2c2db83586d7af04c9872fca80ae3cc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e20bae9734797034307e3ab6f516f3af') in 0.005922 seconds
-  Import took 0.012986 seconds .
+  Time since last request: 0.000167 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_mezzWall_Normal.tga
+  artifactKey: Guid(5cce663258b5d234f9d8a89a98d55781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_mezzWall_Normal.tga using Guid(5cce663258b5d234f9d8a89a98d55781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3ce5670fd407172b5a28d2b739a7417') in 0.050606 seconds
+  Import took 0.057217 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 4.343486 seconds.
-  path: Assets/Plugins/PixyzPluginForUnity/Runtime/Core
-  artifactKey: Guid(faf3952fed428e547b408eb3344b2a8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Plugins/PixyzPluginForUnity/Runtime/Core using Guid(faf3952fed428e547b408eb3344b2a8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef39123e00047bd9077b9635634f6301') in 0.005455 seconds
-  Import took 0.012050 seconds .
+  Time since last request: 0.000215 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_DoorWalls_MetallicSmoothness.tga
+  artifactKey: Guid(4c683b49566825c44b540471a8bdeab4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_DoorWalls_MetallicSmoothness.tga using Guid(4c683b49566825c44b540471a8bdeab4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '351d79aa8f7eb5b6f8799d2deeca88bb') in 0.057534 seconds
+  Import took 0.064367 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.156423 seconds.
-  path: Assets/Plugins/PixyzPluginForUnity/Runtime/Commons
-  artifactKey: Guid(f6fcebb78a33c1a42990ccf5b5ebad30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Plugins/PixyzPluginForUnity/Runtime/Commons using Guid(f6fcebb78a33c1a42990ccf5b5ebad30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8bf0f4ff27a37c3392544e4b2c3e368') in 0.005667 seconds
-  Import took 0.014775 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.744498 seconds.
-  path: Assets/Plugins/PixyzPluginForUnity/Runtime/Commons/Resources
-  artifactKey: Guid(d555683837ddeb348a4c162173d12789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Plugins/PixyzPluginForUnity/Runtime/Commons/Resources using Guid(d555683837ddeb348a4c162173d12789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ed8c438bcfa90f129bd086497c6a8cf') in 0.008222 seconds
-  Import took 0.014579 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.678764 seconds.
-  path: Assets/Plugins/PixyzPluginForUnity/Runtime/Commons/Utilities
-  artifactKey: Guid(dcb4c34658f02e9408ec149bdf36e6e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Plugins/PixyzPluginForUnity/Runtime/Commons/Utilities using Guid(dcb4c34658f02e9408ec149bdf36e6e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c42649594869bcb6a957887566cbd2c0') in 0.005313 seconds
-  Import took 0.011614 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 102.183917 seconds.
-  path: Assets/HYDAC_EView/Materials
-  artifactKey: Guid(b75a5cfd038672f49913cb13519e6e1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/Materials using Guid(b75a5cfd038672f49913cb13519e6e1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b89542b4e164a6e6765f4fd19c684dfb') in 0.005309 seconds
-  Import took 0.012101 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001372 seconds.
-  path: Assets/HYDAC_EView/Materials
-  artifactKey: Guid(b75a5cfd038672f49913cb13519e6e1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/Materials using Guid(b75a5cfd038672f49913cb13519e6e1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b89542b4e164a6e6765f4fd19c684dfb') in 0.001905 seconds
-  Import took 0.008220 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 46.494577 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/Images/DeakinPoster.jpg
-  artifactKey: Guid(89495d5412401434093e122904733649) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/Images/DeakinPoster.jpg using Guid(89495d5412401434093e122904733649) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fc6f03e04088a39d20629ad9cc5a5d5') in 0.103393 seconds
-  Import took 0.111134 seconds .
+  Time since last request: 0.000175 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_mezzWall_Albedo.tga
+  artifactKey: Guid(a5c15eca44f6cea458858766ab7e3ee6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_mezzWall_Albedo.tga using Guid(a5c15eca44f6cea458858766ab7e3ee6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2f9a3f06c75889a2fd2065d47d3da93') in 0.040590 seconds
+  Import took 0.049122 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000165 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/Images/DMLblock_white_transparent2-e1442557432887.png
-  artifactKey: Guid(9d100d253a4d48a4ca4712a064e55cd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/Images/DMLblock_white_transparent2-e1442557432887.png using Guid(9d100d253a4d48a4ca4712a064e55cd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be147066bf1ce0417de91ffb687248f0') in 0.013103 seconds
-  Import took 0.021256 seconds .
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_warehouselamp_AlbedoTransparency.tga
+  artifactKey: Guid(50879ceea0de4e342855305c6fc8ee35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_warehouselamp_AlbedoTransparency.tga using Guid(50879ceea0de4e342855305c6fc8ee35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d59be2adf549e65fff778e979d80e6c') in 0.043424 seconds
+  Import took 0.050012 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000160 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/Images/HydacPoster.jpg
-  artifactKey: Guid(d9109fd20de98184abce9c3792fc25ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/Images/HydacPoster.jpg using Guid(d9109fd20de98184abce9c3792fc25ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5fc2d9b8947851ee5fce0008d58f77c7') in 0.044203 seconds
-  Import took 0.052631 seconds .
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_MezzanineAndStairs_MetallicSmoothness.tga
+  artifactKey: Guid(83114bf4c80fe7c438cdccd7594ed522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_MezzanineAndStairs_MetallicSmoothness.tga using Guid(83114bf4c80fe7c438cdccd7594ed522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24c2c121dae019f77be91cb15828a72b') in 0.050544 seconds
+  Import took 0.057620 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000158 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/Fonts/unispace rg.ttf
-  artifactKey: Guid(64dcc6e16e2dd634d9e6db3bb5289d0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/Fonts/unispace rg.ttf using Guid(64dcc6e16e2dd634d9e6db3bb5289d0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e43c790e63128e8ee164cbfea44fd9ae') in 0.025273 seconds
-  Import took 0.032208 seconds .
+  Time since last request: 0.000179 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_MezzanineAndStairs_AlbedoTransparency.tga
+  artifactKey: Guid(bd50a85de085ef84f928cfa39c0a3241) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_MezzanineAndStairs_AlbedoTransparency.tga using Guid(bd50a85de085ef84f928cfa39c0a3241) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db1215a8542b4b7b616e5b7368411557') in 0.041198 seconds
+  Import took 0.048904 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000168 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_ConcreteFloor-Normal.tga
+  artifactKey: Guid(5f46291481536b44fbdf19003d45ab4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_ConcreteFloor-Normal.tga using Guid(5f46291481536b44fbdf19003d45ab4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ec8bc5ed3909bcd6a65c94f3efc33ad') in 0.042444 seconds
+  Import took 0.049607 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000167 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_supportbeam_MetallicSmoothness.tga
+  artifactKey: Guid(6eeff81e46410954a8be2b44a8ce4a59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_supportbeam_MetallicSmoothness.tga using Guid(6eeff81e46410954a8be2b44a8ce4a59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16a2993d9e7ae89f2f07980cae2dfbfb') in 0.055438 seconds
+  Import took 0.062391 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000159 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_CorrugatedMetal-Normal.tga
+  artifactKey: Guid(31ea2719faf6b594faa88a8e4f7e0c77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_CorrugatedMetal-Normal.tga using Guid(31ea2719faf6b594faa88a8e4f7e0c77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22cb11d710af899e74eef723b33bb635') in 0.042097 seconds
+  Import took 0.048982 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000171 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_DoorWalls_Albedo.tga
+  artifactKey: Guid(5f668df4ddd4f5a43b7fb4a991ee06d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_DoorWalls_Albedo.tga using Guid(5f668df4ddd4f5a43b7fb4a991ee06d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a057d8ba8bbe246c8ccd8af2d7036b8') in 0.040432 seconds
+  Import took 0.046600 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000161 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_warehouselamp_Normal.tga
+  artifactKey: Guid(63bc609c37574734aa2a29e7b5af349d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_warehouselamp_Normal.tga using Guid(63bc609c37574734aa2a29e7b5af349d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c0050f77eb6a4e43f9e495a9cf502b1') in 0.043747 seconds
+  Import took 0.050044 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_CorrugatedMetal-Albedo.tga
+  artifactKey: Guid(0ca0a6284392047419406dd938897879) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_CorrugatedMetal-Albedo.tga using Guid(0ca0a6284392047419406dd938897879) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf0e123197e36664ff2ecacbfd84a464') in 0.040194 seconds
+  Import took 0.046459 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000174 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_MezzanineAndStairs_Normal.tga
+  artifactKey: Guid(ecda0e4fe504c734fac67ffad5b38d77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_MezzanineAndStairs_Normal.tga using Guid(ecda0e4fe504c734fac67ffad5b38d77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a629f72abb649f49c8e933b64b5664a1') in 0.043176 seconds
+  Import took 0.049697 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/Oculus/SampleFramework/Usage/OVROverlay/Textures/OverlayRT.renderTexture
+  artifactKey: Guid(d1932f239866af3468dfdd2af678a179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Usage/OVROverlay/Textures/OverlayRT.renderTexture using Guid(d1932f239866af3468dfdd2af678a179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb279fc4fdef6e56c730a3622e1a7415') in 0.022172 seconds
+  Import took 0.028875 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_supportbeam_Albedo.tga
+  artifactKey: Guid(7a6555be9c9ddda429ec879dac151500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_supportbeam_Albedo.tga using Guid(7a6555be9c9ddda429ec879dac151500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9a192774abc03a89caca36a715699d8') in 0.041836 seconds
+  Import took 0.048379 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000167 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_CorrugatedMetal-MetSmooth.tga
+  artifactKey: Guid(82cba58357abc8141a9d81e30b43d989) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_CorrugatedMetal-MetSmooth.tga using Guid(82cba58357abc8141a9d81e30b43d989) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18acda931b09f9d536cdcbad06c14991') in 0.048426 seconds
+  Import took 0.054991 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_ConcreteFloor-Albedo.tga
+  artifactKey: Guid(eabb9ec4d01b2c84283759422f18f319) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_ConcreteFloor-Albedo.tga using Guid(eabb9ec4d01b2c84283759422f18f319) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d921bbaff8b13d78c6ef66787f6beef') in 0.040758 seconds
+  Import took 0.048760 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000166 seconds.
-  path: Assets/Plugins/TextMesh Pro/Fonts/LiberationSans.ttf
-  artifactKey: Guid(e3265ab4bf004d28a9537516768c1c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Plugins/TextMesh Pro/Fonts/LiberationSans.ttf using Guid(e3265ab4bf004d28a9537516768c1c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa2e500afbb4f71c740199b4f920e6e4') in 0.012332 seconds
-  Import took 0.019682 seconds .
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_BrownBrick-Albedo.jpg
+  artifactKey: Guid(7a1780701d12cd641960983950788b59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_BrownBrick-Albedo.jpg using Guid(7a1780701d12cd641960983950788b59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6e83f55e154f5634aa5ae5e40072c94') in 0.049791 seconds
+  Import took 0.057137 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000210 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/Images/DML Poster_Portrait.jpg
-  artifactKey: Guid(bf26846d7b2509345b69e5c73731ecaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/Images/DML Poster_Portrait.jpg using Guid(bf26846d7b2509345b69e5c73731ecaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a74c6a3caafde0efb882d7f1deb1f970') in 0.045205 seconds
-  Import took 0.054392 seconds .
+  Time since last request: 0.000473 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_ConcreteFloor-Occlusion.tga
+  artifactKey: Guid(e952bc8e2bca34248b76239f63587f2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_ConcreteFloor-Occlusion.tga using Guid(e952bc8e2bca34248b76239f63587f2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee0c21451c9662070d7126ba540f66b0') in 0.065116 seconds
+  Import took 0.077923 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000208 seconds.
-  path: Assets/HYDAC_EView/IMPORTS/Images/DeakinPoster.jpg
-  artifactKey: Guid(89495d5412401434093e122904733649) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HYDAC_EView/IMPORTS/Images/DeakinPoster.jpg using Guid(89495d5412401434093e122904733649) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fc6f03e04088a39d20629ad9cc5a5d5') in 0.042287 seconds
-  Import took 0.051092 seconds .
+  Time since last request: 0.000169 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_ConcreteFloor-Albedo.tga
+  artifactKey: Guid(eabb9ec4d01b2c84283759422f18f319) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_ConcreteFloor-Albedo.tga using Guid(eabb9ec4d01b2c84283759422f18f319) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d921bbaff8b13d78c6ef66787f6beef') in 0.040699 seconds
+  Import took 0.047710 seconds .
 
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_ConcreteFloor-Occlusion.tga
+  artifactKey: Guid(e952bc8e2bca34248b76239f63587f2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_ConcreteFloor-Occlusion.tga using Guid(e952bc8e2bca34248b76239f63587f2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee0c21451c9662070d7126ba540f66b0') in 0.033948 seconds
+  Import took 0.041030 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_PlywoodFloor.psd
+  artifactKey: Guid(1d9759bfe6bf99a4ea177adf63b4e885) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_PlywoodFloor.psd using Guid(1d9759bfe6bf99a4ea177adf63b4e885) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc31b6f9f88e72bcc21a90c021e0e1a4') in 0.043461 seconds
+  Import took 0.050205 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000183 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_PaintMetal-Normal.tga
+  artifactKey: Guid(2fb73e283e90c8d4b9775be6947aadd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_PaintMetal-Normal.tga using Guid(2fb73e283e90c8d4b9775be6947aadd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '039f2fdca505e836bf75da9649c713bc') in 0.048065 seconds
+  Import took 0.054915 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000188 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_supportbeam_Occlusion.tga
+  artifactKey: Guid(2416f525a855d4b4990d3c211054a80b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/WarehouseKit/Textures/Clean/tex_supportbeam_Occlusion.tga using Guid(2416f525a855d4b4990d3c211054a80b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a37e03c40212ba5e05dbbd4da4bdacf') in 0.043407 seconds
+  Import took 0.049944 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2688.689308 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/Images/CoolerLabel_Caution.png
+  artifactKey: Guid(446d17c1cb09192408771cc3c4160042) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/Images/CoolerLabel_Caution.png using Guid(446d17c1cb09192408771cc3c4160042) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17b49dd0083c9d6b44b7f227b5ff6769') in 0.035974 seconds
+  Import took 0.043913 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 28.204938 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/Images/CoolerLabel_In.png
+  artifactKey: Guid(2fd5fb582bbeffb44987e2194543e942) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/Images/CoolerLabel_In.png using Guid(2fd5fb582bbeffb44987e2194543e942) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a14927e105823e9705a802bb52b8182') in 0.022270 seconds
+  Import took 0.029179 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/HYDAC_EView/IMPORTS/Images/CoolerLabel_Out.png
+  artifactKey: Guid(4599e3c07d8ceb049a8dd00f4573d61c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HYDAC_EView/IMPORTS/Images/CoolerLabel_Out.png using Guid(4599e3c07d8ceb049a8dd00f4573d61c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9f20f6fdf8a20df51e455a34a037687') in 0.025533 seconds
+  Import took 0.032262 seconds .
+
