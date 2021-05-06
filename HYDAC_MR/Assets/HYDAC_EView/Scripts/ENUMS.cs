@@ -1,6 +1,6 @@
-﻿public enum EACTIONS
+﻿public enum Eactions
 {
-    IMPLODE,
-    EXPLODE,
-    HIGHLIGHT
+    Implode,
+    Explode,
+    Highlight
 }

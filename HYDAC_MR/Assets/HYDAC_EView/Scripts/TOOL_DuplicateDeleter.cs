@@ -1,16 +1,17 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class TOOL_DuplicateDeleter : MonoBehaviour
+public class ToolDuplicateDeleter : MonoBehaviour
 {
-    public Transform DuplicateParent;
-    public bool Trigger;
-    public int NoOfChildren;
+    [FormerlySerializedAs("DuplicateParent")] public Transform duplicateParent;
+    [FormerlySerializedAs("Trigger")] public bool trigger;
+    [FormerlySerializedAs("NoOfChildren")] public int noOfChildren;
 
     private void OnValidate()
     {
-        NoOfChildren = transform.childCount;
+        noOfChildren = transform.childCount;
 
-        Debug.Log("#Eureka#------------------------- " + NoOfChildren);
+        Debug.Log("#Eureka#------------------------- " + noOfChildren);
 
         DeleteDuplicateObjectes();
     }
@@ -20,7 +21,7 @@ public class TOOL_DuplicateDeleter : MonoBehaviour
         int secondChildChildrenCount;
         Transform secondChild;
 
-        for (int i = 0; i < NoOfChildren; i++)
+        for (int i = 0; i < noOfChildren; i++)
         {
             secondChild = transform.GetChild(i);
             secondChildChildrenCount = secondChild.childCount;
@@ -30,12 +31,12 @@ public class TOOL_DuplicateDeleter : MonoBehaviour
             if (secondChildChildrenCount.Equals(2))
             {
                 Debug.Log("#Eureka#-------------------------Moving duplicate object");
-                secondChild.GetChild(secondChildChildrenCount - 1).parent = DuplicateParent;
+                secondChild.GetChild(secondChildChildrenCount - 1).parent = duplicateParent;
                 //Object.DestroyImmediate(secondChild.GetChild(secondChildChildrenCount - 1), true);
             }
             if (secondChildChildrenCount.Equals(0))
             {
-                secondChild.parent = DuplicateParent;
+                secondChild.parent = duplicateParent;
             }
         }
     }

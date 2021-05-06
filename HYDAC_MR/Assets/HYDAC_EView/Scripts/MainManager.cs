@@ -3,6 +3,7 @@ using UnityEngine;
 using HYDAC_EView.Scripts.MPart;
 using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.UI;
+using UnityEngine.Serialization;
 
 namespace HYDAC_EView.Scripts
 {
@@ -13,20 +14,20 @@ namespace HYDAC_EView.Scripts
 
         private const string MachinePartInfoFolderPath = "MachinePartInfos";
 
-        public bool IsExploded;
-        public int CurrentAssemblyNo;
+        [FormerlySerializedAs("IsExploded")] public bool isExploded;
+        [FormerlySerializedAs("CurrentAssemblyNo")] public int currentAssemblyNo;
         public int startingPosition;
         
         public int NoOfAssemblies => mNoOfAssemblies;
 
-        private IMachinePart[] MachineParts;
+        private IMachinePart[] _machineParts;
         
         private void Awake()
         {
             GetMachineParts();
 
-            IsExploded = false;
-            CurrentAssemblyNo = startingPosition;
+            isExploded = false;
+            currentAssemblyNo = startingPosition;
         }
         
         private void GetMachineParts()
@@ -48,8 +49,8 @@ namespace HYDAC_EView.Scripts
             }
 
             // Set to main array
-            MachineParts = parts.ToArray();
-            if (MachineParts.Length < 1)
+            _machineParts = parts.ToArray();
+            if (_machineParts.Length < 1)
             {
                 Debug.LogError("Error in casting to IMachinePart[]. Exiting Application");
                 Application.Quit();
@@ -57,19 +58,19 @@ namespace HYDAC_EView.Scripts
             }
 
             // Sort all parts by their assembly position
-            MachineParts = MachineParts.OrderBy(x => x.GetAssemblyPosition()).ToArray();
+            _machineParts = _machineParts.OrderBy(x => x.GetAssemblyPosition()).ToArray();
 
             // Get total number of assemblies
-            mNoOfAssemblies = MachineParts[MachineParts.Length - 1].GetAssemblyPosition();
+            mNoOfAssemblies = _machineParts[_machineParts.Length - 1].GetAssemblyPosition();
         }
 
         public void ToggleAll()
         {
-            foreach(IMachinePart part in MachineParts)
+            foreach(IMachinePart part in _machineParts)
             {
                 // If the current state is exploded then: 
                 // Implode
-                if (IsExploded)
+                if (isExploded)
                 {
                     part.Implode(mainSettings.positionTimeChange);
                 }
@@ -80,7 +81,7 @@ namespace HYDAC_EView.Scripts
                 }
             }
 
-            IsExploded = !IsExploded;
+            isExploded = !isExploded;
         }
 
 
@@ -95,7 +96,7 @@ namespace HYDAC_EView.Scripts
 
         public void StepAssembly(int step)
         {
-            int x = Mathf.Clamp(CurrentAssemblyNo + step, 0, mNoOfAssemblies);
+            int x = Mathf.Clamp(currentAssemblyNo + step, 0, mNoOfAssemblies);
             ChangeCurrentAssemblyPosition(x);
         }
 
@@ -104,11 +105,11 @@ namespace HYDAC_EView.Scripts
         {
             Debug.Log("#MainManager#-------------------------Changing assembly position to: " + assemblyPosition);
 
-            CurrentAssemblyNo = assemblyPosition;
+            currentAssemblyNo = assemblyPosition;
 
-            for (var i = 0; i < MachineParts.Length; i++)
+            for (var i = 0; i < _machineParts.Length; i++)
             {
-                var part = MachineParts[i];
+                var part = _machineParts[i];
                 var partPosition = part.GetAssemblyPosition();
 
                 // If its less than or equal to the passed assembly position => Explode

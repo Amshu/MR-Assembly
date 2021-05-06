@@ -1,23 +1,24 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Button))]
-public class BTN_MachinePart : MonoBehaviour
+public class BtnMachinePart : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI m_AssemblyPositionText = null;
-    [SerializeField] private TextMeshProUGUI m_PartNameText = null;
+    [FormerlySerializedAs("m_AssemblyPositionText")] [SerializeField] private TextMeshProUGUI mAssemblyPositionText = null;
+    [FormerlySerializedAs("m_PartNameText")] [SerializeField] private TextMeshProUGUI mPartNameText = null;
 
-    private Button m_button = null;
+    private Button _mButton = null;
 
     private void Awake()
     {
-        m_button = GetComponent<Button>();
+        _mButton = GetComponent<Button>();
     }
 
-    public void Initialize(int _assemblyNumber, string _partName)
+    public void Initialize(int assemblyNumber, string partName)
     {
-        m_AssemblyPositionText.text = _assemblyNumber.ToString();
-        m_PartNameText.text = _partName;
+        mAssemblyPositionText.text = assemblyNumber.ToString();
+        mPartNameText.text = partName;
     }
 }
