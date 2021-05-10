@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace HYDAC_EView.Scripts.MPart
+namespace HYDAC.Scripts.MAC
 {
     public class MachinePart : MonoBehaviour
     {
@@ -26,7 +26,7 @@ namespace HYDAC_EView.Scripts.MPart
 
         private void OnEnable()
         {
-            // Susbcribe to event in machine part info
+            // Subscribe to event in machine part info
             mPartInfo.OnInitialize += OnInitialized;
             mPartInfo.OnImplode += OnImploded;
             mPartInfo.OnExplode += OnExploded;
@@ -34,7 +34,7 @@ namespace HYDAC_EView.Scripts.MPart
         }
         private void OnDisable()
         {
-            // Susbcribe to event in machine part info
+            // Subscribe to event in machine part info
             mPartInfo.OnInitialize += OnInitialized;
             mPartInfo.OnImplode += OnImploded; 
 

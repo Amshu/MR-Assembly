@@ -1,28 +1,29 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+
 using UnityEngine;
-using HYDAC_EView.Scripts.MPart;
-using System.Collections.Generic;
+
 using Microsoft.MixedReality.Toolkit.UI;
-using UnityEngine.Serialization;
 
-namespace HYDAC_EView.Scripts
+namespace HYDAC.Scripts.MAC
 {
-    public class MainManager : MonoBehaviour
+    public abstract class ExplodedViewManager : MonoBehaviour
     {
-        [SerializeField] private SocMainSettings mainSettings;
-        [SerializeField] private int mNoOfAssemblies = 0;
-
         private const string MachinePartInfoFolderPath = "MachinePartInfos";
-
-        [FormerlySerializedAs("IsExploded")] public bool isExploded;
-        [FormerlySerializedAs("CurrentAssemblyNo")] public int currentAssemblyNo;
+        
+        [Header("Exploded View Members")]
+        [SerializeField] private int mNoOfSteps = 0;
+        
+        [Header("Debug")]
+        public bool isExploded;
+        public int currentAssemblyNo;
         public int startingPosition;
         
-        public int NoOfAssemblies => mNoOfAssemblies;
+        public int NoOfSteps => mNoOfSteps;
 
         private IMachinePart[] _machineParts;
         
-        private void Awake()
+        protected virtual void Awake()
         {
             GetMachineParts();
 
@@ -61,7 +62,7 @@ namespace HYDAC_EView.Scripts
             _machineParts = _machineParts.OrderBy(x => x.GetAssemblyPosition()).ToArray();
 
             // Get total number of assemblies
-            mNoOfAssemblies = _machineParts[_machineParts.Length - 1].GetAssemblyPosition();
+            mNoOfSteps = _machineParts[_machineParts.Length - 1].GetAssemblyPosition();
         }
 
         public void ToggleAll()
@@ -87,7 +88,7 @@ namespace HYDAC_EView.Scripts
 
         public void OnSliderUpdate(SliderEventData sliderData)
         {
-            float assemblyPosition = sliderData.NewValue * mNoOfAssemblies;
+            float assemblyPosition = sliderData.NewValue * mNoOfSteps;
 
             //Debug.Log("#MainManager#-------------------------OnSliderUpdate: " + sliderData.NewValue + " = " + assemblyPosition);
 
@@ -96,7 +97,7 @@ namespace HYDAC_EView.Scripts
 
         public void StepAssembly(int step)
         {
-            int x = Mathf.Clamp(currentAssemblyNo + step, 0, mNoOfAssemblies);
+            int x = Mathf.Clamp(currentAssemblyNo + step, 0, mNoOfSteps);
             ChangeCurrentAssemblyPosition(x);
         }
 

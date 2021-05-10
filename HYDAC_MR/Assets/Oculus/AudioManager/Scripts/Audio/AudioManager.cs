@@ -345,7 +345,7 @@ public partial class AudioManager : MonoBehaviour {
 		}
 		AudioClip clip = soundFX.GetClip();
 		if ( clip != null ) {
-			Assembly unityEditorAssembly = typeof(AudioImporter).Assembly;
+			System.Reflection.Assembly unityEditorAssembly = typeof(AudioImporter).Assembly;
 			Type audioUtilClass = unityEditorAssembly.GetType("UnityEditor.AudioUtil");
 			MethodInfo method = audioUtilClass.GetMethod(
 				"PlayClip",
@@ -375,7 +375,7 @@ public partial class AudioManager : MonoBehaviour {
 		}
 		AudioClip clip = soundFX.GetClip();
 		if ( clip != null ) {
-			Assembly unityEditorAssembly = typeof(AudioImporter).Assembly;
+			System.Reflection.Assembly unityEditorAssembly = typeof(AudioImporter).Assembly;
 			Type audioUtilClass = unityEditorAssembly.GetType("UnityEditor.AudioUtil");
 			MethodInfo method = audioUtilClass.GetMethod(
 				"IsClipPlaying",
@@ -412,7 +412,7 @@ public partial class AudioManager : MonoBehaviour {
 		AudioClip clip = soundFX.GetClip();
 		if (clip != null)
 		{
-			Assembly unityEditorAssembly = typeof(AudioImporter).Assembly;
+			System.Reflection.Assembly unityEditorAssembly = typeof(AudioImporter).Assembly;
 			Type audioUtilClass = unityEditorAssembly.GetType("UnityEditor.AudioUtil");
 			MethodInfo method = audioUtilClass.GetMethod(
 				"StopClip",

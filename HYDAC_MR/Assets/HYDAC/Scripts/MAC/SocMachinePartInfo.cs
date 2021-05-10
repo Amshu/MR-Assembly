@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace HYDAC_EView.Scripts.MPart
+namespace HYDAC.Scripts.MAC
 {
     /// <summary>
     /// <c>SocMachinePartInfo</c> is a scriptable object class that contains all the main details

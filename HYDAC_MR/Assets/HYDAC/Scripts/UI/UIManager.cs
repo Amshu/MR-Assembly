@@ -1,18 +1,19 @@
-﻿using UnityEngine;
+﻿using HYDAC.Scripts.MAC;
 using OculusSampleFramework;
+using UnityEngine;
 
-namespace HYDAC_EView.Scripts.UI
+namespace HYDAC.Scripts.UI
 {
-    [RequireComponent(typeof(MainManager))]
+    [RequireComponent(typeof(ExplodedViewManager))]
     public class UIManager : MonoBehaviour
     {
         [SerializeField] private string selectableTag = "MachinePart";
 
-        private MainManager _mMainManager = null;
+        private ExplodedViewManager _mExplodedViewManager = null;
 
         private void Awake()
         {
-            _mMainManager = GetComponent<MainManager>();
+            _mExplodedViewManager = GetComponent<ExplodedViewManager>();
         }
 
         public void OnImplodeAll(InteractableStateArgs obj)

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HYDAC_EView.Scripts.MPart
+namespace HYDAC.Scripts.MAC
 {
     public interface IMachinePart
     {

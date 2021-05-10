@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using HYDAC_EView.Scripts.MPart;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace HYDAC_EView.Scripts
+namespace HYDAC.Scripts
 {
     [CreateAssetMenu(fileName = "MainSettings", menuName = "SOCKS/MainSettings", order = 0)]
     public class SocMainSettings : ScriptableObject
@@ -13,5 +12,6 @@ namespace HYDAC_EView.Scripts
         public Material previousAssemblyMaterial;
         public Material currentAssemblyMaterial;
         public Material nextAssemblyMaterial;
+        [FormerlySerializedAs("fadeAssemblyMaterials")] public Material fadeAssemblyMaterial;
     }
 }
