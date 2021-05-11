@@ -9,11 +9,17 @@ namespace HYDAC.Scripts
         [SerializeField] private SocMainSettings mainSettings;
         [SerializeField] private AssemblyManager[] assemblyManagers;
 
+        private IAssembly _currentAssembly;
         private IAssembly[] _assemblies; 
 
         private void Awake()
         {
             GetAllAssemblies();
+        }
+
+        private void SetCurrentAssembly(AssemblyManager assembly)
+        {
+            _currentAssembly = assembly;
         }
 
         private void GetAllAssemblies()
@@ -28,9 +34,11 @@ namespace HYDAC.Scripts
 
         private void OnAssemblyFocusChanged(AssemblyManager assembly)
         {
+            SetCurrentAssembly((assembly));
+            
             for (int i = 0; i < _assemblies.Length; i++)
             {
-                if(assembly.Equals(_assemblies[i]))
+                if(_currentAssembly.Equals(_assemblies[i]))
                     _assemblies[i].ToggleFocus(true);
                 else
                     _assemblies[i].ToggleFocus(false, mainSettings.fadeAssemblyMaterial);
@@ -44,5 +52,14 @@ namespace HYDAC.Scripts
                 _assemblies[i].ToggleFocus(false);
             }
         }
+
+        #region Assembly Interface Calls
+
+        public void ToggleAssemblyExplode()
+        {
+            
+        }
+
+        #endregion
     }
 }

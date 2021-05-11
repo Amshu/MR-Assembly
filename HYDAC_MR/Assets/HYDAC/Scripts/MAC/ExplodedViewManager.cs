@@ -65,7 +65,7 @@ namespace HYDAC.Scripts.MAC
             mNoOfSteps = _machineParts[_machineParts.Length - 1].GetAssemblyPosition();
         }
 
-        public void ToggleAll()
+        public void ToggleAll(float positionTimeChange)
         {
             foreach(IMachinePart part in _machineParts)
             {
@@ -73,12 +73,12 @@ namespace HYDAC.Scripts.MAC
                 // Implode
                 if (isExploded)
                 {
-                    part.Implode(mainSettings.positionTimeChange);
+                    part.Implode(positionTimeChange);
                 }
                 // Explode
                 else
                 {
-                    part.Explode(mainSettings.positionTimeChange);
+                    part.Explode(positionTimeChange);
                 }
             }
 
@@ -102,7 +102,8 @@ namespace HYDAC.Scripts.MAC
         }
 
 
-        private void ChangeCurrentAssemblyPosition(int assemblyPosition)
+        private void ChangeCurrentAssemblyPosition(int assemblyPosition, float positionTimeChange,
+        Material previousAssemblyMaterial, Material currentAssemblyMaterial, Material nextAssemblyMaterial)
         {
             Debug.Log("#MainManager#-------------------------Changing assembly position to: " + assemblyPosition);
 
@@ -116,36 +117,36 @@ namespace HYDAC.Scripts.MAC
                 // If its less than or equal to the passed assembly position => Explode
                 if (partPosition <= assemblyPosition)
                 {
-                    part.Explode(mainSettings.positionTimeChange);
+                    part.Explode(positionTimeChange);
 
                     // Highlight previous part
                     if (partPosition == assemblyPosition - 1)
                     {
-                        part.HighlightPart(true, mainSettings.previousAssemblyMaterial);
+                        part.HighlightPart(true, previousAssemblyMaterial);
                     }
                     // Highlight current part
                     else if(partPosition == assemblyPosition)
                     {
-                        part.HighlightPart(false, mainSettings.currentAssemblyMaterial);
+                        part.HighlightPart(false, currentAssemblyMaterial);
                     }
                     else
                     {
-                        part.HighlightPart(false, mainSettings.currentAssemblyMaterial);
+                        part.HighlightPart(false, currentAssemblyMaterial);
                     }
                 }
                 // If its greater than the passed assembly position => Implode
                 else
                 {
-                    part.Implode(mainSettings.positionTimeChange);
+                    part.Implode(positionTimeChange);
 
                     // Highlight next part
                     if(partPosition == assemblyPosition + 1)
                     {
-                        part.HighlightPart(true, mainSettings.nextAssemblyMaterial);
+                        part.HighlightPart(true, nextAssemblyMaterial);
                     }
                     else
                     {
-                        part.HighlightPart(false, mainSettings.currentAssemblyMaterial);
+                        part.HighlightPart(false, currentAssemblyMaterial);
                     }
                 }
             }

@@ -9,6 +9,12 @@ namespace HYDAC.Scripts.MAC
 
         void ToggleFocus(bool toggle, Material fadeMaterial = null);
 
+        void ToggleExplode(float positionTimeChange);
+        void ChangeAssemblyPosition(int assemblyPosition, float positionTimeChange, 
+            Material previousAssemblyMaterial, Material currentAssemblyMaterial, Material nextAssemblyMaterial);
+
+        
+        
         void Reset();
     }
 }
