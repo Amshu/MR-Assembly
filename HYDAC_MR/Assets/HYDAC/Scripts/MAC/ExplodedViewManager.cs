@@ -92,13 +92,13 @@ namespace HYDAC.Scripts.MAC
 
             //Debug.Log("#MainManager#-------------------------OnSliderUpdate: " + sliderData.NewValue + " = " + assemblyPosition);
 
-            ChangeCurrentAssemblyPosition((int)assemblyPosition);
+            //ChangeCurrentAssemblyPosition((int)assemblyPosition);
         }
 
         public void StepAssembly(int step)
         {
             int x = Mathf.Clamp(currentAssemblyNo + step, 0, mNoOfSteps);
-            ChangeCurrentAssemblyPosition(x);
+            //ChangeCurrentAssemblyPosition(x);
         }
 
 

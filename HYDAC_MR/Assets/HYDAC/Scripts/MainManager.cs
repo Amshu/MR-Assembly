@@ -6,7 +6,6 @@ namespace HYDAC.Scripts
 {
     public class MainManager : MonoBehaviour
     {
-        [SerializeField] private SocMainSettings mainSettings;
         [SerializeField] private AssemblyManager[] assemblyManagers;
 
         private IAssembly _currentAssembly;
@@ -41,7 +40,7 @@ namespace HYDAC.Scripts
                 if(_currentAssembly.Equals(_assemblies[i]))
                     _assemblies[i].ToggleFocus(true);
                 else
-                    _assemblies[i].ToggleFocus(false, mainSettings.fadeAssemblyMaterial);
+                    _assemblies[i].ToggleFocus(false);
             }
         }
 
@@ -57,7 +56,12 @@ namespace HYDAC.Scripts
 
         public void ToggleAssemblyExplode()
         {
-            
+            _currentAssembly.ToggleExplode();
+        }
+
+        public void ChangeAssemblyPosition(int position)
+        {
+            _currentAssembly.ChangeAssemblyPosition(position);
         }
 
         #endregion
