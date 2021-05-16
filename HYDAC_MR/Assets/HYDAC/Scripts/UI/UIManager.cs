@@ -1,4 +1,4 @@
-﻿using HYDAC.Scripts.MAC;
+﻿using MAC;
 using OculusSampleFramework;
 using UnityEngine;
 
@@ -33,7 +33,7 @@ namespace HYDAC.Scripts.UI
         //     foreach (var part in parts)
         //     {
         //         var temp = Instantiate(mPartButtonPrefab, mPartButtonParent);
-        //         temp.GetComponent<BTN_MachinePart>().Initialize(part.GetAssemblyPosition(), part.GetPartName());
+        //         temp.GetComponent<BTN_MachinePart>().Initialize(part.GetUnitPosition(), part.GetPartName());
         //     }
         // }
         

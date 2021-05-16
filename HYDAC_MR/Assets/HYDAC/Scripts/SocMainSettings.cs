@@ -9,9 +9,9 @@ namespace HYDAC.Scripts
         [Range(0.1f, 2.0f)]
         public float positionTimeChange = 5.0f;
 
-        public Material previousAssemblyMaterial;
-        public Material currentAssemblyMaterial;
-        public Material nextAssemblyMaterial;
+        [FormerlySerializedAs("previousAssemblyMaterial")] public Material previousUnitMaterial;
+        [FormerlySerializedAs("currentAssemblyMaterial")] public Material currentUnitMaterial;
+        [FormerlySerializedAs("nextAssemblyMaterial")] public Material nextUnitMaterial;
         [FormerlySerializedAs("fadeAssemblyMaterials")] public Material fadeAssemblyMaterial;
     }
 }

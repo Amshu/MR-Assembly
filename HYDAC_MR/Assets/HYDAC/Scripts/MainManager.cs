@@ -1,67 +1,94 @@
 using UnityEngine;
 
-using HYDAC.Scripts.MAC;
+using MAC;
+using UnityEngine.Serialization;
 
 namespace HYDAC.Scripts
 {
     public class MainManager : MonoBehaviour
     {
-        [SerializeField] private AssemblyManager[] assemblyManagers;
+        [FormerlySerializedAs("assemblyManagers")] [SerializeField] private MacUnit[] units;
+        [SerializeField] private GameObject buttons;
+        private IMacUnit _currentMacUnit;
+        private IMacUnit[] _iMacUnits;
 
-        private IAssembly _currentAssembly;
-        private IAssembly[] _assemblies; 
+        private bool _inFocus;
 
         private void Awake()
         {
             GetAllAssemblies();
         }
 
-        private void SetCurrentAssembly(AssemblyManager assembly)
-        {
-            _currentAssembly = assembly;
-        }
-
         private void GetAllAssemblies()
         {
-            _assemblies = new IAssembly[assemblyManagers.Length];
-            for(int i = 0; i < _assemblies.Length; i++)
+            _iMacUnits = new IMacUnit[units.Length];
+            for(int i = 0; i < _iMacUnits.Length; i++)
             {
-                _assemblies[i] = assemblyManagers[i] as IAssembly;
-                _assemblies[i].OnFocused += OnAssemblyFocusChanged;
+                _iMacUnits[i] = units[i] as IMacUnit;
+                _iMacUnits[i].OnFocused += OnUnitFocused;
             }
         }
 
-        private void OnAssemblyFocusChanged(AssemblyManager assembly)
+        private void OnUnitFocused(MacUnit targetMacUnit)
         {
-            SetCurrentAssembly((assembly));
+            if (!_inFocus) return;
             
-            for (int i = 0; i < _assemblies.Length; i++)
+            // When Focused
+            // - Set inFocus to true
+            // - Set current MacUnit
+            // - Enable Explode UI
+            // - ToggleFocus callback on all MacUnits
+            _inFocus = true;
+            _currentMacUnit = targetMacUnit;
+            
+            buttons.SetActive(true);
+            
+            //Debug.Log("#MainManager#--------------Unit Focused");
+            
+            for (int i = 0; i < _iMacUnits.Length; i++)
             {
-                if(_currentAssembly.Equals(_assemblies[i]))
-                    _assemblies[i].ToggleFocus(true);
+                IMacUnit macUnitOnList = _iMacUnits[i];
+
+                if (_currentMacUnit.Equals(macUnitOnList))
+                {
+                    macUnitOnList.ToggleFocus(true);
+                }
                 else
-                    _assemblies[i].ToggleFocus(false);
+                    macUnitOnList.ToggleFocus(false);
             }
         }
 
-        private void ExitFocus()
+        /// <summary>
+        /// Event call from UI to reset 
+        /// </summary>
+        public void ExitFocus()
         {
-            for (int i = 0; i < _assemblies.Length; i++)
+            if (!_inFocus) return;
+
+            Debug.Log("#MainManager#--------------Exit Focus");
+
+            for (int i = 0; i < _iMacUnits.Length; i++)
             {
-                _assemblies[i].ToggleFocus(false);
+                IMacUnit macUnitOnList = _iMacUnits[i];
+
+                macUnitOnList.Reset(false);
             }
+            
+            _inFocus = false;
+            _currentMacUnit = null;
         }
 
+        
         #region Assembly Interface Calls
 
-        public void ToggleAssemblyExplode()
+        public void ToggleUnitExplode()
         {
-            _currentAssembly.ToggleExplode();
+            _currentMacUnit?.ToggleExplode();
         }
 
-        public void ChangeAssemblyPosition(int position)
+        public void ChangeUnitStepPosition(int position)
         {
-            _currentAssembly.ChangeAssemblyPosition(position);
+            _currentMacUnit?.ChangeUnitPosition(position);
         }
 
         #endregion
