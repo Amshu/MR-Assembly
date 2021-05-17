@@ -1,13 +1,11 @@
+using HYDAC.Scripts.MAC;
 using UnityEngine;
-
-using MAC;
-using UnityEngine.Serialization;
 
 namespace HYDAC.Scripts
 {
     public class MainManager : MonoBehaviour
     {
-        [FormerlySerializedAs("assemblyManagers")] [SerializeField] private MacUnit[] units;
+        [SerializeField] private MacUnit[] units;
         [SerializeField] private GameObject buttons;
         private IMacUnit _currentMacUnit;
         private IMacUnit[] _iMacUnits;
@@ -31,7 +29,7 @@ namespace HYDAC.Scripts
 
         private void OnUnitFocused(MacUnit targetMacUnit)
         {
-            if (!_inFocus) return;
+            if (_inFocus) return;
             
             // When Focused
             // - Set inFocus to true
@@ -43,17 +41,13 @@ namespace HYDAC.Scripts
             
             buttons.SetActive(true);
             
-            //Debug.Log("#MainManager#--------------Unit Focused");
+            Debug.Log("#MainManager#--------------Unit Focused");
             
             for (int i = 0; i < _iMacUnits.Length; i++)
             {
                 IMacUnit macUnitOnList = _iMacUnits[i];
 
-                if (_currentMacUnit.Equals(macUnitOnList))
-                {
-                    macUnitOnList.ToggleFocus(true);
-                }
-                else
+                if (!_currentMacUnit.Equals(macUnitOnList))
                     macUnitOnList.ToggleFocus(false);
             }
         }

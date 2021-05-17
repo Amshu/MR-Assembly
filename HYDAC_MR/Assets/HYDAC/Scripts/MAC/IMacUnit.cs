@@ -1,7 +1,6 @@
 ﻿using System;
-using UnityEngine;
 
-namespace MAC
+namespace HYDAC.Scripts.MAC
 {
     public interface IMacUnit
     {

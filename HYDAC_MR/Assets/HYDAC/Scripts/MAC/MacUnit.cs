@@ -2,25 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using HYDAC.Scripts;
+
 using UnityEngine;
 
 using Microsoft.MixedReality.Toolkit.UI;
 using Microsoft.MixedReality.Toolkit.UI.BoundsControl;
-using UnityEngine.Serialization;
 
-namespace MAC
+namespace HYDAC.Scripts.MAC
 {
     public sealed class MacUnit : MonoBehaviour, IMacUnit
     {
         private const string MachinePartInfoFolderPath = "MachinePartInfos";
-
-        [FormerlySerializedAs("mainSettings")]
+        
         [Header("Assembly Members")]
         [SerializeField] private SocMainSettings unitSettings;
 
         [SerializeField] private ObjectManipulator objectManipulator = null;
-        [SerializeField] private MoveAxisConstraint axisConstraint = null;
+        [SerializeField] private MoveAxisConstraint moveAxisConstraint = null;
         [SerializeField] private BoundsControl boundsControl = null;
 
         [Header("Exploded View Members")]
@@ -29,7 +27,7 @@ namespace MAC
 
         [Header("Debug")]
         public bool isExploded;
-        [FormerlySerializedAs("currentAssemblyNo")] public int currentUnitNo;
+        public int currentUnitNo;
         public int startingPosition;
         
 
@@ -43,8 +41,13 @@ namespace MAC
 
         private void Awake()
         {
+            _isInFocus = false;
+            
             _defaultPosition = transform.position;
             _defaultScale = transform.localScale;
+
+            moveAxisConstraint = GetComponent<MoveAxisConstraint>();
+            boundsControl = GetComponent<BoundsControl>();
             
             GetMachineParts();
 
@@ -128,10 +131,10 @@ namespace MAC
             _isInFocus = toggle;
             
             // Switch components
-            axisConstraint.enabled = toggle;
+            moveAxisConstraint.enabled = !toggle;
             boundsControl.enabled = toggle;
             
-            // If toggle off then
+            // If toggle focus = false then
             // - Scale Down
             if (!toggle)
             {
@@ -154,7 +157,7 @@ namespace MAC
                 ToggleUnitExplode(false, unitSettings.positionTimeChange);
                 
                 // Switch components
-                axisConstraint.enabled = true;
+                moveAxisConstraint.enabled = true;
                 boundsControl.enabled = false;
 
                 Debug.Log("#MacUNIT#----------------Lerp Position " + name);
@@ -172,7 +175,7 @@ namespace MAC
                 Debug.Log("#MacUNIT#----------------Lerp Scale " + name);
                 
                 // Reset Scale
-                StartCoroutine(LerpVector3(transform.localScale,_defaultPosition, 1, result =>
+                StartCoroutine(LerpVector3(transform.localScale,_defaultScale, 1, result =>
                 {
                     transform.localScale = result;
                 }));

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace MAC
+namespace HYDAC.Scripts.MAC
 {
     /// <summary>
     /// <c>SocMachinePartInfo</c> is a scriptable object class that contains all the main details

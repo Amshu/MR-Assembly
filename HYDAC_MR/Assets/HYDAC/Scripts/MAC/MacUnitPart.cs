@@ -2,20 +2,20 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace MAC
+namespace HYDAC.Scripts.MAC
 {
     public class MacUnitPart : MonoBehaviour
     {
         [FormerlySerializedAs("mPartInfo")] [SerializeField] private SMacUnitPart mPart = null;
-        public SMacUnitPart Part { get => mPart; }
+        public SMacUnitPart Part => mPart;
 
         [SerializeField] private Transform mExplodedTransform = null;
 
         private bool _mLock = false;
         private Vector3 _mImplodedPosition = Vector3.zero;
 
-        private MeshRenderer _mMesh = null;
-        private Material _mDefaultMaterial = null;
+        private MeshRenderer _mesh = null;
+        private Material _defaultMaterial = null;
 
         private void Awake()
         {
