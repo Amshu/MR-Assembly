@@ -61,6 +61,8 @@ namespace HYDAC.Scripts.MAC
             mPart.PrintInfo();
 
             _mLock = true;
+            
+            StopAllCoroutines();
             StartCoroutine(LerpPosition(this.transform, _mImplodedPosition, timeTakenToDest));
         }
 
@@ -74,6 +76,8 @@ namespace HYDAC.Scripts.MAC
             mPart.PrintInfo();
 
             _mLock = true;
+            
+            StopAllCoroutines();
             StartCoroutine(LerpPosition(this.transform, mExplodedTransform.localPosition, timeTakenToDest));
         }
     

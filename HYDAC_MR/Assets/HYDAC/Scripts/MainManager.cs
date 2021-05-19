@@ -15,6 +15,8 @@ namespace HYDAC.Scripts
         private void Awake()
         {
             GetAllAssemblies();
+            
+            buttons.SetActive(false);
         }
 
         private void GetAllAssemblies()
@@ -80,9 +82,9 @@ namespace HYDAC.Scripts
             _currentMacUnit?.ToggleExplode();
         }
 
-        public void ChangeUnitStepPosition(int position)
+        public void ChangeUnitStepPosition(int step)
         {
-            _currentMacUnit?.ChangeUnitPosition(position);
+            _currentMacUnit?.ChangeUnitPosition(step);
         }
 
         #endregion

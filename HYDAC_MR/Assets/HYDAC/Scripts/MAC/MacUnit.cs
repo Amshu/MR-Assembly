@@ -139,6 +139,7 @@ namespace HYDAC.Scripts.MAC
             if (!toggle)
             {
                 // Disappear
+                StopAllCoroutines();
                 StartCoroutine(LerpVector3(transform.localScale,Vector3.zero, 1, result =>
                 {
                     transform.localScale = result;
@@ -163,6 +164,7 @@ namespace HYDAC.Scripts.MAC
                 Debug.Log("#MacUNIT#----------------Lerp Position " + name);
 
                 // Reset Position
+                StopAllCoroutines();
                 StartCoroutine(LerpVector3(transform.position,_defaultPosition, 1, result =>
                 {
                     transform.position = result;
@@ -175,6 +177,7 @@ namespace HYDAC.Scripts.MAC
                 Debug.Log("#MacUNIT#----------------Lerp Scale " + name);
                 
                 // Reset Scale
+                StopAllCoroutines();
                 StartCoroutine(LerpVector3(transform.localScale,_defaultScale, 1, result =>
                 {
                     transform.localScale = result;
@@ -193,22 +196,22 @@ namespace HYDAC.Scripts.MAC
             ToggleUnitExplode(isExploded, unitSettings.positionTimeChange);
         }
 
-        void IMacUnit.ChangeUnitPosition(int position)
+        void IMacUnit.ChangeUnitPosition(int step)
         {
             if (!_isInFocus)
                 return;
             
-            ChangeCurrentUnitPosition((position));
+            int x = Mathf.Clamp(currentUnitNo + step, 0, mNoOfSteps);
+            ChangeCurrentUnitPosition((x));
         }
-        
-        
-
 
         #endregion
 
 
         private void ToggleUnitExplode(bool toggle, float positionTimeChange)
         {
+            currentUnitNo = (toggle) ? _unitParts.Length - 1 : 0;
+            
             foreach(IMacUnitPart part in _unitParts)
             {
                 // If the current state is exploded then: 
@@ -304,13 +307,6 @@ namespace HYDAC.Scripts.MAC
             //Debug.Log("#MainManager#-------------------------OnSliderUpdate: " + sliderData.NewValue + " = " + unitPosition);
 
             //ChangeCurrentUnitPosition((int)unitPosition);
-        }
-
-        
-        public void StepUnitPosition(int step)
-        {
-            int x = Mathf.Clamp(currentUnitNo + step, 0, mNoOfSteps);
-            //ChangeCurrentUnitPosition(x);
         }
     }
 }

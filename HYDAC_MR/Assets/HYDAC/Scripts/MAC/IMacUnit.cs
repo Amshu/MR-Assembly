@@ -15,6 +15,6 @@ namespace HYDAC.Scripts.MAC
         
         void ToggleExplode();
         
-        void ChangeUnitPosition(int position);
+        void ChangeUnitPosition(int step);
     }
 }
