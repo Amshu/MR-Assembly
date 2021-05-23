@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 8048018539877559452}
   - component: {fileID: 8048018539877559446}
   - component: {fileID: 6465158902851863340}
-  - component: {fileID: 3193305881498440548}
   - component: {fileID: 59406034382430156}
   m_Layer: 0
   m_Name: P_AS_AirCooler
@@ -104,8 +103,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8048018539877559442}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
+        m_TargetAssemblyTypeName: Microsoft.MixedReality.Toolkit.UI.BoundsControl.BoundsControl,
+          Microsoft.MixedReality.Toolkit.SDK
+        m_MethodName: set_Active
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -119,8 +119,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8048018539877559442}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
+        m_TargetAssemblyTypeName: Microsoft.MixedReality.Toolkit.UI.BoundsControl.BoundsControl,
+          Microsoft.MixedReality.Toolkit.SDK
+        m_MethodName: set_Active
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -149,7 +150,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8048018539877559455}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8200a044a5affb843ba856b902d9fd3c, type: 3}
   m_Name: 
@@ -269,8 +270,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.31955773, y: 0.41481906, z: 0.4086973}
-  m_Center: {x: 0.004254967, y: -0.014021486, z: -0.0028635561}
+  m_Size: {x: 0.444, y: 0.5325, z: 0.4085}
+  m_Center: {x: 0, y: -0.017447993, z: 0}
 --- !u!82 &8048018539877559446
 AudioSource:
   m_ObjectHideFlags: 0
@@ -383,20 +384,6 @@ MonoBehaviour:
   proximityType: 3
   constraintOnMovement: -1
   useLocalSpaceForConstraint: 0
---- !u!114 &3193305881498440548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8048018539877559455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94f5a225c7404f14199c10f7d78bea49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMaterial: {fileID: 2100000, guid: 030672d2ca9c090478a1c8436b3c2cb4, type: 2}
-  outlineWidth: 0.4
 --- !u!114 &59406034382430156
 MonoBehaviour:
   m_ObjectHideFlags: 0
