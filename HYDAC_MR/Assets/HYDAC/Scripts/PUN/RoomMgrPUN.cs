@@ -1,7 +1,8 @@
-﻿using Photon.Pun;
-using Photon.Realtime;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+
+using Photon.Pun;
+using Photon.Realtime;
 
 namespace HYDAC.Scripts.PUN
 {
@@ -51,7 +52,7 @@ namespace HYDAC.Scripts.PUN
             }
             else
             {
-                if (PlayerMgrPun.LocalPlayerInstance == null)
+                if (PlayerMgrPUN.localPlayerInstance == null)
                 {
                     Debug.LogFormat("Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
 
