@@ -7,8 +7,6 @@ namespace HYDAC.Scripts.UI
     [RequireComponent(typeof(ExplodedViewManager))]
     public class UIManager : MonoBehaviour
     {
-        [SerializeField] private string selectableTag = "MachinePart";
-
         private ExplodedViewManager _mExplodedViewManager = null;
 
         private void Awake()

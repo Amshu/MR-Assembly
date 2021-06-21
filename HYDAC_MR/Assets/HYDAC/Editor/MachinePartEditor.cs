@@ -1,12 +1,12 @@
 ﻿using System;
-using HYDAC.Scripts.MAC;
+using HYDAC.Scripts.MOD;
 using MAC;
 using UnityEngine;
 using UnityEditor;
 
 namespace HYDAC_EView.Editor
 {
-    [CustomEditor(typeof(MacUnitPart))]
+    [CustomEditor(typeof(SubModule))]
     public class MachinePartEditor : UnityEditor.Editor
     {
         public string partInfo = "Part Description:";
@@ -22,7 +22,7 @@ namespace HYDAC_EView.Editor
             
             GUILayout.Label("Use the below GUI create a MachinePartInfo if not created");
             
-            MacUnitPart myScript = (MacUnitPart)target;
+            SubModule myScript = (SubModule)target;
 
             partAssemblyPosition = GUILayout.TextField(partAssemblyPosition, 2);
             partInfo = GUILayout.TextArea(partInfo, 500);
@@ -31,7 +31,7 @@ namespace HYDAC_EView.Editor
 
             if (GUILayout.Button("Create Part Info"))
             {
-                SMacUnitPart info = ScriptableObject.CreateInstance<SMacUnitPart>();
+                SSubModule info = ScriptableObject.CreateInstance<SSubModule>();
 
                 info.unitPosition = Convert.ToInt32(partAssemblyPosition);
                 info.partName = myScript.gameObject.name;

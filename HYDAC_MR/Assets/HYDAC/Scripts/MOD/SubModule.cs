@@ -2,20 +2,20 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace HYDAC.Scripts.MAC
+namespace HYDAC.Scripts.MOD
 {
-    public class MacUnitPart : MonoBehaviour
+    public class SubModule : MonoBehaviour
     {
-        [FormerlySerializedAs("mPartInfo")] [SerializeField] private SMacUnitPart mPart = null;
-        public SMacUnitPart Part => mPart;
+        [FormerlySerializedAs("mPart")] [FormerlySerializedAs("mPartInfo")] [SerializeField] private SSubModule mSubModule = null;
+        public SSubModule subModule => mSubModule;
 
         [SerializeField] private Transform mExplodedTransform = null;
 
         private bool _mLock = false;
         private Vector3 _mImplodedPosition = Vector3.zero;
 
-        private MeshRenderer _mesh = null;
-        private Material _defaultMaterial = null;
+        //private MeshRenderer _mesh = null;
+        //private Material _defaultMaterial = null;
 
         private void Awake()
         {
@@ -28,20 +28,20 @@ namespace HYDAC.Scripts.MAC
         private void OnEnable()
         {
             // Subscribe to event in machine part info
-            mPart.OnInitialize += OnInitialized;
-            mPart.OnImplode += OnImploded;
+            mSubModule.OnInitialize += OnInitialized;
+            mSubModule.OnImplode += OnImploded;
             
-            mPart.OnExplode += OnExploded;
-            mPart.OnHighlightPart += OnHighlighted;
+            mSubModule.OnExplode += OnExploded;
+            mSubModule.OnHighlightPart += OnHighlighted;
         }
         private void OnDisable()
         {
             // Subscribe to event in machine part info
-            mPart.OnInitialize += OnInitialized;
-            mPart.OnImplode += OnImploded; 
+            mSubModule.OnInitialize += OnInitialized;
+            mSubModule.OnImplode += OnImploded; 
 
-            mPart.OnExplode += OnExploded;
-            mPart.OnHighlightPart += OnHighlighted;
+            mSubModule.OnExplode += OnExploded;
+            mSubModule.OnHighlightPart += OnHighlighted;
         }
 
 
@@ -58,7 +58,7 @@ namespace HYDAC.Scripts.MAC
             if (_mLock) return;
 
             Debug.Log("#MachinePart#-------------------------Implode :");
-            mPart.PrintInfo();
+            mSubModule.PrintInfo();
 
             _mLock = true;
             
@@ -73,7 +73,7 @@ namespace HYDAC.Scripts.MAC
             if (_mLock) return;
 
             Debug.Log("#MachinePart#-------------------------Explode");
-            mPart.PrintInfo();
+            mSubModule.PrintInfo();
 
             _mLock = true;
             
@@ -108,10 +108,10 @@ namespace HYDAC.Scripts.MAC
 
 
 
-        public void SetPartInfo(SMacUnitPart info)
+        public void SetPartInfo(SSubModule info)
         {
 #if UNITY_EDITOR
-            mPart = info;
+            mSubModule = info;
 #endif
         }
 

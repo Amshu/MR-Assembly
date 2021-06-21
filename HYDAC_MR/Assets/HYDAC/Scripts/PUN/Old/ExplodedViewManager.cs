@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using HYDAC.Scripts.MAC;
+using HYDAC.Scripts.MOD;
 using UnityEngine;
 
 using Microsoft.MixedReality.Toolkit.UI;
@@ -21,7 +21,7 @@ namespace MAC
         
         public int NoOfSteps => mNoOfSteps;
 
-        private IMacUnitPart[] _machineParts;
+        private ISubModule[] _machineParts;
         
         protected virtual void Awake()
         {
@@ -34,7 +34,7 @@ namespace MAC
         private void GetMachineParts()
         {
             // Load from Resources
-            var machinePartInfos = Resources.LoadAll(MachinePartInfoFolderPath, typeof(IMacUnitPart));
+            var machinePartInfos = Resources.LoadAll(MachinePartInfoFolderPath, typeof(ISubModule));
             if (machinePartInfos.Length < 1)
             {
                 Debug.LogError("No Machine part infos found or loaded. Exiting Application");
@@ -43,10 +43,10 @@ namespace MAC
             }
 
             // Cast each loaded object to IMachinePart
-            List<IMacUnitPart> parts = new List<IMacUnitPart>();
+            List<ISubModule> parts = new List<ISubModule>();
             foreach(object ogj in machinePartInfos)
             {
-                parts.Add(ogj as IMacUnitPart);
+                parts.Add(ogj as ISubModule);
             }
 
             // Set to main array
@@ -67,7 +67,7 @@ namespace MAC
 
         public void ToggleAll(float positionTimeChange)
         {
-            foreach(IMacUnitPart part in _machineParts)
+            foreach(ISubModule part in _machineParts)
             {
                 // If the current state is exploded then: 
                 // Implode

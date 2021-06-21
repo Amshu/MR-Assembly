@@ -2,14 +2,14 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace HYDAC.Scripts.MAC
+namespace HYDAC.Scripts.MOD
 {
     /// <summary>
     /// <c>SocMachinePartInfo</c> is a scriptable object class that contains all the main details
     /// of a given machine part such as:
     /// <c>partName</c><value>This is the name of the part in, partName.</value>
     /// </summary>
-    public class SMacUnitPart : ScriptableObject, IMacUnitPart
+    public class SSubModule : ScriptableObject, ISubModule
     {
         public string partName = "";
         [FormerlySerializedAs("assemblyPosition")] public int unitPosition = 0;
@@ -25,22 +25,22 @@ namespace HYDAC.Scripts.MAC
 
         #region IMachinePart implementation
 
-        void IMacUnitPart.Initialize()
+        void ISubModule.Initialize()
         {
             OnInitialize?.Invoke(unitPosition, partName);
         }
 
-        int IMacUnitPart.GetUnitPosition()
+        int ISubModule.GetUnitPosition()
         {
             return unitPosition;
         }
 
-        string IMacUnitPart.GetPartName()
+        string ISubModule.GetPartName()
         {
             return partName;
         }
 
-        void IMacUnitPart.ToggleExplode(bool toggle, float timeToDest)
+        void ISubModule.ToggleExplode(bool toggle, float timeToDest)
         {
             if(toggle)
                 OnExplode?.Invoke(timeToDest);
@@ -49,7 +49,7 @@ namespace HYDAC.Scripts.MAC
         }
         
 
-        void IMacUnitPart.ChangeMaterial(bool toggle, Material highlightMaterial)
+        void ISubModule.ChangeMaterial(bool toggle, Material highlightMaterial)
         {
             OnHighlightPart?.Invoke(toggle, highlightMaterial);
         }

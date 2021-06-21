@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace HYDAC.Scripts.MAC
+namespace HYDAC.Scripts.MOD
 {
-    public interface IMacUnitPart
+    public interface ISubModule
     {
         void Initialize();
         int GetUnitPosition();

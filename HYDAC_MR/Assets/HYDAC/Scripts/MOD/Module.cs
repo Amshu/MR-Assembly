@@ -2,74 +2,74 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using UnityEngine;
 
 using Microsoft.MixedReality.Toolkit.UI;
 using Microsoft.MixedReality.Toolkit.UI.BoundsControl;
+using UnityEngine.Serialization;
 
-namespace HYDAC.Scripts.MAC
+namespace HYDAC.Scripts.MOD
 {
-    public sealed class MacUnit : MonoBehaviour, IMacUnit
+    public sealed class Module : MonoBehaviour, IModule
     {
         private const string MachinePartInfoFolderPath = "MachinePartInfos";
         
         [Header("Assembly Members")]
-        [SerializeField] private SocMainSettings unitSettings;
-
-        [SerializeField] private ObjectManipulator objectManipulator = null;
-        [SerializeField] private MoveAxisConstraint moveAxisConstraint = null;
-        [SerializeField] private BoundsControl boundsControl = null;
+        [SerializeField] private SocMainSettings mUnitSettings;
 
         [Header("Exploded View Members")]
         [SerializeField] private int mNoOfSteps = 0;
         public int NoOfSteps => mNoOfSteps;
 
-        [Header("Debug")]
-        public bool isExploded;
-        public int currentUnitNo;
-        public int startingPosition;
-        
+        private ObjectManipulator _objectManipulator = null;
+        private MoveAxisConstraint _moveAxisConstraint = null;
+        private BoundsControl _boundsControl = null;
 
         private bool _isInFocus = false;
         private Vector3 _defaultPosition;
+        private Quaternion _defaultRotation;
         private Vector3 _defaultScale;
         
-        private IMacUnitPart[] _unitParts;
+        private ISubModule[] _subModules;
         
-        
+        [Header("Debug")]
+        public bool isExploded;
+        [FormerlySerializedAs("currentUnitNo")] public int currentModNo;
+        public int startingPosition;
 
         private void Awake()
         {
             _isInFocus = false;
             
             _defaultPosition = transform.position;
+            _defaultRotation = transform.rotation;
             _defaultScale = transform.localScale;
 
-            moveAxisConstraint = GetComponent<MoveAxisConstraint>();
-            boundsControl = GetComponent<BoundsControl>();
+            _objectManipulator = GetComponent<ObjectManipulator>();
+            _moveAxisConstraint = GetComponent<MoveAxisConstraint>();
+            _boundsControl = GetComponent<BoundsControl>();
             
             GetMachineParts();
 
             isExploded = false;
-            currentUnitNo = startingPosition;
+            currentModNo = startingPosition;
         }
 
         private void OnEnable()
         {
-            objectManipulator.OnManipulationStarted.AddListener(OnClicked);
+            _objectManipulator.OnManipulationStarted.AddListener(OnClicked);
         }
 
         private void OnDisable()
         {
-            objectManipulator.OnManipulationStarted.RemoveListener(OnClicked);
+            _objectManipulator.OnManipulationStarted.RemoveListener(OnClicked);
         }
 
 
         private void GetMachineParts()
         {
             // Load from Resources
-            var machinePartInfos = Resources.LoadAll(MachinePartInfoFolderPath, typeof(IMacUnitPart));
+            var machinePartInfos = Resources.LoadAll(MachinePartInfoFolderPath, typeof(ISubModule));
             if (machinePartInfos.Length < 1)
             {
                 Debug.LogError("No Machine part infos found or loaded. Exiting Application");
@@ -78,15 +78,15 @@ namespace HYDAC.Scripts.MAC
             }
 
             // Cast each loaded object to IMachinePart
-            List<IMacUnitPart> parts = new List<IMacUnitPart>();
+            List<ISubModule> parts = new List<ISubModule>();
             foreach(object ogj in machinePartInfos)
             {
-                parts.Add(ogj as IMacUnitPart);
+                parts.Add(ogj as ISubModule);
             }
 
             // Set to main array
-            _unitParts = parts.ToArray();
-            if (_unitParts.Length < 1)
+            _subModules = parts.ToArray();
+            if (_subModules.Length < 1)
             {
                 Debug.LogError("Error in casting to IMachinePart[]. Exiting Application");
                 Application.Quit();
@@ -94,10 +94,10 @@ namespace HYDAC.Scripts.MAC
             }
 
             // Sort all parts by their assembly position
-            _unitParts = _unitParts.OrderBy(x => x.GetUnitPosition()).ToArray();
+            _subModules = _subModules.OrderBy(x => x.GetUnitPosition()).ToArray();
 
             // Get total number of assemblies
-            mNoOfSteps = _unitParts[_unitParts.Length - 1].GetUnitPosition();
+            mNoOfSteps = _subModules[_subModules.Length - 1].GetUnitPosition();
         }
         
         
@@ -110,12 +110,12 @@ namespace HYDAC.Scripts.MAC
             // Raise OnFocused event
             RaiseOnFocused(this);
             
-            (this as IMacUnit).ToggleFocus(true);
+            (this as IModule).ToggleFocus(true);
         }
         
         
-        public event Action<MacUnit> OnFocused;
-        private void RaiseOnFocused(MacUnit managerRef)
+        public event Action<Module> OnFocused;
+        private void RaiseOnFocused(Module managerRef)
         {
             OnFocused?.Invoke(managerRef);
             
@@ -126,13 +126,13 @@ namespace HYDAC.Scripts.MAC
         #region  IMacUnit Implementation
 
 
-        void IMacUnit.ToggleFocus(bool toggle)
+        void IModule.ToggleFocus(bool toggle)
         {
             _isInFocus = toggle;
             
             // Switch components
-            moveAxisConstraint.enabled = !toggle;
-            boundsControl.enabled = toggle;
+            _moveAxisConstraint.enabled = !toggle;
+            _boundsControl.enabled = toggle;
             
             // If toggle focus = false then
             // - Scale Down
@@ -147,27 +147,35 @@ namespace HYDAC.Scripts.MAC
             }
         }
 
-        void IMacUnit.Reset(bool flag)
+        void IModule.Reset()
         {
             // If this assembly was in focus then
             // - Reset assembly position to 0 - Implode
             // - Lerp Position
+            // - Lerp Rotation
             // - SwitchOff Components
             if (_isInFocus)
             {
-                ToggleUnitExplode(false, unitSettings.positionTimeChange);
+                ToggleExplode(false, mUnitSettings.positionTimeChange);
                 
                 // Switch components
-                moveAxisConstraint.enabled = true;
-                boundsControl.enabled = false;
+                _moveAxisConstraint.enabled = true;
+                _boundsControl.enabled = false;
 
                 Debug.Log("#MacUNIT#----------------Lerp Position " + name);
+                
+                StopAllCoroutines();
 
                 // Reset Position
-                StopAllCoroutines();
                 StartCoroutine(LerpVector3(transform.position,_defaultPosition, 1, result =>
                 {
                     transform.position = result;
+                }));
+                
+                // Reset rotation
+                StartCoroutine(LerpQuaternion(transform.rotation,_defaultRotation, 1, result =>
+                {
+                    transform.rotation = result;
                 }));
             }
             // Else
@@ -187,32 +195,32 @@ namespace HYDAC.Scripts.MAC
             _isInFocus = false;
         }
 
-        void IMacUnit.ToggleExplode()
+        void IModule.ToggleExplode()
         {
             if (!_isInFocus)
                 return;
             
             isExploded = !isExploded;
-            ToggleUnitExplode(isExploded, unitSettings.positionTimeChange);
+            ToggleExplode(isExploded, mUnitSettings.positionTimeChange);
         }
 
-        void IMacUnit.ChangeUnitPosition(int step)
+        void IModule.ChangePosition(int step)
         {
             if (!_isInFocus)
                 return;
             
-            int x = Mathf.Clamp(currentUnitNo + step, 0, mNoOfSteps);
+            int x = Mathf.Clamp(currentModNo + step, 0, mNoOfSteps);
             ChangeCurrentUnitPosition((x));
         }
 
         #endregion
 
 
-        private void ToggleUnitExplode(bool toggle, float positionTimeChange)
+        private void ToggleExplode(bool toggle, float positionTimeChange)
         {
-            currentUnitNo = (toggle) ? _unitParts.Length - 1 : 0;
+            currentModNo = (toggle) ? _subModules.Length - 1 : 0;
             
-            foreach(IMacUnitPart part in _unitParts)
+            foreach(ISubModule part in _subModules)
             {
                 // If the current state is exploded then: 
                 // Implode
@@ -233,46 +241,46 @@ namespace HYDAC.Scripts.MAC
         {
             Debug.Log("#MacUnit#-------------------------Changing assembly position to: " + unitPosition);
 
-            currentUnitNo = unitPosition;
+            currentModNo = unitPosition;
 
-            for (var i = 0; i < _unitParts.Length; i++)
+            for (var i = 0; i < _subModules.Length; i++)
             {
-                var part = _unitParts[i];
+                var part = _subModules[i];
                 var partPosition = part.GetUnitPosition();
 
                 // If its less than or equal to the passed unit position => Explode
                 if (partPosition <= unitPosition)
                 {
-                    part.ToggleExplode(true, unitSettings.positionTimeChange);
+                    part.ToggleExplode(true, mUnitSettings.positionTimeChange);
 
                     // Highlight previous part
                     if (partPosition == unitPosition - 1)
                     {
-                        part.ChangeMaterial(true, unitSettings.previousUnitMaterial);
+                        part.ChangeMaterial(true, mUnitSettings.previousUnitMaterial);
                     }
                     // Highlight current part
                     else if(partPosition == unitPosition)
                     {
-                        part.ChangeMaterial(false, unitSettings.currentUnitMaterial);
+                        part.ChangeMaterial(false, mUnitSettings.currentUnitMaterial);
                     }
                     else
                     {
-                        part.ChangeMaterial(false, unitSettings.currentUnitMaterial);
+                        part.ChangeMaterial(false, mUnitSettings.currentUnitMaterial);
                     }
                 }
                 // If its greater than the passed unit position => Implode
                 else
                 {
-                    part.ToggleExplode(false, unitSettings.positionTimeChange);
+                    part.ToggleExplode(false, mUnitSettings.positionTimeChange);
 
                     // Highlight next part
                     if(partPosition == unitPosition + 1)
                     {
-                        part.ChangeMaterial(true, unitSettings.nextUnitMaterial);
+                        part.ChangeMaterial(true, mUnitSettings.nextUnitMaterial);
                     }
                     else
                     {
-                        part.ChangeMaterial(false, unitSettings.currentUnitMaterial);
+                        part.ChangeMaterial(false, mUnitSettings.currentUnitMaterial);
                     }
                 }
             }
@@ -290,6 +298,26 @@ namespace HYDAC.Scripts.MAC
                 t += Time.deltaTime / timeTaken;
 
                 Vector3 result = Vector3.Lerp(start, end, t);
+                
+                updateCall?.Invoke(result);
+                
+                yield return null;
+            }
+
+            //_mLock = false;
+        }
+        
+        private IEnumerator LerpQuaternion(Quaternion start, Quaternion end, float timeTaken, Action<Quaternion> updateCall)
+        {
+            var t = 0f;
+
+            while (t < 1)
+            {
+                //Debug.Log("#MacUnit#---------------Lerping from " + start + " to " + end);
+                
+                t += Time.deltaTime / timeTaken;
+
+                Quaternion result = Quaternion.Lerp(start, end, t);
                 
                 updateCall?.Invoke(result);
                 

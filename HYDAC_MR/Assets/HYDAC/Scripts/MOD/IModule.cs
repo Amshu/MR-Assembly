@@ -1,20 +1,20 @@
 ﻿using System;
 
-namespace HYDAC.Scripts.MAC
+namespace HYDAC.Scripts.MOD
 {
-    public interface IMacUnit
+    public interface IModule
     {
-        event Action<MacUnit> OnFocused;
+        event Action<Module> OnFocused;
 
         void ToggleFocus(bool toggle);
         
         /// <summary>
         ///  This is for the part in focus 
         /// </summary>
-        void Reset(bool unfocusedUnit);
+        void Reset();
         
         void ToggleExplode();
         
-        void ChangeUnitPosition(int step);
+        void ChangePosition(int step);
     }
 }

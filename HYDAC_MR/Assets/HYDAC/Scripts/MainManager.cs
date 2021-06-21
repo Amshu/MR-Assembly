@@ -1,14 +1,15 @@
-using HYDAC.Scripts.MAC;
 using UnityEngine;
+
+using HYDAC.Scripts.MOD;
 
 namespace HYDAC.Scripts
 {
     public class MainManager : MonoBehaviour
     {
-        [SerializeField] private MacUnit[] units;
+        [SerializeField] private Module[] units;
         [SerializeField] private GameObject buttons;
-        private IMacUnit _currentMacUnit;
-        private IMacUnit[] _iMacUnits;
+        private IModule _currentModule;
+        private IModule[] _iModules;
 
         private bool _inFocus;
 
@@ -21,15 +22,15 @@ namespace HYDAC.Scripts
 
         private void GetAllAssemblies()
         {
-            _iMacUnits = new IMacUnit[units.Length];
-            for(int i = 0; i < _iMacUnits.Length; i++)
+            _iModules = new IModule[units.Length];
+            for(int i = 0; i < _iModules.Length; i++)
             {
-                _iMacUnits[i] = units[i] as IMacUnit;
-                _iMacUnits[i].OnFocused += OnUnitFocused;
+                _iModules[i] = units[i] as IModule;
+                _iModules[i].OnFocused += OnModuleFocused;
             }
         }
 
-        private void OnUnitFocused(MacUnit targetMacUnit)
+        private void OnModuleFocused(Module targetModule)
         {
             if (_inFocus) return;
             
@@ -39,18 +40,18 @@ namespace HYDAC.Scripts
             // - Enable Explode UI
             // - ToggleFocus callback on all MacUnits
             _inFocus = true;
-            _currentMacUnit = targetMacUnit;
+            _currentModule = targetModule;
             
             buttons.SetActive(true);
             
             Debug.Log("#MainManager#--------------Unit Focused");
             
-            for (int i = 0; i < _iMacUnits.Length; i++)
+            for (int i = 0; i < _iModules.Length; i++)
             {
-                IMacUnit macUnitOnList = _iMacUnits[i];
+                IModule module = _iModules[i];
 
-                if (!_currentMacUnit.Equals(macUnitOnList))
-                    macUnitOnList.ToggleFocus(false);
+                if (!_currentModule.Equals(module))
+                    module.ToggleFocus(false);
             }
         }
 
@@ -63,28 +64,28 @@ namespace HYDAC.Scripts
 
             Debug.Log("#MainManager#--------------Exit Focus");
 
-            for (int i = 0; i < _iMacUnits.Length; i++)
+            for (int i = 0; i < _iModules.Length; i++)
             {
-                IMacUnit macUnitOnList = _iMacUnits[i];
+                IModule module = _iModules[i];
 
-                macUnitOnList.Reset(false);
+                module.Reset();
             }
             
             _inFocus = false;
-            _currentMacUnit = null;
+            _currentModule = null;
         }
 
         
         #region Assembly Interface Calls
 
-        public void ToggleUnitExplode()
+        public void ToggleExplode()
         {
-            _currentMacUnit?.ToggleExplode();
+            _currentModule?.ToggleExplode();
         }
 
-        public void ChangeUnitStepPosition(int step)
+        public void ChangePositionStep(int step)
         {
-            _currentMacUnit?.ChangeUnitPosition(step);
+            _currentModule?.ChangePosition(step);
         }
 
         #endregion

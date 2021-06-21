@@ -77,6 +77,6 @@ namespace HYDAC_EView.Scripts
         /// <summary>
         ///     Raised when ToggleExplodedView is called and PUN is enabled.
         /// </summary>
-        public event ExplodeViewControllerDelegate OnToggleExplodedView;
+        // public event ExplodeViewControllerDelegate OnToggleExplodedView;
     }
 }
