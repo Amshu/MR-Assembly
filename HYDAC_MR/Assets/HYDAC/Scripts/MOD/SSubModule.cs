@@ -12,7 +12,7 @@ namespace HYDAC.Scripts.MOD
     public class SSubModule : ScriptableObject, ISubModule
     {
         public string partName = "";
-        [FormerlySerializedAs("assemblyPosition")] public int unitPosition = 0;
+        public int assemblyPosition = 0;
 
         [TextArea]
         public string partInfo = "";
@@ -21,18 +21,18 @@ namespace HYDAC.Scripts.MOD
         internal event Action<int, string> OnInitialize;
         internal event Action<float> OnImplode;
         internal event Action<float> OnExplode;
-        internal event Action<bool, Material> OnHighlightPart;
+        internal event Action<bool, Material> OnHighlight;
 
         #region IMachinePart implementation
 
         void ISubModule.Initialize()
         {
-            OnInitialize?.Invoke(unitPosition, partName);
+            OnInitialize?.Invoke(assemblyPosition, partName);
         }
 
         int ISubModule.GetUnitPosition()
         {
-            return unitPosition;
+            return assemblyPosition;
         }
 
         string ISubModule.GetPartName()
@@ -51,15 +51,15 @@ namespace HYDAC.Scripts.MOD
 
         void ISubModule.ChangeMaterial(bool toggle, Material highlightMaterial)
         {
-            OnHighlightPart?.Invoke(toggle, highlightMaterial);
+            OnHighlight?.Invoke(toggle, highlightMaterial);
         }
 
         #endregion
         
         public void PrintInfo()
         {
-            Debug.LogFormat("#SOC_MachinePartInfo#-------------------------{0}{1}\nPartInfo: {2}", 
-                unitPosition, partName , partInfo);
+            Debug.LogFormat("#SSubModule#-------------------------{0}{1}\nPartInfo: {2}", 
+                assemblyPosition, partName , partInfo);
         }
     }
 }

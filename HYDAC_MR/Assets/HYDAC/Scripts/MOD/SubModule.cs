@@ -4,9 +4,20 @@ using UnityEngine.Serialization;
 
 namespace HYDAC.Scripts.MOD
 {
+    public interface ISubModule
+    {
+        void Initialize();
+        int GetUnitPosition();
+        string GetPartName();
+        void ToggleExplode(bool toggle, float timeToDest);
+        
+        void ChangeMaterial(bool toggle, Material highlightMaterial);
+    }
+    
+    
     public class SubModule : MonoBehaviour
     {
-        [FormerlySerializedAs("mPart")] [FormerlySerializedAs("mPartInfo")] [SerializeField] private SSubModule mSubModule = null;
+        [SerializeField] private SSubModule mSubModule = null;
         public SSubModule subModule => mSubModule;
 
         [SerializeField] private Transform mExplodedTransform = null;
@@ -32,7 +43,7 @@ namespace HYDAC.Scripts.MOD
             mSubModule.OnImplode += OnImploded;
             
             mSubModule.OnExplode += OnExploded;
-            mSubModule.OnHighlightPart += OnHighlighted;
+            mSubModule.OnHighlight += OnHighlighted;
         }
         private void OnDisable()
         {
@@ -41,7 +52,7 @@ namespace HYDAC.Scripts.MOD
             mSubModule.OnImplode += OnImploded; 
 
             mSubModule.OnExplode += OnExploded;
-            mSubModule.OnHighlightPart += OnHighlighted;
+            mSubModule.OnHighlight += OnHighlighted;
         }
 
 
@@ -57,7 +68,7 @@ namespace HYDAC.Scripts.MOD
             // Dont do anything if the part is not free
             if (_mLock) return;
 
-            Debug.Log("#MachinePart#-------------------------Implode :");
+            Debug.Log("#SubModule#-------------------------Implode :");
             mSubModule.PrintInfo();
 
             _mLock = true;
@@ -72,7 +83,7 @@ namespace HYDAC.Scripts.MOD
             // Dont do anything if the part is not free
             if (_mLock) return;
 
-            Debug.Log("#MachinePart#-------------------------Explode");
+            Debug.Log("#SubModule#-------------------------Explode");
             mSubModule.PrintInfo();
 
             _mLock = true;

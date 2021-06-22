@@ -33,13 +33,13 @@ namespace HYDAC_EView.Editor
             {
                 SSubModule info = ScriptableObject.CreateInstance<SSubModule>();
 
-                info.unitPosition = Convert.ToInt32(partAssemblyPosition);
+                info.assemblyPosition = Convert.ToInt32(partAssemblyPosition);
                 info.partName = myScript.gameObject.name;
                 info.partInfo = partInfo;
                 
                 EditorUtility.SetDirty(info);
 
-                string fileName = info.unitPosition + "_INFO_" + info.partName + ".asset";
+                string fileName = info.assemblyPosition + "_INFO_" + info.partName + ".asset";
                 string fileURL = MachinePartInfosPath + fileName;
                 
                 AssetDatabase.CreateAsset(info, fileURL);

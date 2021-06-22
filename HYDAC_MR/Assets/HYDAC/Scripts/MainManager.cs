@@ -1,91 +1,127 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 using HYDAC.Scripts.MOD;
+using UnityEngine.Serialization;
 
 namespace HYDAC.Scripts
 {
     public class MainManager : MonoBehaviour
     {
-        [SerializeField] private Module[] units;
+        [SerializeField] private BaseModule[] modules;
         [SerializeField] private GameObject buttons;
-        private IModule _currentModule;
-        private IModule[] _iModules;
+        
+        private IAssemblyModule _currentAssemblyModule;
+        private IAssemblyModule[] _assemblyModules;
 
         private bool _inFocus;
 
         private void Awake()
         {
-            GetAllAssemblies();
+            GetAllModules();
             
             buttons.SetActive(false);
         }
 
-        private void GetAllAssemblies()
+        /// <summary>
+        ///  ON APPLICATION AWAKE
+        /// ----------------------
+        /// - Find and store all the Assembly Modules in the Modules array
+        ///
+        /// - Register to the assembly module's onFocus events
+        /// </summary>
+        private void GetAllModules()
         {
-            _iModules = new IModule[units.Length];
-            for(int i = 0; i < _iModules.Length; i++)
+            List<IAssemblyModule> assemblyModules = new List<IAssemblyModule>();
+            
+            foreach (BaseModule module in modules)
             {
-                _iModules[i] = units[i] as IModule;
-                _iModules[i].OnFocused += OnModuleFocused;
+                if (module is IAssemblyModule)
+                {
+                    //Debug.Log("#MainManager#--------------Assembly Module Found");
+
+                    IAssemblyModule assemblyModule = module as IAssemblyModule;
+                    assemblyModules.Add(assemblyModule);
+
+                    assemblyModule.OnModuleFocused += OnModuleFocused;
+                }
             }
+
+            _assemblyModules = assemblyModules.ToArray();
+
+            Debug.Log("#MainManager#--------------Assembly Modules Found - " + _assemblyModules.Length);
         }
 
-        private void OnModuleFocused(Module targetModule)
+        /// <summary>
+        ///  ON USER MODULE SELECTION
+        /// --------------------------
+        /// - Set the system mode to 'Focused'
+        /// - Get and set the reference of the focused module
+        /// 
+        /// - Enable the UI for the 'Focused' mode
+        /// 
+        /// - Set all the other modules in 'UnfocusedMode'
+        /// </summary>
+        /// <param name="targetAssemblyModule"></param>
+        private void OnModuleFocused(IAssemblyModule targetAssemblyModule)
         {
+            // If the current mode is already in FOCUSED MODE then ignore
             if (_inFocus) return;
             
-            // When Focused
-            // - Set inFocus to true
-            // - Set current MacUnit
-            // - Enable Explode UI
-            // - ToggleFocus callback on all MacUnits
             _inFocus = true;
-            _currentModule = targetModule;
+            _currentAssemblyModule = targetAssemblyModule;
             
             buttons.SetActive(true);
             
-            Debug.Log("#MainManager#--------------Unit Focused");
+            //Debug.Log("#MainManager#--------------Unit Focused");
             
-            for (int i = 0; i < _iModules.Length; i++)
+            for (int i = 0; i < modules.Length; i++)
             {
-                IModule module = _iModules[i];
+                IBaseModule module = modules[i];
 
-                if (!_currentModule.Equals(module))
+                if (!_currentAssemblyModule.Equals(module))
                     module.ToggleFocus(false);
             }
         }
 
+
         /// <summary>
-        /// Event call from UI to reset 
+        ///  ON USER EXIT FROM FOCUS MODE
+        /// -----------------------------
+        /// - Remove reference of the focused module
+        /// 
+        /// - Set all the other modules back to default Mode
+        /// - Set the system mode to 'UNFOCUSED'
         /// </summary>
         public void ExitFocus()
         {
+            // If the current mode is "Unfocused' then ignore
             if (!_inFocus) return;
 
-            Debug.Log("#MainManager#--------------Exit Focus");
+            //Debug.Log("#MainManager#--------------Exit Focus");
 
-            for (int i = 0; i < _iModules.Length; i++)
+            for (int i = 0; i < modules.Length; i++)
             {
-                IModule module = _iModules[i];
+                IBaseModule module = modules[i];
 
                 module.Reset();
             }
             
             _inFocus = false;
-            _currentModule = null;
+            _currentAssemblyModule = null;
         }
 
         
-        #region Assembly Interface Calls
+        #region UI EVENT METHODS-------------------------
 
         public void ToggleExplode()
         {
-            _currentModule?.ToggleExplode();
+            _currentAssemblyModule?.ToggleExplode();
         }
 
         public void ChangePositionStep(int step)
         {
-            _currentModule?.ChangePosition(step);
+            _currentAssemblyModule?.ChangePosition(step);
         }
 
         #endregion
