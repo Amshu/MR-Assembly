@@ -20,7 +20,7 @@ namespace HYDAC.Scripts.MOD
     
     public sealed class AssemblyModule : BaseModule, IAssemblyModule
     {
-        private const string MachinePartInfoFolderPath = "MachinePartInfos";
+        private const string MachinePartInfoFolderPath = "SubModuleInfos";
         
         [Header("Assembly Members")]
         [SerializeField] private SocMainSettings mUnitSettings;
@@ -138,7 +138,7 @@ namespace HYDAC.Scripts.MOD
             var machinePartInfos = Resources.LoadAll(MachinePartInfoFolderPath, typeof(ISubModule));
             if (machinePartInfos.Length < 1)
             {
-                Debug.LogError("No Machine part infos found or loaded. Exiting Application");
+                Debug.LogError("No sub-module infos found or loaded. Exiting Application");
                 Application.Quit();
                 return;
             }

@@ -45,52 +45,6 @@ namespace Core {
 	}
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public class Byte {
-		System.Byte value { get; set; }
-		Byte(System.Byte v) { value = v; }
-		public static implicit operator System.Byte(Byte self) { return self.value; }
-		public static implicit operator Byte(System.Byte v) { return new Byte(v); }
-	}
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class Double {
-		System.Double value { get; set; }
-		Double(System.Double v) { value = v; }
-		public static implicit operator System.Double(Double self) { return self.value; }
-		public static implicit operator Double(System.Double v) { return new Double(v); }
-	}
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class UShort {
-		System.UInt16 value { get; set; }
-		UShort(System.UInt16 v) { value = v; }
-		public static implicit operator System.UInt16(UShort self) { return self.value; }
-		public static implicit operator UShort(System.UInt16 v) { return new UShort(v); }
-	}
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class StringList {
-		public System.String[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public StringList() {}
-		public StringList(System.String[] tab) { list = tab; }
-		public static implicit operator System.String[](StringList o) { return o.list; }
-		public System.String this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public StringList(int size) { list = new System.String[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct StringList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
 	public struct Date
 	{
 		public Date(Date o) {
@@ -169,6 +123,28 @@ namespace Core {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
+	public class StringList {
+		public System.String[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public StringList() {}
+		public StringList(System.String[] tab) { list = tab; }
+		public static implicit operator System.String[](StringList o) { return o.list; }
+		public System.String this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public StringList(int size) { list = new System.String[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct StringList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
 	public class LicenseInfos
 	{
 		public LicenseInfos() {}
@@ -197,6 +173,55 @@ namespace Core {
 		internal IntPtr customerEmail;
 		internal Date_c startDate;
 		internal Date_c endDate;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class UShort {
+		System.UInt16 value { get; set; }
+		UShort(System.UInt16 v) { value = v; }
+		public static implicit operator System.UInt16(UShort self) { return self.value; }
+		public static implicit operator UShort(System.UInt16 v) { return new UShort(v); }
+	}
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class Byte {
+		System.Byte value { get; set; }
+		Byte(System.Byte v) { value = v; }
+		public static implicit operator System.Byte(Byte self) { return self.value; }
+		public static implicit operator Byte(System.Byte v) { return new Byte(v); }
+	}
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class Double {
+		System.Double value { get; set; }
+		Double(System.Double v) { value = v; }
+		public static implicit operator System.Double(Double self) { return self.value; }
+		public static implicit operator Double(System.Double v) { return new Double(v); }
+	}
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public struct ColorAlpha
+	{
+		public ColorAlpha(ColorAlpha o) {
+			this.r = o.r;
+			this.g = o.g;
+			this.b = o.b;
+			this.a = o.a;
+		}
+		public System.Double r;
+		public System.Double g;
+		public System.Double b;
+		public System.Double a;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct ColorAlpha_c
+	{
+		internal System.Double r;
+		internal System.Double g;
+		internal System.Double b;
+		internal System.Double a;
 	}
 
 	[Serializable]
@@ -241,31 +266,6 @@ namespace Core {
 		internal System.Double r;
 		internal System.Double g;
 		internal System.Double b;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public struct ColorAlpha
-	{
-		public ColorAlpha(ColorAlpha o) {
-			this.r = o.r;
-			this.g = o.g;
-			this.b = o.b;
-			this.a = o.a;
-		}
-		public System.Double r;
-		public System.Double g;
-		public System.Double b;
-		public System.Double a;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct ColorAlpha_c
-	{
-		internal System.Double r;
-		internal System.Double g;
-		internal System.Double b;
-		internal System.Double a;
 	}
 
 	[Serializable]
@@ -355,6 +355,13 @@ namespace Core {
 		internal IntPtr ptr;
 	}
 
+	public enum InheritableBool
+	{
+		False = 0,
+		True = 1,
+		Inherited = 2,
+	}
+
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
 	public struct StringPair
@@ -416,13 +423,6 @@ namespace Core {
 		internal IntPtr ptr;
 	}
 
-	public enum InheritableBool
-	{
-		False = 0,
-		True = 1,
-		Inherited = 2,
-	}
-
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
 	public class InheritableBoolList {
@@ -471,6 +471,26 @@ namespace Geom {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
+	public class Array4
+	{
+		public Double[] tab = new Double[4];
+		public Array4() {}
+		public Array4(Double[] t) { tab = t; }
+		public static implicit operator Double[](Array4 o) { return o.tab; }
+		public Double this[int index] {
+			get{ return tab[index]; }
+			set{ tab[index] = value; }
+		}
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Array4_c
+	{
+		internal IntPtr tab;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
 	public struct Point2
 	{
 		public Point2(Point2 o) {
@@ -486,27 +506,6 @@ namespace Geom {
 	{
 		internal System.Double x;
 		internal System.Double y;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class Point2List {
-		public Point2[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public Point2List(Point2[] tab) { list = tab; }
-		public static implicit operator Point2[](Point2List o) { return o.list; }
-		public Point2 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public Point2List(int size) { list = new Point2[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Point2List_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
 	}
 
 	[Serializable]
@@ -533,74 +532,11 @@ namespace Geom {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public class Point3List {
-		public Point3[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public Point3List(Point3[] tab) { list = tab; }
-		public static implicit operator Point3[](Point3List o) { return o.list; }
-		public Point3 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public Point3List(int size) { list = new Point3[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Point3List_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
 	public struct Vector3 {
 		public Vector3(Point3 value) { this._base = value; }
 		public static implicit operator Point3(Vector3 v) { return v._base; }
 		public static implicit operator Vector3(Point3 v) { return new Vector3(v); }
 		public Point3 _base;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class Point3ListList {
-		public Point3List[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public Point3ListList(Point3List[] tab) { list = tab; }
-		public static implicit operator Point3List[](Point3ListList o) { return o.list; }
-		public Point3List this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public Point3ListList(int size) { list = new Point3List[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Point3ListList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class Point2ListList {
-		public Point2List[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public Point2ListList(Point2List[] tab) { list = tab; }
-		public static implicit operator Point2List[](Point2ListList o) { return o.list; }
-		public Point2List this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public Point2ListList(int size) { list = new Point2List[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Point2ListList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
 	}
 
 	[Serializable]
@@ -631,22 +567,86 @@ namespace Geom {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public class Array4
-	{
-		public Double[] tab = new Double[4];
-		public Array4() {}
-		public Array4(Double[] t) { tab = t; }
-		public static implicit operator Double[](Array4 o) { return o.tab; }
-		public Double this[int index] {
-			get{ return tab[index]; }
-			set{ tab[index] = value; }
+	public class Point3List {
+		public Point3[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public Point3List(Point3[] tab) { list = tab; }
+		public static implicit operator Point3[](Point3List o) { return o.list; }
+		public Point3 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
 		}
+		public Point3List(int size) { list = new Point3[size]; }
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public struct Array4_c
+	public struct Point3List_c
 	{
-		internal IntPtr tab;
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class Point3ListList {
+		public Point3List[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public Point3ListList(Point3List[] tab) { list = tab; }
+		public static implicit operator Point3List[](Point3ListList o) { return o.list; }
+		public Point3List this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public Point3ListList(int size) { list = new Point3List[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Point3ListList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class Point2List {
+		public Point2[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public Point2List(Point2[] tab) { list = tab; }
+		public static implicit operator Point2[](Point2List o) { return o.list; }
+		public Point2 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public Point2List(int size) { list = new Point2[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Point2List_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class Point2ListList {
+		public Point2List[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public Point2ListList(Point2List[] tab) { list = tab; }
+		public static implicit operator Point2List[](Point2ListList o) { return o.list; }
+		public Point2List this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public Point2ListList(int size) { list = new Point2List[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Point2ListList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
 	}
 
 	[Serializable]
@@ -746,20 +746,20 @@ namespace Geom {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public class Vector3List {
-		public Vector3[] list;
+	public class Vector4List {
+		public Vector4[] list;
 		public int length { get { return (list != null) ? list.Length : 0; } }
-		public Vector3List(Vector3[] tab) { list = tab; }
-		public static implicit operator Vector3[](Vector3List o) { return o.list; }
-		public Vector3 this[int index] {
+		public Vector4List(Vector4[] tab) { list = tab; }
+		public static implicit operator Vector4[](Vector4List o) { return o.list; }
+		public Vector4 this[int index] {
 			get { return list[index]; }
 			set { list[index] = value; }
 		}
-		public Vector3List(int size) { list = new Vector3[size]; }
+		public Vector4List(int size) { list = new Vector4[size]; }
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public struct Vector3List_c
+	public struct Vector4List_c
 	{
 		internal System.UInt64 size;
 		internal IntPtr ptr;
@@ -813,6 +813,27 @@ namespace Geom {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
+	public class Vector3List {
+		public Vector3[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public Vector3List(Vector3[] tab) { list = tab; }
+		public static implicit operator Vector3[](Vector3List o) { return o.list; }
+		public Vector3 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public Vector3List(int size) { list = new Vector3[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Vector3List_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
 	public class CurvaturesList {
 		public Curvatures[] list;
 		public int length { get { return (list != null) ? list.Length : 0; } }
@@ -832,27 +853,6 @@ namespace Geom {
 		internal IntPtr ptr;
 	}
 
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class Vector4List {
-		public Vector4[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public Vector4List(Vector4[] tab) { list = tab; }
-		public static implicit operator Vector4[](Vector4List o) { return o.list; }
-		public Vector4 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public Vector4List(int size) { list = new Vector4[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Vector4List_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
 }
 
 namespace Material {
@@ -864,28 +864,6 @@ namespace Material {
 		STANDARD = 2,
 		UNLIT_TEXTURE = 3,
 		PBR = 4,
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class ImageList {
-		public System.UInt32[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public ImageList() {}
-		public ImageList(System.UInt32[] tab) { list = tab; }
-		public static implicit operator System.UInt32[](ImageList o) { return o.list; }
-		public System.UInt32 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public ImageList(int size) { list = new System.UInt32[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct ImageList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
 	}
 
 	[Serializable]
@@ -916,44 +894,25 @@ namespace Material {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public class UnlitTextureMaterialInfos
+	public struct CoeffOrTexture
 	{
-		public UnlitTextureMaterialInfos() {}
-		public UnlitTextureMaterialInfos(UnlitTextureMaterialInfos o) {
-			this.name = o.name;
-			this.texture = o.texture;
+		public enum Type
+		{
+			UNKNOWN = 0,
+			COEFF = 1,
+			TEXTURE = 2,
 		}
-		public System.String name;
+		public System.Double coeff;
 		public Texture texture;
+		public Type _type;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public struct UnlitTextureMaterialInfos_c
+	public struct CoeffOrTexture_c
 	{
-		internal IntPtr name;
+		internal System.Double coeff;
 		internal Texture_c texture;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class MaterialList {
-		public System.UInt32[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public MaterialList() {}
-		public MaterialList(System.UInt32[] tab) { list = tab; }
-		public static implicit operator System.UInt32[](MaterialList o) { return o.list; }
-		public System.UInt32 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public MaterialList(int size) { list = new System.UInt32[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct MaterialList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
+		internal int _type;
 	}
 
 	[Serializable]
@@ -1016,67 +975,6 @@ namespace Material {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public struct CoeffOrTexture
-	{
-		public enum Type
-		{
-			UNKNOWN = 0,
-			COEFF = 1,
-			TEXTURE = 2,
-		}
-		public System.Double coeff;
-		public Texture texture;
-		public Type _type;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct CoeffOrTexture_c
-	{
-		internal System.Double coeff;
-		internal Texture_c texture;
-		internal int _type;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class MaterialDefinition
-	{
-		public MaterialDefinition() {}
-		public MaterialDefinition(MaterialDefinition o) {
-			this.name = o.name;
-			this.id = o.id;
-			this.albedo = o.albedo;
-			this.normal = o.normal;
-			this.metallic = o.metallic;
-			this.roughness = o.roughness;
-			this.ao = o.ao;
-			this.opacity = o.opacity;
-		}
-		public System.String name;
-		public System.UInt32 id;
-		public ColorOrTexture albedo;
-		public ColorOrTexture normal;
-		public CoeffOrTexture metallic;
-		public CoeffOrTexture roughness;
-		public CoeffOrTexture ao;
-		public CoeffOrTexture opacity;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct MaterialDefinition_c
-	{
-		internal IntPtr name;
-		internal System.UInt32 id;
-		internal ColorOrTexture_c albedo;
-		internal ColorOrTexture_c normal;
-		internal CoeffOrTexture_c metallic;
-		internal CoeffOrTexture_c roughness;
-		internal CoeffOrTexture_c ao;
-		internal CoeffOrTexture_c opacity;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
 	public class ColorMaterialInfos
 	{
 		public ColorMaterialInfos() {}
@@ -1093,41 +991,6 @@ namespace Material {
 	{
 		internal IntPtr name;
 		internal Core.ColorAlpha_c color;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class PBRMaterialInfos
-	{
-		public PBRMaterialInfos() {}
-		public PBRMaterialInfos(PBRMaterialInfos o) {
-			this.name = o.name;
-			this.albedo = o.albedo;
-			this.normal = o.normal;
-			this.metallic = o.metallic;
-			this.roughness = o.roughness;
-			this.ao = o.ao;
-			this.opacity = o.opacity;
-		}
-		public System.String name;
-		public ColorOrTexture albedo;
-		public ColorOrTexture normal;
-		public CoeffOrTexture metallic;
-		public CoeffOrTexture roughness;
-		public CoeffOrTexture ao;
-		public CoeffOrTexture opacity;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct PBRMaterialInfos_c
-	{
-		internal IntPtr name;
-		internal ColorOrTexture_c albedo;
-		internal ColorOrTexture_c normal;
-		internal CoeffOrTexture_c metallic;
-		internal CoeffOrTexture_c roughness;
-		internal CoeffOrTexture_c ao;
-		internal CoeffOrTexture_c opacity;
 	}
 
 	[Serializable]
@@ -1188,6 +1051,143 @@ namespace Material {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
+	public class MaterialList {
+		public System.UInt32[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public MaterialList() {}
+		public MaterialList(System.UInt32[] tab) { list = tab; }
+		public static implicit operator System.UInt32[](MaterialList o) { return o.list; }
+		public System.UInt32 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public MaterialList(int size) { list = new System.UInt32[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct MaterialList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class ImageList {
+		public System.UInt32[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public ImageList() {}
+		public ImageList(System.UInt32[] tab) { list = tab; }
+		public static implicit operator System.UInt32[](ImageList o) { return o.list; }
+		public System.UInt32 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public ImageList(int size) { list = new System.UInt32[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct ImageList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class PBRMaterialInfos
+	{
+		public PBRMaterialInfos() {}
+		public PBRMaterialInfos(PBRMaterialInfos o) {
+			this.name = o.name;
+			this.albedo = o.albedo;
+			this.normal = o.normal;
+			this.metallic = o.metallic;
+			this.roughness = o.roughness;
+			this.ao = o.ao;
+			this.opacity = o.opacity;
+		}
+		public System.String name;
+		public ColorOrTexture albedo;
+		public ColorOrTexture normal;
+		public CoeffOrTexture metallic;
+		public CoeffOrTexture roughness;
+		public CoeffOrTexture ao;
+		public CoeffOrTexture opacity;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct PBRMaterialInfos_c
+	{
+		internal IntPtr name;
+		internal ColorOrTexture_c albedo;
+		internal ColorOrTexture_c normal;
+		internal CoeffOrTexture_c metallic;
+		internal CoeffOrTexture_c roughness;
+		internal CoeffOrTexture_c ao;
+		internal CoeffOrTexture_c opacity;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class UnlitTextureMaterialInfos
+	{
+		public UnlitTextureMaterialInfos() {}
+		public UnlitTextureMaterialInfos(UnlitTextureMaterialInfos o) {
+			this.name = o.name;
+			this.texture = o.texture;
+		}
+		public System.String name;
+		public Texture texture;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct UnlitTextureMaterialInfos_c
+	{
+		internal IntPtr name;
+		internal Texture_c texture;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class MaterialDefinition
+	{
+		public MaterialDefinition() {}
+		public MaterialDefinition(MaterialDefinition o) {
+			this.name = o.name;
+			this.id = o.id;
+			this.albedo = o.albedo;
+			this.normal = o.normal;
+			this.metallic = o.metallic;
+			this.roughness = o.roughness;
+			this.ao = o.ao;
+			this.opacity = o.opacity;
+		}
+		public System.String name;
+		public System.UInt32 id;
+		public ColorOrTexture albedo;
+		public ColorOrTexture normal;
+		public CoeffOrTexture metallic;
+		public CoeffOrTexture roughness;
+		public CoeffOrTexture ao;
+		public CoeffOrTexture opacity;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct MaterialDefinition_c
+	{
+		internal IntPtr name;
+		internal System.UInt32 id;
+		internal ColorOrTexture_c albedo;
+		internal ColorOrTexture_c normal;
+		internal CoeffOrTexture_c metallic;
+		internal CoeffOrTexture_c roughness;
+		internal CoeffOrTexture_c ao;
+		internal CoeffOrTexture_c opacity;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
 	public class MaterialDefinitionList {
 		public MaterialDefinition[] list;
 		public int length { get { return (list != null) ? list.Length : 0; } }
@@ -1211,12 +1211,6 @@ namespace Material {
 
 namespace Polygonal {
 
-	public enum StyleType
-	{
-		NORMAL = 0,
-		STIPPLE = 1,
-	}
-
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
 	public class MeshList {
@@ -1234,6 +1228,34 @@ namespace Polygonal {
 
 	[StructLayout(LayoutKind.Sequential)]
 	public struct MeshList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	public enum StyleType
+	{
+		NORMAL = 0,
+		STIPPLE = 1,
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class JointList {
+		public System.UInt32[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public JointList() {}
+		public JointList(System.UInt32[] tab) { list = tab; }
+		public static implicit operator System.UInt32[](JointList o) { return o.list; }
+		public System.UInt32 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public JointList(int size) { list = new System.UInt32[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct JointList_c
 	{
 		internal System.UInt64 size;
 		internal IntPtr ptr;
@@ -1346,28 +1368,6 @@ namespace Polygonal {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public class JointList {
-		public System.UInt32[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public JointList() {}
-		public JointList(System.UInt32[] tab) { list = tab; }
-		public static implicit operator System.UInt32[](JointList o) { return o.list; }
-		public System.UInt32 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public JointList(int size) { list = new System.UInt32[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct JointList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
 	public class MeshDefinition
 	{
 		public MeshDefinition() {}
@@ -1467,40 +1467,39 @@ namespace CAD {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public struct Bounds1D
+	public struct OrientedDomain
 	{
-		public Bounds1D(Bounds1D o) {
-			this.min = o.min;
-			this.max = o.max;
+		public OrientedDomain(OrientedDomain o) {
+			this.domain = o.domain;
+			this.orientation = o.orientation;
 		}
-		public System.Double min;
-		public System.Double max;
+		public System.UInt32 domain;
+		public System.Boolean orientation;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public struct Bounds1D_c
+	public struct OrientedDomain_c
 	{
-		internal System.Double min;
-		internal System.Double max;
+		internal System.UInt32 domain;
+		internal Int32 orientation;
 	}
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public class LoopList {
-		public System.UInt32[] list;
+	public class OrientedDomainList {
+		public OrientedDomain[] list;
 		public int length { get { return (list != null) ? list.Length : 0; } }
-		public LoopList() {}
-		public LoopList(System.UInt32[] tab) { list = tab; }
-		public static implicit operator System.UInt32[](LoopList o) { return o.list; }
-		public System.UInt32 this[int index] {
+		public OrientedDomainList(OrientedDomain[] tab) { list = tab; }
+		public static implicit operator OrientedDomain[](OrientedDomainList o) { return o.list; }
+		public OrientedDomain this[int index] {
 			get { return list[index]; }
 			set { list[index] = value; }
 		}
-		public LoopList(int size) { list = new System.UInt32[size]; }
+		public OrientedDomainList(int size) { list = new OrientedDomain[size]; }
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public struct LoopList_c
+	public struct OrientedDomainList_c
 	{
 		internal System.UInt64 size;
 		internal IntPtr ptr;
@@ -1508,108 +1507,21 @@ namespace CAD {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public class LimitedCurveList {
+	public class ClosedShellList {
 		public System.UInt32[] list;
 		public int length { get { return (list != null) ? list.Length : 0; } }
-		public LimitedCurveList() {}
-		public LimitedCurveList(System.UInt32[] tab) { list = tab; }
-		public static implicit operator System.UInt32[](LimitedCurveList o) { return o.list; }
+		public ClosedShellList() {}
+		public ClosedShellList(System.UInt32[] tab) { list = tab; }
+		public static implicit operator System.UInt32[](ClosedShellList o) { return o.list; }
 		public System.UInt32 this[int index] {
 			get { return list[index]; }
 			set { list[index] = value; }
 		}
-		public LimitedCurveList(int size) { list = new System.UInt32[size]; }
+		public ClosedShellList(int size) { list = new System.UInt32[size]; }
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public struct LimitedCurveList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class EdgeList {
-		public System.UInt32[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public EdgeList() {}
-		public EdgeList(System.UInt32[] tab) { list = tab; }
-		public static implicit operator System.UInt32[](EdgeList o) { return o.list; }
-		public System.UInt32 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public EdgeList(int size) { list = new System.UInt32[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct EdgeList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class CoEdgeList {
-		public System.UInt32[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public CoEdgeList() {}
-		public CoEdgeList(System.UInt32[] tab) { list = tab; }
-		public static implicit operator System.UInt32[](CoEdgeList o) { return o.list; }
-		public System.UInt32 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public CoEdgeList(int size) { list = new System.UInt32[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct CoEdgeList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class EdgeListList {
-		public EdgeList[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public EdgeListList(EdgeList[] tab) { list = tab; }
-		public static implicit operator EdgeList[](EdgeListList o) { return o.list; }
-		public EdgeList this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public EdgeListList(int size) { list = new EdgeList[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct EdgeListList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class FaceList {
-		public System.UInt32[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public FaceList() {}
-		public FaceList(System.UInt32[] tab) { list = tab; }
-		public static implicit operator System.UInt32[](FaceList o) { return o.list; }
-		public System.UInt32 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public FaceList(int size) { list = new System.UInt32[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct FaceList_c
+	public struct ClosedShellList_c
 	{
 		internal System.UInt64 size;
 		internal IntPtr ptr;
@@ -1639,24 +1551,108 @@ namespace CAD {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public class ClosedShellList {
+	public class FaceList {
 		public System.UInt32[] list;
 		public int length { get { return (list != null) ? list.Length : 0; } }
-		public ClosedShellList() {}
-		public ClosedShellList(System.UInt32[] tab) { list = tab; }
-		public static implicit operator System.UInt32[](ClosedShellList o) { return o.list; }
+		public FaceList() {}
+		public FaceList(System.UInt32[] tab) { list = tab; }
+		public static implicit operator System.UInt32[](FaceList o) { return o.list; }
 		public System.UInt32 this[int index] {
 			get { return list[index]; }
 			set { list[index] = value; }
 		}
-		public ClosedShellList(int size) { list = new System.UInt32[size]; }
+		public FaceList(int size) { list = new System.UInt32[size]; }
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public struct ClosedShellList_c
+	public struct FaceList_c
 	{
 		internal System.UInt64 size;
 		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class EdgeList {
+		public System.UInt32[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public EdgeList() {}
+		public EdgeList(System.UInt32[] tab) { list = tab; }
+		public static implicit operator System.UInt32[](EdgeList o) { return o.list; }
+		public System.UInt32 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public EdgeList(int size) { list = new System.UInt32[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct EdgeList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class EdgeListList {
+		public EdgeList[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public EdgeListList(EdgeList[] tab) { list = tab; }
+		public static implicit operator EdgeList[](EdgeListList o) { return o.list; }
+		public EdgeList this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public EdgeListList(int size) { list = new EdgeList[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct EdgeListList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class CoEdgeList {
+		public System.UInt32[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public CoEdgeList() {}
+		public CoEdgeList(System.UInt32[] tab) { list = tab; }
+		public static implicit operator System.UInt32[](CoEdgeList o) { return o.list; }
+		public System.UInt32 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public CoEdgeList(int size) { list = new System.UInt32[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct CoEdgeList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Bounds1D
+	{
+		public Bounds1D(Bounds1D o) {
+			this.min = o.min;
+			this.max = o.max;
+		}
+		public System.Double min;
+		public System.Double max;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Bounds1D_c
+	{
+		internal System.Double min;
+		internal System.Double max;
 	}
 
 	[Serializable]
@@ -1703,39 +1699,43 @@ namespace CAD {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public struct OrientedDomain
-	{
-		public OrientedDomain(OrientedDomain o) {
-			this.domain = o.domain;
-			this.orientation = o.orientation;
+	public class LoopList {
+		public System.UInt32[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public LoopList() {}
+		public LoopList(System.UInt32[] tab) { list = tab; }
+		public static implicit operator System.UInt32[](LoopList o) { return o.list; }
+		public System.UInt32 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
 		}
-		public System.UInt32 domain;
-		public System.Boolean orientation;
+		public LoopList(int size) { list = new System.UInt32[size]; }
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public struct OrientedDomain_c
+	public struct LoopList_c
 	{
-		internal System.UInt32 domain;
-		internal Int32 orientation;
+		internal System.UInt64 size;
+		internal IntPtr ptr;
 	}
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public class OrientedDomainList {
-		public OrientedDomain[] list;
+	public class LimitedCurveList {
+		public System.UInt32[] list;
 		public int length { get { return (list != null) ? list.Length : 0; } }
-		public OrientedDomainList(OrientedDomain[] tab) { list = tab; }
-		public static implicit operator OrientedDomain[](OrientedDomainList o) { return o.list; }
-		public OrientedDomain this[int index] {
+		public LimitedCurveList() {}
+		public LimitedCurveList(System.UInt32[] tab) { list = tab; }
+		public static implicit operator System.UInt32[](LimitedCurveList o) { return o.list; }
+		public System.UInt32 this[int index] {
 			get { return list[index]; }
 			set { list[index] = value; }
 		}
-		public OrientedDomainList(int size) { list = new OrientedDomain[size]; }
+		public LimitedCurveList(int size) { list = new System.UInt32[size]; }
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public struct OrientedDomainList_c
+	public struct LimitedCurveList_c
 	{
 		internal System.UInt64 size;
 		internal IntPtr ptr;
@@ -1818,6 +1818,25 @@ namespace Scene {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
+	public struct PropertyValue
+	{
+		public PropertyValue(PropertyValue o) {
+			this.name = o.name;
+			this.value = o.value;
+		}
+		public System.String name;
+		public System.String value;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct PropertyValue_c
+	{
+		internal IntPtr name;
+		internal IntPtr value;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
 	public class ComponentList {
 		public System.UInt32[] list;
 		public int length { get { return (list != null) ? list.Length : 0; } }
@@ -1840,21 +1859,62 @@ namespace Scene {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public struct PropertyValue
-	{
-		public PropertyValue(PropertyValue o) {
-			this.name = o.name;
-			this.value = o.value;
+	public class PartList {
+		public System.UInt32[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public PartList() {}
+		public PartList(System.UInt32[] tab) { list = tab; }
+		public static implicit operator System.UInt32[](PartList o) { return o.list; }
+		public System.UInt32 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
 		}
-		public System.String name;
-		public System.String value;
+		public PartList(int size) { list = new System.UInt32[size]; }
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public struct PropertyValue_c
+	public struct PartList_c
 	{
-		internal IntPtr name;
-		internal IntPtr value;
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class PackedTree
+	{
+		public PackedTree() {}
+		public PackedTree(PackedTree o) {
+			this.occurrences = o.occurrences;
+			this.parents = o.parents;
+			this.names = o.names;
+			this.visibles = o.visibles;
+			this.materials = o.materials;
+			this.transformIndices = o.transformIndices;
+			this.transformMatrices = o.transformMatrices;
+			this.customProperties = o.customProperties;
+		}
+		public OccurrenceList occurrences;
+		public Core.IntList parents;
+		public Core.StringList names;
+		public Core.InheritableBoolList visibles;
+		public Material.MaterialList materials;
+		public Core.IntList transformIndices;
+		public Geom.Matrix4List transformMatrices;
+		public Core.StringPairListList customProperties;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct PackedTree_c
+	{
+		internal OccurrenceList_c occurrences;
+		internal Core.IntList_c parents;
+		internal Core.StringList_c names;
+		internal Core.InheritableBoolList_c visibles;
+		internal Material.MaterialList_c materials;
+		internal Core.IntList_c transformIndices;
+		internal Geom.Matrix4List_c transformMatrices;
+		internal Core.StringPairListList_c customProperties;
 	}
 
 	[Serializable]
@@ -1910,66 +1970,6 @@ namespace Scene {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public class PackedTree
-	{
-		public PackedTree() {}
-		public PackedTree(PackedTree o) {
-			this.occurrences = o.occurrences;
-			this.parents = o.parents;
-			this.names = o.names;
-			this.visibles = o.visibles;
-			this.materials = o.materials;
-			this.transformIndices = o.transformIndices;
-			this.transformMatrices = o.transformMatrices;
-			this.customProperties = o.customProperties;
-		}
-		public OccurrenceList occurrences;
-		public Core.IntList parents;
-		public Core.StringList names;
-		public Core.InheritableBoolList visibles;
-		public Material.MaterialList materials;
-		public Core.IntList transformIndices;
-		public Geom.Matrix4List transformMatrices;
-		public Core.StringPairListList customProperties;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct PackedTree_c
-	{
-		internal OccurrenceList_c occurrences;
-		internal Core.IntList_c parents;
-		internal Core.StringList_c names;
-		internal Core.InheritableBoolList_c visibles;
-		internal Material.MaterialList_c materials;
-		internal Core.IntList_c transformIndices;
-		internal Geom.Matrix4List_c transformMatrices;
-		internal Core.StringPairListList_c customProperties;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class PartList {
-		public System.UInt32[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public PartList() {}
-		public PartList(System.UInt32[] tab) { list = tab; }
-		public static implicit operator System.UInt32[](PartList o) { return o.list; }
-		public System.UInt32 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public PartList(int size) { list = new System.UInt32[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct PartList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
 	public class MetadataList {
 		public System.UInt32[] list;
 		public int length { get { return (list != null) ? list.Length : 0; } }
@@ -1994,11 +1994,11 @@ namespace Scene {
 
 namespace Algo {
 
-	public enum UVGenerationMode
+	public enum SelectionLevel
 	{
-		NoUV = 0,
-		FastUV = 1,
-		UniformUV = 2,
+		Parts = 0,
+		Patches = 1,
+		Polygons = 2,
 	}
 
 	public enum SmartHiddenType
@@ -2008,11 +2008,11 @@ namespace Algo {
 		OnlyInners = 2,
 	}
 
-	public enum SelectionLevel
+	public enum UVGenerationMode
 	{
-		Parts = 0,
-		Patches = 1,
-		Polygons = 2,
+		NoUV = 0,
+		FastUV = 1,
+		UniformUV = 2,
 	}
 
 }
@@ -2083,6 +2083,192 @@ namespace IO {
 		#region Conversion
 
 	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void CAD_OrientedDomain_init(ref CAD.OrientedDomain_c str);
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void CAD_OrientedDomain_free(ref CAD.OrientedDomain_c str);
+
+	private static CAD.OrientedDomain ConvertValue(CAD.OrientedDomain_c s) {
+		CAD.OrientedDomain ss = new CAD.OrientedDomain();
+		ss.domain = (System.UInt32)s.domain;
+		ss.orientation = ConvertValue(s.orientation);
+		return ss;
+	}
+
+	private static CAD.OrientedDomain_c ConvertValue(CAD.OrientedDomain s) {
+		CAD.OrientedDomain_c ss = new CAD.OrientedDomain_c();
+		CAD_OrientedDomain_init(ref ss);
+		ss.domain = (System.UInt32)s.domain;
+		ss.orientation = ConvertValue(s.orientation);
+		return ss;
+	}
+
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_OrientedDomainList_init(ref CAD.OrientedDomainList_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_OrientedDomainList_free(ref CAD.OrientedDomainList_c list);
+
+		private static CAD.OrientedDomainList ConvertValue(CAD.OrientedDomainList_c s) {
+			CAD.OrientedDomainList list = new CAD.OrientedDomainList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<CAD.OrientedDomain>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static CAD.OrientedDomainList_c ConvertValue(CAD.OrientedDomainList s) {
+			CAD.OrientedDomainList_c list =  new CAD.OrientedDomainList_c();
+			CAD_OrientedDomainList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			for(int i = 0; i < (int)list.size; ++i) {
+				CAD.OrientedDomain_c elt = ConvertValue(s.list[i]);
+				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(CAD.OrientedDomain_c)));
+				Marshal.StructureToPtr(elt, p, true);
+			}
+			return list;
+		}
+
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_ClosedShellList_init(ref CAD.ClosedShellList_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_ClosedShellList_free(ref CAD.ClosedShellList_c list);
+
+		private static CAD.ClosedShellList ConvertValue(CAD.ClosedShellList_c s) {
+			CAD.ClosedShellList list = new CAD.ClosedShellList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static CAD.ClosedShellList_c ConvertValue(CAD.ClosedShellList s) {
+			CAD.ClosedShellList_c list =  new CAD.ClosedShellList_c();
+			CAD_ClosedShellList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			int[] tab = new int[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = (int)(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
+
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_DomainList_init(ref CAD.DomainList_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_DomainList_free(ref CAD.DomainList_c list);
+
+		private static CAD.DomainList ConvertValue(CAD.DomainList_c s) {
+			CAD.DomainList list = new CAD.DomainList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static CAD.DomainList_c ConvertValue(CAD.DomainList s) {
+			CAD.DomainList_c list =  new CAD.DomainList_c();
+			CAD_DomainList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			int[] tab = new int[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = (int)(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
+
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_FaceList_init(ref CAD.FaceList_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_FaceList_free(ref CAD.FaceList_c list);
+
+		private static CAD.FaceList ConvertValue(CAD.FaceList_c s) {
+			CAD.FaceList list = new CAD.FaceList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static CAD.FaceList_c ConvertValue(CAD.FaceList s) {
+			CAD.FaceList_c list =  new CAD.FaceList_c();
+			CAD_FaceList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			int[] tab = new int[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = (int)(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
+
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_EdgeList_init(ref CAD.EdgeList_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_EdgeList_free(ref CAD.EdgeList_c list);
+
+		private static CAD.EdgeList ConvertValue(CAD.EdgeList_c s) {
+			CAD.EdgeList list = new CAD.EdgeList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static CAD.EdgeList_c ConvertValue(CAD.EdgeList s) {
+			CAD.EdgeList_c list =  new CAD.EdgeList_c();
+			CAD_EdgeList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			int[] tab = new int[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = (int)(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
+
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_EdgeListList_init(ref CAD.EdgeListList_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_EdgeListList_free(ref CAD.EdgeListList_c list);
+
+		private static CAD.EdgeListList ConvertValue(CAD.EdgeListList_c s) {
+			CAD.EdgeListList list = new CAD.EdgeListList((int)s.size);
+			if (s.size==0) return list;
+			for (int i = 0; i < (int)s.size; ++i) {
+				IntPtr p = new IntPtr(s.ptr.ToInt64() + i * Marshal.SizeOf(typeof(CAD.EdgeList_c)));
+				list.list[i] = ConvertValue((CAD.EdgeList_c)Marshal.PtrToStructure(p, typeof(CAD.EdgeList_c)));
+			}
+			return list;
+		}
+
+		private static CAD.EdgeListList_c ConvertValue(CAD.EdgeListList s) {
+			CAD.EdgeListList_c list =  new CAD.EdgeListList_c();
+			CAD_EdgeListList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			for(int i = 0; i < (int)list.size; ++i) {
+				CAD.EdgeList_c elt = ConvertValue(s.list[i]);
+				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(CAD.EdgeList_c)));
+				Marshal.StructureToPtr(elt, p, true);
+			}
+			return list;
+		}
+
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_CoEdgeList_init(ref CAD.CoEdgeList_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_CoEdgeList_free(ref CAD.CoEdgeList_c list);
+
+		private static CAD.CoEdgeList ConvertValue(CAD.CoEdgeList_c s) {
+			CAD.CoEdgeList list = new CAD.CoEdgeList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static CAD.CoEdgeList_c ConvertValue(CAD.CoEdgeList s) {
+			CAD.CoEdgeList_c list =  new CAD.CoEdgeList_c();
+			CAD_CoEdgeList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			int[] tab = new int[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = (int)(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
+
+	[DllImport(PiXYZImportSDK_dll)]
 	private static extern void CAD_Bounds1D_init(ref CAD.Bounds1D_c str);
 	[DllImport(PiXYZImportSDK_dll)]
 	private static extern void CAD_Bounds1D_free(ref CAD.Bounds1D_c str);
@@ -2099,6 +2285,49 @@ namespace IO {
 		CAD_Bounds1D_init(ref ss);
 		ss.min = (System.Double)s.min;
 		ss.max = (System.Double)s.max;
+		return ss;
+	}
+
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_BodyList_init(ref CAD.BodyList_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void CAD_BodyList_free(ref CAD.BodyList_c list);
+
+		private static CAD.BodyList ConvertValue(CAD.BodyList_c s) {
+			CAD.BodyList list = new CAD.BodyList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static CAD.BodyList_c ConvertValue(CAD.BodyList s) {
+			CAD.BodyList_c list =  new CAD.BodyList_c();
+			CAD_BodyList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			int[] tab = new int[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = (int)(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
+
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void CAD_Bounds2D_init(ref CAD.Bounds2D_c str);
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void CAD_Bounds2D_free(ref CAD.Bounds2D_c str);
+
+	private static CAD.Bounds2D ConvertValue(CAD.Bounds2D_c s) {
+		CAD.Bounds2D ss = new CAD.Bounds2D();
+		ss.u = ConvertValue(s.u);
+		ss.v = ConvertValue(s.v);
+		return ss;
+	}
+
+	private static CAD.Bounds2D_c ConvertValue(CAD.Bounds2D s) {
+		CAD.Bounds2D_c ss = new CAD.Bounds2D_c();
+		CAD_Bounds2D_init(ref ss);
+		ss.u = ConvertValue(s.u);
+		ss.v = ConvertValue(s.v);
 		return ss;
 	}
 
@@ -2149,235 +2378,6 @@ namespace IO {
 		}
 
 		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_EdgeList_init(ref CAD.EdgeList_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_EdgeList_free(ref CAD.EdgeList_c list);
-
-		private static CAD.EdgeList ConvertValue(CAD.EdgeList_c s) {
-			CAD.EdgeList list = new CAD.EdgeList((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static CAD.EdgeList_c ConvertValue(CAD.EdgeList s) {
-			CAD.EdgeList_c list =  new CAD.EdgeList_c();
-			CAD_EdgeList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			int[] tab = new int[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = (int)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_CoEdgeList_init(ref CAD.CoEdgeList_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_CoEdgeList_free(ref CAD.CoEdgeList_c list);
-
-		private static CAD.CoEdgeList ConvertValue(CAD.CoEdgeList_c s) {
-			CAD.CoEdgeList list = new CAD.CoEdgeList((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static CAD.CoEdgeList_c ConvertValue(CAD.CoEdgeList s) {
-			CAD.CoEdgeList_c list =  new CAD.CoEdgeList_c();
-			CAD_CoEdgeList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			int[] tab = new int[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = (int)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_EdgeListList_init(ref CAD.EdgeListList_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_EdgeListList_free(ref CAD.EdgeListList_c list);
-
-		private static CAD.EdgeListList ConvertValue(CAD.EdgeListList_c s) {
-			CAD.EdgeListList list = new CAD.EdgeListList((int)s.size);
-			if (s.size==0) return list;
-			for (int i = 0; i < (int)s.size; ++i) {
-				IntPtr p = new IntPtr(s.ptr.ToInt64() + i * Marshal.SizeOf(typeof(CAD.EdgeList_c)));
-				list.list[i] = ConvertValue((CAD.EdgeList_c)Marshal.PtrToStructure(p, typeof(CAD.EdgeList_c)));
-			}
-			return list;
-		}
-
-		private static CAD.EdgeListList_c ConvertValue(CAD.EdgeListList s) {
-			CAD.EdgeListList_c list =  new CAD.EdgeListList_c();
-			CAD_EdgeListList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			for(int i = 0; i < (int)list.size; ++i) {
-				CAD.EdgeList_c elt = ConvertValue(s.list[i]);
-				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(CAD.EdgeList_c)));
-				Marshal.StructureToPtr(elt, p, true);
-			}
-			return list;
-		}
-
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_FaceList_init(ref CAD.FaceList_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_FaceList_free(ref CAD.FaceList_c list);
-
-		private static CAD.FaceList ConvertValue(CAD.FaceList_c s) {
-			CAD.FaceList list = new CAD.FaceList((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static CAD.FaceList_c ConvertValue(CAD.FaceList s) {
-			CAD.FaceList_c list =  new CAD.FaceList_c();
-			CAD_FaceList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			int[] tab = new int[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = (int)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_DomainList_init(ref CAD.DomainList_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_DomainList_free(ref CAD.DomainList_c list);
-
-		private static CAD.DomainList ConvertValue(CAD.DomainList_c s) {
-			CAD.DomainList list = new CAD.DomainList((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static CAD.DomainList_c ConvertValue(CAD.DomainList s) {
-			CAD.DomainList_c list =  new CAD.DomainList_c();
-			CAD_DomainList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			int[] tab = new int[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = (int)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_ClosedShellList_init(ref CAD.ClosedShellList_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_ClosedShellList_free(ref CAD.ClosedShellList_c list);
-
-		private static CAD.ClosedShellList ConvertValue(CAD.ClosedShellList_c s) {
-			CAD.ClosedShellList list = new CAD.ClosedShellList((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static CAD.ClosedShellList_c ConvertValue(CAD.ClosedShellList s) {
-			CAD.ClosedShellList_c list =  new CAD.ClosedShellList_c();
-			CAD_ClosedShellList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			int[] tab = new int[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = (int)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_BodyList_init(ref CAD.BodyList_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_BodyList_free(ref CAD.BodyList_c list);
-
-		private static CAD.BodyList ConvertValue(CAD.BodyList_c s) {
-			CAD.BodyList list = new CAD.BodyList((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static CAD.BodyList_c ConvertValue(CAD.BodyList s) {
-			CAD.BodyList_c list =  new CAD.BodyList_c();
-			CAD_BodyList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			int[] tab = new int[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = (int)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void CAD_Bounds2D_init(ref CAD.Bounds2D_c str);
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void CAD_Bounds2D_free(ref CAD.Bounds2D_c str);
-
-	private static CAD.Bounds2D ConvertValue(CAD.Bounds2D_c s) {
-		CAD.Bounds2D ss = new CAD.Bounds2D();
-		ss.u = ConvertValue(s.u);
-		ss.v = ConvertValue(s.v);
-		return ss;
-	}
-
-	private static CAD.Bounds2D_c ConvertValue(CAD.Bounds2D s) {
-		CAD.Bounds2D_c ss = new CAD.Bounds2D_c();
-		CAD_Bounds2D_init(ref ss);
-		ss.u = ConvertValue(s.u);
-		ss.v = ConvertValue(s.v);
-		return ss;
-	}
-
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void CAD_OrientedDomain_init(ref CAD.OrientedDomain_c str);
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void CAD_OrientedDomain_free(ref CAD.OrientedDomain_c str);
-
-	private static CAD.OrientedDomain ConvertValue(CAD.OrientedDomain_c s) {
-		CAD.OrientedDomain ss = new CAD.OrientedDomain();
-		ss.domain = (System.UInt32)s.domain;
-		ss.orientation = ConvertValue(s.orientation);
-		return ss;
-	}
-
-	private static CAD.OrientedDomain_c ConvertValue(CAD.OrientedDomain s) {
-		CAD.OrientedDomain_c ss = new CAD.OrientedDomain_c();
-		CAD_OrientedDomain_init(ref ss);
-		ss.domain = (System.UInt32)s.domain;
-		ss.orientation = ConvertValue(s.orientation);
-		return ss;
-	}
-
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_OrientedDomainList_init(ref CAD.OrientedDomainList_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void CAD_OrientedDomainList_free(ref CAD.OrientedDomainList_c list);
-
-		private static CAD.OrientedDomainList ConvertValue(CAD.OrientedDomainList_c s) {
-			CAD.OrientedDomainList list = new CAD.OrientedDomainList((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<CAD.OrientedDomain>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static CAD.OrientedDomainList_c ConvertValue(CAD.OrientedDomainList s) {
-			CAD.OrientedDomainList_c list =  new CAD.OrientedDomainList_c();
-			CAD_OrientedDomainList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			for(int i = 0; i < (int)list.size; ++i) {
-				CAD.OrientedDomain_c elt = ConvertValue(s.list[i]);
-				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(CAD.OrientedDomain_c)));
-				Marshal.StructureToPtr(elt, p, true);
-			}
-			return list;
-		}
-
-		[DllImport(PiXYZImportSDK_dll)]
 		private static extern void CAD_ModelList_init(ref CAD.ModelList_c list, UInt64 size);
 		[DllImport(PiXYZImportSDK_dll)]
 		private static extern void CAD_ModelList_free(ref CAD.ModelList_c list);
@@ -2396,33 +2396,6 @@ namespace IO {
 			int[] tab = new int[list.size];
 			for (int i = 0; i < (int)list.size; ++i)
 				tab[i] = (int)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Core_StringList_init(ref Core.StringList_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Core_StringList_free(ref Core.StringList_c list);
-
-		private static Core.StringList ConvertValue(Core.StringList_c s) {
-			Core.StringList list = new Core.StringList((int)s.size);
-			if (s.size==0) return list;
-			IntPtr[] tab = new IntPtr[s.size];
-			Marshal.Copy(s.ptr, tab, 0, (int)s.size);
-			for (int i = 0; i < (int)s.size; ++i) {
-				list.list[i] = ConvertValue(tab[i]);
-			}
-			return list;
-		}
-
-		private static Core.StringList_c ConvertValue(Core.StringList s) {
-			Core.StringList_c list =  new Core.StringList_c();
-			Core_StringList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			IntPtr[] tab = new IntPtr[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = ConvertValue(s.list[i]);
 			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
 			return list;
 		}
@@ -2506,6 +2479,33 @@ namespace IO {
 			return list;
 		}
 
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void Core_StringList_init(ref Core.StringList_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void Core_StringList_free(ref Core.StringList_c list);
+
+		private static Core.StringList ConvertValue(Core.StringList_c s) {
+			Core.StringList list = new Core.StringList((int)s.size);
+			if (s.size==0) return list;
+			IntPtr[] tab = new IntPtr[s.size];
+			Marshal.Copy(s.ptr, tab, 0, (int)s.size);
+			for (int i = 0; i < (int)s.size; ++i) {
+				list.list[i] = ConvertValue(tab[i]);
+			}
+			return list;
+		}
+
+		private static Core.StringList_c ConvertValue(Core.StringList s) {
+			Core.StringList_c list =  new Core.StringList_c();
+			Core_StringList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			IntPtr[] tab = new IntPtr[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = ConvertValue(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
+
 	[DllImport(PiXYZImportSDK_dll)]
 	private static extern void Core_LicenseInfos_init(ref Core.LicenseInfos_c str);
 	[DllImport(PiXYZImportSDK_dll)]
@@ -2531,6 +2531,30 @@ namespace IO {
 		ss.customerEmail = ConvertValue(s.customerEmail);
 		ss.startDate = ConvertValue(s.startDate);
 		ss.endDate = ConvertValue(s.endDate);
+		return ss;
+	}
+
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Core_ColorAlpha_init(ref Core.ColorAlpha_c str);
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Core_ColorAlpha_free(ref Core.ColorAlpha_c str);
+
+	private static Core.ColorAlpha ConvertValue(Core.ColorAlpha_c s) {
+		Core.ColorAlpha ss = new Core.ColorAlpha();
+		ss.r = (System.Double)s.r;
+		ss.g = (System.Double)s.g;
+		ss.b = (System.Double)s.b;
+		ss.a = (System.Double)s.a;
+		return ss;
+	}
+
+	private static Core.ColorAlpha_c ConvertValue(Core.ColorAlpha s) {
+		Core.ColorAlpha_c ss = new Core.ColorAlpha_c();
+		Core_ColorAlpha_init(ref ss);
+		ss.r = (System.Double)s.r;
+		ss.g = (System.Double)s.g;
+		ss.b = (System.Double)s.b;
+		ss.a = (System.Double)s.a;
 		return ss;
 	}
 
@@ -2573,30 +2597,6 @@ namespace IO {
 		ss.r = (System.Double)s.r;
 		ss.g = (System.Double)s.g;
 		ss.b = (System.Double)s.b;
-		return ss;
-	}
-
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Core_ColorAlpha_init(ref Core.ColorAlpha_c str);
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Core_ColorAlpha_free(ref Core.ColorAlpha_c str);
-
-	private static Core.ColorAlpha ConvertValue(Core.ColorAlpha_c s) {
-		Core.ColorAlpha ss = new Core.ColorAlpha();
-		ss.r = (System.Double)s.r;
-		ss.g = (System.Double)s.g;
-		ss.b = (System.Double)s.b;
-		ss.a = (System.Double)s.a;
-		return ss;
-	}
-
-	private static Core.ColorAlpha_c ConvertValue(Core.ColorAlpha s) {
-		Core.ColorAlpha_c ss = new Core.ColorAlpha_c();
-		Core_ColorAlpha_init(ref ss);
-		ss.r = (System.Double)s.r;
-		ss.g = (System.Double)s.g;
-		ss.b = (System.Double)s.b;
-		ss.a = (System.Double)s.a;
 		return ss;
 	}
 
@@ -2818,6 +2818,30 @@ namespace IO {
 		}
 
 	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Geom_Array4_init(ref Geom.Array4_c arr, UInt64 size);
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Geom_Array4_free(ref Geom.Array4_c arr);
+
+	private static Geom.Array4 ConvertValue(Geom.Array4_c arr) {
+		Geom.Array4 ss = new Geom.Array4();
+		System.Double[] tab = new System.Double[4];
+		Marshal.Copy(arr.tab, tab, 0, 4);
+		for (int i = 0; i < 4; ++i)
+			ss.tab[i] = tab[i];
+		return ss;
+	}
+
+	private static Geom.Array4_c ConvertValue(Geom.Array4 s) {
+		Geom.Array4_c list =  new Geom.Array4_c();
+		Geom_Array4_init(ref list, (System.UInt64)4);
+		var tab = new System.Double[4];
+		for (int i=0; i < 4; ++i)
+			tab[i] = s.tab[i];
+		Marshal.Copy(tab, 0, list.tab, 4);
+		return list;
+	}
+
+	[DllImport(PiXYZImportSDK_dll)]
 	private static extern void Geom_Point2_init(ref Geom.Point2_c str);
 	[DllImport(PiXYZImportSDK_dll)]
 	private static extern void Geom_Point2_free(ref Geom.Point2_c str);
@@ -2836,30 +2860,6 @@ namespace IO {
 		ss.y = (System.Double)s.y;
 		return ss;
 	}
-
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Geom_Point2List_init(ref Geom.Point2List_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Geom_Point2List_free(ref Geom.Point2List_c list);
-
-		private static Geom.Point2List ConvertValue(Geom.Point2List_c s) {
-			Geom.Point2List list = new Geom.Point2List((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<Geom.Point2>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static Geom.Point2List_c ConvertValue(Geom.Point2List s) {
-			Geom.Point2List_c list =  new Geom.Point2List_c();
-			Geom_Point2List_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			for(int i = 0; i < (int)list.size; ++i) {
-				Geom.Point2_c elt = ConvertValue(s.list[i]);
-				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Point2_c)));
-				Marshal.StructureToPtr(elt, p, true);
-			}
-			return list;
-		}
 
 	[DllImport(PiXYZImportSDK_dll)]
 	private static extern void Geom_Point3_init(ref Geom.Point3_c str);
@@ -2880,6 +2880,30 @@ namespace IO {
 		ss.x = (System.Double)s.x;
 		ss.y = (System.Double)s.y;
 		ss.z = (System.Double)s.z;
+		return ss;
+	}
+
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Geom_Curvatures_init(ref Geom.Curvatures_c str);
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Geom_Curvatures_free(ref Geom.Curvatures_c str);
+
+	private static Geom.Curvatures ConvertValue(Geom.Curvatures_c s) {
+		Geom.Curvatures ss = new Geom.Curvatures();
+		ss.k1 = (System.Double)s.k1;
+		ss.k2 = (System.Double)s.k2;
+		ss.v1 = ConvertValue(s.v1);
+		ss.v2 = ConvertValue(s.v2);
+		return ss;
+	}
+
+	private static Geom.Curvatures_c ConvertValue(Geom.Curvatures s) {
+		Geom.Curvatures_c ss = new Geom.Curvatures_c();
+		Geom_Curvatures_init(ref ss);
+		ss.k1 = (System.Double)s.k1;
+		ss.k2 = (System.Double)s.k2;
+		ss.v1 = ConvertValue(s.v1);
+		ss.v2 = ConvertValue(s.v2);
 		return ss;
 	}
 
@@ -2935,6 +2959,30 @@ namespace IO {
 		}
 
 		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void Geom_Point2List_init(ref Geom.Point2List_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void Geom_Point2List_free(ref Geom.Point2List_c list);
+
+		private static Geom.Point2List ConvertValue(Geom.Point2List_c s) {
+			Geom.Point2List list = new Geom.Point2List((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<Geom.Point2>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static Geom.Point2List_c ConvertValue(Geom.Point2List s) {
+			Geom.Point2List_c list =  new Geom.Point2List_c();
+			Geom_Point2List_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			for(int i = 0; i < (int)list.size; ++i) {
+				Geom.Point2_c elt = ConvertValue(s.list[i]);
+				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Point2_c)));
+				Marshal.StructureToPtr(elt, p, true);
+			}
+			return list;
+		}
+
+		[DllImport(PiXYZImportSDK_dll)]
 		private static extern void Geom_Point2ListList_init(ref Geom.Point2ListList_c list, UInt64 size);
 		[DllImport(PiXYZImportSDK_dll)]
 		private static extern void Geom_Point2ListList_free(ref Geom.Point2ListList_c list);
@@ -2960,54 +3008,6 @@ namespace IO {
 			}
 			return list;
 		}
-
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Geom_Curvatures_init(ref Geom.Curvatures_c str);
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Geom_Curvatures_free(ref Geom.Curvatures_c str);
-
-	private static Geom.Curvatures ConvertValue(Geom.Curvatures_c s) {
-		Geom.Curvatures ss = new Geom.Curvatures();
-		ss.k1 = (System.Double)s.k1;
-		ss.k2 = (System.Double)s.k2;
-		ss.v1 = ConvertValue(s.v1);
-		ss.v2 = ConvertValue(s.v2);
-		return ss;
-	}
-
-	private static Geom.Curvatures_c ConvertValue(Geom.Curvatures s) {
-		Geom.Curvatures_c ss = new Geom.Curvatures_c();
-		Geom_Curvatures_init(ref ss);
-		ss.k1 = (System.Double)s.k1;
-		ss.k2 = (System.Double)s.k2;
-		ss.v1 = ConvertValue(s.v1);
-		ss.v2 = ConvertValue(s.v2);
-		return ss;
-	}
-
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Geom_Array4_init(ref Geom.Array4_c arr, UInt64 size);
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Geom_Array4_free(ref Geom.Array4_c arr);
-
-	private static Geom.Array4 ConvertValue(Geom.Array4_c arr) {
-		Geom.Array4 ss = new Geom.Array4();
-		System.Double[] tab = new System.Double[4];
-		Marshal.Copy(arr.tab, tab, 0, 4);
-		for (int i = 0; i < 4; ++i)
-			ss.tab[i] = tab[i];
-		return ss;
-	}
-
-	private static Geom.Array4_c ConvertValue(Geom.Array4 s) {
-		Geom.Array4_c list =  new Geom.Array4_c();
-		Geom_Array4_init(ref list, (System.UInt64)4);
-		var tab = new System.Double[4];
-		for (int i=0; i < 4; ++i)
-			tab[i] = s.tab[i];
-		Marshal.Copy(tab, 0, list.tab, 4);
-		return list;
-	}
 
 	[DllImport(PiXYZImportSDK_dll)]
 	private static extern void Geom_Matrix4_init(ref Geom.Matrix4_c arr, UInt64 size);
@@ -3081,49 +3081,25 @@ namespace IO {
 			return list;
 		}
 
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Geom_Point4_init(ref Geom.Point4_c str);
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Geom_Point4_free(ref Geom.Point4_c str);
-
-	private static Geom.Point4 ConvertValue(Geom.Point4_c s) {
-		Geom.Point4 ss = new Geom.Point4();
-		ss.x = (System.Double)s.x;
-		ss.y = (System.Double)s.y;
-		ss.z = (System.Double)s.z;
-		ss.w = (System.Double)s.w;
-		return ss;
-	}
-
-	private static Geom.Point4_c ConvertValue(Geom.Point4 s) {
-		Geom.Point4_c ss = new Geom.Point4_c();
-		Geom_Point4_init(ref ss);
-		ss.x = (System.Double)s.x;
-		ss.y = (System.Double)s.y;
-		ss.z = (System.Double)s.z;
-		ss.w = (System.Double)s.w;
-		return ss;
-	}
-
 		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Geom_Vector3List_init(ref Geom.Vector3List_c list, UInt64 size);
+		private static extern void Geom_Vector4List_init(ref Geom.Vector4List_c list, UInt64 size);
 		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Geom_Vector3List_free(ref Geom.Vector3List_c list);
+		private static extern void Geom_Vector4List_free(ref Geom.Vector4List_c list);
 
-		private static Geom.Vector3List ConvertValue(Geom.Vector3List_c s) {
-			Geom.Vector3List list = new Geom.Vector3List((int)s.size);
+		private static Geom.Vector4List ConvertValue(Geom.Vector4List_c s) {
+			Geom.Vector4List list = new Geom.Vector4List((int)s.size);
 			if (s.size==0) return list;
-				list.list = CopyMemory<Geom.Vector3>(s.ptr, (int)s.size);
+				list.list = CopyMemory<Geom.Vector4>(s.ptr, (int)s.size);
 			return list;
 		}
 
-		private static Geom.Vector3List_c ConvertValue(Geom.Vector3List s) {
-			Geom.Vector3List_c list =  new Geom.Vector3List_c();
-			Geom_Vector3List_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+		private static Geom.Vector4List_c ConvertValue(Geom.Vector4List s) {
+			Geom.Vector4List_c list =  new Geom.Vector4List_c();
+			Geom_Vector4List_init(ref list, s == null ? 0 : (System.UInt64)s.length);
 			if(list.size == 0) return list;
 			for(int i = 0; i < (int)list.size; ++i) {
-				Geom.Point3_c elt = ConvertValue(s.list[i]);
-				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Point3_c)));
+				Geom.Point4_c elt = ConvertValue(s.list[i]);
+				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Point4_c)));
 				Marshal.StructureToPtr(elt, p, true);
 			}
 			return list;
@@ -3177,6 +3153,54 @@ namespace IO {
 			return list;
 		}
 
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Geom_Point4_init(ref Geom.Point4_c str);
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Geom_Point4_free(ref Geom.Point4_c str);
+
+	private static Geom.Point4 ConvertValue(Geom.Point4_c s) {
+		Geom.Point4 ss = new Geom.Point4();
+		ss.x = (System.Double)s.x;
+		ss.y = (System.Double)s.y;
+		ss.z = (System.Double)s.z;
+		ss.w = (System.Double)s.w;
+		return ss;
+	}
+
+	private static Geom.Point4_c ConvertValue(Geom.Point4 s) {
+		Geom.Point4_c ss = new Geom.Point4_c();
+		Geom_Point4_init(ref ss);
+		ss.x = (System.Double)s.x;
+		ss.y = (System.Double)s.y;
+		ss.z = (System.Double)s.z;
+		ss.w = (System.Double)s.w;
+		return ss;
+	}
+
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void Geom_Vector3List_init(ref Geom.Vector3List_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void Geom_Vector3List_free(ref Geom.Vector3List_c list);
+
+		private static Geom.Vector3List ConvertValue(Geom.Vector3List_c s) {
+			Geom.Vector3List list = new Geom.Vector3List((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<Geom.Vector3>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static Geom.Vector3List_c ConvertValue(Geom.Vector3List s) {
+			Geom.Vector3List_c list =  new Geom.Vector3List_c();
+			Geom_Vector3List_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			for(int i = 0; i < (int)list.size; ++i) {
+				Geom.Point3_c elt = ConvertValue(s.list[i]);
+				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Point3_c)));
+				Marshal.StructureToPtr(elt, p, true);
+			}
+			return list;
+		}
+
 		[DllImport(PiXYZImportSDK_dll)]
 		private static extern void Geom_CurvaturesList_init(ref Geom.CurvaturesList_c list, UInt64 size);
 		[DllImport(PiXYZImportSDK_dll)]
@@ -3199,30 +3223,6 @@ namespace IO {
 			for(int i = 0; i < (int)list.size; ++i) {
 				Geom.Curvatures_c elt = ConvertValue(s.list[i]);
 				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Curvatures_c)));
-				Marshal.StructureToPtr(elt, p, true);
-			}
-			return list;
-		}
-
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Geom_Vector4List_init(ref Geom.Vector4List_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Geom_Vector4List_free(ref Geom.Vector4List_c list);
-
-		private static Geom.Vector4List ConvertValue(Geom.Vector4List_c s) {
-			Geom.Vector4List list = new Geom.Vector4List((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<Geom.Vector4>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static Geom.Vector4List_c ConvertValue(Geom.Vector4List s) {
-			Geom.Vector4List_c list =  new Geom.Vector4List_c();
-			Geom_Vector4List_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			for(int i = 0; i < (int)list.size; ++i) {
-				Geom.Point4_c elt = ConvertValue(s.list[i]);
-				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Point4_c)));
 				Marshal.StructureToPtr(elt, p, true);
 			}
 			return list;
@@ -3275,29 +3275,6 @@ namespace IO {
 			return list;
 		}
 
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Material_ImageList_init(ref Material.ImageList_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Material_ImageList_free(ref Material.ImageList_c list);
-
-		private static Material.ImageList ConvertValue(Material.ImageList_c s) {
-			Material.ImageList list = new Material.ImageList((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static Material.ImageList_c ConvertValue(Material.ImageList s) {
-			Material.ImageList_c list =  new Material.ImageList_c();
-			Material_ImageList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			int[] tab = new int[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = (int)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
 	[DllImport(PiXYZImportSDK_dll)]
 	private static extern void Material_Texture_init(ref Material.Texture_c str);
 	[DllImport(PiXYZImportSDK_dll)]
@@ -3323,47 +3300,33 @@ namespace IO {
 	}
 
 	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Material_UnlitTextureMaterialInfos_init(ref Material.UnlitTextureMaterialInfos_c str);
+	private static extern void Material_CoeffOrTexture_init(ref Material.CoeffOrTexture_c sel);
+
 	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Material_UnlitTextureMaterialInfos_free(ref Material.UnlitTextureMaterialInfos_c str);
+	private static extern void Material_CoeffOrTexture_free(ref Material.CoeffOrTexture_c sel);
 
-	private static Material.UnlitTextureMaterialInfos ConvertValue(Material.UnlitTextureMaterialInfos_c s) {
-		Material.UnlitTextureMaterialInfos ss = new Material.UnlitTextureMaterialInfos();
-		ss.name = ConvertValue(s.name);
-		ss.texture = ConvertValue(s.texture);
+	private static Material.CoeffOrTexture ConvertValue(Material.CoeffOrTexture_c s) {
+		Material.CoeffOrTexture ss = new Material.CoeffOrTexture();
+		ss._type = (Material.CoeffOrTexture.Type)s._type;
+		switch(ss._type) {
+			case Material.CoeffOrTexture.Type.UNKNOWN: break;
+			case Material.CoeffOrTexture.Type.COEFF: ss.coeff = s.coeff; break;
+			case Material.CoeffOrTexture.Type.TEXTURE: ss.texture = ConvertValue(s.texture); break;
+		}
 		return ss;
 	}
 
-	private static Material.UnlitTextureMaterialInfos_c ConvertValue(Material.UnlitTextureMaterialInfos s) {
-		Material.UnlitTextureMaterialInfos_c ss = new Material.UnlitTextureMaterialInfos_c();
-		Material_UnlitTextureMaterialInfos_init(ref ss);
-		ss.name = ConvertValue(s.name);
-		ss.texture = ConvertValue(s.texture);
+	private static Material.CoeffOrTexture_c ConvertValue(Material.CoeffOrTexture s) {
+		Material.CoeffOrTexture_c ss = new Material.CoeffOrTexture_c();
+		Material_CoeffOrTexture_init(ref ss);
+		ss._type = (int)s._type;
+		switch (ss._type) {
+			case 0: break;
+			case 1: ss.coeff = (System.Double)s.coeff; break;
+			case 2: ss.texture = ConvertValue(s.texture); break;
+		}
 		return ss;
 	}
-
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Material_MaterialList_init(ref Material.MaterialList_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Material_MaterialList_free(ref Material.MaterialList_c list);
-
-		private static Material.MaterialList ConvertValue(Material.MaterialList_c s) {
-			Material.MaterialList list = new Material.MaterialList((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static Material.MaterialList_c ConvertValue(Material.MaterialList s) {
-			Material.MaterialList_c list =  new Material.MaterialList_c();
-			Material_MaterialList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			int[] tab = new int[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = (int)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
 
 	[DllImport(PiXYZImportSDK_dll)]
 	private static extern void Material_ColorOrTexture_init(ref Material.ColorOrTexture_c sel);
@@ -3425,67 +3388,6 @@ namespace IO {
 	}
 
 	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Material_CoeffOrTexture_init(ref Material.CoeffOrTexture_c sel);
-
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Material_CoeffOrTexture_free(ref Material.CoeffOrTexture_c sel);
-
-	private static Material.CoeffOrTexture ConvertValue(Material.CoeffOrTexture_c s) {
-		Material.CoeffOrTexture ss = new Material.CoeffOrTexture();
-		ss._type = (Material.CoeffOrTexture.Type)s._type;
-		switch(ss._type) {
-			case Material.CoeffOrTexture.Type.UNKNOWN: break;
-			case Material.CoeffOrTexture.Type.COEFF: ss.coeff = s.coeff; break;
-			case Material.CoeffOrTexture.Type.TEXTURE: ss.texture = ConvertValue(s.texture); break;
-		}
-		return ss;
-	}
-
-	private static Material.CoeffOrTexture_c ConvertValue(Material.CoeffOrTexture s) {
-		Material.CoeffOrTexture_c ss = new Material.CoeffOrTexture_c();
-		Material_CoeffOrTexture_init(ref ss);
-		ss._type = (int)s._type;
-		switch (ss._type) {
-			case 0: break;
-			case 1: ss.coeff = (System.Double)s.coeff; break;
-			case 2: ss.texture = ConvertValue(s.texture); break;
-		}
-		return ss;
-	}
-
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Material_MaterialDefinition_init(ref Material.MaterialDefinition_c str);
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Material_MaterialDefinition_free(ref Material.MaterialDefinition_c str);
-
-	private static Material.MaterialDefinition ConvertValue(Material.MaterialDefinition_c s) {
-		Material.MaterialDefinition ss = new Material.MaterialDefinition();
-		ss.name = ConvertValue(s.name);
-		ss.id = (System.UInt32)s.id;
-		ss.albedo = ConvertValue(s.albedo);
-		ss.normal = ConvertValue(s.normal);
-		ss.metallic = ConvertValue(s.metallic);
-		ss.roughness = ConvertValue(s.roughness);
-		ss.ao = ConvertValue(s.ao);
-		ss.opacity = ConvertValue(s.opacity);
-		return ss;
-	}
-
-	private static Material.MaterialDefinition_c ConvertValue(Material.MaterialDefinition s) {
-		Material.MaterialDefinition_c ss = new Material.MaterialDefinition_c();
-		Material_MaterialDefinition_init(ref ss);
-		ss.name = ConvertValue(s.name);
-		ss.id = (System.UInt32)s.id;
-		ss.albedo = ConvertValue(s.albedo);
-		ss.normal = ConvertValue(s.normal);
-		ss.metallic = ConvertValue(s.metallic);
-		ss.roughness = ConvertValue(s.roughness);
-		ss.ao = ConvertValue(s.ao);
-		ss.opacity = ConvertValue(s.opacity);
-		return ss;
-	}
-
-	[DllImport(PiXYZImportSDK_dll)]
 	private static extern void Material_ColorMaterialInfos_init(ref Material.ColorMaterialInfos_c str);
 	[DllImport(PiXYZImportSDK_dll)]
 	private static extern void Material_ColorMaterialInfos_free(ref Material.ColorMaterialInfos_c str);
@@ -3502,36 +3404,6 @@ namespace IO {
 		Material_ColorMaterialInfos_init(ref ss);
 		ss.name = ConvertValue(s.name);
 		ss.color = ConvertValue(s.color);
-		return ss;
-	}
-
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Material_PBRMaterialInfos_init(ref Material.PBRMaterialInfos_c str);
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Material_PBRMaterialInfos_free(ref Material.PBRMaterialInfos_c str);
-
-	private static Material.PBRMaterialInfos ConvertValue(Material.PBRMaterialInfos_c s) {
-		Material.PBRMaterialInfos ss = new Material.PBRMaterialInfos();
-		ss.name = ConvertValue(s.name);
-		ss.albedo = ConvertValue(s.albedo);
-		ss.normal = ConvertValue(s.normal);
-		ss.metallic = ConvertValue(s.metallic);
-		ss.roughness = ConvertValue(s.roughness);
-		ss.ao = ConvertValue(s.ao);
-		ss.opacity = ConvertValue(s.opacity);
-		return ss;
-	}
-
-	private static Material.PBRMaterialInfos_c ConvertValue(Material.PBRMaterialInfos s) {
-		Material.PBRMaterialInfos_c ss = new Material.PBRMaterialInfos_c();
-		Material_PBRMaterialInfos_init(ref ss);
-		ss.name = ConvertValue(s.name);
-		ss.albedo = ConvertValue(s.albedo);
-		ss.normal = ConvertValue(s.normal);
-		ss.metallic = ConvertValue(s.metallic);
-		ss.roughness = ConvertValue(s.roughness);
-		ss.ao = ConvertValue(s.ao);
-		ss.opacity = ConvertValue(s.opacity);
 		return ss;
 	}
 
@@ -3593,6 +3465,134 @@ namespace IO {
 		}
 
 		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void Material_MaterialList_init(ref Material.MaterialList_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void Material_MaterialList_free(ref Material.MaterialList_c list);
+
+		private static Material.MaterialList ConvertValue(Material.MaterialList_c s) {
+			Material.MaterialList list = new Material.MaterialList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static Material.MaterialList_c ConvertValue(Material.MaterialList s) {
+			Material.MaterialList_c list =  new Material.MaterialList_c();
+			Material_MaterialList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			int[] tab = new int[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = (int)(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
+
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void Material_ImageList_init(ref Material.ImageList_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void Material_ImageList_free(ref Material.ImageList_c list);
+
+		private static Material.ImageList ConvertValue(Material.ImageList_c s) {
+			Material.ImageList list = new Material.ImageList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static Material.ImageList_c ConvertValue(Material.ImageList s) {
+			Material.ImageList_c list =  new Material.ImageList_c();
+			Material_ImageList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			int[] tab = new int[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = (int)(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
+
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Material_PBRMaterialInfos_init(ref Material.PBRMaterialInfos_c str);
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Material_PBRMaterialInfos_free(ref Material.PBRMaterialInfos_c str);
+
+	private static Material.PBRMaterialInfos ConvertValue(Material.PBRMaterialInfos_c s) {
+		Material.PBRMaterialInfos ss = new Material.PBRMaterialInfos();
+		ss.name = ConvertValue(s.name);
+		ss.albedo = ConvertValue(s.albedo);
+		ss.normal = ConvertValue(s.normal);
+		ss.metallic = ConvertValue(s.metallic);
+		ss.roughness = ConvertValue(s.roughness);
+		ss.ao = ConvertValue(s.ao);
+		ss.opacity = ConvertValue(s.opacity);
+		return ss;
+	}
+
+	private static Material.PBRMaterialInfos_c ConvertValue(Material.PBRMaterialInfos s) {
+		Material.PBRMaterialInfos_c ss = new Material.PBRMaterialInfos_c();
+		Material_PBRMaterialInfos_init(ref ss);
+		ss.name = ConvertValue(s.name);
+		ss.albedo = ConvertValue(s.albedo);
+		ss.normal = ConvertValue(s.normal);
+		ss.metallic = ConvertValue(s.metallic);
+		ss.roughness = ConvertValue(s.roughness);
+		ss.ao = ConvertValue(s.ao);
+		ss.opacity = ConvertValue(s.opacity);
+		return ss;
+	}
+
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Material_UnlitTextureMaterialInfos_init(ref Material.UnlitTextureMaterialInfos_c str);
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Material_UnlitTextureMaterialInfos_free(ref Material.UnlitTextureMaterialInfos_c str);
+
+	private static Material.UnlitTextureMaterialInfos ConvertValue(Material.UnlitTextureMaterialInfos_c s) {
+		Material.UnlitTextureMaterialInfos ss = new Material.UnlitTextureMaterialInfos();
+		ss.name = ConvertValue(s.name);
+		ss.texture = ConvertValue(s.texture);
+		return ss;
+	}
+
+	private static Material.UnlitTextureMaterialInfos_c ConvertValue(Material.UnlitTextureMaterialInfos s) {
+		Material.UnlitTextureMaterialInfos_c ss = new Material.UnlitTextureMaterialInfos_c();
+		Material_UnlitTextureMaterialInfos_init(ref ss);
+		ss.name = ConvertValue(s.name);
+		ss.texture = ConvertValue(s.texture);
+		return ss;
+	}
+
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Material_MaterialDefinition_init(ref Material.MaterialDefinition_c str);
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Material_MaterialDefinition_free(ref Material.MaterialDefinition_c str);
+
+	private static Material.MaterialDefinition ConvertValue(Material.MaterialDefinition_c s) {
+		Material.MaterialDefinition ss = new Material.MaterialDefinition();
+		ss.name = ConvertValue(s.name);
+		ss.id = (System.UInt32)s.id;
+		ss.albedo = ConvertValue(s.albedo);
+		ss.normal = ConvertValue(s.normal);
+		ss.metallic = ConvertValue(s.metallic);
+		ss.roughness = ConvertValue(s.roughness);
+		ss.ao = ConvertValue(s.ao);
+		ss.opacity = ConvertValue(s.opacity);
+		return ss;
+	}
+
+	private static Material.MaterialDefinition_c ConvertValue(Material.MaterialDefinition s) {
+		Material.MaterialDefinition_c ss = new Material.MaterialDefinition_c();
+		Material_MaterialDefinition_init(ref ss);
+		ss.name = ConvertValue(s.name);
+		ss.id = (System.UInt32)s.id;
+		ss.albedo = ConvertValue(s.albedo);
+		ss.normal = ConvertValue(s.normal);
+		ss.metallic = ConvertValue(s.metallic);
+		ss.roughness = ConvertValue(s.roughness);
+		ss.ao = ConvertValue(s.ao);
+		ss.opacity = ConvertValue(s.opacity);
+		return ss;
+	}
+
+		[DllImport(PiXYZImportSDK_dll)]
 		private static extern void Material_MaterialDefinitionList_init(ref Material.MaterialDefinitionList_c list, UInt64 size);
 		[DllImport(PiXYZImportSDK_dll)]
 		private static extern void Material_MaterialDefinitionList_free(ref Material.MaterialDefinitionList_c list);
@@ -3634,6 +3634,29 @@ namespace IO {
 		private static Polygonal.MeshList_c ConvertValue(Polygonal.MeshList s) {
 			Polygonal.MeshList_c list =  new Polygonal.MeshList_c();
 			Polygonal_MeshList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			int[] tab = new int[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = (int)(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
+
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void Polygonal_JointList_init(ref Polygonal.JointList_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void Polygonal_JointList_free(ref Polygonal.JointList_c list);
+
+		private static Polygonal.JointList ConvertValue(Polygonal.JointList_c s) {
+			Polygonal.JointList list = new Polygonal.JointList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static Polygonal.JointList_c ConvertValue(Polygonal.JointList s) {
+			Polygonal.JointList_c list =  new Polygonal.JointList_c();
+			Polygonal_JointList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
 			if(list.size == 0) return list;
 			int[] tab = new int[list.size];
 			for (int i = 0; i < (int)list.size; ++i)
@@ -3749,29 +3772,6 @@ namespace IO {
 			return list;
 		}
 
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Polygonal_JointList_init(ref Polygonal.JointList_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Polygonal_JointList_free(ref Polygonal.JointList_c list);
-
-		private static Polygonal.JointList ConvertValue(Polygonal.JointList_c s) {
-			Polygonal.JointList list = new Polygonal.JointList((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static Polygonal.JointList_c ConvertValue(Polygonal.JointList s) {
-			Polygonal.JointList_c list =  new Polygonal.JointList_c();
-			Polygonal_JointList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			int[] tab = new int[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = (int)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
 	[DllImport(PiXYZImportSDK_dll)]
 	private static extern void Polygonal_MeshDefinition_init(ref Polygonal.MeshDefinition_c str);
 	[DllImport(PiXYZImportSDK_dll)]
@@ -3878,6 +3878,26 @@ namespace IO {
 			return list;
 		}
 
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Scene_PropertyValue_init(ref Scene.PropertyValue_c str);
+	[DllImport(PiXYZImportSDK_dll)]
+	private static extern void Scene_PropertyValue_free(ref Scene.PropertyValue_c str);
+
+	private static Scene.PropertyValue ConvertValue(Scene.PropertyValue_c s) {
+		Scene.PropertyValue ss = new Scene.PropertyValue();
+		ss.name = ConvertValue(s.name);
+		ss.value = ConvertValue(s.value);
+		return ss;
+	}
+
+	private static Scene.PropertyValue_c ConvertValue(Scene.PropertyValue s) {
+		Scene.PropertyValue_c ss = new Scene.PropertyValue_c();
+		Scene_PropertyValue_init(ref ss);
+		ss.name = ConvertValue(s.name);
+		ss.value = ConvertValue(s.value);
+		return ss;
+	}
+
 		[DllImport(PiXYZImportSDK_dll)]
 		private static extern void Scene_ComponentList_init(ref Scene.ComponentList_c list, UInt64 size);
 		[DllImport(PiXYZImportSDK_dll)]
@@ -3902,76 +3922,25 @@ namespace IO {
 		}
 
 		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Scene_MetadataDefinitionList_init(ref Scene.MetadataDefinitionList_c list, UInt64 size);
+		private static extern void Scene_PartList_init(ref Scene.PartList_c list, UInt64 size);
 		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Scene_MetadataDefinitionList_free(ref Scene.MetadataDefinitionList_c list);
+		private static extern void Scene_PartList_free(ref Scene.PartList_c list);
 
-		private static Scene.MetadataDefinitionList ConvertValue(Scene.MetadataDefinitionList_c s) {
-			Scene.MetadataDefinitionList list = new Scene.MetadataDefinitionList((int)s.size);
+		private static Scene.PartList ConvertValue(Scene.PartList_c s) {
+			Scene.PartList list = new Scene.PartList((int)s.size);
 			if (s.size==0) return list;
-			for (int i = 0; i < (int)s.size; ++i) {
-				IntPtr p = new IntPtr(s.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Scene.PropertyValueList_c)));
-				list.list[i] = ConvertValue((Scene.PropertyValueList_c)Marshal.PtrToStructure(p, typeof(Scene.PropertyValueList_c)));
-			}
+				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
 			return list;
 		}
 
-		private static Scene.MetadataDefinitionList_c ConvertValue(Scene.MetadataDefinitionList s) {
-			Scene.MetadataDefinitionList_c list =  new Scene.MetadataDefinitionList_c();
-			Scene_MetadataDefinitionList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+		private static Scene.PartList_c ConvertValue(Scene.PartList s) {
+			Scene.PartList_c list =  new Scene.PartList_c();
+			Scene_PartList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
 			if(list.size == 0) return list;
-			for(int i = 0; i < (int)list.size; ++i) {
-				Scene.PropertyValueList_c elt = ConvertValue(s.list[i]);
-				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Scene.PropertyValueList_c)));
-				Marshal.StructureToPtr(elt, p, true);
-			}
-			return list;
-		}
-
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Scene_PropertyValue_init(ref Scene.PropertyValue_c str);
-	[DllImport(PiXYZImportSDK_dll)]
-	private static extern void Scene_PropertyValue_free(ref Scene.PropertyValue_c str);
-
-	private static Scene.PropertyValue ConvertValue(Scene.PropertyValue_c s) {
-		Scene.PropertyValue ss = new Scene.PropertyValue();
-		ss.name = ConvertValue(s.name);
-		ss.value = ConvertValue(s.value);
-		return ss;
-	}
-
-	private static Scene.PropertyValue_c ConvertValue(Scene.PropertyValue s) {
-		Scene.PropertyValue_c ss = new Scene.PropertyValue_c();
-		Scene_PropertyValue_init(ref ss);
-		ss.name = ConvertValue(s.name);
-		ss.value = ConvertValue(s.value);
-		return ss;
-	}
-
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Scene_PropertyValueList_init(ref Scene.PropertyValueList_c list, UInt64 size);
-		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Scene_PropertyValueList_free(ref Scene.PropertyValueList_c list);
-
-		private static Scene.PropertyValueList ConvertValue(Scene.PropertyValueList_c s) {
-			Scene.PropertyValueList list = new Scene.PropertyValueList((int)s.size);
-			if (s.size==0) return list;
-			for (int i = 0; i < (int)s.size; ++i) {
-				IntPtr p = new IntPtr(s.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Scene.PropertyValue_c)));
-				list.list[i] = ConvertValue((Scene.PropertyValue_c)Marshal.PtrToStructure(p, typeof(Scene.PropertyValue_c)));
-			}
-			return list;
-		}
-
-		private static Scene.PropertyValueList_c ConvertValue(Scene.PropertyValueList s) {
-			Scene.PropertyValueList_c list =  new Scene.PropertyValueList_c();
-			Scene_PropertyValueList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			for(int i = 0; i < (int)list.size; ++i) {
-				Scene.PropertyValue_c elt = ConvertValue(s.list[i]);
-				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Scene.PropertyValue_c)));
-				Marshal.StructureToPtr(elt, p, true);
-			}
+			int[] tab = new int[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = (int)(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
 			return list;
 		}
 
@@ -4008,25 +3977,56 @@ namespace IO {
 	}
 
 		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Scene_PartList_init(ref Scene.PartList_c list, UInt64 size);
+		private static extern void Scene_PropertyValueList_init(ref Scene.PropertyValueList_c list, UInt64 size);
 		[DllImport(PiXYZImportSDK_dll)]
-		private static extern void Scene_PartList_free(ref Scene.PartList_c list);
+		private static extern void Scene_PropertyValueList_free(ref Scene.PropertyValueList_c list);
 
-		private static Scene.PartList ConvertValue(Scene.PartList_c s) {
-			Scene.PartList list = new Scene.PartList((int)s.size);
+		private static Scene.PropertyValueList ConvertValue(Scene.PropertyValueList_c s) {
+			Scene.PropertyValueList list = new Scene.PropertyValueList((int)s.size);
 			if (s.size==0) return list;
-				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
+			for (int i = 0; i < (int)s.size; ++i) {
+				IntPtr p = new IntPtr(s.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Scene.PropertyValue_c)));
+				list.list[i] = ConvertValue((Scene.PropertyValue_c)Marshal.PtrToStructure(p, typeof(Scene.PropertyValue_c)));
+			}
 			return list;
 		}
 
-		private static Scene.PartList_c ConvertValue(Scene.PartList s) {
-			Scene.PartList_c list =  new Scene.PartList_c();
-			Scene_PartList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+		private static Scene.PropertyValueList_c ConvertValue(Scene.PropertyValueList s) {
+			Scene.PropertyValueList_c list =  new Scene.PropertyValueList_c();
+			Scene_PropertyValueList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
 			if(list.size == 0) return list;
-			int[] tab = new int[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = (int)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			for(int i = 0; i < (int)list.size; ++i) {
+				Scene.PropertyValue_c elt = ConvertValue(s.list[i]);
+				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Scene.PropertyValue_c)));
+				Marshal.StructureToPtr(elt, p, true);
+			}
+			return list;
+		}
+
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void Scene_MetadataDefinitionList_init(ref Scene.MetadataDefinitionList_c list, UInt64 size);
+		[DllImport(PiXYZImportSDK_dll)]
+		private static extern void Scene_MetadataDefinitionList_free(ref Scene.MetadataDefinitionList_c list);
+
+		private static Scene.MetadataDefinitionList ConvertValue(Scene.MetadataDefinitionList_c s) {
+			Scene.MetadataDefinitionList list = new Scene.MetadataDefinitionList((int)s.size);
+			if (s.size==0) return list;
+			for (int i = 0; i < (int)s.size; ++i) {
+				IntPtr p = new IntPtr(s.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Scene.PropertyValueList_c)));
+				list.list[i] = ConvertValue((Scene.PropertyValueList_c)Marshal.PtrToStructure(p, typeof(Scene.PropertyValueList_c)));
+			}
+			return list;
+		}
+
+		private static Scene.MetadataDefinitionList_c ConvertValue(Scene.MetadataDefinitionList s) {
+			Scene.MetadataDefinitionList_c list =  new Scene.MetadataDefinitionList_c();
+			Scene_MetadataDefinitionList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			for(int i = 0; i < (int)list.size; ++i) {
+				Scene.PropertyValueList_c elt = ConvertValue(s.list[i]);
+				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Scene.PropertyValueList_c)));
+				Marshal.StructureToPtr(elt, p, true);
+			}
 			return list;
 		}
 

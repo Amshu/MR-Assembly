@@ -11,22 +11,6 @@ namespace Pixyz.OptimizeSDK.Native {
 #region Types
 namespace Core {
 
-	public enum Verbose
-	{
-		ERR = 0,
-		WARNING = 1,
-		INFO = 2,
-		SCRIPT = 5,
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class Bool {
-		System.Boolean value { get; set; }
-		Bool(System.Boolean v) { value = v; }
-		public static implicit operator System.Boolean(Bool self) { return self.value; }
-		public static implicit operator Bool(System.Boolean v) { return new Bool(v); }
-	}
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
 	public class String {
@@ -43,60 +27,6 @@ namespace Core {
 		public static implicit operator System.Int32(Int self) { return self.value; }
 		public static implicit operator Int(System.Int32 v) { return new Int(v); }
 	}
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class Ident {
-		System.UInt32 value { get; set; }
-		Ident(System.UInt32 v) { value = v; }
-		public static implicit operator System.UInt32(Ident self) { return self.value; }
-		public static implicit operator Ident(System.UInt32 v) { return new Ident(v); }
-	}
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class Double {
-		System.Double value { get; set; }
-		Double(System.Double v) { value = v; }
-		public static implicit operator System.Double(Double self) { return self.value; }
-		public static implicit operator Double(System.Double v) { return new Double(v); }
-	}
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class Byte {
-		System.Byte value { get; set; }
-		Byte(System.Byte v) { value = v; }
-		public static implicit operator System.Byte(Byte self) { return self.value; }
-		public static implicit operator Byte(System.Byte v) { return new Byte(v); }
-	}
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class UShort {
-		System.UInt16 value { get; set; }
-		UShort(System.UInt16 v) { value = v; }
-		public static implicit operator System.UInt16(UShort self) { return self.value; }
-		public static implicit operator UShort(System.UInt16 v) { return new UShort(v); }
-	}
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class EntityList {
-		public System.UInt32[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public EntityList() {}
-		public EntityList(System.UInt32[] tab) { list = tab; }
-		public static implicit operator System.UInt32[](EntityList o) { return o.list; }
-		public System.UInt32 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public EntityList(int size) { list = new System.UInt32[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct EntityList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
 	public struct Date
@@ -117,6 +47,68 @@ namespace Core {
 		internal Int32 year;
 		internal Int32 month;
 		internal Int32 day;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class Double {
+		System.Double value { get; set; }
+		Double(System.Double v) { value = v; }
+		public static implicit operator System.Double(Double self) { return self.value; }
+		public static implicit operator Double(System.Double v) { return new Double(v); }
+	}
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class Bool {
+		System.Boolean value { get; set; }
+		Bool(System.Boolean v) { value = v; }
+		public static implicit operator System.Boolean(Bool self) { return self.value; }
+		public static implicit operator Bool(System.Boolean v) { return new Bool(v); }
+	}
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class UShort {
+		System.UInt16 value { get; set; }
+		UShort(System.UInt16 v) { value = v; }
+		public static implicit operator System.UInt16(UShort self) { return self.value; }
+		public static implicit operator UShort(System.UInt16 v) { return new UShort(v); }
+	}
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class Ident {
+		System.UInt32 value { get; set; }
+		Ident(System.UInt32 v) { value = v; }
+		public static implicit operator System.UInt32(Ident self) { return self.value; }
+		public static implicit operator Ident(System.UInt32 v) { return new Ident(v); }
+	}
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class Byte {
+		System.Byte value { get; set; }
+		Byte(System.Byte v) { value = v; }
+		public static implicit operator System.Byte(Byte self) { return self.value; }
+		public static implicit operator Byte(System.Byte v) { return new Byte(v); }
+	}
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class StringList {
+		public System.String[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public StringList() {}
+		public StringList(System.String[] tab) { list = tab; }
+		public static implicit operator System.String[](StringList o) { return o.list; }
+		public System.String this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public StringList(int size) { list = new System.String[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct StringList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
 	}
 
 	[Serializable]
@@ -177,6 +169,28 @@ namespace Core {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
+	public class EntityList {
+		public System.UInt32[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public EntityList() {}
+		public EntityList(System.UInt32[] tab) { list = tab; }
+		public static implicit operator System.UInt32[](EntityList o) { return o.list; }
+		public System.UInt32 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public EntityList(int size) { list = new System.UInt32[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct EntityList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
 	public class LicenseInfos
 	{
 		public LicenseInfos() {}
@@ -205,80 +219,6 @@ namespace Core {
 		internal IntPtr customerEmail;
 		internal Date_c startDate;
 		internal Date_c endDate;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class StringList {
-		public System.String[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public StringList() {}
-		public StringList(System.String[] tab) { list = tab; }
-		public static implicit operator System.String[](StringList o) { return o.list; }
-		public System.String this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public StringList(int size) { list = new System.String[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct StringList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class ULong {
-		System.UInt64 value { get; set; }
-		ULong(System.UInt64 v) { value = v; }
-		public static implicit operator System.UInt64(ULong self) { return self.value; }
-		public static implicit operator ULong(System.UInt64 v) { return new ULong(v); }
-	}
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class ULongList {
-		public System.UInt64[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public ULongList() {}
-		public ULongList(System.UInt64[] tab) { list = tab; }
-		public static implicit operator System.UInt64[](ULongList o) { return o.list; }
-		public System.UInt64 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public ULongList(int size) { list = new System.UInt64[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct ULongList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class IntList {
-		public System.Int32[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public IntList() {}
-		public IntList(System.Int32[] tab) { list = tab; }
-		public static implicit operator System.Int32[](IntList o) { return o.list; }
-		public System.Int32 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public IntList(int size) { list = new System.Int32[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct IntList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
 	}
 
 	[Serializable]
@@ -329,6 +269,58 @@ namespace Core {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
+	public class IntList {
+		public System.Int32[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public IntList() {}
+		public IntList(System.Int32[] tab) { list = tab; }
+		public static implicit operator System.Int32[](IntList o) { return o.list; }
+		public System.Int32 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public IntList(int size) { list = new System.Int32[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct IntList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class ULong {
+		System.UInt64 value { get; set; }
+		ULong(System.UInt64 v) { value = v; }
+		public static implicit operator System.UInt64(ULong self) { return self.value; }
+		public static implicit operator ULong(System.UInt64 v) { return new ULong(v); }
+	}
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class ULongList {
+		public System.UInt64[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public ULongList() {}
+		public ULongList(System.UInt64[] tab) { list = tab; }
+		public static implicit operator System.UInt64[](ULongList o) { return o.list; }
+		public System.UInt64 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public ULongList(int size) { list = new System.UInt64[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct ULongList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
 	public struct Color
 	{
 		public Color(Color o) {
@@ -369,6 +361,14 @@ namespace Core {
 	{
 		internal System.UInt64 size;
 		internal IntPtr ptr;
+	}
+
+	public enum Verbose
+	{
+		ERR = 0,
+		WARNING = 1,
+		INFO = 2,
+		SCRIPT = 5,
 	}
 
 	[Serializable]
@@ -458,6 +458,65 @@ namespace Geom {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
+	public struct Point4
+	{
+		public Point4(Point4 o) {
+			this.x = o.x;
+			this.y = o.y;
+			this.z = o.z;
+			this.w = o.w;
+		}
+		public System.Double x;
+		public System.Double y;
+		public System.Double z;
+		public System.Double w;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Point4_c
+	{
+		internal System.Double x;
+		internal System.Double y;
+		internal System.Double z;
+		internal System.Double w;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Vector4 {
+		public Vector4(Point4 value) { this._base = value; }
+		public static implicit operator Point4(Vector4 v) { return v._base; }
+		public static implicit operator Vector4(Point4 v) { return new Vector4(v); }
+		public Point4 _base;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Vector4I
+	{
+		public Vector4I(Vector4I o) {
+			this.x = o.x;
+			this.y = o.y;
+			this.z = o.z;
+			this.w = o.w;
+		}
+		public System.Int32 x;
+		public System.Int32 y;
+		public System.Int32 z;
+		public System.Int32 w;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Vector4I_c
+	{
+		internal Int32 x;
+		internal Int32 y;
+		internal Int32 z;
+		internal Int32 w;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
 	public struct Point3
 	{
 		public Point3(Point3 o) {
@@ -515,27 +574,6 @@ namespace Geom {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public class CurvaturesList {
-		public Curvatures[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public CurvaturesList(Curvatures[] tab) { list = tab; }
-		public static implicit operator Curvatures[](CurvaturesList o) { return o.list; }
-		public Curvatures this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public CurvaturesList(int size) { list = new Curvatures[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct CurvaturesList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
 	public class Vector3List {
 		public Vector3[] list;
 		public int length { get { return (list != null) ? list.Length : 0; } }
@@ -550,149 +588,6 @@ namespace Geom {
 
 	[StructLayout(LayoutKind.Sequential)]
 	public struct Vector3List_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Vector4I
-	{
-		public Vector4I(Vector4I o) {
-			this.x = o.x;
-			this.y = o.y;
-			this.z = o.z;
-			this.w = o.w;
-		}
-		public System.Int32 x;
-		public System.Int32 y;
-		public System.Int32 z;
-		public System.Int32 w;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Vector4I_c
-	{
-		internal Int32 x;
-		internal Int32 y;
-		internal Int32 z;
-		internal Int32 w;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class Vector4IList {
-		public Vector4I[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public Vector4IList(Vector4I[] tab) { list = tab; }
-		public static implicit operator Vector4I[](Vector4IList o) { return o.list; }
-		public Vector4I this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public Vector4IList(int size) { list = new Vector4I[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Vector4IList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Point4
-	{
-		public Point4(Point4 o) {
-			this.x = o.x;
-			this.y = o.y;
-			this.z = o.z;
-			this.w = o.w;
-		}
-		public System.Double x;
-		public System.Double y;
-		public System.Double z;
-		public System.Double w;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Point4_c
-	{
-		internal System.Double x;
-		internal System.Double y;
-		internal System.Double z;
-		internal System.Double w;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Vector4 {
-		public Vector4(Point4 value) { this._base = value; }
-		public static implicit operator Point4(Vector4 v) { return v._base; }
-		public static implicit operator Vector4(Point4 v) { return new Vector4(v); }
-		public Point4 _base;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class Matrix4List {
-		public Matrix4[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public Matrix4List(Matrix4[] tab) { list = tab; }
-		public static implicit operator Matrix4[](Matrix4List o) { return o.list; }
-		public Matrix4 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public Matrix4List(int size) { list = new Matrix4[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Matrix4List_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class Vector4List {
-		public Vector4[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public Vector4List(Vector4[] tab) { list = tab; }
-		public static implicit operator Vector4[](Vector4List o) { return o.list; }
-		public Vector4 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public Vector4List(int size) { list = new Vector4[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Vector4List_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class Point2List {
-		public Point2[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public Point2List(Point2[] tab) { list = tab; }
-		public static implicit operator Point2[](Point2List o) { return o.list; }
-		public Point2 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public Point2List(int size) { list = new Point2[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Point2List_c
 	{
 		internal System.UInt64 size;
 		internal IntPtr ptr;
@@ -721,6 +616,48 @@ namespace Geom {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
+	public class Matrix4List {
+		public Matrix4[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public Matrix4List(Matrix4[] tab) { list = tab; }
+		public static implicit operator Matrix4[](Matrix4List o) { return o.list; }
+		public Matrix4 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public Matrix4List(int size) { list = new Matrix4[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Matrix4List_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class Point2List {
+		public Point2[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public Point2List(Point2[] tab) { list = tab; }
+		public static implicit operator Point2[](Point2List o) { return o.list; }
+		public Point2 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public Point2List(int size) { list = new Point2[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Point2List_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
 	public class Point2ListList {
 		public Point2List[] list;
 		public int length { get { return (list != null) ? list.Length : 0; } }
@@ -738,6 +675,89 @@ namespace Geom {
 	{
 		internal System.UInt64 size;
 		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class CurvaturesList {
+		public Curvatures[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public CurvaturesList(Curvatures[] tab) { list = tab; }
+		public static implicit operator Curvatures[](CurvaturesList o) { return o.list; }
+		public Curvatures this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public CurvaturesList(int size) { list = new Curvatures[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct CurvaturesList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class Vector4List {
+		public Vector4[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public Vector4List(Vector4[] tab) { list = tab; }
+		public static implicit operator Vector4[](Vector4List o) { return o.list; }
+		public Vector4 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public Vector4List(int size) { list = new Vector4[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Vector4List_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class Vector4IList {
+		public Vector4I[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public Vector4IList(Vector4I[] tab) { list = tab; }
+		public static implicit operator Vector4I[](Vector4IList o) { return o.list; }
+		public Vector4I this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public Vector4IList(int size) { list = new Vector4I[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Vector4IList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class AABB
+	{
+		public AABB() {}
+		public AABB(AABB o) {
+			this.low = o.low;
+			this.high = o.high;
+		}
+		public Point3 low;
+		public Point3 high;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct AABB_c
+	{
+		internal Point3_c low;
+		internal Point3_c high;
 	}
 
 	[Serializable]
@@ -766,85 +786,9 @@ namespace Geom {
 		internal Point3_c zAxis;
 	}
 
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class AABB
-	{
-		public AABB() {}
-		public AABB(AABB o) {
-			this.low = o.low;
-			this.high = o.high;
-		}
-		public Point3 low;
-		public Point3 high;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct AABB_c
-	{
-		internal Point3_c low;
-		internal Point3_c high;
-	}
-
 }
 
 namespace Material {
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class ImageDefinition
-	{
-		public ImageDefinition() {}
-		public ImageDefinition(ImageDefinition o) {
-			this.id = o.id;
-			this.name = o.name;
-			this.width = o.width;
-			this.height = o.height;
-			this.bitsPerComponent = o.bitsPerComponent;
-			this.componentsCount = o.componentsCount;
-			this.data = o.data;
-		}
-		public System.UInt32 id;
-		public System.String name;
-		public System.Int32 width;
-		public System.Int32 height;
-		public System.Int32 bitsPerComponent;
-		public System.Int32 componentsCount;
-		public Core.ByteList data;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct ImageDefinition_c
-	{
-		internal System.UInt32 id;
-		internal IntPtr name;
-		internal Int32 width;
-		internal Int32 height;
-		internal Int32 bitsPerComponent;
-		internal Int32 componentsCount;
-		internal Core.ByteList_c data;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class ImageDefinitionList {
-		public ImageDefinition[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public ImageDefinitionList(ImageDefinition[] tab) { list = tab; }
-		public static implicit operator ImageDefinition[](ImageDefinitionList o) { return o.list; }
-		public ImageDefinition this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public ImageDefinitionList(int size) { list = new ImageDefinition[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct ImageDefinitionList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
@@ -893,6 +837,28 @@ namespace Material {
 		internal Core.Color_c color;
 		internal Texture_c texture;
 		internal int _type;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class ImageList {
+		public System.UInt32[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public ImageList() {}
+		public ImageList(System.UInt32[] tab) { list = tab; }
+		public static implicit operator System.UInt32[](ImageList o) { return o.list; }
+		public System.UInt32 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public ImageList(int size) { list = new System.UInt32[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct ImageList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
 	}
 
 	[Serializable]
@@ -1001,21 +967,55 @@ namespace Material {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
-	public class ImageList {
-		public System.UInt32[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public ImageList() {}
-		public ImageList(System.UInt32[] tab) { list = tab; }
-		public static implicit operator System.UInt32[](ImageList o) { return o.list; }
-		public System.UInt32 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
+	public class ImageDefinition
+	{
+		public ImageDefinition() {}
+		public ImageDefinition(ImageDefinition o) {
+			this.id = o.id;
+			this.name = o.name;
+			this.width = o.width;
+			this.height = o.height;
+			this.bitsPerComponent = o.bitsPerComponent;
+			this.componentsCount = o.componentsCount;
+			this.data = o.data;
 		}
-		public ImageList(int size) { list = new System.UInt32[size]; }
+		public System.UInt32 id;
+		public System.String name;
+		public System.Int32 width;
+		public System.Int32 height;
+		public System.Int32 bitsPerComponent;
+		public System.Int32 componentsCount;
+		public Core.ByteList data;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public struct ImageList_c
+	public struct ImageDefinition_c
+	{
+		internal System.UInt32 id;
+		internal IntPtr name;
+		internal Int32 width;
+		internal Int32 height;
+		internal Int32 bitsPerComponent;
+		internal Int32 componentsCount;
+		internal Core.ByteList_c data;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class ImageDefinitionList {
+		public ImageDefinition[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public ImageDefinitionList(ImageDefinition[] tab) { list = tab; }
+		public static implicit operator ImageDefinition[](ImageDefinitionList o) { return o.list; }
+		public ImageDefinition this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public ImageDefinitionList(int size) { list = new ImageDefinition[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct ImageDefinitionList_c
 	{
 		internal System.UInt64 size;
 		internal IntPtr ptr;
@@ -1029,6 +1029,103 @@ namespace Polygonal {
 	{
 		NORMAL = 0,
 		STIPPLE = 1,
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class StylizedLine
+	{
+		public StylizedLine() {}
+		public StylizedLine(StylizedLine o) {
+			this.lines = o.lines;
+			this.width = o.width;
+			this.type = o.type;
+			this.pattern = o.pattern;
+			this.color = o.color;
+			this.externalId = o.externalId;
+		}
+		public Core.IntList lines;
+		public System.Double width;
+		public StyleType type;
+		public System.Int32 pattern;
+		public Core.ColorAlpha color;
+		public System.UInt32 externalId;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct StylizedLine_c
+	{
+		internal Core.IntList_c lines;
+		internal System.Double width;
+		internal Int32 type;
+		internal Int32 pattern;
+		internal Core.ColorAlpha_c color;
+		internal System.UInt32 externalId;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class StylizedLineList {
+		public StylizedLine[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public StylizedLineList(StylizedLine[] tab) { list = tab; }
+		public static implicit operator StylizedLine[](StylizedLineList o) { return o.list; }
+		public StylizedLine this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public StylizedLineList(int size) { list = new StylizedLine[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct StylizedLineList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class PlaceholderJointList {
+		public System.UInt32[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public PlaceholderJointList() {}
+		public PlaceholderJointList(System.UInt32[] tab) { list = tab; }
+		public static implicit operator System.UInt32[](PlaceholderJointList o) { return o.list; }
+		public System.UInt32 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public PlaceholderJointList(int size) { list = new System.UInt32[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct PlaceholderJointList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class JointList {
+		public System.UInt32[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public JointList() {}
+		public JointList(System.UInt32[] tab) { list = tab; }
+		public static implicit operator System.UInt32[](JointList o) { return o.list; }
+		public System.UInt32 this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public JointList(int size) { list = new System.UInt32[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct JointList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
 	}
 
 	[Serializable]
@@ -1100,103 +1197,6 @@ namespace Polygonal {
 
 	[StructLayout(LayoutKind.Sequential)]
 	public struct MeshList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class JointList {
-		public System.UInt32[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public JointList() {}
-		public JointList(System.UInt32[] tab) { list = tab; }
-		public static implicit operator System.UInt32[](JointList o) { return o.list; }
-		public System.UInt32 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public JointList(int size) { list = new System.UInt32[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct JointList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class PlaceholderJointList {
-		public System.UInt32[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public PlaceholderJointList() {}
-		public PlaceholderJointList(System.UInt32[] tab) { list = tab; }
-		public static implicit operator System.UInt32[](PlaceholderJointList o) { return o.list; }
-		public System.UInt32 this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public PlaceholderJointList(int size) { list = new System.UInt32[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct PlaceholderJointList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class StylizedLine
-	{
-		public StylizedLine() {}
-		public StylizedLine(StylizedLine o) {
-			this.lines = o.lines;
-			this.width = o.width;
-			this.type = o.type;
-			this.pattern = o.pattern;
-			this.color = o.color;
-			this.externalId = o.externalId;
-		}
-		public Core.IntList lines;
-		public System.Double width;
-		public StyleType type;
-		public System.Int32 pattern;
-		public Core.ColorAlpha color;
-		public System.UInt32 externalId;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct StylizedLine_c
-	{
-		internal Core.IntList_c lines;
-		internal System.Double width;
-		internal Int32 type;
-		internal Int32 pattern;
-		internal Core.ColorAlpha_c color;
-		internal System.UInt32 externalId;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class StylizedLineList {
-		public StylizedLine[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public StylizedLineList(StylizedLine[] tab) { list = tab; }
-		public static implicit operator StylizedLine[](StylizedLineList o) { return o.list; }
-		public StylizedLine this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public StylizedLineList(int size) { list = new StylizedLine[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct StylizedLineList_c
 	{
 		internal System.UInt64 size;
 		internal IntPtr ptr;
@@ -1301,6 +1301,13 @@ namespace Polygonal {
 
 namespace Algo {
 
+	public enum SelectionLevel
+	{
+		Parts = 0,
+		Patches = 1,
+		Polygons = 2,
+	}
+
 	public enum MapType
 	{
 		Diffuse = 0,
@@ -1328,6 +1335,19 @@ namespace Algo {
 		GlobalPosition = 22,
 	}
 
+	public enum BakingMethod
+	{
+		RayOnly = 0,
+		ProjOnly = 1,
+		RayAndProj = 2,
+	}
+
+	public enum ReplaceByBoxType
+	{
+		Minimum = 0,
+		LocallyAligned = 1,
+	}
+
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
 	public class MapTypeList {
@@ -1347,26 +1367,6 @@ namespace Algo {
 	{
 		internal System.UInt64 size;
 		internal IntPtr ptr;
-	}
-
-	public enum ReplaceByBoxType
-	{
-		Minimum = 0,
-		LocallyAligned = 1,
-	}
-
-	public enum BakingMethod
-	{
-		RayOnly = 0,
-		ProjOnly = 1,
-		RayAndProj = 2,
-	}
-
-	public enum SelectionLevel
-	{
-		Parts = 0,
-		Patches = 1,
-		Polygons = 2,
 	}
 
 }
@@ -1424,29 +1424,6 @@ namespace Algo {
 			return list;
 		}
 
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Core_EntityList_init(ref Core.EntityList_c list, UInt64 size);
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Core_EntityList_free(ref Core.EntityList_c list);
-
-		private static Core.EntityList ConvertValue(Core.EntityList_c s) {
-			Core.EntityList list = new Core.EntityList((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static Core.EntityList_c ConvertValue(Core.EntityList s) {
-			Core.EntityList_c list =  new Core.EntityList_c();
-			Core_EntityList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			int[] tab = new int[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = (int)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
 	[DllImport(PiXYZOptimizeSDK_dll)]
 	private static extern void Core_Date_init(ref Core.Date_c str);
 	[DllImport(PiXYZOptimizeSDK_dll)]
@@ -1468,6 +1445,33 @@ namespace Algo {
 		ss.day = (Int32)s.day;
 		return ss;
 	}
+
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Core_StringList_init(ref Core.StringList_c list, UInt64 size);
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Core_StringList_free(ref Core.StringList_c list);
+
+		private static Core.StringList ConvertValue(Core.StringList_c s) {
+			Core.StringList list = new Core.StringList((int)s.size);
+			if (s.size==0) return list;
+			IntPtr[] tab = new IntPtr[s.size];
+			Marshal.Copy(s.ptr, tab, 0, (int)s.size);
+			for (int i = 0; i < (int)s.size; ++i) {
+				list.list[i] = ConvertValue(tab[i]);
+			}
+			return list;
+		}
+
+		private static Core.StringList_c ConvertValue(Core.StringList s) {
+			Core.StringList_c list =  new Core.StringList_c();
+			Core_StringList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			IntPtr[] tab = new IntPtr[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = ConvertValue(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
 
 	[DllImport(PiXYZOptimizeSDK_dll)]
 	private static extern void Core_WebLicenseInfo_init(ref Core.WebLicenseInfo_c str);
@@ -1526,6 +1530,29 @@ namespace Algo {
 			return list;
 		}
 
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Core_EntityList_init(ref Core.EntityList_c list, UInt64 size);
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Core_EntityList_free(ref Core.EntityList_c list);
+
+		private static Core.EntityList ConvertValue(Core.EntityList_c s) {
+			Core.EntityList list = new Core.EntityList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static Core.EntityList_c ConvertValue(Core.EntityList s) {
+			Core.EntityList_c list =  new Core.EntityList_c();
+			Core_EntityList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			int[] tab = new int[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = (int)(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
+
 	[DllImport(PiXYZOptimizeSDK_dll)]
 	private static extern void Core_LicenseInfos_init(ref Core.LicenseInfos_c str);
 	[DllImport(PiXYZOptimizeSDK_dll)]
@@ -1553,76 +1580,6 @@ namespace Algo {
 		ss.endDate = ConvertValue(s.endDate);
 		return ss;
 	}
-
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Core_StringList_init(ref Core.StringList_c list, UInt64 size);
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Core_StringList_free(ref Core.StringList_c list);
-
-		private static Core.StringList ConvertValue(Core.StringList_c s) {
-			Core.StringList list = new Core.StringList((int)s.size);
-			if (s.size==0) return list;
-			IntPtr[] tab = new IntPtr[s.size];
-			Marshal.Copy(s.ptr, tab, 0, (int)s.size);
-			for (int i = 0; i < (int)s.size; ++i) {
-				list.list[i] = ConvertValue(tab[i]);
-			}
-			return list;
-		}
-
-		private static Core.StringList_c ConvertValue(Core.StringList s) {
-			Core.StringList_c list =  new Core.StringList_c();
-			Core_StringList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			IntPtr[] tab = new IntPtr[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = ConvertValue(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Core_ULongList_init(ref Core.ULongList_c list, UInt64 size);
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Core_ULongList_free(ref Core.ULongList_c list);
-
-		private static Core.ULongList ConvertValue(Core.ULongList_c s) {
-			Core.ULongList list = new Core.ULongList((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<System.UInt64>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static Core.ULongList_c ConvertValue(Core.ULongList s) {
-			Core.ULongList_c list =  new Core.ULongList_c();
-			Core_ULongList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			long[] tab = new long[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = (long)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Core_IntList_init(ref Core.IntList_c list, UInt64 size);
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Core_IntList_free(ref Core.IntList_c list);
-
-		private static Core.IntList ConvertValue(Core.IntList_c s) {
-			Core.IntList list = new Core.IntList((int)s.size);
-			if (s.size > 0)
-				Marshal.Copy(s.ptr, list.list, 0, (int)s.size);
-			return list;
-		}
-
-		private static Core.IntList_c ConvertValue(Core.IntList s) {
-			Core.IntList_c list =  new Core.IntList_c();
-			Core_IntList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size > 0)
-				Marshal.Copy(s.list, 0, list.ptr, (int)list.size);
-			return list;
-		}
 
 	[DllImport(PiXYZOptimizeSDK_dll)]
 	private static extern void Core_ColorAlpha_init(ref Core.ColorAlpha_c str);
@@ -1669,6 +1626,49 @@ namespace Algo {
 				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Core.ColorAlpha_c)));
 				Marshal.StructureToPtr(elt, p, true);
 			}
+			return list;
+		}
+
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Core_IntList_init(ref Core.IntList_c list, UInt64 size);
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Core_IntList_free(ref Core.IntList_c list);
+
+		private static Core.IntList ConvertValue(Core.IntList_c s) {
+			Core.IntList list = new Core.IntList((int)s.size);
+			if (s.size > 0)
+				Marshal.Copy(s.ptr, list.list, 0, (int)s.size);
+			return list;
+		}
+
+		private static Core.IntList_c ConvertValue(Core.IntList s) {
+			Core.IntList_c list =  new Core.IntList_c();
+			Core_IntList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size > 0)
+				Marshal.Copy(s.list, 0, list.ptr, (int)list.size);
+			return list;
+		}
+
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Core_ULongList_init(ref Core.ULongList_c list, UInt64 size);
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Core_ULongList_free(ref Core.ULongList_c list);
+
+		private static Core.ULongList ConvertValue(Core.ULongList_c s) {
+			Core.ULongList list = new Core.ULongList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<System.UInt64>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static Core.ULongList_c ConvertValue(Core.ULongList s) {
+			Core.ULongList_c list =  new Core.ULongList_c();
+			Core_ULongList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			long[] tab = new long[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = (long)(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
 			return list;
 		}
 
@@ -1809,6 +1809,76 @@ namespace Algo {
 	}
 
 	[DllImport(PiXYZOptimizeSDK_dll)]
+	private static extern void Geom_Vector4I_init(ref Geom.Vector4I_c str);
+	[DllImport(PiXYZOptimizeSDK_dll)]
+	private static extern void Geom_Vector4I_free(ref Geom.Vector4I_c str);
+
+	private static Geom.Vector4I ConvertValue(Geom.Vector4I_c s) {
+		Geom.Vector4I ss = new Geom.Vector4I();
+		ss.x = (System.Int32)s.x;
+		ss.y = (System.Int32)s.y;
+		ss.z = (System.Int32)s.z;
+		ss.w = (System.Int32)s.w;
+		return ss;
+	}
+
+	private static Geom.Vector4I_c ConvertValue(Geom.Vector4I s) {
+		Geom.Vector4I_c ss = new Geom.Vector4I_c();
+		Geom_Vector4I_init(ref ss);
+		ss.x = (Int32)s.x;
+		ss.y = (Int32)s.y;
+		ss.z = (Int32)s.z;
+		ss.w = (Int32)s.w;
+		return ss;
+	}
+
+	[DllImport(PiXYZOptimizeSDK_dll)]
+	private static extern void Geom_Point3_init(ref Geom.Point3_c str);
+	[DllImport(PiXYZOptimizeSDK_dll)]
+	private static extern void Geom_Point3_free(ref Geom.Point3_c str);
+
+	private static Geom.Point3 ConvertValue(Geom.Point3_c s) {
+		Geom.Point3 ss = new Geom.Point3();
+		ss.x = (System.Double)s.x;
+		ss.y = (System.Double)s.y;
+		ss.z = (System.Double)s.z;
+		return ss;
+	}
+
+	private static Geom.Point3_c ConvertValue(Geom.Point3 s) {
+		Geom.Point3_c ss = new Geom.Point3_c();
+		Geom_Point3_init(ref ss);
+		ss.x = (System.Double)s.x;
+		ss.y = (System.Double)s.y;
+		ss.z = (System.Double)s.z;
+		return ss;
+	}
+
+	[DllImport(PiXYZOptimizeSDK_dll)]
+	private static extern void Geom_Point4_init(ref Geom.Point4_c str);
+	[DllImport(PiXYZOptimizeSDK_dll)]
+	private static extern void Geom_Point4_free(ref Geom.Point4_c str);
+
+	private static Geom.Point4 ConvertValue(Geom.Point4_c s) {
+		Geom.Point4 ss = new Geom.Point4();
+		ss.x = (System.Double)s.x;
+		ss.y = (System.Double)s.y;
+		ss.z = (System.Double)s.z;
+		ss.w = (System.Double)s.w;
+		return ss;
+	}
+
+	private static Geom.Point4_c ConvertValue(Geom.Point4 s) {
+		Geom.Point4_c ss = new Geom.Point4_c();
+		Geom_Point4_init(ref ss);
+		ss.x = (System.Double)s.x;
+		ss.y = (System.Double)s.y;
+		ss.z = (System.Double)s.z;
+		ss.w = (System.Double)s.w;
+		return ss;
+	}
+
+	[DllImport(PiXYZOptimizeSDK_dll)]
 	private static extern void Geom_Curvatures_init(ref Geom.Curvatures_c str);
 	[DllImport(PiXYZOptimizeSDK_dll)]
 	private static extern void Geom_Curvatures_free(ref Geom.Curvatures_c str);
@@ -1831,33 +1901,6 @@ namespace Algo {
 		ss.v2 = ConvertValue(s.v2);
 		return ss;
 	}
-
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Geom_CurvaturesList_init(ref Geom.CurvaturesList_c list, UInt64 size);
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Geom_CurvaturesList_free(ref Geom.CurvaturesList_c list);
-
-		private static Geom.CurvaturesList ConvertValue(Geom.CurvaturesList_c s) {
-			Geom.CurvaturesList list = new Geom.CurvaturesList((int)s.size);
-			if (s.size==0) return list;
-			for (int i = 0; i < (int)s.size; ++i) {
-				IntPtr p = new IntPtr(s.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Curvatures_c)));
-				list.list[i] = ConvertValue((Geom.Curvatures_c)Marshal.PtrToStructure(p, typeof(Geom.Curvatures_c)));
-			}
-			return list;
-		}
-
-		private static Geom.CurvaturesList_c ConvertValue(Geom.CurvaturesList s) {
-			Geom.CurvaturesList_c list =  new Geom.CurvaturesList_c();
-			Geom_CurvaturesList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			for(int i = 0; i < (int)list.size; ++i) {
-				Geom.Curvatures_c elt = ConvertValue(s.list[i]);
-				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Curvatures_c)));
-				Marshal.StructureToPtr(elt, p, true);
-			}
-			return list;
-		}
 
 		[DllImport(PiXYZOptimizeSDK_dll)]
 		private static extern void Geom_Vector3List_init(ref Geom.Vector3List_c list, UInt64 size);
@@ -1883,49 +1926,25 @@ namespace Algo {
 			return list;
 		}
 
-	[DllImport(PiXYZOptimizeSDK_dll)]
-	private static extern void Geom_Vector4I_init(ref Geom.Vector4I_c str);
-	[DllImport(PiXYZOptimizeSDK_dll)]
-	private static extern void Geom_Vector4I_free(ref Geom.Vector4I_c str);
-
-	private static Geom.Vector4I ConvertValue(Geom.Vector4I_c s) {
-		Geom.Vector4I ss = new Geom.Vector4I();
-		ss.x = (System.Int32)s.x;
-		ss.y = (System.Int32)s.y;
-		ss.z = (System.Int32)s.z;
-		ss.w = (System.Int32)s.w;
-		return ss;
-	}
-
-	private static Geom.Vector4I_c ConvertValue(Geom.Vector4I s) {
-		Geom.Vector4I_c ss = new Geom.Vector4I_c();
-		Geom_Vector4I_init(ref ss);
-		ss.x = (Int32)s.x;
-		ss.y = (Int32)s.y;
-		ss.z = (Int32)s.z;
-		ss.w = (Int32)s.w;
-		return ss;
-	}
-
 		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Geom_Vector4IList_init(ref Geom.Vector4IList_c list, UInt64 size);
+		private static extern void Geom_Point3List_init(ref Geom.Point3List_c list, UInt64 size);
 		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Geom_Vector4IList_free(ref Geom.Vector4IList_c list);
+		private static extern void Geom_Point3List_free(ref Geom.Point3List_c list);
 
-		private static Geom.Vector4IList ConvertValue(Geom.Vector4IList_c s) {
-			Geom.Vector4IList list = new Geom.Vector4IList((int)s.size);
+		private static Geom.Point3List ConvertValue(Geom.Point3List_c s) {
+			Geom.Point3List list = new Geom.Point3List((int)s.size);
 			if (s.size==0) return list;
-				list.list = CopyMemory<Geom.Vector4I>(s.ptr, (int)s.size);
+				list.list = CopyMemory<Geom.Point3>(s.ptr, (int)s.size);
 			return list;
 		}
 
-		private static Geom.Vector4IList_c ConvertValue(Geom.Vector4IList s) {
-			Geom.Vector4IList_c list =  new Geom.Vector4IList_c();
-			Geom_Vector4IList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+		private static Geom.Point3List_c ConvertValue(Geom.Point3List s) {
+			Geom.Point3List_c list =  new Geom.Point3List_c();
+			Geom_Point3List_init(ref list, s == null ? 0 : (System.UInt64)s.length);
 			if(list.size == 0) return list;
 			for(int i = 0; i < (int)list.size; ++i) {
-				Geom.Vector4I_c elt = ConvertValue(s.list[i]);
-				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Vector4I_c)));
+				Geom.Point3_c elt = ConvertValue(s.list[i]);
+				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Point3_c)));
 				Marshal.StructureToPtr(elt, p, true);
 			}
 			return list;
@@ -1959,30 +1978,6 @@ namespace Algo {
 		}
 
 		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Geom_Vector4List_init(ref Geom.Vector4List_c list, UInt64 size);
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Geom_Vector4List_free(ref Geom.Vector4List_c list);
-
-		private static Geom.Vector4List ConvertValue(Geom.Vector4List_c s) {
-			Geom.Vector4List list = new Geom.Vector4List((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<Geom.Vector4>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static Geom.Vector4List_c ConvertValue(Geom.Vector4List s) {
-			Geom.Vector4List_c list =  new Geom.Vector4List_c();
-			Geom_Vector4List_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			for(int i = 0; i < (int)list.size; ++i) {
-				Geom.Point4_c elt = ConvertValue(s.list[i]);
-				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Point4_c)));
-				Marshal.StructureToPtr(elt, p, true);
-			}
-			return list;
-		}
-
-		[DllImport(PiXYZOptimizeSDK_dll)]
 		private static extern void Geom_Point2List_init(ref Geom.Point2List_c list, UInt64 size);
 		[DllImport(PiXYZOptimizeSDK_dll)]
 		private static extern void Geom_Point2List_free(ref Geom.Point2List_c list);
@@ -2001,76 +1996,6 @@ namespace Algo {
 			for(int i = 0; i < (int)list.size; ++i) {
 				Geom.Point2_c elt = ConvertValue(s.list[i]);
 				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Point2_c)));
-				Marshal.StructureToPtr(elt, p, true);
-			}
-			return list;
-		}
-
-	[DllImport(PiXYZOptimizeSDK_dll)]
-	private static extern void Geom_Point4_init(ref Geom.Point4_c str);
-	[DllImport(PiXYZOptimizeSDK_dll)]
-	private static extern void Geom_Point4_free(ref Geom.Point4_c str);
-
-	private static Geom.Point4 ConvertValue(Geom.Point4_c s) {
-		Geom.Point4 ss = new Geom.Point4();
-		ss.x = (System.Double)s.x;
-		ss.y = (System.Double)s.y;
-		ss.z = (System.Double)s.z;
-		ss.w = (System.Double)s.w;
-		return ss;
-	}
-
-	private static Geom.Point4_c ConvertValue(Geom.Point4 s) {
-		Geom.Point4_c ss = new Geom.Point4_c();
-		Geom_Point4_init(ref ss);
-		ss.x = (System.Double)s.x;
-		ss.y = (System.Double)s.y;
-		ss.z = (System.Double)s.z;
-		ss.w = (System.Double)s.w;
-		return ss;
-	}
-
-	[DllImport(PiXYZOptimizeSDK_dll)]
-	private static extern void Geom_Point3_init(ref Geom.Point3_c str);
-	[DllImport(PiXYZOptimizeSDK_dll)]
-	private static extern void Geom_Point3_free(ref Geom.Point3_c str);
-
-	private static Geom.Point3 ConvertValue(Geom.Point3_c s) {
-		Geom.Point3 ss = new Geom.Point3();
-		ss.x = (System.Double)s.x;
-		ss.y = (System.Double)s.y;
-		ss.z = (System.Double)s.z;
-		return ss;
-	}
-
-	private static Geom.Point3_c ConvertValue(Geom.Point3 s) {
-		Geom.Point3_c ss = new Geom.Point3_c();
-		Geom_Point3_init(ref ss);
-		ss.x = (System.Double)s.x;
-		ss.y = (System.Double)s.y;
-		ss.z = (System.Double)s.z;
-		return ss;
-	}
-
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Geom_Point3List_init(ref Geom.Point3List_c list, UInt64 size);
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Geom_Point3List_free(ref Geom.Point3List_c list);
-
-		private static Geom.Point3List ConvertValue(Geom.Point3List_c s) {
-			Geom.Point3List list = new Geom.Point3List((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<Geom.Point3>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static Geom.Point3List_c ConvertValue(Geom.Point3List s) {
-			Geom.Point3List_c list =  new Geom.Point3List_c();
-			Geom_Point3List_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			for(int i = 0; i < (int)list.size; ++i) {
-				Geom.Point3_c elt = ConvertValue(s.list[i]);
-				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Point3_c)));
 				Marshal.StructureToPtr(elt, p, true);
 			}
 			return list;
@@ -2103,6 +2028,101 @@ namespace Algo {
 			return list;
 		}
 
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Geom_CurvaturesList_init(ref Geom.CurvaturesList_c list, UInt64 size);
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Geom_CurvaturesList_free(ref Geom.CurvaturesList_c list);
+
+		private static Geom.CurvaturesList ConvertValue(Geom.CurvaturesList_c s) {
+			Geom.CurvaturesList list = new Geom.CurvaturesList((int)s.size);
+			if (s.size==0) return list;
+			for (int i = 0; i < (int)s.size; ++i) {
+				IntPtr p = new IntPtr(s.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Curvatures_c)));
+				list.list[i] = ConvertValue((Geom.Curvatures_c)Marshal.PtrToStructure(p, typeof(Geom.Curvatures_c)));
+			}
+			return list;
+		}
+
+		private static Geom.CurvaturesList_c ConvertValue(Geom.CurvaturesList s) {
+			Geom.CurvaturesList_c list =  new Geom.CurvaturesList_c();
+			Geom_CurvaturesList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			for(int i = 0; i < (int)list.size; ++i) {
+				Geom.Curvatures_c elt = ConvertValue(s.list[i]);
+				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Curvatures_c)));
+				Marshal.StructureToPtr(elt, p, true);
+			}
+			return list;
+		}
+
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Geom_Vector4List_init(ref Geom.Vector4List_c list, UInt64 size);
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Geom_Vector4List_free(ref Geom.Vector4List_c list);
+
+		private static Geom.Vector4List ConvertValue(Geom.Vector4List_c s) {
+			Geom.Vector4List list = new Geom.Vector4List((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<Geom.Vector4>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static Geom.Vector4List_c ConvertValue(Geom.Vector4List s) {
+			Geom.Vector4List_c list =  new Geom.Vector4List_c();
+			Geom_Vector4List_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			for(int i = 0; i < (int)list.size; ++i) {
+				Geom.Point4_c elt = ConvertValue(s.list[i]);
+				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Point4_c)));
+				Marshal.StructureToPtr(elt, p, true);
+			}
+			return list;
+		}
+
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Geom_Vector4IList_init(ref Geom.Vector4IList_c list, UInt64 size);
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Geom_Vector4IList_free(ref Geom.Vector4IList_c list);
+
+		private static Geom.Vector4IList ConvertValue(Geom.Vector4IList_c s) {
+			Geom.Vector4IList list = new Geom.Vector4IList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<Geom.Vector4I>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static Geom.Vector4IList_c ConvertValue(Geom.Vector4IList s) {
+			Geom.Vector4IList_c list =  new Geom.Vector4IList_c();
+			Geom_Vector4IList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			for(int i = 0; i < (int)list.size; ++i) {
+				Geom.Vector4I_c elt = ConvertValue(s.list[i]);
+				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Geom.Vector4I_c)));
+				Marshal.StructureToPtr(elt, p, true);
+			}
+			return list;
+		}
+
+	[DllImport(PiXYZOptimizeSDK_dll)]
+	private static extern void Geom_AABB_init(ref Geom.AABB_c str);
+	[DllImport(PiXYZOptimizeSDK_dll)]
+	private static extern void Geom_AABB_free(ref Geom.AABB_c str);
+
+	private static Geom.AABB ConvertValue(Geom.AABB_c s) {
+		Geom.AABB ss = new Geom.AABB();
+		ss.low = ConvertValue(s.low);
+		ss.high = ConvertValue(s.high);
+		return ss;
+	}
+
+	private static Geom.AABB_c ConvertValue(Geom.AABB s) {
+		Geom.AABB_c ss = new Geom.AABB_c();
+		Geom_AABB_init(ref ss);
+		ss.low = ConvertValue(s.low);
+		ss.high = ConvertValue(s.high);
+		return ss;
+	}
+
 	[DllImport(PiXYZOptimizeSDK_dll)]
 	private static extern void Geom_OBB_init(ref Geom.OBB_c str);
 	[DllImport(PiXYZOptimizeSDK_dll)]
@@ -2126,83 +2146,6 @@ namespace Algo {
 		ss.zAxis = ConvertValue(s.zAxis);
 		return ss;
 	}
-
-	[DllImport(PiXYZOptimizeSDK_dll)]
-	private static extern void Geom_AABB_init(ref Geom.AABB_c str);
-	[DllImport(PiXYZOptimizeSDK_dll)]
-	private static extern void Geom_AABB_free(ref Geom.AABB_c str);
-
-	private static Geom.AABB ConvertValue(Geom.AABB_c s) {
-		Geom.AABB ss = new Geom.AABB();
-		ss.low = ConvertValue(s.low);
-		ss.high = ConvertValue(s.high);
-		return ss;
-	}
-
-	private static Geom.AABB_c ConvertValue(Geom.AABB s) {
-		Geom.AABB_c ss = new Geom.AABB_c();
-		Geom_AABB_init(ref ss);
-		ss.low = ConvertValue(s.low);
-		ss.high = ConvertValue(s.high);
-		return ss;
-	}
-
-	[DllImport(PiXYZOptimizeSDK_dll)]
-	private static extern void Material_ImageDefinition_init(ref Material.ImageDefinition_c str);
-	[DllImport(PiXYZOptimizeSDK_dll)]
-	private static extern void Material_ImageDefinition_free(ref Material.ImageDefinition_c str);
-
-	private static Material.ImageDefinition ConvertValue(Material.ImageDefinition_c s) {
-		Material.ImageDefinition ss = new Material.ImageDefinition();
-		ss.id = (System.UInt32)s.id;
-		ss.name = ConvertValue(s.name);
-		ss.width = (System.Int32)s.width;
-		ss.height = (System.Int32)s.height;
-		ss.bitsPerComponent = (System.Int32)s.bitsPerComponent;
-		ss.componentsCount = (System.Int32)s.componentsCount;
-		ss.data = ConvertValue(s.data);
-		return ss;
-	}
-
-	private static Material.ImageDefinition_c ConvertValue(Material.ImageDefinition s) {
-		Material.ImageDefinition_c ss = new Material.ImageDefinition_c();
-		Material_ImageDefinition_init(ref ss);
-		ss.id = (System.UInt32)s.id;
-		ss.name = ConvertValue(s.name);
-		ss.width = (Int32)s.width;
-		ss.height = (Int32)s.height;
-		ss.bitsPerComponent = (Int32)s.bitsPerComponent;
-		ss.componentsCount = (Int32)s.componentsCount;
-		ss.data = ConvertValue(s.data);
-		return ss;
-	}
-
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Material_ImageDefinitionList_init(ref Material.ImageDefinitionList_c list, UInt64 size);
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Material_ImageDefinitionList_free(ref Material.ImageDefinitionList_c list);
-
-		private static Material.ImageDefinitionList ConvertValue(Material.ImageDefinitionList_c s) {
-			Material.ImageDefinitionList list = new Material.ImageDefinitionList((int)s.size);
-			if (s.size==0) return list;
-			for (int i = 0; i < (int)s.size; ++i) {
-				IntPtr p = new IntPtr(s.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Material.ImageDefinition_c)));
-				list.list[i] = ConvertValue((Material.ImageDefinition_c)Marshal.PtrToStructure(p, typeof(Material.ImageDefinition_c)));
-			}
-			return list;
-		}
-
-		private static Material.ImageDefinitionList_c ConvertValue(Material.ImageDefinitionList s) {
-			Material.ImageDefinitionList_c list =  new Material.ImageDefinitionList_c();
-			Material_ImageDefinitionList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			for(int i = 0; i < (int)list.size; ++i) {
-				Material.ImageDefinition_c elt = ConvertValue(s.list[i]);
-				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Material.ImageDefinition_c)));
-				Marshal.StructureToPtr(elt, p, true);
-			}
-			return list;
-		}
 
 	[DllImport(PiXYZOptimizeSDK_dll)]
 	private static extern void Material_Texture_init(ref Material.Texture_c str);
@@ -2256,6 +2199,29 @@ namespace Algo {
 		}
 		return ss;
 	}
+
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Material_ImageList_init(ref Material.ImageList_c list, UInt64 size);
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Material_ImageList_free(ref Material.ImageList_c list);
+
+		private static Material.ImageList ConvertValue(Material.ImageList_c s) {
+			Material.ImageList list = new Material.ImageList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static Material.ImageList_c ConvertValue(Material.ImageList s) {
+			Material.ImageList_c list =  new Material.ImageList_c();
+			Material_ImageList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			int[] tab = new int[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = (int)(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
 
 	[DllImport(PiXYZOptimizeSDK_dll)]
 	private static extern void Material_CoeffOrTexture_init(ref Material.CoeffOrTexture_c sel);
@@ -2368,21 +2334,156 @@ namespace Algo {
 			return list;
 		}
 
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Material_ImageList_init(ref Material.ImageList_c list, UInt64 size);
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Material_ImageList_free(ref Material.ImageList_c list);
+	[DllImport(PiXYZOptimizeSDK_dll)]
+	private static extern void Material_ImageDefinition_init(ref Material.ImageDefinition_c str);
+	[DllImport(PiXYZOptimizeSDK_dll)]
+	private static extern void Material_ImageDefinition_free(ref Material.ImageDefinition_c str);
 
-		private static Material.ImageList ConvertValue(Material.ImageList_c s) {
-			Material.ImageList list = new Material.ImageList((int)s.size);
+	private static Material.ImageDefinition ConvertValue(Material.ImageDefinition_c s) {
+		Material.ImageDefinition ss = new Material.ImageDefinition();
+		ss.id = (System.UInt32)s.id;
+		ss.name = ConvertValue(s.name);
+		ss.width = (System.Int32)s.width;
+		ss.height = (System.Int32)s.height;
+		ss.bitsPerComponent = (System.Int32)s.bitsPerComponent;
+		ss.componentsCount = (System.Int32)s.componentsCount;
+		ss.data = ConvertValue(s.data);
+		return ss;
+	}
+
+	private static Material.ImageDefinition_c ConvertValue(Material.ImageDefinition s) {
+		Material.ImageDefinition_c ss = new Material.ImageDefinition_c();
+		Material_ImageDefinition_init(ref ss);
+		ss.id = (System.UInt32)s.id;
+		ss.name = ConvertValue(s.name);
+		ss.width = (Int32)s.width;
+		ss.height = (Int32)s.height;
+		ss.bitsPerComponent = (Int32)s.bitsPerComponent;
+		ss.componentsCount = (Int32)s.componentsCount;
+		ss.data = ConvertValue(s.data);
+		return ss;
+	}
+
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Material_ImageDefinitionList_init(ref Material.ImageDefinitionList_c list, UInt64 size);
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Material_ImageDefinitionList_free(ref Material.ImageDefinitionList_c list);
+
+		private static Material.ImageDefinitionList ConvertValue(Material.ImageDefinitionList_c s) {
+			Material.ImageDefinitionList list = new Material.ImageDefinitionList((int)s.size);
+			if (s.size==0) return list;
+			for (int i = 0; i < (int)s.size; ++i) {
+				IntPtr p = new IntPtr(s.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Material.ImageDefinition_c)));
+				list.list[i] = ConvertValue((Material.ImageDefinition_c)Marshal.PtrToStructure(p, typeof(Material.ImageDefinition_c)));
+			}
+			return list;
+		}
+
+		private static Material.ImageDefinitionList_c ConvertValue(Material.ImageDefinitionList s) {
+			Material.ImageDefinitionList_c list =  new Material.ImageDefinitionList_c();
+			Material_ImageDefinitionList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			for(int i = 0; i < (int)list.size; ++i) {
+				Material.ImageDefinition_c elt = ConvertValue(s.list[i]);
+				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Material.ImageDefinition_c)));
+				Marshal.StructureToPtr(elt, p, true);
+			}
+			return list;
+		}
+
+	[DllImport(PiXYZOptimizeSDK_dll)]
+	private static extern void Polygonal_StylizedLine_init(ref Polygonal.StylizedLine_c str);
+	[DllImport(PiXYZOptimizeSDK_dll)]
+	private static extern void Polygonal_StylizedLine_free(ref Polygonal.StylizedLine_c str);
+
+	private static Polygonal.StylizedLine ConvertValue(Polygonal.StylizedLine_c s) {
+		Polygonal.StylizedLine ss = new Polygonal.StylizedLine();
+		ss.lines = ConvertValue(s.lines);
+		ss.width = (System.Double)s.width;
+		ss.type = (Polygonal.StyleType)s.type;
+		ss.pattern = (System.Int32)s.pattern;
+		ss.color = ConvertValue(s.color);
+		ss.externalId = (System.UInt32)s.externalId;
+		return ss;
+	}
+
+	private static Polygonal.StylizedLine_c ConvertValue(Polygonal.StylizedLine s) {
+		Polygonal.StylizedLine_c ss = new Polygonal.StylizedLine_c();
+		Polygonal_StylizedLine_init(ref ss);
+		ss.lines = ConvertValue(s.lines);
+		ss.width = (System.Double)s.width;
+		ss.type = (Int32)s.type;
+		ss.pattern = (Int32)s.pattern;
+		ss.color = ConvertValue(s.color);
+		ss.externalId = (System.UInt32)s.externalId;
+		return ss;
+	}
+
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Polygonal_StylizedLineList_init(ref Polygonal.StylizedLineList_c list, UInt64 size);
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Polygonal_StylizedLineList_free(ref Polygonal.StylizedLineList_c list);
+
+		private static Polygonal.StylizedLineList ConvertValue(Polygonal.StylizedLineList_c s) {
+			Polygonal.StylizedLineList list = new Polygonal.StylizedLineList((int)s.size);
+			if (s.size==0) return list;
+			for (int i = 0; i < (int)s.size; ++i) {
+				IntPtr p = new IntPtr(s.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Polygonal.StylizedLine_c)));
+				list.list[i] = ConvertValue((Polygonal.StylizedLine_c)Marshal.PtrToStructure(p, typeof(Polygonal.StylizedLine_c)));
+			}
+			return list;
+		}
+
+		private static Polygonal.StylizedLineList_c ConvertValue(Polygonal.StylizedLineList s) {
+			Polygonal.StylizedLineList_c list =  new Polygonal.StylizedLineList_c();
+			Polygonal_StylizedLineList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			for(int i = 0; i < (int)list.size; ++i) {
+				Polygonal.StylizedLine_c elt = ConvertValue(s.list[i]);
+				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Polygonal.StylizedLine_c)));
+				Marshal.StructureToPtr(elt, p, true);
+			}
+			return list;
+		}
+
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Polygonal_PlaceholderJointList_init(ref Polygonal.PlaceholderJointList_c list, UInt64 size);
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Polygonal_PlaceholderJointList_free(ref Polygonal.PlaceholderJointList_c list);
+
+		private static Polygonal.PlaceholderJointList ConvertValue(Polygonal.PlaceholderJointList_c s) {
+			Polygonal.PlaceholderJointList list = new Polygonal.PlaceholderJointList((int)s.size);
 			if (s.size==0) return list;
 				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
 			return list;
 		}
 
-		private static Material.ImageList_c ConvertValue(Material.ImageList s) {
-			Material.ImageList_c list =  new Material.ImageList_c();
-			Material_ImageList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+		private static Polygonal.PlaceholderJointList_c ConvertValue(Polygonal.PlaceholderJointList s) {
+			Polygonal.PlaceholderJointList_c list =  new Polygonal.PlaceholderJointList_c();
+			Polygonal_PlaceholderJointList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			int[] tab = new int[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = (int)(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
+
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Polygonal_JointList_init(ref Polygonal.JointList_c list, UInt64 size);
+		[DllImport(PiXYZOptimizeSDK_dll)]
+		private static extern void Polygonal_JointList_free(ref Polygonal.JointList_c list);
+
+		private static Polygonal.JointList ConvertValue(Polygonal.JointList_c s) {
+			Polygonal.JointList list = new Polygonal.JointList((int)s.size);
+			if (s.size==0) return list;
+				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
+			return list;
+		}
+
+		private static Polygonal.JointList_c ConvertValue(Polygonal.JointList s) {
+			Polygonal.JointList_c list =  new Polygonal.JointList_c();
+			Polygonal_JointList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
 			if(list.size == 0) return list;
 			int[] tab = new int[list.size];
 			for (int i = 0; i < (int)list.size; ++i)
@@ -2463,107 +2564,6 @@ namespace Algo {
 			for (int i = 0; i < (int)list.size; ++i)
 				tab[i] = (int)(s.list[i]);
 			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Polygonal_JointList_init(ref Polygonal.JointList_c list, UInt64 size);
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Polygonal_JointList_free(ref Polygonal.JointList_c list);
-
-		private static Polygonal.JointList ConvertValue(Polygonal.JointList_c s) {
-			Polygonal.JointList list = new Polygonal.JointList((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static Polygonal.JointList_c ConvertValue(Polygonal.JointList s) {
-			Polygonal.JointList_c list =  new Polygonal.JointList_c();
-			Polygonal_JointList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			int[] tab = new int[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = (int)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Polygonal_PlaceholderJointList_init(ref Polygonal.PlaceholderJointList_c list, UInt64 size);
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Polygonal_PlaceholderJointList_free(ref Polygonal.PlaceholderJointList_c list);
-
-		private static Polygonal.PlaceholderJointList ConvertValue(Polygonal.PlaceholderJointList_c s) {
-			Polygonal.PlaceholderJointList list = new Polygonal.PlaceholderJointList((int)s.size);
-			if (s.size==0) return list;
-				list.list = CopyMemory<System.UInt32>(s.ptr, (int)s.size);
-			return list;
-		}
-
-		private static Polygonal.PlaceholderJointList_c ConvertValue(Polygonal.PlaceholderJointList s) {
-			Polygonal.PlaceholderJointList_c list =  new Polygonal.PlaceholderJointList_c();
-			Polygonal_PlaceholderJointList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			int[] tab = new int[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = (int)(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
-	[DllImport(PiXYZOptimizeSDK_dll)]
-	private static extern void Polygonal_StylizedLine_init(ref Polygonal.StylizedLine_c str);
-	[DllImport(PiXYZOptimizeSDK_dll)]
-	private static extern void Polygonal_StylizedLine_free(ref Polygonal.StylizedLine_c str);
-
-	private static Polygonal.StylizedLine ConvertValue(Polygonal.StylizedLine_c s) {
-		Polygonal.StylizedLine ss = new Polygonal.StylizedLine();
-		ss.lines = ConvertValue(s.lines);
-		ss.width = (System.Double)s.width;
-		ss.type = (Polygonal.StyleType)s.type;
-		ss.pattern = (System.Int32)s.pattern;
-		ss.color = ConvertValue(s.color);
-		ss.externalId = (System.UInt32)s.externalId;
-		return ss;
-	}
-
-	private static Polygonal.StylizedLine_c ConvertValue(Polygonal.StylizedLine s) {
-		Polygonal.StylizedLine_c ss = new Polygonal.StylizedLine_c();
-		Polygonal_StylizedLine_init(ref ss);
-		ss.lines = ConvertValue(s.lines);
-		ss.width = (System.Double)s.width;
-		ss.type = (Int32)s.type;
-		ss.pattern = (Int32)s.pattern;
-		ss.color = ConvertValue(s.color);
-		ss.externalId = (System.UInt32)s.externalId;
-		return ss;
-	}
-
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Polygonal_StylizedLineList_init(ref Polygonal.StylizedLineList_c list, UInt64 size);
-		[DllImport(PiXYZOptimizeSDK_dll)]
-		private static extern void Polygonal_StylizedLineList_free(ref Polygonal.StylizedLineList_c list);
-
-		private static Polygonal.StylizedLineList ConvertValue(Polygonal.StylizedLineList_c s) {
-			Polygonal.StylizedLineList list = new Polygonal.StylizedLineList((int)s.size);
-			if (s.size==0) return list;
-			for (int i = 0; i < (int)s.size; ++i) {
-				IntPtr p = new IntPtr(s.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Polygonal.StylizedLine_c)));
-				list.list[i] = ConvertValue((Polygonal.StylizedLine_c)Marshal.PtrToStructure(p, typeof(Polygonal.StylizedLine_c)));
-			}
-			return list;
-		}
-
-		private static Polygonal.StylizedLineList_c ConvertValue(Polygonal.StylizedLineList s) {
-			Polygonal.StylizedLineList_c list =  new Polygonal.StylizedLineList_c();
-			Polygonal_StylizedLineList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			for(int i = 0; i < (int)list.size; ++i) {
-				Polygonal.StylizedLine_c elt = ConvertValue(s.list[i]);
-				IntPtr p = new IntPtr(list.ptr.ToInt64() + i * Marshal.SizeOf(typeof(Polygonal.StylizedLine_c)));
-				Marshal.StructureToPtr(elt, p, true);
-			}
 			return list;
 		}
 

@@ -41,8 +41,8 @@ namespace Pixyz.Plugin4Unity {
             if (nonPersistentDependencies.Length > itemsToShow) {
                 stringBuilder.Append($"and {nonPersistentDependencies.Length - itemsToShow} other objects\n");
             }
-            // if (!EditorUtility.DisplayDialog("Non persistent data", stringBuilder.ToString(), "Yes, save these assets", "No"))
-            //     return;
+            if (!EditorUtility.DisplayDialog("Non persistent data", stringBuilder.ToString(), "Yes, save these assets", "No"))
+                return;
 
             Dispatcher.StartCoroutine(SavePrefab(gameObject, path, nonPersistentDependencies));
         }

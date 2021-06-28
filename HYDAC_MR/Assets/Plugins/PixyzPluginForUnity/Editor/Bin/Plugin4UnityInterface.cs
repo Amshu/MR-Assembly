@@ -37,6 +37,22 @@ namespace Core {
 	}
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
+	public class UShort {
+		System.UInt16 value { get; set; }
+		UShort(System.UInt16 v) { value = v; }
+		public static implicit operator System.UInt16(UShort self) { return self.value; }
+		public static implicit operator UShort(System.UInt16 v) { return new UShort(v); }
+	}
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class Ident {
+		System.UInt32 value { get; set; }
+		Ident(System.UInt32 v) { value = v; }
+		public static implicit operator System.UInt32(Ident self) { return self.value; }
+		public static implicit operator Ident(System.UInt32 v) { return new Ident(v); }
+	}
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
 	public struct Date
 	{
 		public Date(Date o) {
@@ -57,68 +73,6 @@ namespace Core {
 		internal Int32 day;
 	}
 
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class StringList {
-		public System.String[] list;
-		public int length { get { return (list != null) ? list.Length : 0; } }
-		public StringList() {}
-		public StringList(System.String[] tab) { list = tab; }
-		public static implicit operator System.String[](StringList o) { return o.list; }
-		public System.String this[int index] {
-			get { return list[index]; }
-			set { list[index] = value; }
-		}
-		public StringList(int size) { list = new System.String[size]; }
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct StringList_c
-	{
-		internal System.UInt64 size;
-		internal IntPtr ptr;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class LicenseInfos
-	{
-		public LicenseInfos() {}
-		public LicenseInfos(LicenseInfos o) {
-			this.version = o.version;
-			this.customerName = o.customerName;
-			this.customerCompany = o.customerCompany;
-			this.customerEmail = o.customerEmail;
-			this.startDate = o.startDate;
-			this.endDate = o.endDate;
-		}
-		public System.String version;
-		public System.String customerName;
-		public System.String customerCompany;
-		public System.String customerEmail;
-		public Date startDate;
-		public Date endDate;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct LicenseInfos_c
-	{
-		internal IntPtr version;
-		internal IntPtr customerName;
-		internal IntPtr customerCompany;
-		internal IntPtr customerEmail;
-		internal Date_c startDate;
-		internal Date_c endDate;
-	}
-
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class Ident {
-		System.UInt32 value { get; set; }
-		Ident(System.UInt32 v) { value = v; }
-		public static implicit operator System.UInt32(Ident self) { return self.value; }
-		public static implicit operator Ident(System.UInt32 v) { return new Ident(v); }
-	}
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
 	public class WebLicenseInfo
@@ -156,6 +110,60 @@ namespace Core {
 
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
+	public class LicenseInfos
+	{
+		public LicenseInfos() {}
+		public LicenseInfos(LicenseInfos o) {
+			this.version = o.version;
+			this.customerName = o.customerName;
+			this.customerCompany = o.customerCompany;
+			this.customerEmail = o.customerEmail;
+			this.startDate = o.startDate;
+			this.endDate = o.endDate;
+		}
+		public System.String version;
+		public System.String customerName;
+		public System.String customerCompany;
+		public System.String customerEmail;
+		public Date startDate;
+		public Date endDate;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct LicenseInfos_c
+	{
+		internal IntPtr version;
+		internal IntPtr customerName;
+		internal IntPtr customerCompany;
+		internal IntPtr customerEmail;
+		internal Date_c startDate;
+		internal Date_c endDate;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
+	public class StringList {
+		public System.String[] list;
+		public int length { get { return (list != null) ? list.Length : 0; } }
+		public StringList() {}
+		public StringList(System.String[] tab) { list = tab; }
+		public static implicit operator System.String[](StringList o) { return o.list; }
+		public System.String this[int index] {
+			get { return list[index]; }
+			set { list[index] = value; }
+		}
+		public StringList(int size) { list = new System.String[size]; }
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct StringList_c
+	{
+		internal System.UInt64 size;
+		internal IntPtr ptr;
+	}
+
+	[Serializable]
+	[StructLayout(LayoutKind.Sequential)]
 	public class WebLicenseInfoList {
 		public WebLicenseInfo[] list;
 		public int length { get { return (list != null) ? list.Length : 0; } }
@@ -175,14 +183,6 @@ namespace Core {
 		internal IntPtr ptr;
 	}
 
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	public class UShort {
-		System.UInt16 value { get; set; }
-		UShort(System.UInt16 v) { value = v; }
-		public static implicit operator System.UInt16(UShort self) { return self.value; }
-		public static implicit operator UShort(System.UInt16 v) { return new UShort(v); }
-	}
 }
 
 #endregion
@@ -227,61 +227,6 @@ namespace Core {
 		return ss;
 	}
 
-		[DllImport(PiXYZPlugin4Unity_dll)]
-		private static extern void Core_StringList_init(ref Core.StringList_c list, UInt64 size);
-		[DllImport(PiXYZPlugin4Unity_dll)]
-		private static extern void Core_StringList_free(ref Core.StringList_c list);
-
-		private static Core.StringList ConvertValue(Core.StringList_c s) {
-			Core.StringList list = new Core.StringList((int)s.size);
-			if (s.size==0) return list;
-			IntPtr[] tab = new IntPtr[s.size];
-			Marshal.Copy(s.ptr, tab, 0, (int)s.size);
-			for (int i = 0; i < (int)s.size; ++i) {
-				list.list[i] = ConvertValue(tab[i]);
-			}
-			return list;
-		}
-
-		private static Core.StringList_c ConvertValue(Core.StringList s) {
-			Core.StringList_c list =  new Core.StringList_c();
-			Core_StringList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
-			if(list.size == 0) return list;
-			IntPtr[] tab = new IntPtr[list.size];
-			for (int i = 0; i < (int)list.size; ++i)
-				tab[i] = ConvertValue(s.list[i]);
-			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
-			return list;
-		}
-
-	[DllImport(PiXYZPlugin4Unity_dll)]
-	private static extern void Core_LicenseInfos_init(ref Core.LicenseInfos_c str);
-	[DllImport(PiXYZPlugin4Unity_dll)]
-	private static extern void Core_LicenseInfos_free(ref Core.LicenseInfos_c str);
-
-	private static Core.LicenseInfos ConvertValue(Core.LicenseInfos_c s) {
-		Core.LicenseInfos ss = new Core.LicenseInfos();
-		ss.version = ConvertValue(s.version);
-		ss.customerName = ConvertValue(s.customerName);
-		ss.customerCompany = ConvertValue(s.customerCompany);
-		ss.customerEmail = ConvertValue(s.customerEmail);
-		ss.startDate = ConvertValue(s.startDate);
-		ss.endDate = ConvertValue(s.endDate);
-		return ss;
-	}
-
-	private static Core.LicenseInfos_c ConvertValue(Core.LicenseInfos s) {
-		Core.LicenseInfos_c ss = new Core.LicenseInfos_c();
-		Core_LicenseInfos_init(ref ss);
-		ss.version = ConvertValue(s.version);
-		ss.customerName = ConvertValue(s.customerName);
-		ss.customerCompany = ConvertValue(s.customerCompany);
-		ss.customerEmail = ConvertValue(s.customerEmail);
-		ss.startDate = ConvertValue(s.startDate);
-		ss.endDate = ConvertValue(s.endDate);
-		return ss;
-	}
-
 	[DllImport(PiXYZPlugin4Unity_dll)]
 	private static extern void Core_WebLicenseInfo_init(ref Core.WebLicenseInfo_c str);
 	[DllImport(PiXYZPlugin4Unity_dll)]
@@ -311,6 +256,61 @@ namespace Core {
 		ss.current = ConvertValue(s.current);
 		return ss;
 	}
+
+	[DllImport(PiXYZPlugin4Unity_dll)]
+	private static extern void Core_LicenseInfos_init(ref Core.LicenseInfos_c str);
+	[DllImport(PiXYZPlugin4Unity_dll)]
+	private static extern void Core_LicenseInfos_free(ref Core.LicenseInfos_c str);
+
+	private static Core.LicenseInfos ConvertValue(Core.LicenseInfos_c s) {
+		Core.LicenseInfos ss = new Core.LicenseInfos();
+		ss.version = ConvertValue(s.version);
+		ss.customerName = ConvertValue(s.customerName);
+		ss.customerCompany = ConvertValue(s.customerCompany);
+		ss.customerEmail = ConvertValue(s.customerEmail);
+		ss.startDate = ConvertValue(s.startDate);
+		ss.endDate = ConvertValue(s.endDate);
+		return ss;
+	}
+
+	private static Core.LicenseInfos_c ConvertValue(Core.LicenseInfos s) {
+		Core.LicenseInfos_c ss = new Core.LicenseInfos_c();
+		Core_LicenseInfos_init(ref ss);
+		ss.version = ConvertValue(s.version);
+		ss.customerName = ConvertValue(s.customerName);
+		ss.customerCompany = ConvertValue(s.customerCompany);
+		ss.customerEmail = ConvertValue(s.customerEmail);
+		ss.startDate = ConvertValue(s.startDate);
+		ss.endDate = ConvertValue(s.endDate);
+		return ss;
+	}
+
+		[DllImport(PiXYZPlugin4Unity_dll)]
+		private static extern void Core_StringList_init(ref Core.StringList_c list, UInt64 size);
+		[DllImport(PiXYZPlugin4Unity_dll)]
+		private static extern void Core_StringList_free(ref Core.StringList_c list);
+
+		private static Core.StringList ConvertValue(Core.StringList_c s) {
+			Core.StringList list = new Core.StringList((int)s.size);
+			if (s.size==0) return list;
+			IntPtr[] tab = new IntPtr[s.size];
+			Marshal.Copy(s.ptr, tab, 0, (int)s.size);
+			for (int i = 0; i < (int)s.size; ++i) {
+				list.list[i] = ConvertValue(tab[i]);
+			}
+			return list;
+		}
+
+		private static Core.StringList_c ConvertValue(Core.StringList s) {
+			Core.StringList_c list =  new Core.StringList_c();
+			Core_StringList_init(ref list, s == null ? 0 : (System.UInt64)s.length);
+			if(list.size == 0) return list;
+			IntPtr[] tab = new IntPtr[list.size];
+			for (int i = 0; i < (int)list.size; ++i)
+				tab[i] = ConvertValue(s.list[i]);
+			Marshal.Copy(tab, 0, list.ptr, (int)list.size);
+			return list;
+		}
 
 		[DllImport(PiXYZPlugin4Unity_dll)]
 		private static extern void Core_WebLicenseInfoList_init(ref Core.WebLicenseInfoList_c list, UInt64 size);

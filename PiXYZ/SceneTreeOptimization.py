@@ -1,10 +1,5 @@
 modelID = scene.getSelectedOccurrences()
 
-# Rename all children to parent name
-# for part in modelID:
-#		parent = scene.getParent(part)
-#		core.setProperty(part, "Name", core.getProperty(parent, "Name")) 
-
 # Get level 1 Children
 _c1List = scene.getChildren(modelID[0])
 
