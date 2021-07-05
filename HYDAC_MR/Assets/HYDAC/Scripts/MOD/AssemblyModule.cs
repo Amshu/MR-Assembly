@@ -5,7 +5,6 @@ using UnityEngine;
 
 using Microsoft.MixedReality.Toolkit.UI;
 using Microsoft.MixedReality.Toolkit.UI.BoundsControl;
-using UnityEngine.Serialization;
 
 namespace HYDAC.Scripts.MOD
 {
@@ -13,7 +12,10 @@ namespace HYDAC.Scripts.MOD
     {
         public event Action<AssemblyModule> OnModuleFocused;
 
-        void ToggleExplode();
+        int GetAssemblyPosition();
+        
+        void Assemble();
+        void Disassemble();
         
         void ChangePosition(int step);
     }
@@ -36,8 +38,7 @@ namespace HYDAC.Scripts.MOD
         private ISubModule[] _subModules;
         
         [Header("Debug")]
-        public bool isExploded;
-        [FormerlySerializedAs("currentUnitNo")] public int currentModNo;
+        public int currentModNo;
         public int startingPosition;
 
         protected override void Awake()
@@ -50,7 +51,6 @@ namespace HYDAC.Scripts.MOD
             
             GetSubModules();
 
-            isExploded = false;
             currentModNo = startingPosition;
         }
 
@@ -111,14 +111,20 @@ namespace HYDAC.Scripts.MOD
             
             isInFocus = true;
         }
-        
-        void IAssemblyModule.ToggleExplode()
+
+        public int GetAssemblyPosition()
         {
-            if (!isInFocus)
-                return;
-            
-            isExploded = !isExploded;
-            ToggleExplode(isExploded, mUnitSettings.positionTimeChange);
+            return currentModNo;
+        }
+
+        public void Assemble()
+        {
+            ToggleAssembly(true, mUnitSettings.positionTimeChange);
+        }
+
+        public void Disassemble()
+        {
+            ToggleAssembly(false, mUnitSettings.positionTimeChange);
         }
 
         void IAssemblyModule.ChangePosition(int step)
@@ -173,22 +179,22 @@ namespace HYDAC.Scripts.MOD
             _boundsControl.enabled = toggle;
         }
         
-        private void ToggleExplode(bool toggle, float positionTimeChange)
+        private void ToggleAssembly(bool toBeAssembled, float positionTimeChange)
         {
-            currentModNo = (toggle) ? _subModules.Length - 1 : 0;
+            currentModNo = (toBeAssembled) ?  0 : _subModules.Length - 1;
             
-            foreach(ISubModule part in _subModules)
+            foreach(ISubModule subModule in _subModules)
             {
                 // If the current state is exploded then: 
-                // Implode
-                if (toggle)
+                // Assemble
+                if (toBeAssembled)
                 {
-                    part.ToggleExplode(true, positionTimeChange);
+                    subModule.Assemble(positionTimeChange);
                 }
-                // Explode
+                // Disassemble
                 else
                 {
-                    part.ToggleExplode(false, positionTimeChange);
+                    subModule.Disassemble(positionTimeChange);
                 }
             }
         }
@@ -208,7 +214,7 @@ namespace HYDAC.Scripts.MOD
                 // If its less than or equal to the passed unit position => Explode
                 if (partPosition <= unitPosition)
                 {
-                    part.ToggleExplode(true, mUnitSettings.positionTimeChange);
+                    part.Assemble(mUnitSettings.positionTimeChange);
 
                     // Highlight previous part
                     if (partPosition == unitPosition - 1)
@@ -228,7 +234,7 @@ namespace HYDAC.Scripts.MOD
                 // If its greater than the passed unit position => Implode
                 else
                 {
-                    part.ToggleExplode(false, mUnitSettings.positionTimeChange);
+                    part.Disassemble(mUnitSettings.positionTimeChange);
 
                     // Highlight next part
                     if(partPosition == unitPosition + 1)

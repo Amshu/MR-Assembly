@@ -10,7 +10,7 @@ namespace HYDAC.Scripts.NET
         private string _currentAssemblyName;
         
         [RealtimeProperty(2, true, true)]
-        private bool _islocked;
+        private bool _isAssembled;
     }
 }
 
@@ -29,43 +29,43 @@ namespace HYDAC.Scripts.NET {
             }
         }
         
-        public bool islocked {
+        public bool isAssembled {
             get {
-                return _islockedProperty.value;
+                return _isAssembledProperty.value;
             }
             set {
-                if (_islockedProperty.value == value) return;
-                _islockedProperty.value = value;
+                if (_isAssembledProperty.value == value) return;
+                _isAssembledProperty.value = value;
                 InvalidateReliableLength();
-                FireIslockedDidChange(value);
+                FireIsAssembledDidChange(value);
             }
         }
         
         public delegate void PropertyChangedHandler<in T>(RoomStateNCModel model, T value);
         public event PropertyChangedHandler<string> currentAssemblyNameDidChange;
-        public event PropertyChangedHandler<bool> islockedDidChange;
+        public event PropertyChangedHandler<bool> isAssembledDidChange;
         
         public enum PropertyID : uint {
             CurrentAssemblyName = 1,
-            Islocked = 2,
+            IsAssembled = 2,
         }
         
         #region Properties
         
         private ReliableProperty<string> _currentAssemblyNameProperty;
         
-        private ReliableProperty<bool> _islockedProperty;
+        private ReliableProperty<bool> _isAssembledProperty;
         
         #endregion
         
         public RoomStateNCModel() : base(null) {
             _currentAssemblyNameProperty = new ReliableProperty<string>(1, _currentAssemblyName);
-            _islockedProperty = new ReliableProperty<bool>(2, _islocked);
+            _isAssembledProperty = new ReliableProperty<bool>(2, _isAssembled);
         }
         
         protected override void OnParentReplaced(RealtimeModel previousParent, RealtimeModel currentParent) {
             _currentAssemblyNameProperty.UnsubscribeCallback();
-            _islockedProperty.UnsubscribeCallback();
+            _isAssembledProperty.UnsubscribeCallback();
         }
         
         private void FireCurrentAssemblyNameDidChange(string value) {
@@ -76,9 +76,9 @@ namespace HYDAC.Scripts.NET {
             }
         }
         
-        private void FireIslockedDidChange(bool value) {
+        private void FireIsAssembledDidChange(bool value) {
             try {
-                islockedDidChange?.Invoke(this, value);
+                isAssembledDidChange?.Invoke(this, value);
             } catch (System.Exception exception) {
                 UnityEngine.Debug.LogException(exception);
             }
@@ -87,14 +87,14 @@ namespace HYDAC.Scripts.NET {
         protected override int WriteLength(StreamContext context) {
             var length = 0;
             length += _currentAssemblyNameProperty.WriteLength(context);
-            length += _islockedProperty.WriteLength(context);
+            length += _isAssembledProperty.WriteLength(context);
             return length;
         }
         
         protected override void Write(WriteStream stream, StreamContext context) {
             var writes = false;
             writes |= _currentAssemblyNameProperty.Write(stream, context);
-            writes |= _islockedProperty.Write(stream, context);
+            writes |= _isAssembledProperty.Write(stream, context);
             if (writes) InvalidateContextLength(context);
         }
         
@@ -108,9 +108,9 @@ namespace HYDAC.Scripts.NET {
                         if (changed) FireCurrentAssemblyNameDidChange(currentAssemblyName);
                         break;
                     }
-                    case (uint) PropertyID.Islocked: {
-                        changed = _islockedProperty.Read(stream, context);
-                        if (changed) FireIslockedDidChange(islocked);
+                    case (uint) PropertyID.IsAssembled: {
+                        changed = _isAssembledProperty.Read(stream, context);
+                        if (changed) FireIsAssembledDidChange(isAssembled);
                         break;
                     }
                     default: {
@@ -127,7 +127,7 @@ namespace HYDAC.Scripts.NET {
         
         private void UpdateBackingFields() {
             _currentAssemblyName = currentAssemblyName;
-            _islocked = islocked;
+            _isAssembled = isAssembled;
         }
         
     }

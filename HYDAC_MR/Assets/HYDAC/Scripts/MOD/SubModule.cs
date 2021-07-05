@@ -1,38 +1,30 @@
 ﻿using System.Collections;
+using Normal.Realtime;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace HYDAC.Scripts.MOD
 {
-    public interface ISubModule
-    {
-        void Initialize();
-        int GetUnitPosition();
-        string GetPartName();
-        void ToggleExplode(bool toggle, float timeToDest);
-        
-        void ChangeMaterial(bool toggle, Material highlightMaterial);
-    }
-    
-    
+    [RequireComponent(typeof(RealtimeTransform))]
     public class SubModule : MonoBehaviour
     {
         [SerializeField] private SSubModule mSubModule = null;
         public SSubModule subModule => mSubModule;
 
-        [SerializeField] private Transform mExplodedTransform = null;
+        [SerializeField] private Transform mDisassembledTransform = null;
 
         private bool _mLock = false;
-        private Vector3 _mImplodedPosition = Vector3.zero;
+        private Vector3 _mAssembledPosition = Vector3.zero;
 
-        //private MeshRenderer _mesh = null;
-        //private Material _defaultMaterial = null;
+        private RealtimeTransform _realtimeTransform = null;
+        
+        private float _mLastOwnershipChangeTime = 0f;
+        private bool _mHasOwnership = false;
 
         private void Awake()
         {
-            _mImplodedPosition = transform.localPosition;
-            //_mMesh = GetComponent<MeshRenderer>();
-            //_mDefaultMaterial = _mMesh.material;
+            _mAssembledPosition = transform.localPosition;
+            
+            _realtimeTransform = GetComponent<RealtimeTransform>();
         }
 
 
@@ -40,18 +32,18 @@ namespace HYDAC.Scripts.MOD
         {
             // Subscribe to event in machine part info
             mSubModule.OnInitialize += OnInitialized;
-            mSubModule.OnImplode += OnImploded;
+            mSubModule.OnAssemble += OnAssembled;
             
-            mSubModule.OnExplode += OnExploded;
+            mSubModule.OnDisassemble += OnDisassemble;
             mSubModule.OnHighlight += OnHighlighted;
         }
         private void OnDisable()
         {
             // Subscribe to event in machine part info
             mSubModule.OnInitialize += OnInitialized;
-            mSubModule.OnImplode += OnImploded; 
+            mSubModule.OnAssemble += OnAssembled; 
 
-            mSubModule.OnExplode += OnExploded;
+            mSubModule.OnDisassemble += OnDisassemble;
             mSubModule.OnHighlight += OnHighlighted;
         }
 
@@ -63,7 +55,7 @@ namespace HYDAC.Scripts.MOD
             throw new System.NotImplementedException();
         }
 
-        private void OnImploded(float timeTakenToDest)
+        private void OnAssembled(float timeTakenToDest)
         {
             // Dont do anything if the part is not free
             if (_mLock) return;
@@ -74,11 +66,11 @@ namespace HYDAC.Scripts.MOD
             _mLock = true;
             
             StopAllCoroutines();
-            StartCoroutine(LerpPosition(this.transform, _mImplodedPosition, timeTakenToDest));
+            StartCoroutine(LerpPosition(this.transform, _mAssembledPosition, timeTakenToDest));
         }
 
 
-        private void OnExploded(float timeTakenToDest)
+        private void OnDisassemble(float timeTakenToDest)
         {
             // Dont do anything if the part is not free
             if (_mLock) return;
@@ -89,7 +81,7 @@ namespace HYDAC.Scripts.MOD
             _mLock = true;
             
             StopAllCoroutines();
-            StartCoroutine(LerpPosition(this.transform, mExplodedTransform.localPosition, timeTakenToDest));
+            StartCoroutine(LerpPosition(this.transform, mDisassembledTransform.localPosition, timeTakenToDest));
         }
     
 
@@ -100,7 +92,7 @@ namespace HYDAC.Scripts.MOD
 
         #endregion
 
-
+        
 
         private IEnumerator LerpPosition(Transform trans, Vector3 position, float timeTakenToDest)
         {
@@ -110,6 +102,9 @@ namespace HYDAC.Scripts.MOD
             while (t < 1)
             {
                 t += Time.deltaTime / timeTakenToDest;
+                
+                _realtimeTransform.RequestOwnership();
+                
                 trans.localPosition = Vector3.Lerp(currentPos, position, t);
                 yield return null;
             }
@@ -126,5 +121,32 @@ namespace HYDAC.Scripts.MOD
 #endif
         }
 
+        
+        private void Update()
+        {
+            if (!CheckOwnership()) return;
+
+            // If we just reset objects, we should wait before affecting ownership
+            if (Time.time - _mLastOwnershipChangeTime < 1f) return;
+
+            // If object is not being manipulated, or it is at rest, clear ownership
+            _realtimeTransform.ClearOwnership();
+        }
+        
+        private bool CheckOwnership()
+        {
+            // If there are any inconsistency update - when focus is toggled on or off
+            if (_mHasOwnership != _realtimeTransform.isOwnedLocallySelf)
+            {
+                _mHasOwnership = _realtimeTransform.isOwnedLocallySelf;
+                ResetOwnershipTime();
+            }
+            return _mHasOwnership;
+        }
+        
+        private void ResetOwnershipTime()
+        {
+            _mLastOwnershipChangeTime = Time.time;
+        }
     }
 }

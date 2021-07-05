@@ -4,6 +4,19 @@ using UnityEngine.Serialization;
 
 namespace HYDAC.Scripts.MOD
 {
+    public interface ISubModule
+    {
+        void Initialize();
+        int GetUnitPosition();
+        string GetPartName();
+
+        void Assemble(float timeToDest);
+        void Disassemble(float timeToDest);
+        
+        void ChangeMaterial(bool toggle, Material highlightMaterial);
+    }
+    
+    
     /// <summary>
     /// <c>SocMachinePartInfo</c> is a scriptable object class that contains all the main details
     /// of a given machine part such as:
@@ -19,8 +32,8 @@ namespace HYDAC.Scripts.MOD
 
         // Events for MachinePart Class
         internal event Action<int, string> OnInitialize;
-        internal event Action<float> OnImplode;
-        internal event Action<float> OnExplode;
+        internal event Action<float> OnAssemble;
+        internal event Action<float> OnDisassemble;
         internal event Action<bool, Material> OnHighlight;
 
         #region IMachinePart implementation
@@ -40,14 +53,16 @@ namespace HYDAC.Scripts.MOD
             return partName;
         }
 
-        void ISubModule.ToggleExplode(bool toggle, float timeToDest)
+        public void Assemble(float timeToDest)
         {
-            if(toggle)
-                OnExplode?.Invoke(timeToDest);
-            else
-                OnImplode?.Invoke(timeToDest);
+            OnAssemble?.Invoke(timeToDest);
         }
-        
+
+        public void Disassemble(float timeToDest)
+        {
+            OnDisassemble?.Invoke(timeToDest);
+        }
+
 
         void ISubModule.ChangeMaterial(bool toggle, Material highlightMaterial)
         {

@@ -28,7 +28,7 @@ namespace HYDAC.Scripts
         private void Awake()
         {
             GetAllModules();
-            
+             
             buttons.SetActive(false);
         }
         
@@ -74,6 +74,7 @@ namespace HYDAC.Scripts
             {
                 // Unregister from NormCore events
                 previousModel.currentAssemblyNameDidChange -= OnCurrentAssemblyNameChange;
+                previousModel.isAssembledDidChange -= OnAssemblyStateChange;
             }
 
             if (currentModel != null)
@@ -82,14 +83,16 @@ namespace HYDAC.Scripts
                 if (currentModel.isFreshModel)
                 {
                     currentModel.currentAssemblyName = "";
+                    currentModel.isAssembled = true;
                 }
 
                 // Register for NormCore events
                 currentModel.currentAssemblyNameDidChange += OnCurrentAssemblyNameChange;
+                currentModel.isAssembledDidChange += OnAssemblyStateChange;
             }
         }
-        
-        
+
+
         /// <summary>
         ///  ON LOCAL USER MODULE SELECT
         /// ----------------------------
@@ -138,6 +141,7 @@ namespace HYDAC.Scripts
         /// -------------------------------------------------
         ///
         /// - If newValue = null
+        ///     - If disassembled then assemble
         ///     - Set local currentAssembly as null
         ///     - Set the system mode to 'UNFOCUSED'
         ///     - Disable the UI for the 'Focused' mode
@@ -158,6 +162,9 @@ namespace HYDAC.Scripts
 
             if (newValue.Equals(""))
             {
+                if(!model.isAssembled)
+                    _localCurrentAssemblyModule.Assemble();
+                
                 _localCurrentAssemblyModule = null;
                 _inFocus = false;
 
@@ -176,6 +183,9 @@ namespace HYDAC.Scripts
                     if (module.name.Equals(newValue))
                     {
                         _localCurrentAssemblyModule = module as IAssemblyModule;
+                        
+                        Debug.Log("#MainManager#-------------Set _localCurrentAssemblyModule = " + _localCurrentAssemblyModule.GetName());
+                        
                         break;
                     }
                 }
@@ -191,6 +201,37 @@ namespace HYDAC.Scripts
             }
         }
 
+        
+        /// <summary>
+        ///  ON LOCAL USER UI REQUEST ASSEMBLY TOGGLE
+        /// -----------------------------------------
+        ///
+        /// - Check current system state
+        /// - Request ownership
+        /// - Set property on network
+        /// 
+        /// </summary>
+        public void OnUIRequestToggleAssembly()
+        {
+            Debug.Log("#MainManager#-------------OnUIRequestToggleAssembly");
+            
+            realtimeView.ClearOwnership();
+            realtimeView.RequestOwnership();
+
+            model.isAssembled = !model.isAssembled;
+        }
+        
+        private void OnAssemblyStateChange(RoomStateNCModel roomStateNcModel, bool value)
+        {
+            Debug.Log("#MainManager#-------------OnAssemblyStateChange: " + value);
+
+            if (!realtimeView.isOwnedLocallySelf) return;
+            
+            if(value)
+                _localCurrentAssemblyModule.Assemble();
+            else
+                _localCurrentAssemblyModule.Disassemble();
+        }
         
         private void Update()
         {
@@ -262,11 +303,6 @@ namespace HYDAC.Scripts
         
         
         #region UI EVENT METHODS-------------------------
-        
-        public void ToggleExplode()
-        {
-            _localCurrentAssemblyModule?.ToggleExplode();
-        }
 
         public void ChangePositionStep(int step)
         {
