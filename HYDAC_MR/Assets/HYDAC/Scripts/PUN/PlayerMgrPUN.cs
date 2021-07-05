@@ -5,7 +5,7 @@ using Photon.Voice.Unity;
 namespace HYDAC.Scripts.PUN
 {
     /// <summary>
-    /// This class managers the local player's instance (Hololens2 User) over the PUN network and syncs the local player's head and hand
+    /// This class managers the local player's instance (Oculus Quest User) over the PUN network and syncs the local player's head and hand
     /// inputs over the network to other users, receiving their data in turn to animate their VR Avatar on the local player's instance.
     /// </summary>
     public class PlayerMgrPUN : MonoBehaviourPun, IPunObservable
@@ -19,19 +19,19 @@ namespace HYDAC.Scripts.PUN
         public GameObject headAvatar;
         public GameObject mouthAnimated;
         public GameObject mouthStatic;
-        //public GameObject leftHandAvatar;
-        //public GameObject rightHandAvatar;
-        //public SkinnedMeshRenderer poseNormalLH;
-        //public SkinnedMeshRenderer poseFingerPointLH;
-        //public SkinnedMeshRenderer poseThumbUpLH;
-        //public SkinnedMeshRenderer poseNormalRH;
-        //public SkinnedMeshRenderer poseFingerPointRH;
-        //public SkinnedMeshRenderer poseThumbUpRH;
-        //[Tooltip("Order: Thumb, Index, Middle, Ring, Small")]
-        //public GameObject[] leftFingers;
-        //[Tooltip("Order: Thumb, Index, Middle, Ring, Small")]
-        //public GameObject[] rightFingers;
-        //private FollowTrackedFingers _Hands;
+        public GameObject leftHandAvatar;
+        public GameObject rightHandAvatar;
+        public SkinnedMeshRenderer poseNormalLH;
+        public SkinnedMeshRenderer poseFingerPointLH;
+        public SkinnedMeshRenderer poseThumbUpLH;
+        public SkinnedMeshRenderer poseNormalRH;
+        public SkinnedMeshRenderer poseFingerPointRH;
+        public SkinnedMeshRenderer poseThumbUpRH;
+        [Tooltip("Order: Thumb, Index, Middle, Ring, Small")]
+        public GameObject[] leftFingers;
+        [Tooltip("Order: Thumb, Index, Middle, Ring, Small")]
+        public GameObject[] rightFingers;
+        private FollowTrackedFingers _Hands;
         private Transform _LocalH2CameraTF;
         private bool _HandsTracked;
 
@@ -68,16 +68,16 @@ namespace HYDAC.Scripts.PUN
 
                 // Don't display our own "player" avatar to ourselves (except for map icon)
                 headAvatar.SetActive(false);
-                //leftHandAvatar.SetActive(false);
-                //rightHandAvatar.SetActive(false);
-                //for (int i = 0; i < leftFingers.Length; i++)
-                //{
-                //    leftFingers[i].SetActive(false);
-                //    rightFingers[i].SetActive(false);
-                //}
+                leftHandAvatar.SetActive(false);
+                rightHandAvatar.SetActive(false);
+                for (int i = 0; i < leftFingers.Length; i++)
+                {
+                    leftFingers[i].SetActive(false);
+                    rightFingers[i].SetActive(false);
+                }
 
-                //// Initialise Hands Tracking
-                //_Hands = GetComponentInChildren<FollowTrackedFingers>();
+                // Initialise Hands Tracking
+                _Hands = GetComponentInChildren<FollowTrackedFingers>();
 
                 // Initialise Voice Elements
                 _RecorderPUN = GetComponent<Recorder>();
@@ -120,78 +120,78 @@ namespace HYDAC.Scripts.PUN
         #endregion
 
         #region Avatar Related Methods
-        ///// <summary>
-        ///// Gets a synced integer value from the network and assigns the approprate left or right hand pose (normal, point, thumbs up)
-        ///// </summary>
-        ///// <param name="pose"></param>
-        //private void GetCurrentHandPose(HandPoses pose)
-        //{
-        //    switch (pose)
-        //    {
-        //        case HandPoses.LEFTNORMAL:
-        //            SetLeftHandPose(true, false, false);
-        //            break;
-        //        case HandPoses.LEFTPOINT:
-        //            SetLeftHandPose(false, true, false);
-        //            break;
-        //        case HandPoses.LEFTTHUMBUP:
-        //            SetLeftHandPose(false, false, true);
-        //            break;
-        //        case HandPoses.RIGHTNORMAL:
-        //            SetRightHandPose(true, false, false);
-        //            break;
-        //        case HandPoses.RIGHTPOINT:
-        //            SetRightHandPose(false, true, false);
-        //            break;
-        //        case HandPoses.RIGHTTHUMBUP:
-        //            SetRightHandPose(false, false, true);
-        //            break;
-        //    }
-        //}
+        /// <summary>
+        /// Gets a synced integer value from the network and assigns the approprate left or right hand pose (normal, point, thumbs up)
+        /// </summary>
+        /// <param name="pose"></param>
+        private void GetCurrentHandPose(HandPoses pose)
+        {
+            switch (pose)
+            {
+                case HandPoses.LEFTNORMAL:
+                    SetLeftHandPose(true, false, false);
+                    break;
+                case HandPoses.LEFTPOINT:
+                    SetLeftHandPose(false, true, false);
+                    break;
+                case HandPoses.LEFTTHUMBUP:
+                    SetLeftHandPose(false, false, true);
+                    break;
+                case HandPoses.RIGHTNORMAL:
+                    SetRightHandPose(true, false, false);
+                    break;
+                case HandPoses.RIGHTPOINT:
+                    SetRightHandPose(false, true, false);
+                    break;
+                case HandPoses.RIGHTTHUMBUP:
+                    SetRightHandPose(false, false, true);
+                    break;
+            }
+        }
 
-        ///// <summary>
-        ///// Enables the appropriate skinned mesh renderer (left-hand pose) according to the currently synced pose over the network
-        ///// </summary>
-        ///// <param name="normal"></param>
-        ///// <param name="point"></param>
-        ///// <param name="thumbUp"></param>
-        //private void SetRightHandPose(bool normal, bool point, bool thumbUp)
-        //{
-        //    if (_HandsTracked)
-        //    {
-        //        poseNormalRH.enabled = normal;
-        //        poseFingerPointRH.enabled = point;
-        //        poseThumbUpRH.enabled = thumbUp;
-        //    }
-        //    else
-        //    {
-        //        poseNormalRH.enabled = false;
-        //        poseFingerPointRH.enabled = false;
-        //        poseThumbUpRH.enabled = false;
-        //    }
-        //}
+        /// <summary>
+        /// Enables the appropriate skinned mesh renderer (left-hand pose) according to the currently synced pose over the network
+        /// </summary>
+        /// <param name="normal"></param>
+        /// <param name="point"></param>
+        /// <param name="thumbUp"></param>
+        private void SetRightHandPose(bool normal, bool point, bool thumbUp)
+        {
+            if (_HandsTracked)
+            {
+                poseNormalRH.enabled = normal;
+                poseFingerPointRH.enabled = point;
+                poseThumbUpRH.enabled = thumbUp;
+            }
+            else
+            {
+                poseNormalRH.enabled = false;
+                poseFingerPointRH.enabled = false;
+                poseThumbUpRH.enabled = false;
+            }
+        }
 
-        ///// <summary>
-        ///// Enables the appropriate skinned mesh renderer (left-hand pose) according to the currently synced pose over the network
-        ///// </summary>
-        ///// <param name="normal"></param>
-        ///// <param name="point"></param>
-        ///// <param name="thumbUp"></param>
-        //private void SetLeftHandPose(bool normal, bool point, bool thumbUp)
-        //{
-        //    if (_HandsTracked)
-        //    {
-        //        poseNormalLH.enabled = normal;
-        //        poseFingerPointLH.enabled = point;
-        //        poseThumbUpLH.enabled = thumbUp;
-        //    }
-        //    else
-        //    {
-        //        poseNormalLH.enabled = false;
-        //        poseFingerPointLH.enabled = false;
-        //        poseThumbUpLH.enabled = false;
-        //    }
-        //}
+        /// <summary>
+        /// Enables the appropriate skinned mesh renderer (left-hand pose) according to the currently synced pose over the network
+        /// </summary>
+        /// <param name="normal"></param>
+        /// <param name="point"></param>
+        /// <param name="thumbUp"></param>
+        private void SetLeftHandPose(bool normal, bool point, bool thumbUp)
+        {
+            if (_HandsTracked)
+            {
+                poseNormalLH.enabled = normal;
+                poseFingerPointLH.enabled = point;
+                poseThumbUpLH.enabled = thumbUp;
+            }
+            else
+            {
+                poseNormalLH.enabled = false;
+                poseFingerPointLH.enabled = false;
+                poseThumbUpLH.enabled = false;
+            }
+        }
 
         /// <summary>
         /// Toggles Animated / Static mouth on the player avatar when they are speaking / not speaking
@@ -240,18 +240,18 @@ namespace HYDAC.Scripts.PUN
                 // Send local VR Headset position and rotation data to networked player
                 stream.SendNext(_LocalH2CameraTF.position);
                 stream.SendNext(_LocalH2CameraTF.rotation);
-                //stream.SendNext(_Hands.IsTracking);
-                //stream.SendNext(_Hands.WristLeftPosition);
-                //stream.SendNext(_Hands.WristLeftRotation);
-                //stream.SendNext(_Hands.WristRightPosition);
-                //stream.SendNext(_Hands.WristRightRotation);
-                ////for (int i = 0; i < 5; i++)
-                ////{
-                ////    stream.SendNext(_Hands.GetLeftFinger(i));
-                ////    stream.SendNext(_Hands.GetRightFinger(i));
-                ////}
-                //stream.SendNext((int)_Hands.LeftHandPose);
-                //stream.SendNext((int)_Hands.RightHandPose);
+                stream.SendNext(_Hands.IsTracking);
+                stream.SendNext(_Hands.WristLeftPosition);
+                stream.SendNext(_Hands.WristLeftRotation);
+                stream.SendNext(_Hands.WristRightPosition);
+                stream.SendNext(_Hands.WristRightRotation);
+                //for (int i = 0; i < 5; i++)
+                //{
+                //    stream.SendNext(_Hands.GetLeftFinger(i));
+                //    stream.SendNext(_Hands.GetRightFinger(i));
+                //}
+                stream.SendNext((int)_Hands.LeftHandPose);
+                stream.SendNext((int)_Hands.RightHandPose);
                 stream.SendNext(_RecorderPUN.VoiceDetector.Detected);      // Toggle "Mouth Animation" on / off when speaking / quiet
             }
             else if (stream.IsReading)
@@ -259,18 +259,18 @@ namespace HYDAC.Scripts.PUN
                 // Receive networked player's VR Headset position and rotation data
                 _CorrectPlayerHeadPosition = (Vector3)stream.ReceiveNext();
                 _CorrectPlayerHeadRotation = (Quaternion)stream.ReceiveNext();
-                //_HandsTracked = (bool)stream.ReceiveNext();
-                //leftHandAvatar.transform.position = (Vector3)stream.ReceiveNext();
-                //leftHandAvatar.transform.rotation = (Quaternion)stream.ReceiveNext();
-                //rightHandAvatar.transform.position = (Vector3)stream.ReceiveNext();
-                //rightHandAvatar.transform.rotation = (Quaternion)stream.ReceiveNext();
-                ////for (int i = 0; i < 5; i++)
-                ////{
-                ////    leftFingers[i].transform.position = (Vector3)stream.ReceiveNext();
-                ////    rightFingers[i].transform.position = (Vector3)stream.ReceiveNext();
-                ////}
-                //GetCurrentHandPose((HandPoses)stream.ReceiveNext());
-                //GetCurrentHandPose((HandPoses)stream.ReceiveNext());
+                _HandsTracked = (bool)stream.ReceiveNext();
+                leftHandAvatar.transform.position = (Vector3)stream.ReceiveNext();
+                leftHandAvatar.transform.rotation = (Quaternion)stream.ReceiveNext();
+                rightHandAvatar.transform.position = (Vector3)stream.ReceiveNext();
+                rightHandAvatar.transform.rotation = (Quaternion)stream.ReceiveNext();
+                //for (int i = 0; i < 5; i++)
+                //{
+                //    leftFingers[i].transform.position = (Vector3)stream.ReceiveNext();
+                //    rightFingers[i].transform.position = (Vector3)stream.ReceiveNext();
+                //}
+                GetCurrentHandPose((HandPoses)stream.ReceiveNext());
+                GetCurrentHandPose((HandPoses)stream.ReceiveNext());
                 ToggleMouthState((bool)stream.ReceiveNext());
             }
         }
