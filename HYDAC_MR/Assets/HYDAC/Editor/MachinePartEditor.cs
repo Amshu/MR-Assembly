@@ -1,4 +1,5 @@
 ﻿using System;
+
 using UnityEngine;
 using UnityEditor;
 
@@ -12,7 +13,7 @@ namespace HYDAC_EView.Editor
         public string partInfo = "Part Description:";
         public string partAssemblyPosition = "00";
         
-        private const string MachinePartInfosPath = "Assets/Resources/MachinePartInfos/";
+        private const string SubmoduleInfosPath = "Assets/Resources/SubModuleInfos";
 
         public override void OnInspectorGUI()
         {
@@ -39,8 +40,23 @@ namespace HYDAC_EView.Editor
                 
                 EditorUtility.SetDirty(info);
 
+
+                string parentName = myScript.gameObject.transform.parent.name;
+                string directoryPath = SubmoduleInfosPath + "/" + parentName;
+
+                // Check if directory doesn't exit, if not then create it
+                if (!AssetDatabase.IsValidFolder(directoryPath))
+                {
+                    string guid = AssetDatabase.CreateFolder(SubmoduleInfosPath, parentName);
+                    string newFolderPath = AssetDatabase.GUIDToAssetPath(guid);
+                    
+                    //directoryPath = AssetDatabase.CreateFolder(SubmoduleInfosPath, parentName);
+                    
+                    Debug.Log("Parent directory does not exist, created folder at: " + newFolderPath);
+                }
+
                 string fileName = info.assemblyPosition + "_INFO_" + info.partName + ".asset";
-                string fileURL = MachinePartInfosPath + fileName;
+                string fileURL = directoryPath + "/"+ fileName;
                 
                 AssetDatabase.CreateAsset(info, fileURL);
 

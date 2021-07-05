@@ -5,6 +5,7 @@ using Normal.Realtime;
 
 using HYDAC.Scripts.MOD;
 using HYDAC.Scripts.NET;
+using UnityEngine.Video;
 
 namespace HYDAC.Scripts
 {
@@ -19,6 +20,12 @@ namespace HYDAC.Scripts
         [SerializeField] private BaseModule[] modules;
         [SerializeField] private GameObject buttons;
 
+        [Space] [Header("To be refactored")] 
+        [SerializeField] private AssemblyModule _accumulator = null;
+        [SerializeField] private Canvas _accumulatorUI = null;
+        [SerializeField] private VideoPlayer _videoPlayer = null;
+        [SerializeField] private GameObject _videoUI = null;
+
         private IAssemblyModule[] _assemblyModules;
         private IAssemblyModule _localCurrentAssemblyModule;
 
@@ -29,7 +36,10 @@ namespace HYDAC.Scripts
         {
             GetAllModules();
              
+            // TO BE REFACTORED
             buttons.SetActive(false);
+            _videoUI.SetActive(false);
+            _accumulatorUI.enabled = false;
         }
         
         
@@ -162,8 +172,11 @@ namespace HYDAC.Scripts
 
             if (newValue.Equals(""))
             {
-                if(!model.isAssembled)
+                if (!model.isAssembled)
+                {
                     _localCurrentAssemblyModule.Assemble();
+                    model.isAssembled = true;
+                }
                 
                 _localCurrentAssemblyModule = null;
                 _inFocus = false;
@@ -175,6 +188,12 @@ namespace HYDAC.Scripts
                     Debug.Log("#MainManager#-------------ExitFocus");
                     ExitFocus();
                 }
+                
+                // TO BE REFACTORED
+                _videoPlayer.Stop();
+                _videoUI.SetActive(false);
+                _accumulatorUI.enabled = false;
+
             }
             else
             {
@@ -197,6 +216,14 @@ namespace HYDAC.Scripts
                 {
                     Debug.Log("#MainManager#-------------EnterFocus");
                     EnterFocus();
+                }
+                
+                // TO BE REFACTORED
+                if (_localCurrentAssemblyModule.Equals(_accumulator))
+                {
+                    _videoPlayer.Play();
+                    _videoUI.SetActive(true);
+                    _accumulatorUI.enabled = true;
                 }
             }
         }
@@ -225,7 +252,7 @@ namespace HYDAC.Scripts
         {
             Debug.Log("#MainManager#-------------OnAssemblyStateChange: " + value);
 
-            if (!realtimeView.isOwnedLocallySelf) return;
+            if (!realtimeView.isOwnedLocallySelf || _localCurrentAssemblyModule == null) return;
             
             if(value)
                 _localCurrentAssemblyModule.Assemble();
@@ -307,6 +334,14 @@ namespace HYDAC.Scripts
         public void ChangePositionStep(int step)
         {
             _localCurrentAssemblyModule?.ChangePosition(step);
+        }
+
+        public void OnUIToggleVideo()
+        {
+            if(_videoPlayer.isPlaying)
+                _videoPlayer.Pause();
+            else
+                _videoPlayer.Play();
         }
 
         #endregion

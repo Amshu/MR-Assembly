@@ -155,7 +155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mUnitSettings: {fileID: 11400000, guid: 8b58cb86989d43f448112774110a5039, type: 2}
   mNoOfSteps: 0
-  isExploded: 0
   currentModNo: 0
   startingPosition: 0
 --- !u!114 &1419048209645549566
@@ -765,7 +764,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mUnitSettings: {fileID: 11400000, guid: 8b58cb86989d43f448112774110a5039, type: 2}
   mNoOfSteps: 0
-  isExploded: 0
   currentModNo: 0
   startingPosition: 0
 --- !u!114 &2612329825235116454
@@ -1113,7 +1111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mUnitSettings: {fileID: 11400000, guid: 8b58cb86989d43f448112774110a5039, type: 2}
   mNoOfSteps: 0
-  isExploded: 0
   currentModNo: 0
   startingPosition: 0
 --- !u!114 &3368872373824184223
@@ -1240,7 +1237,7 @@ MonoBehaviour:
   boxDisplayConfiguration: {fileID: 0}
   linksConfiguration: {fileID: 0}
   scaleHandlesConfiguration: {fileID: 0}
-  rotationHandlesConfiguration: {fileID: 0}
+  rotationHandlesConfiguration: {fileID: 11400000, guid: 84cf0466d38dd504f95cffee0e76363b, type: 2}
   translationHandlesConfiguration: {fileID: 0}
   handleProximityEffectConfiguration: {fileID: 0}
   hideElementsInInspector: 1
@@ -1249,7 +1246,7 @@ MonoBehaviour:
   scaleLerpTime: 0.001
   translateLerpTime: 0.001
   enableConstraints: 0
-  constraintsManager: {fileID: 1419048209645549539}
+  constraintsManager: {fileID: 3368872373824184220}
   rotateStarted:
     m_PersistentCalls:
       m_Calls:
@@ -1461,7 +1458,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mUnitSettings: {fileID: 11400000, guid: 8b58cb86989d43f448112774110a5039, type: 2}
   mNoOfSteps: 0
-  isExploded: 0
   currentModNo: 0
   startingPosition: 0
 --- !u!114 &4233292772723817098
@@ -1809,7 +1805,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mUnitSettings: {fileID: 11400000, guid: 8b58cb86989d43f448112774110a5039, type: 2}
   mNoOfSteps: 0
-  isExploded: 0
   currentModNo: 0
   startingPosition: 0
 --- !u!114 &4242100817971356572
@@ -2157,7 +2152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mUnitSettings: {fileID: 11400000, guid: 8b58cb86989d43f448112774110a5039, type: 2}
   mNoOfSteps: 0
-  isExploded: 0
   currentModNo: 0
   startingPosition: 0
 --- !u!114 &5338908409822406135
@@ -2505,7 +2499,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mUnitSettings: {fileID: 11400000, guid: 8b58cb86989d43f448112774110a5039, type: 2}
   mNoOfSteps: 0
-  isExploded: 0
   currentModNo: 0
   startingPosition: 0
 --- !u!114 &5831283619568794241
@@ -2853,7 +2846,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mUnitSettings: {fileID: 11400000, guid: 8b58cb86989d43f448112774110a5039, type: 2}
   mNoOfSteps: 0
-  isExploded: 0
   currentModNo: 0
   startingPosition: 0
 --- !u!114 &7451416583769558633
@@ -3301,7 +3293,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mUnitSettings: {fileID: 11400000, guid: 8b58cb86989d43f448112774110a5039, type: 2}
   mNoOfSteps: 0
-  isExploded: 0
   currentModNo: 0
   startingPosition: 0
 --- !u!114 &1052141716399691511

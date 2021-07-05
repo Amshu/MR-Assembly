@@ -22,7 +22,7 @@ namespace HYDAC.Scripts.MOD
     
     public sealed class AssemblyModule : BaseModule, IAssemblyModule
     {
-        private const string MachinePartInfoFolderPath = "SubModuleInfos";
+        private const string SubmoduleInfoFolderPath = "SubModuleInfos/";
         
         [Header("Assembly Members")]
         [SerializeField] private SocMainSettings mUnitSettings;
@@ -48,7 +48,7 @@ namespace HYDAC.Scripts.MOD
             _objectManipulator = GetComponent<ObjectManipulator>();
             _moveAxisConstraint = GetComponent<MoveAxisConstraint>();
             _boundsControl = GetComponent<BoundsControl>();
-            
+
             GetSubModules();
 
             currentModNo = startingPosition;
@@ -141,11 +141,10 @@ namespace HYDAC.Scripts.MOD
         private void GetSubModules()
         {
             // Load from Resources
-            var machinePartInfos = Resources.LoadAll(MachinePartInfoFolderPath, typeof(ISubModule));
+            var machinePartInfos = Resources.LoadAll(SubmoduleInfoFolderPath + transform.name, typeof(ISubModule));
             if (machinePartInfos.Length < 1)
             {
-                Debug.LogError("No sub-module infos found or loaded. Exiting Application");
-                Application.Quit();
+                Debug.LogWarning("No sub-module infos found or loaded for: " + transform.name);
                 return;
             }
 
