@@ -1,20 +1,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Normal.Realtime;
+
 using HYDAC.Scripts.MOD;
-using UnityEngine.Serialization;
+using HYDAC.Scripts.NET;
 
 namespace HYDAC.Scripts
 {
-    public class MainManager : MonoBehaviour
+    public class MainManager : RealtimeComponent<RoomStateNCModel>
     {
+        private bool _inFocus;
+
+        [SerializeField]
+        [Tooltip("Delay before ownership is reset after ownership is changed.")]
+        private float ownershipTimeOutTime = 1f;
+        
         [SerializeField] private BaseModule[] modules;
         [SerializeField] private GameObject buttons;
-        
-        private IAssemblyModule _currentAssemblyModule;
-        private IAssemblyModule[] _assemblyModules;
 
-        private bool _inFocus;
+        private IAssemblyModule[] _assemblyModules;
+        private IAssemblyModule _localCurrentAssemblyModule;
+
+        private float lastOwnershipChangeTime = 0f;
+        private bool hasOwnership = false;
 
         private void Awake()
         {
@@ -22,13 +31,15 @@ namespace HYDAC.Scripts
             
             buttons.SetActive(false);
         }
-
+        
+        
         /// <summary>
         ///  ON APPLICATION AWAKE
-        /// ----------------------
+        /// ---------------------
+        /// 
         /// - Find and store all the Assembly Modules in the Modules array
-        ///
         /// - Register to the assembly module's onFocus events
+        /// 
         /// </summary>
         private void GetAllModules()
         {
@@ -43,7 +54,7 @@ namespace HYDAC.Scripts
                     IAssemblyModule assemblyModule = module as IAssemblyModule;
                     assemblyModules.Add(assemblyModule);
 
-                    assemblyModule.OnModuleFocused += OnModuleFocused;
+                    assemblyModule.OnModuleFocused += OnAssemblyModuleManipulationStart;
                 }
             }
 
@@ -51,54 +62,195 @@ namespace HYDAC.Scripts
 
             Debug.Log("#MainManager#--------------Assembly Modules Found - " + _assemblyModules.Length);
         }
-
+        
+        
         /// <summary>
-        ///  ON USER MODULE SELECTION
-        /// --------------------------
-        /// - Set the system mode to 'Focused'
-        /// - Get and set the reference of the focused module
-        /// 
-        /// - Enable the UI for the 'Focused' mode
-        /// 
-        /// - Set all the other modules in 'UnfocusedMode'
+        /// ON NETWORK MODEL INITIALIZED OR REPLACED
+        /// ----------------------------------------
         /// </summary>
-        /// <param name="targetAssemblyModule"></param>
-        private void OnModuleFocused(IAssemblyModule targetAssemblyModule)
+        protected override void OnRealtimeModelReplaced(RoomStateNCModel previousModel, RoomStateNCModel currentModel)
         {
-            // If the current mode is already in FOCUSED MODE then ignore
+            if (previousModel != null)
+            {
+                // Unregister from NormCore events
+                previousModel.currentAssemblyNameDidChange -= OnCurrentAssemblyNameChange;
+            }
+
+            if (currentModel != null)
+            {
+                // If this is a model that has no data set on it, populate it with the current filed lines script
+                if (currentModel.isFreshModel)
+                {
+                    currentModel.currentAssemblyName = "";
+                }
+
+                // Register for NormCore events
+                currentModel.currentAssemblyNameDidChange += OnCurrentAssemblyNameChange;
+            }
+        }
+        
+        
+        /// <summary>
+        ///  ON LOCAL USER MODULE SELECT
+        /// ----------------------------
+        ///
+        /// - Check current system state
+        /// - Request ownership
+        /// - Set property on network
+        /// 
+        /// </summary>
+        /// <param name="focusedModule"> Selected module</param>
+        private void OnAssemblyModuleManipulationStart(AssemblyModule focusedModule)
+        {
             if (_inFocus) return;
             
-            _inFocus = true;
-            _currentAssemblyModule = targetAssemblyModule;
+            Debug.Log("#MainManager#-------------OnManipulationStarted: " + name);
             
-            buttons.SetActive(true);
+            realtimeView.ClearOwnership();
+            realtimeView.RequestOwnership();
+
+            model.currentAssemblyName = focusedModule.transform.name;
+        }
+        
+        /// <summary>
+        ///  ON LOCAL USER UI REQUEST RESET
+        /// -------------------------------
+        ///
+        /// - Check current system state
+        /// - Request ownership
+        /// - Set property on network
+        /// 
+        /// </summary>
+        public void OnUIRequestFocusExit()
+        {
+            if (!_inFocus) return;
+
+            Debug.Log("#MainManager#-------------OnUIRequestExitFocus");
             
-            //Debug.Log("#MainManager#--------------Unit Focused");
+            realtimeView.ClearOwnership();
+            realtimeView.RequestOwnership();
+
+            model.currentAssemblyName = "";
+        }
+        
+        /// <summary>
+        ///  ON NETWORK _currentAssemblyName PROPERTY CHANGED
+        /// -------------------------------------------------
+        ///
+        /// - If newValue = null
+        ///     - Set local currentAssembly as null
+        ///     - Set the system mode to 'UNFOCUSED'
+        ///     - Disable the UI for the 'Focused' mode
+        ///     - If realtimeView owned locally -> Exit Focus
+        /// 
+        /// - Else
+        ///     - Set local currentAssembly according to newValue
+        ///     - Set the system mode to 'Focused'
+        ///     - Enable the UI for the 'Focused' mode
+        ///     - If realtimeView owned locally -> Enter Focus
+        ///  
+        /// </summary>
+        /// <param name="roomStateNcModel"></param>
+        /// <param name="newValue"></param>
+        private void OnCurrentAssemblyNameChange(RoomStateNCModel roomStateNcModel, string newValue)
+        {
+            Debug.Log("#MainManager#-------------OnCurrentAssemblyNameChange");
+
+            if (newValue.Equals(""))
+            {
+                _localCurrentAssemblyModule = null;
+                _inFocus = false;
+
+                buttons.SetActive(false);
+
+                if (realtimeView.isOwnedLocallySelf)
+                {
+                    Debug.Log("#MainManager#-------------ExitFocus");
+                    ExitFocus();
+                }
+            }
+            else
+            {
+                foreach (var module in modules)
+                {
+                    if (module.name.Equals(newValue))
+                    {
+                        _localCurrentAssemblyModule = module as IAssemblyModule;
+                        break;
+                    }
+                }
+                _inFocus = true;
+
+                buttons.SetActive(true);
+
+                if (realtimeView.isOwnedLocallySelf)
+                {
+                    Debug.Log("#MainManager#-------------EnterFocus");
+                    EnterFocus();
+                }
+            }
+        }
+
+        
+        private void Update()
+        {
+            if (!CheckOwnership()) return;
+
+            // If we just reset objects, we should wait before affecting ownership
+            if (Time.time - lastOwnershipChangeTime < 1f) return;
+
+            // If object is not being manipulated, or it is at rest, clear ownership
+            realtimeView.ClearOwnership();
+        }
+        
+        private bool CheckOwnership()
+        {
+            // If there are any inconsistency update - when focus is toggled on or off
+            if (hasOwnership != realtimeView.isOwnedLocallySelf)
+            {
+                hasOwnership = realtimeView.isOwnedLocallySelf;
+                ResetOwnershipTime();
+            }
+            return hasOwnership;
+        }
+        
+        private void ResetOwnershipTime()
+        {
+            lastOwnershipChangeTime = Time.time;
+        }
+        
+
+        /// <summary>
+        ///  ON SET _localCurrentAssembly != ""
+        /// -----------------------------------
+        /// 
+        /// - Set all the other modules in 'UnfocusedMode'
+        /// 
+        /// </summary>
+        private void EnterFocus()
+        {
+            Debug.Log("#MainManager#--------------Module Focused: " + model.currentAssemblyName);
             
             for (int i = 0; i < modules.Length; i++)
             {
                 IBaseModule module = modules[i];
 
-                if (!_currentAssemblyModule.Equals(module))
+                if (!_localCurrentAssemblyModule.Equals(module))
                     module.ToggleFocus(false);
             }
         }
 
 
         /// <summary>
-        ///  ON USER EXIT FROM FOCUS MODE
-        /// -----------------------------
-        /// - Remove reference of the focused module
+        ///  ON SET _localCurrentAssembly = ""
+        /// ----------------------------------
         /// 
         /// - Set all the other modules back to default Mode
-        /// - Set the system mode to 'UNFOCUSED'
+        /// 
         /// </summary>
-        public void ExitFocus()
+        private void ExitFocus()
         {
-            // If the current mode is "Unfocused' then ignore
-            if (!_inFocus) return;
-
-            //Debug.Log("#MainManager#--------------Exit Focus");
+            Debug.Log("#MainManager#--------------Exit Focus");
 
             for (int i = 0; i < modules.Length; i++)
             {
@@ -106,22 +258,19 @@ namespace HYDAC.Scripts
 
                 module.Reset();
             }
-            
-            _inFocus = false;
-            _currentAssemblyModule = null;
         }
-
+        
         
         #region UI EVENT METHODS-------------------------
-
+        
         public void ToggleExplode()
         {
-            _currentAssemblyModule?.ToggleExplode();
+            _localCurrentAssemblyModule?.ToggleExplode();
         }
 
         public void ChangePositionStep(int step)
         {
-            _currentAssemblyModule?.ChangePosition(step);
+            _localCurrentAssemblyModule?.ChangePosition(step);
         }
 
         #endregion
