@@ -115,6 +115,7 @@ namespace prvncher.MRTK_Online.NetworkHelpers
 
         private bool CheckOwnership()
         {
+            // If there are any inconsistency update - When object is picked up and when object is dropped
             if (hasOwnership != realtimeTransform.isOwnedLocallySelf)
             {
                 hasOwnership = realtimeTransform.isOwnedLocallySelf;

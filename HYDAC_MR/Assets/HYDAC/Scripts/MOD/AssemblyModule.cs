@@ -56,19 +56,19 @@ namespace HYDAC.Scripts.MOD
 
         private void OnEnable()
         {
-            _objectManipulator.OnManipulationStarted.AddListener(OnClicked);
+            _objectManipulator.OnManipulationStarted.AddListener(OnManipulationStarted);
         }
 
         private void OnDisable()
         {
-            _objectManipulator.OnManipulationStarted.RemoveListener(OnClicked);
+            _objectManipulator.OnManipulationStarted.RemoveListener(OnManipulationStarted);
         }
 
-        private void OnClicked(ManipulationEventData arg0)
+        private void OnManipulationStarted(ManipulationEventData arg0)
         {
             if (isInFocus) return;
 
-            Debug.Log("Object Clicked: " + name);
+            //Debug.Log("#AssemblyModule#-------------OnManipulationStarted: " + name);
             
             // Raise OnFocused event
             RaiseOnFocused(this);
