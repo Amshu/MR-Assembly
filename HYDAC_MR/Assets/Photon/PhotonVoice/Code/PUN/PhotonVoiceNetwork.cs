@@ -436,6 +436,8 @@ namespace Photon.Voice.PUN
                 {
                     settings.FixedRegion = PhotonNetwork.CloudRegion; // makes sure the voice connection follows into the same cloud region (as PUN uses now).
                 }
+
+                this.Client.SerializationProtocol = PhotonNetwork.NetworkingClient.SerializationProtocol;
             }
 
             // use the same user, authentication, auth-mode and encryption as PUN

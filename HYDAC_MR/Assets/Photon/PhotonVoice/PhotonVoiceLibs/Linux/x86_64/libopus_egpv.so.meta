@@ -18,9 +18,7 @@ PluginImporter:
       settings:
         Exclude Android: 1
         Exclude Editor: 0
-        Exclude Linux: 1
         Exclude Linux64: 0
-        Exclude LinuxUniversal: 1
         Exclude OSXUniversal: 1
         Exclude WebGL: 1
         Exclude Win: 0
@@ -77,24 +75,6 @@ PluginImporter:
         CPU: x86_64
         DefaultValueInitialized: true
         OS: Linux
-  - first:
-      Facebook: Win
-    second:
-      enabled: 0
-      settings:
-        CPU: AnyCPU
-  - first:
-      Facebook: Win64
-    second:
-      enabled: 0
-      settings:
-        CPU: AnyCPU
-  - first:
-      Standalone: Linux
-    second:
-      enabled: 0
-      settings:
-        CPU: x86
   - first:
       Standalone: Linux64
     second:

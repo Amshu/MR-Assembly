@@ -1,4 +1,12 @@
-﻿using System;
+﻿#if !UNITY_EDITOR && (UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX || UNITY_IOS || UNITY_ANDROID || UNITY_WSA)
+#define WEBRTC_AUDIO_DSP_SUPPORTED_PLATFORM
+#endif
+
+#if UNITY_EDITOR_WIN || UNITY_EDITOR_OSX
+#define WEBRTC_AUDIO_DSP_SUPPORTED_EDITOR
+#endif
+
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -260,56 +268,79 @@ namespace Photon.Voice.Unity
         protected override void Awake()
         {
             base.Awake();
-            this.recorder = this.GetComponent<Recorder>();
-            if (this.recorder == null)
+            if (this.SupportedPlatformCheck())
             {
-                if (this.Logger.IsErrorEnabled)
+                this.recorder = this.GetComponent<Recorder>();
+                if (this.recorder == null)
                 {
-                    this.Logger.LogError("A Recorder component needs to be attached to the same GameObject");
+                    if (this.Logger.IsErrorEnabled)
+                    {
+                        this.Logger.LogError("A Recorder component needs to be attached to the same GameObject");
+                    }
+                    this.enabled = false;
+                    return;
                 }
-                this.enabled = false;
-                return;
-            }
-            if (!this.IgnoreGlobalLogLevel)
-            {
-                this.LogLevel = this.recorder.LogLevel;
-            }
-            AudioListener[] audioListeners = FindObjectsOfType<AudioListener>();
-            AudioListener audioListener = null;
-            for(int i=0; i < audioListeners.Length; i++)
-            {
-                if (audioListeners[i].gameObject.activeInHierarchy && audioListeners[i].enabled)
+                if (!this.IgnoreGlobalLogLevel)
                 {
-                    audioListener = audioListeners[i];
-                    break;
+                    this.LogLevel = this.recorder.LogLevel;
                 }
-            }
-            if (!this.SetOrSwitchAudioListener(audioListener, false))
-            {
-                if (this.Logger.IsErrorEnabled)
+                AudioListener[] audioListeners = FindObjectsOfType<AudioListener>();
+                AudioListener audioListener = null;
+                for(int i=0; i < audioListeners.Length; i++)
                 {
-                    this.Logger.LogError("AudioListener and AudioOutCapture components are required");
+                    if (audioListeners[i].gameObject.activeInHierarchy && audioListeners[i].enabled)
+                    {
+                        audioListener = audioListeners[i];
+                        break;
+                    }
                 }
-                this.enabled = false;
+                if (!this.SetOrSwitchAudioListener(audioListener, false))
+                {
+                    if (this.Logger.IsErrorEnabled)
+                    {
+                        this.Logger.LogError("AudioListener and AudioOutCapture components are required");
+                    }
+                    this.enabled = false;
+                }
             }
         }
 
         private void OnEnable()
         {
-            if (this.recorder.IsRecording && this.proc == null)
+            if (this.SupportedPlatformCheck() && this.recorder.IsRecording && this.proc == null)
             {
                 if (this.Logger.IsWarningEnabled)
                 {
                     this.Logger.LogWarning("WebRtcAudioDsp is added after recording has started, restarting recording to take effect");
                 }
                 this.recorder.RestartRecording(true);
+                this.SetOutputListener();
             }
-            this.SetOutputListener();
         }
 
         private void OnDisable()
         {
             this.SetOutputListener(false);
+        }
+
+        private bool SupportedPlatformCheck()
+        {
+            #if WEBRTC_AUDIO_DSP_SUPPORTED_PLATFORM
+            return true;
+            #elif WEBRTC_AUDIO_DSP_SUPPORTED_EDITOR
+            if (this.Logger.IsWarningEnabled)
+            {
+                this.Logger.LogWarning("WebRtcAudioDsp is not supported on this target platform {0}. The component will be disabled in build.", CurrentPlatform);
+            }
+            return true;
+            #else
+            if (this.Logger.IsErrorEnabled)
+            {
+                this.Logger.LogError("WebRtcAudioDsp is not supported on this platform {0}. The component will be disabled.", CurrentPlatform);
+            }
+            this.enabled = false;
+            return false;
+            #endif
         }
 
         private void SetOutputListener()
@@ -427,8 +458,8 @@ namespace Photon.Voice.Unity
             this.proc = new WebRTCAudioProcessor(this.Logger, this.localVoice.Info.FrameSize, this.localVoice.Info.SamplingRate,
                 this.localVoice.Info.Channels, this.outputSampleRate, this.reverseChannels);
             #if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
-            this.proc.AEC = this.ForceNormalAecInMobile;
-            this.proc.AECMobile = !this.ForceNormalAecInMobile;
+            this.proc.AEC = this.AEC && this.ForceNormalAecInMobile;
+            this.proc.AECMobile = this.AEC && !this.ForceNormalAecInMobile;
             #else
             this.proc.AEC = this.AEC;
             this.proc.AECMobile = false;

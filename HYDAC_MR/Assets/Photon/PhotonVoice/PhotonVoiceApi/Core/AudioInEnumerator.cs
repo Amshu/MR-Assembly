@@ -9,6 +9,70 @@ using System.Runtime.InteropServices;
 
 namespace Photon.Voice
 {
+    public struct DeviceInfo
+    {
+        public DeviceInfo(int id, string name)
+        {
+            IDInt = id;
+            IDString = "";
+            Name = name;
+            useStringID = false;
+        }
+        public DeviceInfo(string id, string name)
+        {
+            IDInt = 0;
+            IDString = id;
+            Name = name;
+            useStringID = true;
+        }
+        public int IDInt { get; private set; }
+        public string IDString { get; private set; }
+        public string Name { get; private set; }
+        private bool useStringID;
+
+        public static bool operator ==(DeviceInfo d1, DeviceInfo d2)
+        {
+            return d1.Equals(d2);
+        }
+        public static bool operator !=(DeviceInfo d1, DeviceInfo d2)
+        {
+            return !d1.Equals(d2);
+        }
+
+        // trivial implementation to avoid warnings CS0660 and CS0661 about missing overrides when == and != defined 
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            if (useStringID)
+            {
+                return string.Format("{0} ({1})", Name, IDString);
+            }
+            else 
+            {
+                return string.Format("{0} ({1})", Name, IDInt);
+            }
+        }
+
+        // default device id may differ on different platform, use this platform value instead of Default.Int
+        public static readonly DeviceInfo Default = new DeviceInfo(-128, "[Default Device]");
+    }
+
+    public interface IDeviceEnumerator : IDisposable
+    {
+        bool IsSupported { get; }
+        IEnumerable<DeviceInfo> Devices { get; }
+        void Refresh();
+        string Error { get; }
+    }
+
     public class MonoPInvokeCallbackAttribute : System.Attribute
     {
         private Type type;
@@ -16,14 +80,57 @@ namespace Photon.Voice
     }
     /// <summary>Enumerates microphones available on device.
     /// </summary>
-    public class AudioInEnumerator : IDisposable
+    public class AudioInEnumerator : IDeviceEnumerator
     {
+#if WINDOWS_UWP || ENABLE_WINMD_SUPPORT
+        private DeviceInfo[] devices = new DeviceInfo[0];
+
+        public bool IsSupported => true;
+
+        public AudioInEnumerator(ILogger logger)
+        {
+            Refresh();
+            if (Error != null)
+            {
+                logger.LogError("[PV] AudioInEnumerator: " + Error);
+            }
+        }
+
+        public IEnumerable<DeviceInfo> Devices
+        {
+            get
+            {
+                return devices;
+            }
+        }
+        public void Refresh()
+        {
+            var op = Windows.Devices.Enumeration.DeviceInformation.FindAllAsync(Windows.Devices.Enumeration.DeviceClass.AudioCapture);
+            op.AsTask().Wait();
+            if (op.Status == Windows.Foundation.AsyncStatus.Error)
+            {
+                Error = op.ErrorCode.Message;
+                return;
+            }            
+            var r = op.GetResults();
+            devices = new DeviceInfo[r.Count];
+            for (int i = 0; i < r.Count; i++)
+            {
+                devices[i] = new DeviceInfo(r[i].Id, r[i].Name);
+            }
+        }
+        public string Error { get; private set; }
+
+        public void Dispose()
+        {
+        }
+#elif UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+
 #if DLL_IMPORT_INTERNAL
 	    const string lib_name = "__Internal";
 #else
         const string lib_name = "AudioIn";
 #endif
-#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
         [DllImport(lib_name)]
         private static extern IntPtr Photon_Audio_In_CreateMicEnumerator();
         [DllImport(lib_name)]
@@ -36,6 +143,7 @@ namespace Photon.Voice
         private static extern int Photon_Audio_In_MicEnumerator_IDAtIndex(IntPtr handle, int idx);
 
         IntPtr handle;
+        private DeviceInfo[] devices = new DeviceInfo[0];
         public AudioInEnumerator(ILogger logger)
         {
             Refresh();
@@ -53,6 +161,12 @@ namespace Photon.Voice
             try
             {
                 handle = Photon_Audio_In_CreateMicEnumerator();
+                var count = Photon_Audio_In_MicEnumerator_Count(handle);
+                devices = new DeviceInfo[count];
+                for (int i = 0; i < count; i++)
+                {
+                    devices[i] = new DeviceInfo(Photon_Audio_In_MicEnumerator_IDAtIndex(handle, i), Marshal.PtrToStringAuto(Photon_Audio_In_MicEnumerator_NameAtIndex(handle, i)));
+                }
                 Error = null;
             }
             catch(Exception e)
@@ -66,87 +180,18 @@ namespace Photon.Voice
         }
 
         /// <summary>True if enumeration supported for the current platform.</summary>
-        public readonly bool IsSupported = true;
+        public bool IsSupported => true;
 
         /// <summary>If not null, the enumerator is in invalid state.</summary>
         public string Error { get; private set; }
 
-        /// <summary>Returns the count of microphones available on the device.
-        /// </summary>
-        /// <returns>Microphones count.</returns>
-        public int Count { get { return Error == null ? Photon_Audio_In_MicEnumerator_Count(handle) : 0; } }
-
-        /// <summary>Returns the microphone name by index in the microphones list.
-        /// </summary>
-        /// <param name="idx">Position in the list.</param>
-        /// <returns>Microphone name.</returns>
-        public string NameAtIndex(int idx)
-        {
-            return Error == null ? Marshal.PtrToStringAuto(Photon_Audio_In_MicEnumerator_NameAtIndex(handle, idx)) : "";
-        }
-
-        /// <summary>Returns the microphone ID by index in the microphones list.
-        /// </summary>
-        /// <param name="idx">Position in the list.</param>
-        /// <returns>Microphone ID.</returns>
-        public int IDAtIndex(int idx)
-        {
-            return Error == null ? Photon_Audio_In_MicEnumerator_IDAtIndex(handle, idx) : -2;
-        }
-
-        /// <summary>Returns the microphone ID by device name.
-        /// </summary>
-        /// <param name="name">Microphone name.</param>
-        /// <returns>Microphone ID.</returns>
-        public int IDByName(string name)
-        {
-            if (Error == null)
-            {
-                for (int i = 0; i < Count; i++)
-                {
-                    if (NameAtIndex(i) == name)
-                    {
-                        return IDAtIndex(i);
-                    }
-                }
-            }
-
-            return -2;
-        }
-
-        /// <summary>Checks if microphone with given ID exists.
-        /// </summary>
-        /// <param name="id">Microphone ID to check.</param>
-        /// <returns>True if ID is valid.</returns>
-        public bool IDIsValid(int id)
-        {
-            if (Error == null)
-            {
-                if(id == -1) // default
-                {
-                    return true;
-                }
-                for (int i = 0; i < Count; i++)
-                {
-                    if (IDAtIndex(i) == id)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
-        /// <summary>Returns the list of available microphones, identified by name.</summary>
-        public IEnumerable<string> Names
+        /// <summary>Returns the list of (name, id) pairs for available microphones.</summary>
+        public IEnumerable<DeviceInfo> Devices
         {
             get
             {
-                for (int i = 0; i < Count; i++)
-                {
-                    yield return NameAtIndex(i);
-                }
-            }
+                return devices;
+            }            
         }
 
         /// <summary>Disposes enumerator.
@@ -161,44 +206,22 @@ namespace Photon.Voice
             }
         }
 #else
-        public readonly bool IsSupported = false;
+        public bool IsSupported => false;
 
         public AudioInEnumerator(ILogger logger)
         {
+        }
+
+        public IEnumerable<DeviceInfo> Devices
+        {
+            get { return System.Linq.Enumerable.Empty<DeviceInfo>(); }
         }
 
         public void Refresh()
         {
         }
 
-        public string Error { get { return "Current platform is not supported by AudioInEnumerator."; } }
-
-        public int Count { get { return 0; } }
-
-        public string NameAtIndex(int i)
-        {
-            return null;
-        }
-
-        public int IDAtIndex(int i)
-        {
-            return -1;
-        }
-
-        public int IDByName(string name)
-        {
-            return -1;
-        }
-
-        public bool IDIsValid(int id)
-        {
-            return id >= -1;
-        }
-
-        public IEnumerable<string> Names
-        {
-            get { return System.Linq.Enumerable.Empty<string>(); }
-        }
+        public string Error { get { return "Current platform " + UnityEngine.Application.platform + " is not supported by AudioInEnumerator."; } }
 
         public void Dispose()
         {
@@ -284,7 +307,7 @@ namespace Photon.Voice
         {
         }
 
-        public string Error { get { return "Current platform is not supported by AudioInEnumerator."; } }
+        public string Error { get { return "Current platform " + UnityEngine.Application.platform + " is not supported by AudioInChangeNotifier."; } }
 
         public void Dispose()
         {

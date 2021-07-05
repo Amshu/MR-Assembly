@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -29,7 +28,7 @@ namespace HYDAC.Scripts.PUN
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                LoadArena();        // TO CHECK: Do we want to "reload" scene each time?
+                //LoadArena();        // NOTE: Enable if we want to "reload" scene each time a new player joins / leaves
             }
         }
 
@@ -37,7 +36,7 @@ namespace HYDAC.Scripts.PUN
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                LoadArena();    // TO CHECK: Do we want to "reload" scene each time?
+                //LoadArena();        // NOTE: Enable if we want to "reload" scene each time a new player joins / leaves
             }
         }
 
@@ -66,14 +65,6 @@ namespace HYDAC.Scripts.PUN
                 }
             }
         }
-
-        /// <summary>
-        /// Make local player leave the room on Photon server
-        /// </summary>
-        //public static void LeaveRoom()
-        //{
-        //    PhotonNetwork.LeaveRoom();
-        //}
 
         /// <summary>
         /// Loads the VR room Scene after a connection is made to the Photon Server (via the Launcher)

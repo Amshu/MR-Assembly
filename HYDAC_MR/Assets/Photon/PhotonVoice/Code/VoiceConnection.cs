@@ -102,6 +102,7 @@ namespace Photon.Voice.Unity
         };
 
         private List<Speaker> linkedSpeakers = new List<Speaker>();
+        private List<Recorder> initializedRecorders = new List<Recorder>();
 
         #endregion
 
@@ -517,6 +518,10 @@ namespace Photon.Voice.Unity
         protected virtual void Update()
         {
             this.VoiceClient.Service();
+            for (int i = 0; i < this.linkedSpeakers.Count; i++)
+            {
+                this.linkedSpeakers[i].Service();
+            }
         }
 
         protected virtual void FixedUpdate()
@@ -711,15 +716,28 @@ namespace Photon.Voice.Unity
             }
             if (fromState == ClientState.Joined)
             {
+                this.StopInitializedRecorders();
                 this.ClearRemoteVoicesCache();
             }
-            if (toState == ClientState.ConnectedToMasterServer && this.Client.RegionHandler != null)
+            switch (toState)
             {
-                if (this.Settings != null)
+                case ClientState.ConnectedToMasterServer:
                 {
-                    this.Settings.BestRegionSummaryFromStorage = this.Client.RegionHandler.SummaryToCache;
+                    if (this.Client.RegionHandler != null)
+                    {
+                        if (this.Settings != null)
+                        {
+                            this.Settings.BestRegionSummaryFromStorage = this.Client.RegionHandler.SummaryToCache;
+                        }
+                        this.BestRegionSummaryInPreferences = this.Client.RegionHandler.SummaryToCache;
+                    }
+                    break;
                 }
-                this.BestRegionSummaryInPreferences = this.Client.RegionHandler.SummaryToCache;
+                case ClientState.Joined:
+                {
+                    this.StartInitializedRecorders();
+                    break;
+                }
             }
         }
 
@@ -882,6 +900,37 @@ namespace Photon.Voice.Unity
             }
         }
         #endif
+
+        internal void AddInitializedRecorder(Recorder rec)
+        {
+            this.initializedRecorders.Add(rec);
+        }
+
+        internal void RemoveInitializedRecorder(Recorder rec)
+        {
+            this.initializedRecorders.Remove(rec);
+        }
+
+        private void StartInitializedRecorders()
+        {
+            for (int i = 0; i < this.initializedRecorders.Count; i++)
+            {
+                Recorder rec = this.initializedRecorders[i];
+                rec.CheckAndAutoStart();
+            }
+        }
+
+        private void StopInitializedRecorders()
+        {
+            for (int i = 0; i < this.initializedRecorders.Count; i++)
+            {
+                Recorder rec = this.initializedRecorders[i];
+                if (rec.IsInitialized && rec.IsRecording && rec.RecordOnlyWhenJoined)
+                {
+                    rec.StopRecordingInternal();
+                }
+            }
+        }
 
         #endregion
     }

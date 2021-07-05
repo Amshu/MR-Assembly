@@ -1,3 +1,7 @@
+#if UNITY_EDITOR_WIN || UNITY_EDITOR_OSX || !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX)
+#define WEBRTC_AUDIO_DSP_SUPPORTED
+#endif
+
 namespace Photon.Voice.Unity.Demos.DemoVoiceUI
 {
     using System.Collections.Generic;
@@ -533,7 +537,7 @@ namespace Photon.Voice.Unity.Demos.DemoVoiceUI
             this.globalMaxDelayHardInputField.SetValue(this.voiceConnection.GlobalPlaybackDelayMaxHard.ToString());
             if (this.webRtcDspGameObject != null)
             {
-                #if UNITY_EDITOR_WIN || UNITY_EDITOR_OSX || !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID || UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN)
+                #if WEBRTC_AUDIO_DSP_SUPPORTED
                 if (this.voiceAudioPreprocessor == null)
                 {
                     this.webRtcDspGameObject.SetActive(false);
@@ -557,6 +561,7 @@ namespace Photon.Voice.Unity.Demos.DemoVoiceUI
                 }
                 #else
                 this.webRtcDspGameObject.SetActive(false);
+                this.dspToggle.gameObject.SetActive(false);
                 #endif
             }
             else

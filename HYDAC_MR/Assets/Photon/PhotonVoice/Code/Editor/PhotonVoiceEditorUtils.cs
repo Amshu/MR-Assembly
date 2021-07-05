@@ -26,31 +26,35 @@ namespace Photon.Voice.Unity.Editor
             }
         }
         
-        #if PHOTON_UNITY_NETWORKING
+        [MenuItem("Window/Photon Voice/Remove PUN", true, 1)]
+        private static bool RemovePunValidate()
+        {
+            #if PHOTON_UNITY_NETWORKING
+            return true;
+            #else
+            return HasPun;
+            #endif
+        }
+
         [MenuItem("Window/Photon Voice/Remove PUN", false, 1)]
         private static void RemovePun()
         {
-            if (!HasPun)
-            {
-                Debug.LogWarning("PUN already removed!");
-                return;
-            }
             DeleteDirectory("Assets/Photon/PhotonVoice/Demos/DemoProximityVoiceChat");
             DeleteDirectory("Assets/Photon/PhotonVoice/Demos/DemoVoicePun");
             DeleteDirectory("Assets/Photon/PhotonVoice/Code/PUN");
             DeleteDirectory("Assets/Photon/PhotonUnityNetworking");
             PhotonEditorUtils.CleanUpPunDefineSymbols();
         }
-        #endif
+
+        [MenuItem("Window/Photon Voice/Remove Photon Chat", true, 2)]
+        private static bool RemovePhotonChatValidate()
+        {
+            return HasChat;
+        }
 
         [MenuItem("Window/Photon Voice/Remove Photon Chat", false, 2)]
         private static void RemovePhotonChat()
         {
-            if (!HasChat)
-            {
-                Debug.LogWarning("Photon Chat already removed!");
-                return;
-            }
             DeleteDirectory("Assets/Photon/PhotonChat");
         }
 
@@ -94,6 +98,64 @@ namespace Photon.Voice.Unity.Editor
         public static bool IsInTheSceneInPlayMode(GameObject go)
         {
             return Application.isPlaying && !PhotonEditorUtils.IsPrefab(go);
+        }
+
+        public static void GetPhotonVoiceVersionsFromChangeLog(out string photonVoiceVersion, out string punChangelogVersion, out string photonVoiceApiVersion)
+        {
+            string filePath = "Assets\\Photon\\PhotonVoice\\changes-voice.txt";
+            photonVoiceVersion = null;
+            punChangelogVersion = null;
+            photonVoiceApiVersion = null;
+            try
+            {
+                using (StreamReader file = new StreamReader(filePath))
+                {
+                    while (!file.EndOfStream && (string.IsNullOrEmpty(photonVoiceVersion) || string.IsNullOrEmpty(punChangelogVersion) || string.IsNullOrEmpty(photonVoiceApiVersion)))
+                    {
+                        string line = file.ReadLine();
+                        if (!string.IsNullOrWhiteSpace(line))
+                        {
+                            line = line.Trim();
+                            if (line.StartsWith("v2."))
+                            {
+                                if (!string.IsNullOrEmpty(photonVoiceVersion))
+                                {
+                                    break;
+                                }
+                                photonVoiceVersion = line.TrimStart('v');
+                                continue;
+                            }
+                            string[] parts = line.Split(null);
+                            if (line.StartsWith("PUN2: ") && parts.Length > 1)
+                            {
+                                punChangelogVersion = parts[1];
+                                continue;
+                            }
+                            if (line.StartsWith("PhotonVoiceApi: ") && parts.Length > 2)
+                            {
+                                photonVoiceApiVersion = string.Format("rev. {0}", parts[2]);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (IOException e)
+            {
+                Debug.LogErrorFormat("There was an error reading the file \"{0}\": ", filePath);
+                Debug.LogError(e.Message);
+            }
+            if (string.IsNullOrEmpty(photonVoiceVersion))
+            {
+                Debug.LogError("There was an error retrieving Photon Voice version from changelog.");
+            }
+            if (string.IsNullOrEmpty(punChangelogVersion))
+            {
+                Debug.LogError("There was an error retrieving PUN2 version from changelog.");
+            }
+            if (string.IsNullOrEmpty(photonVoiceApiVersion))
+            {
+                Debug.LogError("There was an error retrieving Photon Voice API version from changelog.");
+            }
         }
     }
 }

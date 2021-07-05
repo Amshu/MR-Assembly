@@ -55,13 +55,30 @@ namespace Photon.Voice.Unity
             }
         }
 
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private bool ignoreGlobalLogLevel;
 
         public bool IgnoreGlobalLogLevel
         {
             get { return this.ignoreGlobalLogLevel; }
             set { this.ignoreGlobalLogLevel = value; }
+        }
+
+        private static string currentPlatform;
+        public static string CurrentPlatform
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(currentPlatform))
+                {
+                    #if UNITY_EDITOR
+                    currentPlatform = System.Enum.GetName(typeof(UnityEditor.BuildTarget), UnityEditor.EditorUserBuildSettings.activeBuildTarget);
+                    #else
+                    currentPlatform = System.Enum.GetName(typeof(RuntimePlatform), Application.platform);
+                    #endif
+                }
+                return currentPlatform;
+            }
         }
 
         protected virtual void Awake()

@@ -247,7 +247,7 @@ namespace Photon.Voice
         /// <param name="srcChannels">Number of (interleaved) channels in src.</param>
         public static void ForceToStereo<T>(T[] src, T[] dst, int srcChannels)
         {
-            for(int i = 0, j = 0; j < dst.Length-1; i += srcChannels, j += 2)
+            for (int i = 0, j = 0; j < dst.Length - 1; i += srcChannels, j += 2)
             {
                 dst[j] = src[i];
                 dst[j + 1] = srcChannels > 1 ? src[i + 1] : src[i];
@@ -263,6 +263,367 @@ namespace Photon.Voice
                 b.Append(x[i]);
             }
             return b.ToString();
+        }
+
+        public class TempoUp<T>
+        {
+            readonly int sizeofT = System.Runtime.InteropServices.Marshal.SizeOf(default(T));
+            int channels;
+            int skipGroup;
+
+            int skipFactor;
+            int sign = 0;
+            int waveCnt;
+            bool skipping;
+
+            public void Begin(int channels, int changePerc, int skipGroup)
+            {
+                this.channels = channels;
+                this.skipFactor = 100 / changePerc;
+                this.skipGroup = skipGroup;
+                sign = 0;
+                skipping = false;
+                waveCnt = 0;
+            }
+
+            public int Process(T[] s, T[] d)
+            {
+                if (sizeofT == 2)
+                {
+                    return processShort(s as short[], d as short[]);
+                }
+                else
+                {
+                    return processFloat(s as float[], d as float[]);
+                }
+            }
+
+            // returns the number of samples required to skip in order to complete currently skipping wave
+            public int End(T[] s)
+            {
+                if (!skipping)
+                {
+                    return 0;
+                }
+                if (sizeofT == 2)
+                {
+                    return endShort(s as short[]);
+                }
+                else
+                {
+                    return endFloat(s as float[]);
+                }
+            }
+            
+            int processFloat(float[] s, float[] d)
+            {
+                int dPos = 0;
+                if (channels == 1)
+                {
+                    for (int i = 0; i < s.Length; i++)
+                    {
+                        if (s[i] < 0)
+                        {
+                            sign = -1;
+                        }
+                        else if (sign < 0)
+                        {
+                            waveCnt++;
+                            skipping = waveCnt % (skipGroup * skipFactor) < skipGroup;
+                            sign = 0;
+                        }
+
+                        if (!skipping)
+                        {
+                            d[dPos++] = s[i];
+                        }
+                    }
+                }
+
+                else if (channels == 2)
+                {
+                    for (int i = 0; i < s.Length; i += 2)
+                    {
+                        if (s[i] + s[i + 1] < 0)
+                        {
+                            sign = -1;
+                        }
+                        else if (sign < 0)
+                        {
+                            waveCnt++;
+                            skipping = waveCnt % (skipGroup * skipFactor) < skipGroup;
+                            sign = 0;
+                        }
+
+                        if (!skipping)
+                        {
+                            d[dPos++] = s[i];
+                            d[dPos++] = s[i + 1];
+                        }
+                    }
+                }
+
+                else
+                {
+                    for (int i = 0; i < s.Length; i += channels)
+                    {
+                        var x = s[i] + s[i + 1];
+                        for (int j = 2; i < channels; j++)
+                        {
+                            x += s[i + j];
+                        }
+                        if (x < 0)
+                        {
+                            sign = -1;
+                        }
+                        else if (sign < 0)
+                        {
+                            waveCnt++;
+                            skipping = waveCnt % (skipGroup * skipFactor) < skipGroup;
+                            sign = 0;
+                        }
+
+                        if (!skipping)
+                        {
+                            d[dPos++] = s[i];
+                            d[dPos++] = s[i + 1];
+                            for (int j = 2; i < channels; j++)
+                            {
+                                d[dPos++] += s[i + j];
+                            }
+                        }
+                    }
+                }
+
+                return dPos / channels;
+            }
+
+            public int endFloat(float[] s)
+            {
+                if (channels == 1)
+                {
+                    for (int i = 0; i < s.Length; i++)
+                    {
+                        if (s[i] < 0)
+                        {
+                            sign = -1;
+                        }
+                        else if (sign < 0)
+                        {
+                            waveCnt++;
+                            skipping = waveCnt % (skipGroup * skipFactor) < skipGroup;
+                            if (!skipping)
+                            {
+                                return i;
+                            }
+                            sign = 0;
+                        }
+                    }
+                }
+
+                else if (channels == 2)
+                {
+                    for (int i = 0; i < s.Length; i += 2)
+                    {
+                        if (s[i] + s[i + 1] < 0)
+                        {
+                            sign = -1;
+                        }
+                        else if (sign < 0)
+                        {
+                            waveCnt++;
+                            skipping = waveCnt % (skipGroup * skipFactor) < skipGroup;
+                            if (!skipping)
+                            {
+                                return i / 2;
+                            }
+                            sign = 0;
+                        }
+                    }
+                }
+
+                else
+                {
+                    for (int i = 0; i < s.Length; i += channels)
+                    {
+                        var x = s[i] + s[i + 1];
+                        for (int j = 2; i < channels; j++)
+                        {
+                            x += s[i + j];
+                        }
+                        if (x < 0)
+                        {
+                            sign = -1;
+                        }
+                        else if (sign < 0)
+                        {
+                            waveCnt++;
+                            skipping = waveCnt % (skipGroup * skipFactor) < skipGroup;
+                            if (!skipping)
+                            {
+                                return i / channels;
+                            }
+                            sign = 0;
+                        }
+                    }
+                }
+                return 0;
+            }
+
+            int processShort(short[] s, short[] d)
+            {
+                int dPos = 0;
+                if (channels == 1)
+                {
+                    for (int i = 0; i < s.Length; i++)
+                    {
+                        if (s[i] < 0)
+                        {
+                            sign = -1;
+                        }
+                        else if (sign < 0)
+                        {
+                            waveCnt++;
+                            skipping = waveCnt % (skipGroup * skipFactor) < skipGroup;
+                            sign = 0;
+                        }
+
+                        if (!skipping)
+                        {
+                            d[dPos++] = s[i];
+                        }
+                    }
+                }
+
+                else if (channels == 2)
+                {
+                    for (int i = 0; i < s.Length; i += 2)
+                    {
+                        if (s[i] + s[i + 1] < 0)
+                        {
+                            sign = -1;
+                        }
+                        else if (sign < 0)
+                        {
+                            waveCnt++;
+                            skipping = waveCnt % (skipGroup * skipFactor) < skipGroup;
+                            sign = 0;
+                        }
+
+                        if (!skipping)
+                        {
+                            d[dPos++] = s[i];
+                            d[dPos++] = s[i + 1];
+                        }
+                    }
+                }
+
+                else
+                {
+                    for (int i = 0; i < s.Length; i += channels)
+                    {
+                        var x = s[i] + s[i + 1];
+                        for (int j = 2; i < channels; j++)
+                        {
+                            x += s[i + j];
+                        }
+                        if (x < 0)
+                        {
+                            sign = -1;
+                        }
+                        else if (sign < 0)
+                        {
+                            waveCnt++;
+                            skipping = waveCnt % (skipGroup * skipFactor) < skipGroup;
+                            sign = 0;
+                        }
+
+                        if (!skipping)
+                        {
+                            d[dPos++] = s[i];
+                            d[dPos++] = s[i + 1];
+                            for (int j = 2; i < channels; j++)
+                            {
+                                d[dPos++] += s[i + j];
+                            }
+                        }
+                    }
+                }
+
+                return dPos / channels;
+            }
+
+            public int endShort(short[] s)
+            {
+                if (channels == 1)
+                {
+                    for (int i = 0; i < s.Length; i++)
+                    {
+                        if (s[i] < 0)
+                        {
+                            sign = -1;
+                        }
+                        else if (sign < 0)
+                        {
+                            waveCnt++;
+                            skipping = waveCnt % (skipGroup * skipFactor) < skipGroup;
+                            if (!skipping)
+                            {
+                                return i;
+                            }
+                            sign = 0;
+                        }
+                    }
+                }
+
+                else if (channels == 2)
+                {
+                    for (int i = 0; i < s.Length; i += 2)
+                    {
+                        if (s[i] + s[i + 1] < 0)
+                        {
+                            sign = -1;
+                        }
+                        else if (sign < 0)
+                        {
+                            waveCnt++;
+                            skipping = waveCnt % (skipGroup * skipFactor) < skipGroup;
+                            if (!skipping)
+                            {
+                                return i / 2;
+                            }
+                            sign = 0;
+                        }
+                    }
+                }
+
+                else
+                {
+                    for (int i = 0; i < s.Length; i += channels)
+                    {
+                        var x = s[i] + s[i + 1];
+                        for (int j = 2; i < channels; j++)
+                        {
+                            x += s[i + j];
+                        }
+                        if (x < 0)
+                        {
+                            sign = -1;
+                        }
+                        else if (sign < 0)
+                        {
+                            waveCnt++;
+                            skipping = waveCnt % (skipGroup * skipFactor) < skipGroup;
+                            if (!skipping)
+                            {
+                                return i / channels;
+                            }
+                            sign = 0;
+                        }
+                    }
+                }
+                return 0;
+            }
         }
 
         /// <summary>Sample-rate conversion Audio Processor.</summary>
@@ -342,10 +703,10 @@ namespace Photon.Voice
 
             protected float accumAvgPeakAmpSum;
             protected int accumAvgPeakAmpCount;
-			protected float currentPeakAmp;
-			protected float norm;
+            protected float currentPeakAmp;
+            protected float norm;
 
-			internal LevelMeter(int samplingRate, int numChannels)
+            internal LevelMeter(int samplingRate, int numChannels)
             {
                 this.bufferSize = samplingRate * numChannels / 2; // 1/2 sec
                 this.prevValues = new float[this.bufferSize];
@@ -354,8 +715,8 @@ namespace Photon.Voice
             public float CurrentAvgAmp { get { return ampSum / this.bufferSize * norm; } }
             public float CurrentPeakAmp
             {
-				get { return currentPeakAmp * norm; }
-				protected set { currentPeakAmp = value / norm; }
+                get { return currentPeakAmp * norm; }
+                protected set { currentPeakAmp = value / norm; }
             }
 
             public float AccumAvgPeakAmp { get { return this.accumAvgPeakAmpCount == 0 ? 0 : accumAvgPeakAmpSum / this.accumAvgPeakAmpCount * norm; } }
@@ -379,9 +740,9 @@ namespace Photon.Voice
             /// <param name="samplingRate">Sampling rate of the audio signal (in Hz).</param>
             /// <param name="numChannels">Number of channels in the audio signal.</param>
             public LevelMeterFloat(int samplingRate, int numChannels) : base(samplingRate, numChannels)
-			{
-				norm = 1.0f;
-			}
+            {
+                norm = 1.0f;
+            }
 
             public override float[] Process(float[] buf)
             {
@@ -421,9 +782,9 @@ namespace Photon.Voice
             /// <param name="samplingRate">Sampling rate of the audio signal (in Hz).</param>
             /// <param name="numChannels">Number of channels in the audio signal.</param>
             public LevelMeterShort(int samplingRate, int numChannels) : base(samplingRate, numChannels)
-			{
-				norm = 1.0f / short.MaxValue;
-			}
+            {
+                norm = 1.0f / short.MaxValue;
+            }
 
             public override short[] Process(short[] buf)
             {
@@ -544,9 +905,9 @@ namespace Photon.Voice
         }
 
 
-            /// <summary>
-            /// Simple voice activity detector triggered by signal level.
-            /// </summary>
+        /// <summary>
+        /// Simple voice activity detector triggered by signal level.
+        /// </summary>
         abstract public class VoiceDetector<T> : IProcessor<T>, IVoiceDetector
         {
             /// <summary>If true, voice detection enabled.</summary>
@@ -555,12 +916,12 @@ namespace Photon.Voice
             /// <summary>Voice detected as soon as signal level exceeds threshold.</summary>
             public float Threshold { get { return threshold * norm; } set { threshold = value / norm; } }
 
-			protected float norm;
-			protected float threshold;
-			bool detected;
+            protected float norm;
+            protected float threshold;
+            bool detected;
 
-			/// <summary>If true, voice detected.</summary>
-			public bool Detected
+            /// <summary>If true, voice detected.</summary>
+            public bool Detected
             {
                 get { return detected; }
                 protected set
@@ -737,7 +1098,7 @@ namespace Photon.Voice
             }
 
             public bool IsCalibrating { get { return calibration.IsCalibrating; } }
-            
+
             public T[] Process(T[] buf)
             {
                 buf = (LevelMeter as IProcessor<T>).Process(buf);
@@ -753,16 +1114,5 @@ namespace Photon.Voice
                 calibration.Dispose();
             }
         }
-   }
-
-    public interface IAudioOut<T>
-    {
-        bool IsPlaying { get; }
-        void Start(int frequency, int channels, int frameSamplesPerChannel);
-        void Flush();
-        void Stop();
-        void Push(T[] frame);
-        void Service();
-        int Lag { get; }
     }
 }

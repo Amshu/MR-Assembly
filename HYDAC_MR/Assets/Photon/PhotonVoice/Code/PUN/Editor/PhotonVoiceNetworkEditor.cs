@@ -1,8 +1,11 @@
-﻿namespace Photon.Voice.PUN.Editor
+﻿using System;
+
+namespace Photon.Voice.PUN.Editor
 {
     using Unity.Editor;
     using UnityEditor;
     using UnityEngine;
+    using Pun;
 
     [CustomEditor(typeof(PhotonVoiceNetwork))]
     public class PhotonVoiceNetworkEditor : VoiceConnectionEditor
@@ -23,8 +26,26 @@
             this.workInOfflineModeSp = this.serializedObject.FindProperty("WorkInOfflineMode");
         }
 
-        public override void OnInspectorGUI()
+        protected override void DisplayAppSettings()
         {
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.PropertyField(this.usePunAppSettingsSp, new GUIContent("Use PUN's App Settings", "Use App Settings From PUN's PhotonServerSettings"));
+            if (GUILayout.Button("PhotonServerSettings", EditorStyles.miniButton, GUILayout.Width(120)))
+            {
+                Selection.objects = new Object[] { PhotonNetwork.PhotonServerSettings };
+                EditorGUIUtility.PingObject(PhotonNetwork.PhotonServerSettings);
+            }
+            EditorGUILayout.EndHorizontal();
+            if (!this.usePunAppSettingsSp.boolValue)
+            {
+                base.DisplayAppSettings();
+            }
+            EditorGUILayout.PropertyField(this.usePunAuthValuesSp, new GUIContent("Use PUN's Auth Values", "Use the same Authentication Values From PUN client"));
+        }
+
+        protected override void ShowHeader()
+        {
+            base.ShowHeader();
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(this.autoConnectAndJoinSp, new GUIContent("Auto Connect And Join", "Auto connect voice client and join a voice room when PUN client is joined to a PUN room"));
             EditorGUILayout.PropertyField(this.autoLeaveAndDisconnectSp, new GUIContent("Auto Leave And Disconnect", "Auto disconnect voice client when PUN client is not joined to a PUN room"));
@@ -33,24 +54,20 @@
             {
                 this.serializedObject.ApplyModifiedProperties();
             }
-            base.OnInspectorGUI();
         }
 
-        protected override void DisplayAppSettings()
+        protected override void ShowAssetVersions()
         {
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.PropertyField(this.usePunAppSettingsSp, new GUIContent("Use PUN's App Settings", "Use App Settings From PUN's PhotonServerSettings"));
-            if (GUILayout.Button("PhotonServerSettings", EditorStyles.miniButton, GUILayout.Width(120)))
+            base.ShowAssetVersions();
+            string version = this.GetVersionString(this.punChangelogVersion).TrimStart('v');
+            if (!PhotonNetwork.PunVersion.Equals(version, StringComparison.OrdinalIgnoreCase))
             {
-                Selection.objects = new Object[] { Pun.PhotonNetwork.PhotonServerSettings };
-                EditorGUIUtility.PingObject(Pun.PhotonNetwork.PhotonServerSettings);
+                EditorGUILayout.LabelField(string.Format("PUN2, Inside Voice: {0} != Imported Separately: {1}", version, PhotonNetwork.PunVersion));
             }
-            EditorGUILayout.EndHorizontal();
-            if (!this.usePunAppSettingsSp.boolValue)
+            else
             {
-                base.DisplayAppSettings();
+                EditorGUILayout.LabelField(string.Format("PUN2: {0}", version));
             }
-            EditorGUILayout.PropertyField(this.usePunAuthValuesSp, new GUIContent("Use PUN's Auth Values", "Use the same Authentication Values From PUN client"));
         }
     }
 }

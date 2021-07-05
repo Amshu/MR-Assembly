@@ -32,7 +32,7 @@ namespace Photon.Voice
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
                 case Codec.VideoH264:
                     //ve = new FFmpegCodec.Encoder(logger, info);
-                    return MacOS.VideoEncoder(logger, info);
+                    return new MacOS.VideoEncoder(logger, info);
 #endif
                 default:
                     throw new UnsupportedCodecException("Platform.CreateDefaultVideoEncoder", info.Codec, logger);

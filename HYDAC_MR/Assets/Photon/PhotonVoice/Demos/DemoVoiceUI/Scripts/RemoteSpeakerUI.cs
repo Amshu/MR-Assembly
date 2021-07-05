@@ -28,6 +28,7 @@
         protected Speaker speaker;
 
         protected VoiceConnection voiceConnection;
+        protected LoadBalancingClient loadBalancingClient;
 
         protected virtual void Start()
         {
@@ -96,7 +97,10 @@
 
         private void OnDestroy()
         {
-            this.voiceConnection.Client.RemoveCallbackTarget(this);
+            if (this.loadBalancingClient != null)
+            {
+                this.loadBalancingClient.RemoveCallbackTarget(this);
+            }
         }
 
         private void SetNickname()
@@ -135,7 +139,8 @@
         public virtual void Init(VoiceConnection vC)
         {
             this.voiceConnection = vC;
-            this.voiceConnection.Client.AddCallbackTarget(this);
+            this.loadBalancingClient = this.voiceConnection.Client;
+            this.loadBalancingClient.AddCallbackTarget(this);
         }
 
         #region IInRoomCallbacks

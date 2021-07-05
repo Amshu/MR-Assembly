@@ -1,6 +1,13 @@
-﻿#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX
-//#if UNITY_IOS
+﻿#if WINDOWS_UWP || ENABLE_WINMD_SUPPORT
+#define PHOTON_MICROPHONE_WSA
+#endif
+
+#if PHOTON_MICROPHONE_WSA || UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX
 #define PHOTON_MICROPHONE_ENUMERATOR
+#endif
+
+#if UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN || UNITY_ANDROID || UNITY_IOS || UNITY_WSA || UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
+#define PHOTON_MICROPHONE_SUPPORTED
 #endif
 
 namespace Photon.Voice.Unity.Demos.DemoVoiceUI
@@ -16,12 +23,22 @@ namespace Photon.Voice.Unity.Demos.DemoVoiceUI
         public Recorder.MicType MicType;
         public string Name;
         public int PhotonId;
+        public string PhotonIdString;
 
         public MicRef(string name, int id)
         {
             this.MicType = Recorder.MicType.Photon;
             this.Name = name;
             this.PhotonId = id;
+            this.PhotonIdString = string.Empty;
+        }
+
+        public MicRef(string name, string id)
+        {
+            this.MicType = Recorder.MicType.Photon;
+            this.Name = name;
+            this.PhotonId = -1;
+            this.PhotonIdString = id;
         }
 
         public MicRef(string name)
@@ -29,6 +46,7 @@ namespace Photon.Voice.Unity.Demos.DemoVoiceUI
             this.MicType = Recorder.MicType.Unity;
             this.Name = name;
             this.PhotonId = -1;
+            this.PhotonIdString = string.Empty;
         }
 
         public override string ToString()
@@ -80,13 +98,19 @@ namespace Photon.Voice.Unity.Demos.DemoVoiceUI
             }
 
             #if PHOTON_MICROPHONE_ENUMERATOR
-            if (Recorder.PhotonMicrophoneEnumerator.IsSupported)
+            if (this.recorder.MicrophonesEnumerator.IsSupported)
             {
-                for (int i = 0; i < Recorder.PhotonMicrophoneEnumerator.Count; i++)
+                int i = 0;
+                foreach (DeviceInfo deviceInfo in this.recorder.MicrophonesEnumerator.Devices)
                 {
-                    string n = Recorder.PhotonMicrophoneEnumerator.NameAtIndex(i);
-                    this.micOptions.Add(new MicRef(n, Recorder.PhotonMicrophoneEnumerator.IDAtIndex(i)));
+                    string n = deviceInfo.Name;
+                    #if PHOTON_MICROPHONE_WSA
+                    this.micOptions.Add(new MicRef(n, deviceInfo.IDString));
+                    #else
+                    this.micOptions.Add(new MicRef(n, deviceInfo.IDInt));
+                    #endif
                     micOptionsStrings.Add(string.Format("[Photon] {0}", n));
+                    i++;
                 }
             }
             #endif
@@ -106,7 +130,11 @@ namespace Photon.Voice.Unity.Demos.DemoVoiceUI
                     this.recorder.UnityMicrophoneDevice = mic.Name;
                     break;
                 case Recorder.MicType.Photon:
+                    #if PHOTON_MICROPHONE_WSA
+                    this.recorder.PhotonMicrophoneDeviceIdString = mic.PhotonIdString;
+                    #else
                     this.recorder.PhotonMicrophoneDeviceId = mic.PhotonId;
+                    #endif
                     break;
             }
 
@@ -124,7 +152,7 @@ namespace Photon.Voice.Unity.Demos.DemoVoiceUI
                 return;
             }
             #if PHOTON_MICROPHONE_ENUMERATOR
-            bool photonMicEnumAvailable = Recorder.PhotonMicrophoneEnumerator.IsSupported;
+            bool photonMicEnumAvailable = this.recorder.MicrophonesEnumerator.IsSupported;
             #else
             bool photonMicEnumAvailable = false;
             #endif
@@ -135,7 +163,11 @@ namespace Photon.Voice.Unity.Demos.DemoVoiceUI
                 this.photonToggle.onValueChanged.AddListener(this.PhotonMicToggled);
             }
             this.micDropdown.gameObject.SetActive(photonMicEnumAvailable || this.recorder.MicrophoneType == Recorder.MicType.Unity);
+            #if PHOTON_MICROPHONE_SUPPORTED
             this.toggleButton.SetActive(!photonMicEnumAvailable);
+            #else
+            this.toggleButton.SetActive(false);
+            #endif
             this.refreshButton.SetActive(photonMicEnumAvailable || this.recorder.MicrophoneType == Recorder.MicType.Unity);
             for (int valueIndex = 0; valueIndex < this.micOptions.Count; valueIndex++)
             {
@@ -148,12 +180,21 @@ namespace Photon.Voice.Unity.Demos.DemoVoiceUI
                         this.micDropdown.value = valueIndex;
                         return;
                     }
+                    #if PHOTON_MICROPHONE_WSA
+                    if (this.recorder.MicrophoneType == Recorder.MicType.Photon &&
+                        string.Equals(val.PhotonIdString, this.recorder.PhotonMicrophoneDeviceIdString))
+                    {
+                        this.micDropdown.value = valueIndex;
+                        return;
+                    }                             
+                    #else
                     if (this.recorder.MicrophoneType == Recorder.MicType.Photon &&
                         val.PhotonId == this.recorder.PhotonMicrophoneDeviceId)
                     {
                         this.micDropdown.value = valueIndex;
                         return;
-                    }
+                    }                    
+                    #endif
                 }
             }
             for (int valueIndex = 0; valueIndex < this.micOptions.Count; valueIndex++)
@@ -170,7 +211,11 @@ namespace Photon.Voice.Unity.Demos.DemoVoiceUI
                     if (this.recorder.MicrophoneType == Recorder.MicType.Photon)
                     {
                         this.micDropdown.value = valueIndex;
+                        #if PHOTON_MICROPHONE_WSA
+                        this.recorder.PhotonMicrophoneDeviceIdString = val.PhotonIdString;
+                        #else
                         this.recorder.PhotonMicrophoneDeviceId = val.PhotonId;
+                        #endif
                         break;
                     }
                 }
@@ -204,7 +249,7 @@ namespace Photon.Voice.Unity.Demos.DemoVoiceUI
         {
             #if PHOTON_MICROPHONE_ENUMERATOR
             //Debug.Log("Refresh Mics");
-            Recorder.PhotonMicrophoneEnumerator.Refresh();
+            this.recorder.MicrophonesEnumerator.Refresh();
             #endif
             this.SetupMicDropdown();
             this.SetCurrentValue();
