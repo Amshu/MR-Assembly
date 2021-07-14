@@ -37,7 +37,7 @@ namespace HYDAC.Scripts.NET
             if (islocalavatar)
             {
                 Debug.Log("#NetManager#-------------------------OnAvatarCreated: Local avatar created");
-                Debug.Log("#NetManager#-------------------------No of users in room: " + _socNetInfo.GetNoOfRemoteUsers);
+                //Debug.Log("#NetManager#-------------------------No of users in room: " + _socNetInfo.GetNoOfRemoteUsers);
                 
                 //AdjustPosition(UsersInRoom, _modelTransform.position, _distanceFromModel);
             }

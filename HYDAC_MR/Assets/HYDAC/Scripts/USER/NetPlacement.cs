@@ -13,7 +13,7 @@ namespace HYDAC.Scripts.USER
         private void AdjustPosition(int noOfUsers, Vector3 modelPosition, float distanceFromCenter)
         {
             /* Distance around the circle */  
-            var radians = 2 * Mathf.PI / _maxNoOfUsers * noOfUsers;
+            var radians = 2 * Mathf.PI ;/// _maxNoOfUsers * noOfUsers;
 
             /* Get the vector direction */ 
             var vertical = Mathf.Sin(radians);
