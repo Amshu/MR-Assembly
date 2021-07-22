@@ -147,9 +147,17 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 11400000, guid: caeeb0375a722854cbdf7b191b121363, type: 2}
-  - {fileID: -1495407795501278575, guid: 17ee7f5829dea7b45a424ae430a69be5, type: 2}
   - {fileID: -2430415296781670445, guid: 90bc755ad8c44c14bbac55be24bd28f2, type: 2}
+  - {fileID: -1495407795501278575, guid: 17ee7f5829dea7b45a424ae430a69be5, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -256,7 +264,7 @@ PlayerSettings:
   useCustomBaseGradleTemplate: 0
   useCustomGradlePropertiesTemplate: 0
   useCustomProguardFile: 0
-  AndroidTargetArchitectures: 1
+  AndroidTargetArchitectures: 2
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 2800000, guid: 98bf8949e2389ee47a34926090f4c5bd, type: 3}
   AndroidKeystoreName: 
@@ -698,7 +706,7 @@ PlayerSettings:
     4: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;CROSS_PLATFORM_INPUT;MOBILE_INPUT
     7: PXZ_CUSTOM_DLL_PATH;PIXYZ_RULE_ENGINE;PIXYZ_2020_2_OR_NEWER;PIXYZ_2020_2;PIXYZ_2020_1_OR_NEWER;PIXYZ_2020_1;PIXYZ_2019_2_OR_NEWER;PIXYZ_2019_2;PIXYZ;OCULUSINTEGRATION_PRESENT;URP_OUTLINE;PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;CROSS_PLATFORM_INPUT;MOBILE_INPUT
     13: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
-    14: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;MOBILE_INPUT
+    14: PXZ_CUSTOM_DLL_PATH;PIXYZ_RULE_ENGINE;PIXYZ_2020_2_OR_NEWER;PIXYZ_2020_2;PIXYZ_2020_1_OR_NEWER;PIXYZ_2020_1;PIXYZ_2019_2_OR_NEWER;PIXYZ_2019_2;PIXYZ;PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;MOBILE_INPUT
     19: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
     21: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
     25: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
@@ -711,7 +719,8 @@ PlayerSettings:
     33: PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER
   additionalCompilerArguments: {}
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Android: 1
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
@@ -730,11 +739,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: Template3D
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: HYDAC
+  metroCertificateIssuer: HYDAC
+  metroCertificateNotAfter: 0077c0820499d801
   metroApplicationDescription: Template_3D
   wsaImages: {}
   metroTileShortName: HYDAC_MR

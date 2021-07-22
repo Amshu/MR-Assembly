@@ -41,11 +41,6 @@ namespace HYDAC.Scripts.PUN
             //_ElapsedTime = 0f;
         }
 
-        private void Start()
-        {
-            Connect();
-        }
-
         //private void Update()
         //{
         //    if (_ElapsedTime < _LOADING_TIME)
