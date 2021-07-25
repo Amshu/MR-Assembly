@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+﻿using HYDAC.Scripts.Socs;
+using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-using UnityEngine.UI;
 
 namespace HYDAC.Scripts.PUN
 {
@@ -11,9 +11,12 @@ namespace HYDAC.Scripts.PUN
     /// </summary>
     public class LauncherPUN : MonoBehaviourPunCallbacks
     {
+        public const string ROOM_NAME = "AssemblyView - HyBox";
+        
+        [SerializeField] private SocNetUI netUI = null;
+
         #region Private and Public Attributes
         // Public Attributes
-        public const string ROOM_NAME = "AssemblyView - HyBox";
         //public GameObject loadingUI;
         //public GameObject connectingUI;
         //public Slider loadingSlider;
@@ -37,8 +40,26 @@ namespace HYDAC.Scripts.PUN
             // and all clients in the same room sync their level automatically
             PhotonNetwork.AutomaticallySyncScene = true;
 
+            netUI.EUIRequestJoinRoom += OnUIRequestedJoinRoom;
+            
             //ToggleInfoScreen(false);
             //_ElapsedTime = 0f;
+        }
+
+        private void OnUIRequestedJoinRoom(string roomName)
+        {
+            if(!PhotonNetwork.IsConnected) return;
+            
+            // Here are some default room options
+            RoomOptions roomOptions = new RoomOptions();
+
+            roomOptions.MaxPlayers = 4;
+
+            roomOptions.IsVisible = true;
+
+            roomOptions.IsOpen = true;
+
+            PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);
         }
 
         //private void Update()
@@ -109,11 +130,13 @@ namespace HYDAC.Scripts.PUN
             }
         }
 
+        
         public override void OnDisconnected(DisconnectCause cause)
         {
             Debug.LogWarningFormat("OnDisconnected() was called by PUN with reason {0}", cause.ToString());
         }
 
+        
         public override void OnJoinRandomFailed(short returnCode, string message)
         {
             Debug.Log("OnJoinRandomFailed() was called by PUN. No random room available, so we'll create one.\n calling PhotonNetwork.CreateRoom()");
@@ -123,6 +146,7 @@ namespace HYDAC.Scripts.PUN
             // So, we create a new room.
             PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = _MaxPlayersPerRoom });
         }
+        
 
         public override void OnJoinedRoom()
         {
