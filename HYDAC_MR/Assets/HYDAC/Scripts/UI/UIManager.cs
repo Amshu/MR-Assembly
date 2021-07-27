@@ -1,17 +1,13 @@
-﻿using MAC;
-using OculusSampleFramework;
+﻿using OculusSampleFramework;
 using UnityEngine;
 
 namespace HYDAC.Scripts.UI
 {
-    [RequireComponent(typeof(ExplodedViewManager))]
     public class UIManager : MonoBehaviour
     {
-        private ExplodedViewManager _mExplodedViewManager = null;
 
         private void Awake()
         {
-            _mExplodedViewManager = GetComponent<ExplodedViewManager>();
         }
 
         public void OnImplodeAll(InteractableStateArgs obj)

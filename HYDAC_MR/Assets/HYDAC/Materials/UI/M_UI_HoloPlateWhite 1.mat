@@ -9,8 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: M_UI_HoloPlateWhite 1
   m_Shader: {fileID: 4800000, guid: 5bdea20278144b11916d77503ba1467a, type: 3}
-  m_ShaderKeywords: _BORDER_LIGHT_REPLACES_ALBEDO _DISABLE_ALBEDO_MAP _IRIDESCENCE
-    _METALLIC_TEXTURE_ALBEDO_CHANNEL_A _ROUND_CORNERS
+  m_ShaderKeywords: _BORDER_LIGHT_REPLACES_ALBEDO _DISABLE_ALBEDO_MAP _METALLIC_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -131,7 +130,7 @@ Material:
     - _InnerGlow: 0
     - _InnerGlowPower: 4
     - _InstancedColor: 0
-    - _Iridescence: 1
+    - _Iridescence: 0
     - _IridescenceAngle: -0.78
     - _IridescenceIntensity: 0
     - _IridescenceThreshold: 0
@@ -154,7 +153,7 @@ Material:
     - _RimPower: 5.83
     - _RoundCornerMargin: 0
     - _RoundCornerRadius: 0.2
-    - _RoundCorners: 1
+    - _RoundCorners: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 0

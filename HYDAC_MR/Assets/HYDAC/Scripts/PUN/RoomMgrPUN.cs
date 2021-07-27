@@ -77,7 +77,7 @@ namespace HYDAC.Scripts.PUN
             }
 
             Debug.LogFormat("PhotonNetwork: Loading Level {0}", PhotonNetwork.CurrentRoom);
-            PhotonNetwork.LoadLevel(LauncherPUN.ROOM_NAME);
+            PhotonNetwork.LoadLevel(PUNNetManager.SceneName);
         }
         #endregion
     }

@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-namespace HYDAC.Scripts.Socs
+namespace HYDAC.SOCS.NET
 {
-    [CreateAssetMenu(menuName = "UISocs/NetUISoc", fileName = "NetUISoc")]
+    [CreateAssetMenu(menuName = "NetSocs/NetUISoc", fileName = "SOC_NetUI")]
     public class SocNetUI: ScriptableObject
     {
         /// <summary>

@@ -7,6 +7,8 @@ using Microsoft.MixedReality.Toolkit.UI;
 using Microsoft.MixedReality.Toolkit.UI.BoundsControl;
 using UnityEngine.Serialization;
 
+using HYDAC.SOC.Settings;
+
 namespace HYDAC.Scripts.MOD
 {
     public interface IAssemblyModule : IBaseModule

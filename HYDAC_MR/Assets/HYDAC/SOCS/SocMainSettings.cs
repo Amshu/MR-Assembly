@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace HYDAC.Scripts
+namespace HYDAC.SOC.Settings
 {
     [CreateAssetMenu(fileName = "MainSettings", menuName = "SOCKS/MainSettings", order = 0)]
     public class SocMainSettings : ScriptableObject
