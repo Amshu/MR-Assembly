@@ -3,26 +3,44 @@ using UnityEngine;
 
 namespace HYDAC.SOCS.NET
 {
-    [CreateAssetMenu(menuName = "NetSocs/NetEventsSoc", fileName = "SOC_NetEvents")]
+    [CreateAssetMenu(menuName = "NetSocs/NetEvents", fileName = "SOC_NetEvents")]
     public class SocNetEvents : ScriptableObject
     {
-        public event Action EOnJoinRoom;
-        public event Action EOnJoinRoomFailed;
-        public event Action EOnPlayerJoined;
+        public event Action ENetworkConnect;
+        public event Action ENetworkDisconnect;
+        public event Action EJoinRoom;
+        public event Action EJoinRoomFailed;
+        public event Action EPlayerJoined;
+        public event Action EPlayerLeft;
 
-        internal void BroadcastJoinedRoom()
+        internal void OnNetworkConnect()
         {
-            EOnJoinRoom?.Invoke();
+            ENetworkConnect?.Invoke();
         }
 
-        internal void BroadcastJoinRoomFailed()
+        internal void OnNetworkDisconnect()
         {
-            EOnJoinRoomFailed?.Invoke();
+            ENetworkDisconnect?.Invoke();
+        }
+        
+        internal void InvokeJoinedRoom()
+        {
+            EJoinRoom?.Invoke();
         }
 
-        internal void BroadcastPlayerJoined()
+        internal void OnJoinRoomFailed()
         {
-            EOnPlayerJoined?.Invoke();
+            EJoinRoomFailed?.Invoke();
+        }
+
+        internal void OnPlayerJoined()
+        {
+            EPlayerJoined?.Invoke();
+        }
+
+        internal void OnPlayerLeft()
+        {
+            EPlayerLeft?.Invoke();
         }
     }
 }

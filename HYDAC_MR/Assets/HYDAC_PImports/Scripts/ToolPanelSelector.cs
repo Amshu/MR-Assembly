@@ -28,7 +28,7 @@ namespace HYDAC.Scripts.PUN
 
         // Private Attributes
         private WristBandController _WristBand;
-        private PlayerMgrPUN _PlayerMgr;
+        private NetPlayerManager _netPlayerMgr;
         private bool _CanPressButton;
 
         // Encapsulated Read-only Property
@@ -42,7 +42,7 @@ namespace HYDAC.Scripts.PUN
         #region Unity Methods
         private void Awake()
         {
-            _PlayerMgr = GetComponentInParent<PlayerMgrPUN>();
+            _netPlayerMgr = GetComponentInParent<NetPlayerManager>();
             _WristBand = GetComponentInParent<WristBandController>();
             _CanPressButton = true;
             _PanelOn = true;

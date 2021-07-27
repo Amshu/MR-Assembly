@@ -1,18 +1,24 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+
 using Photon.Pun;
 using Photon.Realtime;
+
+using HYDAC.SOCS.NET;
 
 namespace HYDAC.Scripts.PUN
 {
     /// <summary>
     /// This class is responsible for loading the main scene (Hydac_Factory.unity) and instantiating players into that scene.
     /// </summary>
-    public class RoomMgrPUN : MonoBehaviourPunCallbacks
+    public class NetRoomManager : MonoBehaviourPunCallbacks
     {
+        [SerializeField] private SocNetSettings netSettings = null;
+        [SerializeField] private SocNetEvents netEvents = null;
+        
         [Tooltip("The prefab to use for representing the player")]
-        public GameObject playerPrefab;
-        public Transform spawnPoint;
+        [SerializeField] GameObject playerPrefab;
+        [SerializeField] Transform spawnPoint;
 
         #region Photon Callbacks
         /// <summary>
@@ -28,16 +34,22 @@ namespace HYDAC.Scripts.PUN
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                //LoadArena();        // NOTE: Enable if we want to "reload" scene each time a new player joins / leaves
+                //LoadArena();  // NOTE: Enable if we want to "reload" scene each time a new player joins / leaves
+                return;
             }
+            
+            netEvents.OnPlayerLeft();
         }
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                //LoadArena();        // NOTE: Enable if we want to "reload" scene each time a new player joins / leaves
+                //LoadArena();  // NOTE: Enable if we want to "reload" scene each time a new player joins / leaves
+                return;
             }
+            
+            netEvents.OnPlayerJoined();
         }
 
         #endregion
@@ -51,7 +63,7 @@ namespace HYDAC.Scripts.PUN
             }
             else
             {
-                if (PlayerMgrPUN.localPlayerInstance == null)
+                if (NetPlayerManager.localPlayerInstance == null)
                 {
                     Debug.LogFormat("Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
 
@@ -61,7 +73,7 @@ namespace HYDAC.Scripts.PUN
                 }
                 else
                 {
-                    Debug.LogFormat("ignoring scene load for {0}", SceneManagerHelper.ActiveSceneName);
+                    Debug.LogFormat("Ignoring scene load for {0}", SceneManagerHelper.ActiveSceneName);
                 }
             }
         }
@@ -77,7 +89,7 @@ namespace HYDAC.Scripts.PUN
             }
 
             Debug.LogFormat("PhotonNetwork: Loading Level {0}", PhotonNetwork.CurrentRoom);
-            PhotonNetwork.LoadLevel(PUNNetManager.SceneName);
+            PhotonNetwork.LoadLevel(netSettings.NetworkSceneName);
         }
         #endregion
     }

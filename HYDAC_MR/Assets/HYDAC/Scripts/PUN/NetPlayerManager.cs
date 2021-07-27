@@ -8,7 +8,7 @@ namespace HYDAC.Scripts.PUN
     /// This class managers the local player's instance (Oculus Quest User) over the PUN network and syncs the local player's head and hand
     /// inputs over the network to other users, receiving their data in turn to animate their VR Avatar on the local player's instance.
     /// </summary>
-    public class PlayerMgrPUN : MonoBehaviourPun, IPunObservable
+    public class NetPlayerManager : MonoBehaviourPun, IPunObservable
     {
         #region Public and Private Attributes
         [Tooltip("The local player instance. Use this to know if local player is represented in the scene")]
@@ -21,12 +21,14 @@ namespace HYDAC.Scripts.PUN
         public GameObject mouthStatic;
         public GameObject leftHandAvatar;
         public GameObject rightHandAvatar;
+        
         public SkinnedMeshRenderer poseNormalLH;
         public SkinnedMeshRenderer poseFingerPointLH;
         public SkinnedMeshRenderer poseThumbUpLH;
         public SkinnedMeshRenderer poseNormalRH;
         public SkinnedMeshRenderer poseFingerPointRH;
         public SkinnedMeshRenderer poseThumbUpRH;
+        
         [Tooltip("Order: Thumb, Index, Middle, Ring, Small")]
         public GameObject[] leftFingers;
         [Tooltip("Order: Thumb, Index, Middle, Ring, Small")]

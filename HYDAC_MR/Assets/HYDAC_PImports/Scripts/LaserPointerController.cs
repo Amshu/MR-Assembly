@@ -21,14 +21,14 @@ namespace HYDAC.Scripts.PUN
         private OVRGrabbableExtended _OVRGrabbable;
         private bool _LaserOn;
         private Vector3 _LaserLength;
-        private PlayerMgrPUN _PlayerMGR;
+        private NetPlayerManager _netPlayerMgr;
         #endregion
 
         #region Unity Methods
         private void Awake()
         {
             _OVRGrabbable = GetComponent<OVRGrabbableExtended>();
-            _PlayerMGR = GetComponentInParent<PlayerMgrPUN>();
+            _netPlayerMgr = GetComponentInParent<NetPlayerManager>();
             _NormalLaserHitPoint = laserHitPoint.GetComponent<MeshRenderer>().material;
         }
 

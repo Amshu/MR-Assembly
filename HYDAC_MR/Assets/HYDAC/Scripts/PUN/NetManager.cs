@@ -10,23 +10,19 @@ namespace HYDAC.Scripts.PUN
     /// This class is responsible for creating a room on Photon Network (if master client: first player to connect) or else joining the room
     /// that the master client has created, allowing players to join a networked session in game.
     /// </summary>
-    public class PUNNetManager : MonoBehaviourPunCallbacks
+    public class NetManager : MonoBehaviourPunCallbacks
     {
-        public const string SceneName = "AssemblyView - HyBox";
-        
+        [SerializeField] private SocNetSettings netSettings = null;
         [SerializeField] private SocNetUI netUI = null;
-        [Tooltip("The maximum number of players per room. When a room is full, it can't be joined by new players, and so new room will be created. MAX 20 users")]
-        [SerializeField] private byte maxPlayersPerRoom = 4;
-
         
         #region Private and Public Attributes
 
         // Private Attributes
-        private string _gameVersion = "1";          // Set to 1 by default, unless we need to make breaking changes on a project that is Live.
-        private bool _isConnecting;
-        private string _connectingRoomName = "";
         private RoomOptions _roomOptions;
 
+        private bool _isConnecting;
+        private string _networkRoomName;
+        
         #endregion
 
         
@@ -43,9 +39,9 @@ namespace HYDAC.Scripts.PUN
             
             // Set default room options
             _roomOptions = new RoomOptions();
-            _roomOptions.MaxPlayers = maxPlayersPerRoom;
-            _roomOptions.IsVisible = true;
-            _roomOptions.IsOpen = true;
+            _roomOptions.MaxPlayers = netSettings.MaxPlayersPerRoom;
+            _roomOptions.IsVisible = netSettings.IsRoomVisible;
+            _roomOptions.IsOpen = netSettings.IsRoomOpen;
         }
 
         #endregion
@@ -68,12 +64,12 @@ namespace HYDAC.Scripts.PUN
         {
             // Set connecting flag - we are wanting to connect
             _isConnecting = true;
-            _connectingRoomName = roomName;
+            _networkRoomName = roomName;
             
             if(!PhotonNetwork.IsConnected)
             {
                 // Connect to the Photon Network (server) 
-                PhotonNetwork.GameVersion = _gameVersion;
+                PhotonNetwork.GameVersion = netSettings.GameVersion;
                 PhotonNetwork.ConnectUsingSettings();
             }
             else
@@ -97,7 +93,7 @@ namespace HYDAC.Scripts.PUN
         {
             if (!PhotonNetwork.IsConnected) return;
             
-            PhotonNetwork.JoinOrCreateRoom(_connectingRoomName, _roomOptions, TypedLobby.Default);
+            PhotonNetwork.JoinOrCreateRoom(_networkRoomName, _roomOptions, TypedLobby.Default);
         }
         
         
@@ -109,12 +105,12 @@ namespace HYDAC.Scripts.PUN
         /// </summary>
         public override void OnConnectedToMaster()
         {
-            Debug.Log("#LauncherPUN#-------------OnConnectedToMaster()");
+            Debug.Log("#NETManager#-------------OnConnectedToMaster()");
 
             // Check if we are wanting to connect (prevent looping when we disconnect from a room)
             if (_isConnecting)
             {
-                JoinRoom(_connectingRoomName);
+                JoinRoom(_networkRoomName);
             }
         }
         
@@ -128,10 +124,10 @@ namespace HYDAC.Scripts.PUN
         /// </summary>
         public override void OnJoinedRoom()
         {
-            Debug.LogFormat("#LauncherPUN#-------------OnJoinedRoom(): {0}, {1}", _connectingRoomName, PhotonNetwork.ServerAddress);
+            Debug.LogFormat("#NETManager#-------------OnJoinedRoom(): {0}, {1}", _networkRoomName, PhotonNetwork.ServerAddress);
 
             _isConnecting = false;
-            _connectingRoomName = "";
+            _networkRoomName = "";
             
             // Critical
             // We only load if we are the first player, else we rely on `PhotonNetwork.AutomaticallySyncScene` 
@@ -142,21 +138,21 @@ namespace HYDAC.Scripts.PUN
 
                 // Critical
                 // Load the Room Level.
-                PhotonNetwork.LoadLevel(SceneName);
+                PhotonNetwork.LoadLevel(netSettings.NetworkSceneName);
             }
         }
         
         
         public override void OnDisconnected(DisconnectCause cause)
         {
-            Debug.LogWarningFormat("#LauncherPUN#-------------OnDisconnected(): {0}", cause.ToString());
+            Debug.LogWarningFormat("#NETManager#-------------OnDisconnected(): {0}", cause.ToString());
         }
         
         
         
         public override void OnJoinRandomFailed(short returnCode, string message)
         {
-            Debug.LogErrorFormat("#LauncherPUN#-------------OnJoinRandomFailed(): {0} - {1}", returnCode, message);
+            Debug.LogErrorFormat("#NETManager#-------------OnJoinRandomFailed(): {0} - {1}", returnCode, message);
 
             // Critical
             // We failed to join a random room (room may not exist or room may be already full)

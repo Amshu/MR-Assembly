@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace HYDAC.SOCS.NET
 {
-    [CreateAssetMenu(menuName = "NetSocs/NetUISoc", fileName = "SOC_NetUI")]
+    [CreateAssetMenu(menuName = "NetSocs/NetUI", fileName = "SOC_NetUI")]
     public class SocNetUI: ScriptableObject
     {
         /// <summary>

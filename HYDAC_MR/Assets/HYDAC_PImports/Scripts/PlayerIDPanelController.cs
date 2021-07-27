@@ -3,6 +3,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using UnityEngine.Serialization;
 
 namespace HYDAC.Scripts.PUN
 {
@@ -53,7 +54,7 @@ namespace HYDAC.Scripts.PUN
         public Material inactiveMaterial;
         public Material highlightedToggleMaterial;
         public Material inactiveToggleMaterial;
-        public PlayerMgrPUN _PlayerMgr;
+        [FormerlySerializedAs("_PlayerMgr")] public NetPlayerManager netPlayerMgr;
 
         // Private Attributes
         private Color[] _PlayerColours;          // To be retested - had issues using color array in RPC
