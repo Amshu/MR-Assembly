@@ -9,7 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: M_UI_HoloPlateWhite
   m_Shader: {fileID: 4800000, guid: 5bdea20278144b11916d77503ba1467a, type: 3}
-  m_ShaderKeywords: _BORDER_LIGHT_REPLACES_ALBEDO _DISABLE_ALBEDO_MAP _METALLIC_TEXTURE_ALBEDO_CHANNEL_A
+  m_ShaderKeywords: _BORDER_LIGHT _BORDER_LIGHT_REPLACES_ALBEDO _DISABLE_ALBEDO_MAP
+    _IRIDESCENCE _METALLIC_TEXTURE_ALBEDO_CHANNEL_A _ROUND_CORNERS
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -78,7 +79,7 @@ Material:
     - _AlbedoAssignedAtRuntime: 0
     - _BlendOp: 0
     - _BlendedClippingWidth: 1
-    - _BorderLight: 0
+    - _BorderLight: 1
     - _BorderLightOpaque: 0
     - _BorderLightOpaqueAlpha: 1
     - _BorderLightReplacesAlbedo: 1
@@ -102,7 +103,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DirectionalLight: 0
     - _DstBlend: 0
-    - _EdgeSmoothingValue: 0
+    - _EdgeSmoothingValue: 0.0002
     - _EnableChannelMap: 0
     - _EnableEmission: 0
     - _EnableHoverColorOpaqueOverride: 0
@@ -130,10 +131,10 @@ Material:
     - _InnerGlow: 0
     - _InnerGlowPower: 4
     - _InstancedColor: 0
-    - _Iridescence: 0
+    - _Iridescence: 1
     - _IridescenceAngle: -0.78
-    - _IridescenceIntensity: 0
-    - _IridescenceThreshold: 0
+    - _IridescenceIntensity: 0.75
+    - _IridescenceThreshold: 0.05
     - _Metallic: 0
     - _MipmapBias: -2
     - _Mode: 0
@@ -152,8 +153,8 @@ Material:
     - _RimLight: 0
     - _RimPower: 5.83
     - _RoundCornerMargin: 0
-    - _RoundCornerRadius: 0.5
-    - _RoundCorners: 0
+    - _RoundCornerRadius: 0.1
+    - _RoundCorners: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 0
@@ -177,7 +178,7 @@ Material:
     - _ClipPlane: {r: 0, g: 1, b: 0, a: 0}
     - _ClippingBorderColor: {r: 1, g: 0.2, b: 0, a: 1}
     - _ClippingPlaneBorderColor: {r: 1, g: 0.2, b: 0, a: 1}
-    - _Color: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EnvironmentColorX: {r: 1, g: 0, b: 0, a: 1}

@@ -9,9 +9,9 @@ namespace HYDAC.SOC.Settings
         [Range(0.1f, 2.0f)]
         public float positionTimeChange = 5.0f;
 
-        [FormerlySerializedAs("previousAssemblyMaterial")] public Material previousUnitMaterial;
-        [FormerlySerializedAs("currentAssemblyMaterial")] public Material currentUnitMaterial;
-        [FormerlySerializedAs("nextAssemblyMaterial")] public Material nextUnitMaterial;
-        [FormerlySerializedAs("fadeAssemblyMaterials")] public Material fadeAssemblyMaterial;
+        public Material previousUnitMaterial;
+        public Material currentUnitMaterial;
+        public Material nextUnitMaterial;
+        public Material fadeAssemblyMaterial;
     }
 }

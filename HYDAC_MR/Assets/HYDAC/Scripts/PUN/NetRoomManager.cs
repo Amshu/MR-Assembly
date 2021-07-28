@@ -34,7 +34,7 @@ namespace HYDAC.Scripts.PUN
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                //LoadArena();  // NOTE: Enable if we want to "reload" scene each time a new player joins / leaves
+                
                 return;
             }
             
@@ -48,6 +48,8 @@ namespace HYDAC.Scripts.PUN
                 //LoadArena();  // NOTE: Enable if we want to "reload" scene each time a new player joins / leaves
                 return;
             }
+            
+            if(newPlayer.IsLocal)
             
             netEvents.OnPlayerJoined();
         }

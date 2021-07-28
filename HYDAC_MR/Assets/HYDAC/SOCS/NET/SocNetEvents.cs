@@ -10,8 +10,6 @@ namespace HYDAC.SOCS.NET
         public event Action ENetworkDisconnect;
         public event Action EJoinRoom;
         public event Action EJoinRoomFailed;
-        public event Action EPlayerJoined;
-        public event Action EPlayerLeft;
 
         internal void OnNetworkConnect()
         {
@@ -32,7 +30,18 @@ namespace HYDAC.SOCS.NET
         {
             EJoinRoomFailed?.Invoke();
         }
+        
+        
 
+        public event Action ELocalUserReady;
+        public event Action EPlayerJoined;
+        public event Action EPlayerLeft;
+
+        internal void OnPlayerReady()
+        {
+            ELocalUserReady?.Invoke();
+        }
+        
         internal void OnPlayerJoined()
         {
             EPlayerJoined?.Invoke();
@@ -42,5 +51,6 @@ namespace HYDAC.SOCS.NET
         {
             EPlayerLeft?.Invoke();
         }
+        
     }
 }
