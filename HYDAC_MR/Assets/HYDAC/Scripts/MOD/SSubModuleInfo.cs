@@ -21,14 +21,8 @@ namespace HYDAC.Scripts.MOD
     /// of a given machine part such as:
     /// <c>partName</c><value>This is the name of the part in, partName.</value>
     /// </summary>
-    public class SSubModuleInfo : ScriptableObject, ISubModule
+    public class SSubModuleInfo : ASInfo, ISubModule
     {
-        public string iname = "";
-        public int id = 0;
-
-        [TextArea]
-        public string description = "";
-
         // Events for MachinePart Class
         internal event Action<int, string> OnInitialize;
         internal event Action<float> OnAssemble;
@@ -39,12 +33,12 @@ namespace HYDAC.Scripts.MOD
 
         void ISubModule.Initialize()
         {
-            OnInitialize?.Invoke(id, iname);
+            OnInitialize?.Invoke(ID, iname);
         }
 
         int ISubModule.GetUnitPosition()
         {
-            return id;
+            return ID;
         }
 
         string ISubModule.GetPartName()
@@ -73,7 +67,14 @@ namespace HYDAC.Scripts.MOD
         public void PrintInfo()
         {
             Debug.LogFormat("#SSubModule#-------------------------{0}{1}\nPartInfo: {2}", 
-                id, iname , description);
+                ID, iname , description);
+        }
+
+        protected override void ChangeFileName()
+        {
+            string newFileName = "SInfo_" + ID + "_" + iname;
+            string assetPath = UnityEditor.AssetDatabase.GetAssetPath(this.GetInstanceID());
+            UnityEditor.AssetDatabase.RenameAsset(assetPath, newFileName);
         }
     }
 }

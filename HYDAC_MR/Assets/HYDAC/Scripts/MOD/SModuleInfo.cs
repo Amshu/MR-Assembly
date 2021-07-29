@@ -2,9 +2,10 @@ using UnityEngine;
 
 namespace HYDAC.Scripts.MOD
 {
-    [CreateAssetMenu(menuName = "Assembly Infos/Assembly Module Info", fileName = "MInfo_X_Y")]
     public class SModuleInfo : ASInfo
     {
+        [SerializeField] private GameObject prefab = null;
+        
         protected override void ChangeFileName()
         {
             string newFileName = "MInfo_" + ID + "_" + iname;

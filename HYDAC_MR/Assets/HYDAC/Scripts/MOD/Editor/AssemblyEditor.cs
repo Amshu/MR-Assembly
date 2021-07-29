@@ -22,7 +22,7 @@ namespace HYDAC.Scripts.MOD.Editor
             
             BaseAssembly myScript = (BaseAssembly)target;
 
-            ID = GUILayout.TextField(ID, 2);
+            ID = GUILayout.TextField(ID);
             Description = GUILayout.TextArea(Description, 500);
             
             OnGUI();
@@ -37,8 +37,8 @@ namespace HYDAC.Scripts.MOD.Editor
                 
                 EditorUtility.SetDirty(info);
 
-                string fileName = "AInfo_" + info.ID + "_" + info.iname + ".asset";
-                string folderURL = AssetDatabase.GetAssetPath(_folderToSaveTo.GetInstanceID());
+                string fileName = "AInfo_" + info.ID + "HYDAC_" + info.iname + ".asset";
+                string folderURL = AssetDatabase.GetAssetPath(_folderToSaveTo.GetInstanceID()) + "/" + _folderToSaveTo.name;
                 string fileURL = folderURL + fileName;
                 
                 AssetDatabase.CreateAsset(info, fileURL);

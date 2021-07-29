@@ -33,8 +33,8 @@ namespace HYDAC.Scripts.MOD
         [SerializeField] private int mNoOfSteps = 0;
         public int NoOfSteps => mNoOfSteps;
 
-        private ObjectManipulator _objectManipulator = null;
-        private MoveAxisConstraint _moveAxisConstraint = null;
+        private Interactable _interactable = null;
+        //private MoveAxisConstraint _moveAxisConstraint = null;
         private BoundsControl _boundsControl = null;
         
         private ISubModule[] _subModules;
@@ -47,8 +47,9 @@ namespace HYDAC.Scripts.MOD
         {
             base.Awake();
             
-            _objectManipulator = GetComponent<ObjectManipulator>();
-            _moveAxisConstraint = GetComponent<MoveAxisConstraint>();
+            _interactable = GetComponent<Interactable>();
+            
+            //_moveAxisConstraint = GetComponent<MoveAxisConstraint>();
             _boundsControl = GetComponent<BoundsControl>();
 
             GetSubModules();
@@ -58,19 +59,19 @@ namespace HYDAC.Scripts.MOD
 
         private void OnEnable()
         {
-            _objectManipulator.OnManipulationStarted.AddListener(OnManipulationStarted);
+            _interactable.OnClick.AddListener(OnInteractableClicked);
         }
-
+        
         private void OnDisable()
         {
-            _objectManipulator.OnManipulationStarted.RemoveListener(OnManipulationStarted);
+            _interactable.OnClick.RemoveListener(OnInteractableClicked);
         }
 
-        private void OnManipulationStarted(ManipulationEventData arg0)
+        private void OnInteractableClicked()
         {
             if (isInFocus) return;
 
-            //Debug.Log("#AssemblyModule#-------------OnManipulationStarted: " + name);
+            Debug.Log("#AssemblyModule#-------------OnClicked: " + name);
             
             // Raise OnFocused event
             RaiseOnFocused(this);
@@ -176,7 +177,7 @@ namespace HYDAC.Scripts.MOD
         private void ToggleComponents(bool toggle)
         {
             // Switch components
-            _moveAxisConstraint.enabled = !toggle;
+            //_moveAxisConstraint.enabled = !toggle;
             _boundsControl.enabled = toggle;
         }
         

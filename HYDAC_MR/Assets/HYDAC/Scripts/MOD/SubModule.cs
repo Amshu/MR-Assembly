@@ -7,9 +7,6 @@ namespace HYDAC.Scripts.MOD
     //[RequireComponent(typeof(RealtimeTransform))]
     public class SubModule : AUnit
     {
-        [SerializeField] private SSubModuleInfo mSubModuleInfo = null;
-        public SSubModuleInfo SubModuleInfo => mSubModuleInfo;
-
         [SerializeField] private Transform mDisassembledTransform = null;
 
         private bool _mLock = false;
@@ -31,20 +28,20 @@ namespace HYDAC.Scripts.MOD
         private void OnEnable()
         {
             // Subscribe to event in machine part info
-            mSubModuleInfo.OnInitialize += OnInitialized;
-            mSubModuleInfo.OnAssemble += OnAssembled;
-            
-            mSubModuleInfo.OnDisassemble += OnDisassemble;
-            mSubModuleInfo.OnHighlight += OnHighlighted;
+            // mSubModuleInfo.OnInitialize += OnInitialized;
+            // mSubModuleInfo.OnAssemble += OnAssembled;
+            //
+            // mSubModuleInfo.OnDisassemble += OnDisassemble;
+            // mSubModuleInfo.OnHighlight += OnHighlighted;
         }
         private void OnDisable()
         {
             // Subscribe to event in machine part info
-            mSubModuleInfo.OnInitialize += OnInitialized;
-            mSubModuleInfo.OnAssemble += OnAssembled; 
-
-            mSubModuleInfo.OnDisassemble += OnDisassemble;
-            mSubModuleInfo.OnHighlight += OnHighlighted;
+            // mSubModuleInfo.OnInitialize += OnInitialized;
+            // mSubModuleInfo.OnAssemble += OnAssembled; 
+            //
+            // mSubModuleInfo.OnDisassemble += OnDisassemble;
+            // mSubModuleInfo.OnHighlight += OnHighlighted;
         }
 
 
@@ -61,7 +58,7 @@ namespace HYDAC.Scripts.MOD
             if (_mLock) return;
 
             Debug.Log("#SubModule#-------------------------Implode :");
-            mSubModuleInfo.PrintInfo();
+            //mSubModuleInfo.PrintInfo();
 
             _mLock = true;
             
@@ -76,7 +73,7 @@ namespace HYDAC.Scripts.MOD
             if (_mLock) return;
 
             Debug.Log("#SubModule#-------------------------Explode");
-            mSubModuleInfo.PrintInfo();
+            //mSubModuleInfo.PrintInfo();
 
             _mLock = true;
             
@@ -113,15 +110,6 @@ namespace HYDAC.Scripts.MOD
         }
 
 
-
-        public void SetPartInfo(SSubModuleInfo info)
-        {
-#if UNITY_EDITOR
-            mSubModuleInfo = info;
-#endif
-        }
-
-        
         private void Update()
         {
             if (!CheckOwnership()) return;

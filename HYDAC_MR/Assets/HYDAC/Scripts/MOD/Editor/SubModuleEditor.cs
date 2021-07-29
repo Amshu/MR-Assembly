@@ -31,13 +31,13 @@ namespace HYDAC.Scripts.MOD.Editor
             {
                 SSubModuleInfo info = ScriptableObject.CreateInstance<SSubModuleInfo>();
 
-                info.id = Convert.ToInt32(ID);
+                info.ID = Convert.ToInt32(ID);
                 info.iname = myScript.gameObject.name;
                 info.description = Description;
                 
                 EditorUtility.SetDirty(info);
 
-                string fileName =  "SInfo_" + info.id + "_" + info.iname + ".asset";
+                string fileName =  "SInfo_" + info.ID + "_" + info.iname + ".asset";
                 string folderURL = AssetDatabase.GetAssetPath(_folderToSaveTo.GetInstanceID());
                 string fileURL = folderURL + fileName;
                 
