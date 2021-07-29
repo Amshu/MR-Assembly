@@ -5,10 +5,10 @@ using UnityEngine;
 namespace HYDAC.Scripts.MOD
 {
     //[RequireComponent(typeof(RealtimeTransform))]
-    public class SubModule : MonoBehaviour
+    public class SubModule : AUnit
     {
-        [SerializeField] private SSubModule mSubModule = null;
-        public SSubModule subModule => mSubModule;
+        [SerializeField] private SSubModuleInfo mSubModuleInfo = null;
+        public SSubModuleInfo SubModuleInfo => mSubModuleInfo;
 
         [SerializeField] private Transform mDisassembledTransform = null;
 
@@ -31,20 +31,20 @@ namespace HYDAC.Scripts.MOD
         private void OnEnable()
         {
             // Subscribe to event in machine part info
-            mSubModule.OnInitialize += OnInitialized;
-            mSubModule.OnAssemble += OnAssembled;
+            mSubModuleInfo.OnInitialize += OnInitialized;
+            mSubModuleInfo.OnAssemble += OnAssembled;
             
-            mSubModule.OnDisassemble += OnDisassemble;
-            mSubModule.OnHighlight += OnHighlighted;
+            mSubModuleInfo.OnDisassemble += OnDisassemble;
+            mSubModuleInfo.OnHighlight += OnHighlighted;
         }
         private void OnDisable()
         {
             // Subscribe to event in machine part info
-            mSubModule.OnInitialize += OnInitialized;
-            mSubModule.OnAssemble += OnAssembled; 
+            mSubModuleInfo.OnInitialize += OnInitialized;
+            mSubModuleInfo.OnAssemble += OnAssembled; 
 
-            mSubModule.OnDisassemble += OnDisassemble;
-            mSubModule.OnHighlight += OnHighlighted;
+            mSubModuleInfo.OnDisassemble += OnDisassemble;
+            mSubModuleInfo.OnHighlight += OnHighlighted;
         }
 
 
@@ -61,7 +61,7 @@ namespace HYDAC.Scripts.MOD
             if (_mLock) return;
 
             Debug.Log("#SubModule#-------------------------Implode :");
-            mSubModule.PrintInfo();
+            mSubModuleInfo.PrintInfo();
 
             _mLock = true;
             
@@ -76,7 +76,7 @@ namespace HYDAC.Scripts.MOD
             if (_mLock) return;
 
             Debug.Log("#SubModule#-------------------------Explode");
-            mSubModule.PrintInfo();
+            mSubModuleInfo.PrintInfo();
 
             _mLock = true;
             
@@ -114,10 +114,10 @@ namespace HYDAC.Scripts.MOD
 
 
 
-        public void SetPartInfo(SSubModule info)
+        public void SetPartInfo(SSubModuleInfo info)
         {
 #if UNITY_EDITOR
-            mSubModule = info;
+            mSubModuleInfo = info;
 #endif
         }
 

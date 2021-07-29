@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace HYDAC.Scripts.MOD
 {
-    public abstract class AModule: MonoBehaviour
+    public abstract class AModule: AUnit
     {
         protected abstract void OnReset();
         protected abstract void OnFocused();

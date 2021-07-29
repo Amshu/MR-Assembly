@@ -10,9 +10,9 @@ namespace HYDAC.Scripts
     {
         private bool _inFocus;
 
-        [SerializeField]
-        [Tooltip("Delay before ownership is reset after ownership is changed.")]
-        private float ownershipTimeOutTime = 1f;
+        //[SerializeField]
+        //[Tooltip("Delay before ownership is reset after ownership is changed.")]
+        //private float ownershipTimeOutTime = 1f;
         
         [SerializeField] private BaseModule[] modules;
         [SerializeField] private GameObject buttons;

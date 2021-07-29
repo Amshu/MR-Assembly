@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace HYDAC.Scripts.MOD
 {
@@ -22,13 +21,13 @@ namespace HYDAC.Scripts.MOD
     /// of a given machine part such as:
     /// <c>partName</c><value>This is the name of the part in, partName.</value>
     /// </summary>
-    public class SSubModule : ScriptableObject, ISubModule
+    public class SSubModuleInfo : ScriptableObject, ISubModule
     {
-        public string partName = "";
-        public int assemblyPosition = 0;
+        public string iname = "";
+        public int id = 0;
 
         [TextArea]
-        public string partInfo = "";
+        public string description = "";
 
         // Events for MachinePart Class
         internal event Action<int, string> OnInitialize;
@@ -40,17 +39,17 @@ namespace HYDAC.Scripts.MOD
 
         void ISubModule.Initialize()
         {
-            OnInitialize?.Invoke(assemblyPosition, partName);
+            OnInitialize?.Invoke(id, iname);
         }
 
         int ISubModule.GetUnitPosition()
         {
-            return assemblyPosition;
+            return id;
         }
 
         string ISubModule.GetPartName()
         {
-            return partName;
+            return iname;
         }
 
         public void Assemble(float timeToDest)
@@ -74,7 +73,7 @@ namespace HYDAC.Scripts.MOD
         public void PrintInfo()
         {
             Debug.LogFormat("#SSubModule#-------------------------{0}{1}\nPartInfo: {2}", 
-                assemblyPosition, partName , partInfo);
+                id, iname , description);
         }
     }
 }
