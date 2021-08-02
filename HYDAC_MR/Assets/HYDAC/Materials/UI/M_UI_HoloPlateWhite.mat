@@ -10,7 +10,7 @@ Material:
   m_Name: M_UI_HoloPlateWhite
   m_Shader: {fileID: 4800000, guid: 5bdea20278144b11916d77503ba1467a, type: 3}
   m_ShaderKeywords: _BORDER_LIGHT _BORDER_LIGHT_REPLACES_ALBEDO _DISABLE_ALBEDO_MAP
-    _IRIDESCENCE _METALLIC_TEXTURE_ALBEDO_CHANNEL_A _ROUND_CORNERS
+    _METALLIC_TEXTURE_ALBEDO_CHANNEL_A _ROUND_CORNERS
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -131,7 +131,7 @@ Material:
     - _InnerGlow: 0
     - _InnerGlowPower: 4
     - _InstancedColor: 0
-    - _Iridescence: 1
+    - _Iridescence: 0
     - _IridescenceAngle: -0.78
     - _IridescenceIntensity: 0.75
     - _IridescenceThreshold: 0.05
@@ -153,7 +153,7 @@ Material:
     - _RimLight: 0
     - _RimPower: 5.83
     - _RoundCornerMargin: 0
-    - _RoundCornerRadius: 0.1
+    - _RoundCornerRadius: 0
     - _RoundCorners: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0

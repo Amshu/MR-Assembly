@@ -36,9 +36,9 @@ RectTransform:
   m_Father: {fileID: 3786131821559175138}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 250, y: -657.72003}
   m_SizeDelta: {x: 470, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &278322860
@@ -137,9 +137,9 @@ RectTransform:
   m_Father: {fileID: 278322859}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 235, y: -171.66666}
   m_SizeDelta: {x: 450, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &764880986
@@ -271,9 +271,9 @@ RectTransform:
   m_Father: {fileID: 278322859}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 235, y: -92.5}
   m_SizeDelta: {x: 420, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &978708193
@@ -1627,7 +1627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1891212712805823585
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4609,9 +4609,9 @@ RectTransform:
   m_Father: {fileID: 3786131821559175138}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 250, y: -290}
   m_SizeDelta: {x: 250, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2263422479500532966
@@ -10694,9 +10694,9 @@ RectTransform:
   m_Father: {fileID: 278322859}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 235, y: -25.833334}
   m_SizeDelta: {x: 420, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &419518675668639797
@@ -10877,6 +10877,30 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1801075703409728997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669803411522862613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6118850d218dd844a9209f7d7c24c307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: {fileID: 11400000, guid: 8fa553683eb75e74b9a6edecc91c16d5, type: 2}
+  assemblyEvents: {fileID: 11400000, guid: ba06f5fa1a198854786cff79e379e528, type: 2}
+  modules:
+  - {fileID: 8970906851483479550}
+  - {fileID: 1776721980149454726}
+  - {fileID: 8574695300339110871}
+  - {fileID: 425338112932908140}
+  - {fileID: 7521376298131984889}
+  - {fileID: 3879583021911424108}
+  - {fileID: 7494023359086119155}
+  - {fileID: 4687907494334498207}
+  - {fileID: 167568171406133492}
 --- !u!1 &5672973633279024527
 GameObject:
   m_ObjectHideFlags: 0
@@ -11552,29 +11576,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1801075703409728997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5669803411522862613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6118850d218dd844a9209f7d7c24c307, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  info: {fileID: 11400000, guid: 8fa553683eb75e74b9a6edecc91c16d5, type: 2}
-  modules:
-  - {fileID: 8970906851483479550}
-  - {fileID: 1776721980149454726}
-  - {fileID: 8574695300339110871}
-  - {fileID: 425338112932908140}
-  - {fileID: 7521376298131984889}
-  - {fileID: 3879583021911424108}
-  - {fileID: 7494023359086119155}
-  - {fileID: 4687907494334498207}
-  - {fileID: 167568171406133492}
 --- !u!1 &6021324533768622774
 GameObject:
   m_ObjectHideFlags: 0

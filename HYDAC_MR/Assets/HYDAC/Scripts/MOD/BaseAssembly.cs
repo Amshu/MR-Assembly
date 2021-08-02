@@ -1,9 +1,11 @@
+using HYDAC.SOCS;
 using UnityEngine;
 
 namespace HYDAC.Scripts.MOD
 {
     public class BaseAssembly : AUnit
     {
+        [SerializeField] private SocAssemblyEvents assemblyEvents = null;
         [SerializeField] private AssemblyModule[] modules;
         
         private IAssemblyModule _currentModule;
@@ -23,9 +25,11 @@ namespace HYDAC.Scripts.MOD
         private void OnAssemblyModuleManipulationStart(AssemblyModule focusedModule)
         {
             if (_currentModule != null) return;
-            
-            Debug.Log("#BaseAssembly#-------------OnClicked received: " + focusedModule.Info.iname);
-            
+
+            assemblyEvents.OnCurrentModuleChange(focusedModule.Info as SModuleInfo);
+
+            //Debug.Log("#BaseAssembly#-------------OnClicked received: " + focusedModule.Info.iname);
+
             //realtimeView.ClearOwnership();
             //realtimeView.RequestOwnership();
 

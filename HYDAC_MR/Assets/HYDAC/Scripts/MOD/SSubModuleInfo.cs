@@ -4,16 +4,16 @@ using UnityEngine;
 namespace HYDAC.Scripts.MOD
 {
     public interface ISubModule
-    {
-        void Initialize();
-        int GetUnitPosition();
-        string GetPartName();
-
-        void Assemble(float timeToDest);
-        void Disassemble(float timeToDest);
-        
-        void ChangeMaterial(bool toggle, Material highlightMaterial);
-    }
+        {
+            void Initialize();
+            int GetUnitPosition();
+            string GetPartName();
+    
+            void Assemble(float timeToDest);
+            void Disassemble(float timeToDest);
+            
+            void ChangeMaterial(bool toggle, Material highlightMaterial);
+        }
     
     
     /// <summary>
@@ -72,9 +72,11 @@ namespace HYDAC.Scripts.MOD
 
         protected override void ChangeFileName()
         {
+#if UNITY_EDITOR
             string newFileName = "SInfo_" + ID + "_" + iname;
             string assetPath = UnityEditor.AssetDatabase.GetAssetPath(this.GetInstanceID());
             UnityEditor.AssetDatabase.RenameAsset(assetPath, newFileName);
+#endif
         }
     }
 }

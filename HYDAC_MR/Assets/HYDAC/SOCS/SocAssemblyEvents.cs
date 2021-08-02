@@ -7,12 +7,12 @@ namespace HYDAC.SOCS
     [CreateAssetMenu(menuName = "AssemblySocs/AssemblyEvents", fileName = "SOC_AssemblyEvents")]
     public class SocAssemblyEvents: ScriptableObject
     {
-        public event Action<SAssemblyInfo> EModelLoad;
+        public event Action<SAssemblyInfo> EAssemblyLoad;
         public event Action<SModuleInfo> ECurrentModuleChange;
         
         internal void OnModelLoaded(SAssemblyInfo info)
         {
-            EModelLoad?.Invoke(info);
+            EAssemblyLoad?.Invoke(info);
         }
         
         internal void OnCurrentModuleChange(SModuleInfo info)

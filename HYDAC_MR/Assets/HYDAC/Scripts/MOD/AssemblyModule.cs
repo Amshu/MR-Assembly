@@ -52,9 +52,9 @@ namespace HYDAC.Scripts.MOD
             //_moveAxisConstraint = GetComponent<MoveAxisConstraint>();
             _boundsControl = GetComponent<BoundsControl>();
 
-            GetSubModules();
+            //GetSubModules();
 
-            currentModNo = startingPosition;
+            //currentModNo = startingPosition;
         }
 
         private void OnEnable()

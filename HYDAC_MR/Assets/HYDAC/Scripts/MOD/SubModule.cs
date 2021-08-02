@@ -28,19 +28,23 @@ namespace HYDAC.Scripts.MOD
         private void OnEnable()
         {
             // Subscribe to event in machine part info
-            // mSubModuleInfo.OnInitialize += OnInitialized;
-            // mSubModuleInfo.OnAssemble += OnAssembled;
-            //
-            // mSubModuleInfo.OnDisassemble += OnDisassemble;
-            // mSubModuleInfo.OnHighlight += OnHighlighted;
+            //SSubModuleInfo sInfo = Info as SSubModuleInfo;
+            
+            // Subscribe to event in machine part info
+            //sInfo.OnInitialize += OnInitialized;
+            //sInfo.OnAssemble += OnAssembled;
+            
+            //sInfo.OnDisassemble += OnDisassemble;
+            //sInfo.OnHighlight += OnHighlighted;
         }
         private void OnDisable()
         {
             // Subscribe to event in machine part info
-            // mSubModuleInfo.OnInitialize += OnInitialized;
-            // mSubModuleInfo.OnAssemble += OnAssembled; 
-            //
-            // mSubModuleInfo.OnDisassemble += OnDisassemble;
+            //SSubModuleInfo sInfo = Info as SSubModuleInfo;
+            
+            //sInfo.OnInitialize += OnInitialized;
+            //sInfo.OnAssemble += OnAssembled;
+            //sInfo.OnDisassemble += OnDisassemble;
             // mSubModuleInfo.OnHighlight += OnHighlighted;
         }
 
@@ -52,7 +56,7 @@ namespace HYDAC.Scripts.MOD
             throw new System.NotImplementedException();
         }
 
-        private void OnAssembled(float timeTakenToDest)
+        public void OnAssembled(float timeTakenToDest)
         {
             // Dont do anything if the part is not free
             if (_mLock) return;
@@ -67,7 +71,7 @@ namespace HYDAC.Scripts.MOD
         }
 
 
-        private void OnDisassemble(float timeTakenToDest)
+        public void OnDisassemble(float timeTakenToDest)
         {
             // Dont do anything if the part is not free
             if (_mLock) return;
