@@ -14,7 +14,6 @@ namespace HYDAC.Scripts
         //[Tooltip("Delay before ownership is reset after ownership is changed.")]
         //private float ownershipTimeOutTime = 1f;
         
-        [SerializeField] private BaseModule[] modules;
         [SerializeField] private GameObject buttons;
 
         [Space] [Header("To be refactored")] 
@@ -31,44 +30,12 @@ namespace HYDAC.Scripts
 
         private void Awake()
         {
-            GetAllModules();
-             
             // TO BE REFACTORED
             buttons.SetActive(false);
             _videoUI.SetActive(false);
             _accumulatorUI.enabled = false;
         }
         
-        
-        /// <summary>
-        ///  ON APPLICATION AWAKE
-        /// ---------------------
-        /// 
-        /// - Find and store all the Assembly Modules in the Modules array
-        /// - Register to the assembly module's onFocus events
-        /// 
-        /// </summary>
-        private void GetAllModules()
-        {
-            List<IAssemblyModule> assemblyModules = new List<IAssemblyModule>();
-            
-            foreach (BaseModule module in modules)
-            {
-                if (module is IAssemblyModule)
-                {
-                    //Debug.Log("#MainManager#--------------Assembly Module Found");
-
-                    IAssemblyModule assemblyModule = module as IAssemblyModule;
-                    assemblyModules.Add(assemblyModule);
-
-                    assemblyModule.OnModuleFocused += OnAssemblyModuleManipulationStart;
-                }
-            }
-
-            _assemblyModules = assemblyModules.ToArray();
-
-            Debug.Log("#MainManager#--------------Assembly Modules Found - " + _assemblyModules.Length);
-        }
         
         
         /// <summary>
@@ -283,49 +250,8 @@ namespace HYDAC.Scripts
         {
             lastOwnershipChangeTime = Time.time;
         }
-        
-
-        /// <summary>
-        ///  ON SET _localCurrentAssembly != ""
-        /// -----------------------------------
-        /// 
-        /// - Set all the other modules in 'UnfocusedMode'
-        /// 
-        /// </summary>
-        private void EnterFocus()
-        {
-            //Debug.Log("#MainManager#--------------Module Focused: " + model.currentAssemblyName);
-            
-            for (int i = 0; i < modules.Length; i++)
-            {
-                IBaseModule module = modules[i];
-
-                if (!_localCurrentAssemblyModule.Equals(module))
-                    module.ToggleFocus(false);
-            }
-        }
 
 
-        /// <summary>
-        ///  ON SET _localCurrentAssembly = ""
-        /// ----------------------------------
-        /// 
-        /// - Set all the other modules back to default Mode
-        /// 
-        /// </summary>
-        private void ExitFocus()
-        {
-            Debug.Log("#MainManager#--------------Exit Focus");
-
-            for (int i = 0; i < modules.Length; i++)
-            {
-                IBaseModule module = modules[i];
-
-                module.Reset();
-            }
-        }
-        
-        
         #region UI EVENT METHODS-------------------------
 
         public void ChangePositionStep(int step)

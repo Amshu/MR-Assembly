@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 using Microsoft.MixedReality.Toolkit.UI;
@@ -10,6 +8,18 @@ using HYDAC.SOC.Settings;
 
 namespace HYDAC.Scripts.MOD
 {
+    public interface IBaseModule
+    {
+        void ToggleFocus(bool toggle);
+        
+        /// <summary>
+        ///  This is for the part in focus 
+        /// </summary>
+        void Reset();
+
+        string GetName();
+    }
+    
     public interface IAssemblyModule : IBaseModule
     {
         public event Action<AssemblyModule> OnModuleFocused;
@@ -22,10 +32,8 @@ namespace HYDAC.Scripts.MOD
         void ChangePosition(int step);
     }
     
-    public sealed class AssemblyModule : BaseModule, IAssemblyModule
+    public sealed class AssemblyModule : AModule, IAssemblyModule
     {
-        private const string SubmoduleInfoFolderPath = "SubModuleInfos/";
-        
         [Header("Assembly Members")]
         [SerializeField] private SocMainSettings mUnitSettings;
 
@@ -43,10 +51,10 @@ namespace HYDAC.Scripts.MOD
         public int currentModNo;
         public int startingPosition;
 
-        protected override void Awake()
+        private bool isInFocus = false;
+
+        private void Awake()
         {
-            base.Awake();
-            
             _interactable = GetComponent<Interactable>();
             
             //_moveAxisConstraint = GetComponent<MoveAxisConstraint>();
@@ -84,22 +92,16 @@ namespace HYDAC.Scripts.MOD
 
         protected override void OnFocused()
         {
-            base.OnFocused();
-            
             ToggleComponents(false);
         }
 
         protected override void OnUnfocused()
         {
-            base.OnUnfocused();
-            
             ToggleComponents(true);
         }
 
         protected override void OnReset()
         {
-            base.OnReset();
-            
             ToggleComponents(false);
         }
 
@@ -140,39 +142,7 @@ namespace HYDAC.Scripts.MOD
         }
 
         #endregion
-
-        private void GetSubModules()
-        {
-            // Load from Resources
-            var machinePartInfos = Resources.LoadAll(SubmoduleInfoFolderPath + transform.name, typeof(ISubModule));
-            if (machinePartInfos.Length < 1)
-            {
-                Debug.LogWarning("No sub-module infos found or loaded for: " + transform.name);
-                return;
-            }
-
-            // Cast each loaded object to IMachinePart
-            List<ISubModule> parts = new List<ISubModule>();
-            foreach(object ogj in machinePartInfos)
-            {
-                parts.Add(ogj as ISubModule);
-            }
-
-            // Set to main array
-            _subModules = parts.ToArray();
-            if (_subModules.Length < 1)
-            {
-                Debug.LogError("Error in casting to IMachinePart[]. Exiting Application");
-                Application.Quit();
-                return;
-            }
-
-            // Sort all parts by their assembly position
-            _subModules = _subModules.OrderBy(x => x.GetUnitPosition()).ToArray();
-
-            // Get total number of assemblies
-            mNoOfSteps = _subModules[_subModules.Length - 1].GetUnitPosition();
-        }
+        
 
         private void ToggleComponents(bool toggle)
         {
@@ -221,16 +191,13 @@ namespace HYDAC.Scripts.MOD
                     // Highlight previous part
                     if (partPosition == unitPosition - 1)
                     {
-                        part.ChangeMaterial(true, mUnitSettings.previousUnitMaterial);
                     }
                     // Highlight current part
                     else if(partPosition == unitPosition)
                     {
-                        part.ChangeMaterial(false, mUnitSettings.currentUnitMaterial);
                     }
                     else
                     {
-                        part.ChangeMaterial(false, mUnitSettings.currentUnitMaterial);
                     }
                 }
                 // If its greater than the passed unit position => Implode
@@ -241,14 +208,34 @@ namespace HYDAC.Scripts.MOD
                     // Highlight next part
                     if(partPosition == unitPosition + 1)
                     {
-                        part.ChangeMaterial(true, mUnitSettings.nextUnitMaterial);
                     }
                     else
                     {
-                        part.ChangeMaterial(false, mUnitSettings.currentUnitMaterial);
                     }
                 }
             }
+        }
+
+        public void ToggleFocus(bool toggle)
+        {
+            //Debug.Log("#BaseModule#------------------ ToggleFocus: " + toggle + " for: "+ transform.name);
+
+            isInFocus = toggle;
+
+            if(toggle)
+                OnFocused();
+            else
+                OnUnfocused();
+        }
+
+        public void Reset()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetName()
+        {
+            throw new NotImplementedException();
         }
     }
 }

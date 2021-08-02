@@ -5,6 +5,18 @@ using UnityEngine;
 namespace HYDAC.Scripts.MOD
 {
     //[RequireComponent(typeof(RealtimeTransform))]
+    
+    public interface ISubModule
+    {
+        void Initialize();
+        int GetUnitPosition();
+        string GetPartName();
+
+        void Assemble(float timeToDest);
+        void Disassemble(float timeToDest);
+    }
+    
+    
     public class SubModule : AUnit
     {
         [SerializeField] private Transform mDisassembledTransform = null;
@@ -84,12 +96,6 @@ namespace HYDAC.Scripts.MOD
             StopAllCoroutines();
             StartCoroutine(LerpPosition(this.transform, mDisassembledTransform.localPosition, timeTakenToDest));
         }
-    
-
-        void OnHighlighted(bool toggle, Material highlightMaterial = null)
-        {
-            //_mMesh.material = (toggle)? highlightMaterial : _mDefaultMaterial;
-        }
 
         #endregion
 
@@ -111,34 +117,6 @@ namespace HYDAC.Scripts.MOD
             }
 
             _mLock = false;
-        }
-
-
-        private void Update()
-        {
-            if (!CheckOwnership()) return;
-
-            // If we just reset objects, we should wait before affecting ownership
-            if (Time.time - _mLastOwnershipChangeTime < 1f) return;
-
-            // If object is not being manipulated, or it is at rest, clear ownership
-            //_realtimeTransform.ClearOwnership();
-        }
-        
-        private bool CheckOwnership()
-        {
-            // If there are any inconsistency update - when focus is toggled on or off
-            // if (_mHasOwnership != _realtimeTransform.isOwnedLocallySelf)
-            // {
-            //     _mHasOwnership = _realtimeTransform.isOwnedLocallySelf;
-            //     ResetOwnershipTime();
-            // }
-            return _mHasOwnership;
-        }
-        
-        private void ResetOwnershipTime()
-        {
-            _mLastOwnershipChangeTime = Time.time;
         }
     }
 }
