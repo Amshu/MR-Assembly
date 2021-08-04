@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-namespace HYDAC.Scripts.MOD
+namespace HYDAC.Scripts.MOD.SInfo
 {
     /// <summary>
     /// <c>SocMachinePartInfo</c> is a scriptable object class that contains all the main details
     /// of a given machine part such as:
     /// <c>partName</c><value>This is the name of the part in, partName.</value>
     /// </summary>
-    public class SSubModuleInfo : ASInfo
+    public class AsSubModuleInfo : ASInfo
     {
         public void PrintInfo()
         {

@@ -1,10 +1,11 @@
 ﻿using System;
+using HYDAC.Scripts.MOD.SInfo;
 using UnityEditor;
 using UnityEngine;
 
 namespace HYDAC.Scripts.MOD.Editor
 {
-    [CustomEditor(typeof(AssemblyModule))]
+    [CustomEditor(typeof(FocusedModule))]
     public class ModuleEditor : UnityEditor.Editor
     {
         public string ID = "ID:";
@@ -16,11 +17,14 @@ namespace HYDAC.Scripts.MOD.Editor
         {
             DrawDefaultInspector();
             
+            FocusedModule myScript = (FocusedModule)target;
+
+            if (myScript.Info != null)
+                return;
+            
             GUILayout.Space(20);
             
             GUILayout.Label("Use the below GUI create a MInfo if not created");
-            
-            AssemblyModule myScript = (AssemblyModule)target;
 
             ID = GUILayout.TextField(ID, 2);
             Description = GUILayout.TextArea(Description, 500);

@@ -1,6 +1,4 @@
-using UnityEngine;
-
-namespace HYDAC.Scripts.MOD
+namespace HYDAC.Scripts.MOD.SInfo
 {
     public class SAssemblyInfo : ASInfo
     {

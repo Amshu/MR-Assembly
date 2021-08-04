@@ -1,5 +1,6 @@
 ﻿using System;
 using HYDAC.Scripts.MOD;
+using HYDAC.Scripts.MOD.SInfo;
 using UnityEngine;
 
 namespace HYDAC.SOCS

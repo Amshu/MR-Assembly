@@ -1,4 +1,5 @@
 ﻿using System;
+using HYDAC.Scripts.MOD.SInfo;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,12 +17,15 @@ namespace HYDAC.Scripts.MOD.Editor
         {
             DrawDefaultInspector();
             
+            BaseAssembly myScript = (BaseAssembly)target;
+
+            if (myScript.Info != null)
+                return;
+            
             GUILayout.Space(20);
             
             GUILayout.Label("Use the below GUI create AInfo if not created");
             
-            BaseAssembly myScript = (BaseAssembly)target;
-
             ID = GUILayout.TextField(ID);
             Description = GUILayout.TextArea(Description, 500);
             

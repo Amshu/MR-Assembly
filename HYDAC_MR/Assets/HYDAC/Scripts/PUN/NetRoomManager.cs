@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using Photon.Pun;
@@ -13,33 +14,32 @@ namespace HYDAC.Scripts.PUN
     /// </summary>
     public class NetRoomManager : MonoBehaviourPunCallbacks
     {
-        [SerializeField] private SocNetSettings netSettings = null;
-        [SerializeField] private SocNetEvents netEvents = null;
+        [SerializeField] private SocNetSettings netSettings;
+        [SerializeField] private SocNetEvents netEvents;
         
+        [Space]
         [Tooltip("The prefab to use for representing the player")]
-        [SerializeField] GameObject playerPrefab;
-        [SerializeField] Transform spawnPoint;
+        [SerializeField] private GameObject playerPrefab;
+        [SerializeField] private Transform playerSpawnPoint;
 
-        #region Photon Callbacks
-        /// <summary>
-        /// Photon callback advises that local player has left room so reload launcher scene
-        /// </summary>
-        public override void OnLeftRoom()
-        {
-            // Load 'first' scene (Launcher.unity)
-            SceneManager.LoadScene(0);
-        }
+        [Space] 
+        [SerializeField] private GameObject focusedModuleHolderPrefab;
+        [SerializeField] private Transform focusedModuleHolderSpawnPoint;
 
-        public override void OnPlayerLeftRoom(Player otherPlayer)
+        #region Public and Private Methods
+
+        private void Awake()
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                
-                return;
+                InstantiateFocusedModuleHolder(focusedModuleHolderSpawnPoint);
             }
             
-            netEvents.OnPlayerLeft();
+            // Create local player
+            InstantiateLocalPlayer(playerSpawnPoint);
         }
+
+        #region Photon Callbacks
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
@@ -50,36 +50,52 @@ namespace HYDAC.Scripts.PUN
             }
             
             if(newPlayer.IsLocal)
+                netEvents.OnPlayerJoined();
+        }
+        
+        
+        public override void OnPlayerLeftRoom(Player otherPlayer)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                return;
+            }
             
-            netEvents.OnPlayerJoined();
+            netEvents.OnPlayerLeft();
+        }
+        
+        
+        /// <summary>
+        /// Photon callback advises that local player has left room so reload launcher scene
+        /// </summary>
+        public override void OnLeftRoom()
+        {
+            // Load 'first' scene (Launcher.unity)
+            SceneManager.LoadScene(0);
         }
 
         #endregion
 
-        #region Public and Private Methods
-        private void Start()
+        
+        private void InstantiateLocalPlayer(Transform spawnPoint)
         {
-            if (playerPrefab == null)
-            {
-                Debug.LogError("Missing playerPrefab reference...please set it up in GameObject 'Room Manager", this);
-            }
-            else
-            {
-                if (NetPlayerManager.localPlayerInstance == null)
-                {
-                    Debug.LogFormat("Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
+            Debug.LogFormat("#NetRoomManager#---------------Instantiating LocalPlayer");
 
-                    // Spawn a character for the local player
-                    // This gets synced by using PhotonNetwork.Instantiate
-                    PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(spawnPoint.position.x, spawnPoint.position.y, spawnPoint.position.z), Quaternion.identity, 0);
-                }
-                else
-                {
-                    Debug.LogFormat("Ignoring scene load for {0}", SceneManagerHelper.ActiveSceneName);
-                }
-            }
+            // Spawn a character for the local player
+            // This gets synced by using PhotonNetwork.Instantiate
+            PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.position, spawnPoint.rotation, 0);
         }
 
+        private void InstantiateFocusedModuleHolder(Transform spawnPoint)
+        {
+            Debug.LogFormat("#NetRoomManager#---------------Instantiating Focused Module Holder");
+            
+            GameObject temp = PhotonNetwork.Instantiate(focusedModuleHolderPrefab.name, spawnPoint.position, spawnPoint.rotation, 1);
+            
+            netEvents.OnFocusedModuleReady(temp.transform);
+        }
+        
+        
         /// <summary>
         /// Loads the VR room Scene after a connection is made to the Photon Server (via the Launcher)
         /// </summary>
@@ -87,12 +103,13 @@ namespace HYDAC.Scripts.PUN
         {
             if (!PhotonNetwork.IsMasterClient)
             {
-                Debug.LogError("PhotonNetwork: Trying to load a level but we are not the master client");
+                Debug.LogError("#NetRoomManager#---------------Trying to load a level but we are not the master client");
             }
 
-            Debug.LogFormat("PhotonNetwork: Loading Level {0}", PhotonNetwork.CurrentRoom);
+            Debug.LogFormat("#NetRoomManager#---------------Loading Level {0}", PhotonNetwork.CurrentRoom);
             PhotonNetwork.LoadLevel(netSettings.NetworkSceneName);
         }
+        
         #endregion
     }
 }

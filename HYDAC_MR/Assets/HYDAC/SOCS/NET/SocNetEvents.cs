@@ -33,13 +33,13 @@ namespace HYDAC.SOCS.NET
         
         
 
-        public event Action ELocalUserReady;
+        public event Action<Transform> ELocalUserReady;
         public event Action EPlayerJoined;
         public event Action EPlayerLeft;
 
-        internal void OnPlayerReady()
+        internal void OnPlayerReady(Transform playerTransform)
         {
-            ELocalUserReady?.Invoke();
+            ELocalUserReady?.Invoke(playerTransform);
         }
         
         internal void OnPlayerJoined()
@@ -51,6 +51,14 @@ namespace HYDAC.SOCS.NET
         {
             EPlayerLeft?.Invoke();
         }
-        
+
+
+
+        public event Action<Transform> EFocusedModuleHolderReady;
+
+        internal void OnFocusedModuleReady(Transform moduleHolderTransform)
+        {
+            EFocusedModuleHolderReady?.Invoke(moduleHolderTransform);
+        }
     }
 }

@@ -809,6 +809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   netEvents: {fileID: 11400000, guid: a45cb5bad37b0dd4da0dcb890b84c938, type: 2}
+  assemblyEvents: {fileID: 0}
   modelPrefabRefToLoad:
     m_AssetGUID: abd5eb0d4638493499f37585851bc892
     m_SubObjectName: 
@@ -2000,6 +2001,10 @@ PrefabInstance:
     - target: {fileID: 5760002885821916861, guid: a146befa1e2382646979e3b252fc23b7, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374213449256803731, guid: a146befa1e2382646979e3b252fc23b7, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: HYDAC_DRoomA
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a146befa1e2382646979e3b252fc23b7, type: 3}

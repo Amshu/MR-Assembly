@@ -1,4 +1,5 @@
 ﻿using System;
+using HYDAC.Scripts.MOD.SInfo;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,11 +17,15 @@ namespace HYDAC.Scripts.MOD.Editor
         {
             DrawDefaultInspector();
             
+            SubModule myScript = (SubModule)target;
+
+            if (myScript.Info != null)
+                return;
+            
             GUILayout.Space(20);
             
             GUILayout.Label("Use the below GUI create a SInfo if not created");
             
-            SubModule myScript = (SubModule)target;
 
             ID = GUILayout.TextField(ID, 2);
             Description = GUILayout.TextArea(Description, 500);
@@ -29,7 +34,7 @@ namespace HYDAC.Scripts.MOD.Editor
 
             if (GUILayout.Button("Create SubModule Info"))
             {
-                SSubModuleInfo info = ScriptableObject.CreateInstance<SSubModuleInfo>();
+                AsSubModuleInfo info = ScriptableObject.CreateInstance<AsSubModuleInfo>();
 
                 info.ID = Convert.ToInt32(ID);
                 info.iname = myScript.gameObject.name;

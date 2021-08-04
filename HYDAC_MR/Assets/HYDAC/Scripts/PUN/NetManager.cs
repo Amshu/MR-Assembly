@@ -3,6 +3,7 @@ using Photon.Pun;
 using Photon.Realtime;
 
 using HYDAC.SOCS.NET;
+using UnityEngine.SceneManagement;
 
 namespace HYDAC.Scripts.PUN
 {
@@ -12,6 +13,9 @@ namespace HYDAC.Scripts.PUN
     /// </summary>
     public class NetManager : MonoBehaviourPunCallbacks
     {
+        private const string PCTESTROOMNAME = "T_PCLauncher";
+        private const string DEFAULTROOMNAME = "HYDAC_DRoomA";
+        
         [SerializeField] private SocNetSettings netSettings = null;
         [SerializeField] private SocNetUI netUI = null;
         
@@ -33,15 +37,23 @@ namespace HYDAC.Scripts.PUN
             // This makes sure we can use PhotonNetwork.LoadLevel() on the master client 
             // and all clients in the same room sync their level automatically
             PhotonNetwork.AutomaticallySyncScene = true;
-
-            // Subscribe to UI events
-            netUI.EUIRequestJoinRoom += OnUIRequestedJoinRoom;
             
             // Set default room options
             _roomOptions = new RoomOptions();
             _roomOptions.MaxPlayers = netSettings.MaxPlayersPerRoom;
             _roomOptions.IsVisible = netSettings.IsRoomVisible;
             _roomOptions.IsOpen = netSettings.IsRoomOpen;
+
+#if UNITY_EDITOR
+            if (SceneManager.GetActiveScene().name.Equals(PCTESTROOMNAME))
+            {
+                OnUIRequestedJoinRoom(DEFAULTROOMNAME);
+                return;
+            }
+#endif
+            
+            // Subscribe to UI events
+            netUI.EUIRequestJoinRoom += OnUIRequestedJoinRoom;
         }
 
         #endregion

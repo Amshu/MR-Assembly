@@ -1,3 +1,4 @@
+using HYDAC.Scripts.MOD.SInfo;
 using HYDAC.SOCS;
 using UnityEngine;
 
@@ -6,36 +7,39 @@ namespace HYDAC.Scripts.MOD
     public class BaseAssembly : AUnit
     {
         [SerializeField] private SocAssemblyEvents assemblyEvents = null;
-        [SerializeField] private AssemblyModule[] modules;
         
-        private IAssemblyModule _currentModule;
+        private SModuleInfo _currentModule = null;
         
         // CAUTION: Take care while accessing SAssembly members in Awake -> AssemblyInfo has code to run first
         
         private void Awake()
         {
-            // Subscribe to assembly modules on click events
-            foreach (var module in modules)
+            _currentModule = null;
+        }
+
+        private void OnEnable()
+        {
+            var assemblyModules = transform.GetComponentsInChildren<AssemblyModule>();
+            foreach (var module in assemblyModules)
             {
-                IAssemblyModule assemblyModule = module as IAssemblyModule;
-                assemblyModule.OnModuleFocused += OnAssemblyModuleManipulationStart;
+                module.EOnClicked += OnAssemblyModuleClicked;
             }
         }
-        
-        private void OnAssemblyModuleManipulationStart(AssemblyModule focusedModule)
+
+        private void OnDisable()
         {
-            if (_currentModule != null) return;
-
-            assemblyEvents.OnCurrentModuleChange(focusedModule.Info as SModuleInfo);
-
-            //Debug.Log("#BaseAssembly#-------------OnClicked received: " + focusedModule.Info.iname);
-
-            //realtimeView.ClearOwnership();
-            //realtimeView.RequestOwnership();
-
-            //model.currentAssemblyName = focusedModule.transform.name;
+            var assemblyModules = transform.GetComponentsInChildren<AssemblyModule>();
+            foreach (var module in assemblyModules)
+            {
+                module.EOnClicked -= OnAssemblyModuleClicked;
+            }
         }
-        
-        
+
+        private void OnAssemblyModuleClicked(SModuleInfo module)
+        {
+            _currentModule = module;
+            
+            assemblyEvents.OnCurrentModuleChange(module);
+        }
     }
 }
