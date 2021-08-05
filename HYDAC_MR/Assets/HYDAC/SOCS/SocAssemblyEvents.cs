@@ -8,6 +8,9 @@ namespace HYDAC.SOCS
     [CreateAssetMenu(menuName = "AssemblySocs/AssemblyEvents", fileName = "SOC_AssemblyEvents")]
     public class SocAssemblyEvents: ScriptableObject
     {
+        private SModuleInfo _currentFocusedModule = null;
+        public SModuleInfo CurrentFocusedModule => _currentFocusedModule;
+        
         public event Action<SAssemblyInfo> EAssemblyLoad;
         public event Action<SModuleInfo> ECurrentModuleChange;
         
@@ -18,6 +21,8 @@ namespace HYDAC.SOCS
         
         internal void OnCurrentModuleChange(SModuleInfo info)
         {
+            _currentFocusedModule = info;
+            
             ECurrentModuleChange?.Invoke(info);
         }
     }

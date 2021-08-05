@@ -7,39 +7,22 @@ using UnityEngine;
 
 namespace HYDAC.Scripts
 {
-    public class ModuleUI : MonoBehaviour
+    public class ModuleHolderUI : MonoBehaviour
     {
         [SerializeField] private SocModuleUI socUI = null;
         [SerializeField] private SocAssemblyEvents assemblyEvents = null;
-    
-        [Space] [Header("Transforms")]
-        [SerializeField] private Transform moduleSpawnTransform;
-        [SerializeField] private Transform moduleUITransform;
-        [SerializeField] private Transform backboardUITransform;
 
         [Space] [Header("Info UI")] 
+        [SerializeField] private TextMeshPro idText = null;
         [SerializeField] private TextMeshPro nameText = null;
+        [SerializeField] private TextMeshPro descriptionText = null;
 
-        private Vector3 moduleUIStartPosition;
-        private Vector3 backboardUIStartPosition;
-    
-        private Quaternion moduleUIStartRotation;
-        private Quaternion backboardUIStartRotation;
-    
-        private Vector3 moduleUIStartScale;
-        private Vector3 backboardUIStartScale;
 
         private GameObject currentModule = null;
     
         private void Awake()
         {
-            moduleUIStartPosition = moduleUITransform.position;
-            moduleUIStartRotation = moduleUITransform.rotation;
-            moduleUIStartScale = moduleUITransform.localScale;
         
-            backboardUIStartPosition = backboardUITransform.position;
-            backboardUIStartRotation = backboardUITransform.rotation;
-            backboardUIStartScale = backboardUITransform.localScale;
         }
 
         private void OnEnable()
@@ -61,7 +44,9 @@ namespace HYDAC.Scripts
 
         private void OnCurrentModuleChanged(SModuleInfo newModule)
         {
+            idText.text = newModule.ID.ToString();
             nameText.text = newModule.iname;
+            descriptionText.text = newModule.description;
         }
 
         private void OnUIRequestToggleInfoUI()
