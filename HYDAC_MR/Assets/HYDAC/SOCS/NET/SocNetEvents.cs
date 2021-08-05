@@ -59,14 +59,6 @@ namespace HYDAC.SOCS.NET
         {
             EPlayerLeft?.Invoke();
         }
-
-
-
-        public event Action<Transform> EFocusedModuleHolderReady;
-
-        internal void OnFocusedModuleReady(Transform moduleHolderTransform)
-        {
-            EFocusedModuleHolderReady?.Invoke(moduleHolderTransform);
-        }
+        
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using HYDAC.Scripts.MOD;
 using HYDAC.Scripts.MOD.SInfo;
 using HYDAC.SOCS;
 using TMPro;
@@ -13,9 +12,9 @@ namespace HYDAC.Scripts
         [SerializeField] private SocAssemblyEvents assemblyEvents = null;
 
         [Space] [Header("Info UI")] 
-        [SerializeField] private TextMeshPro idText = null;
-        [SerializeField] private TextMeshPro nameText = null;
-        [SerializeField] private TextMeshPro descriptionText = null;
+        [SerializeField] private TextMeshProUGUI idText = null;
+        [SerializeField] private TextMeshProUGUI nameText = null;
+        [SerializeField] private TextMeshProUGUI descriptionText = null;
 
 
         private GameObject currentModule = null;

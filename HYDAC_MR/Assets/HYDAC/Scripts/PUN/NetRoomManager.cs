@@ -20,9 +20,6 @@ namespace HYDAC.Scripts.PUN
         [Space]
         [SerializeField] private Transform playerSpawnPoint;
 
-        [Space] 
-        [SerializeField] private Transform focusedModuleHolderSpawnPoint;
-
         #region Public and Private Methods
 
         private void Awake()
@@ -33,17 +30,7 @@ namespace HYDAC.Scripts.PUN
         private void OnSetupNetRoom()
         {
             Debug.Log("#RoomManager#--------------Setting up room");
-            
-            if (PhotonNetwork.IsMasterClient)
-            {
-                Debug.Log("#RoomManager#--------------This is master client");
-                //InstantiateFocusedModuleHolder(focusedModuleHolderSpawnPoint);
-            }
-            else
-            {
-                
-            }
-            
+
             // Create local player
             InstantiateLocalPlayer(playerSpawnPoint);
             
@@ -97,17 +84,7 @@ namespace HYDAC.Scripts.PUN
             // This gets synced by using PhotonNetwork.Instantiate
             PhotonNetwork.Instantiate(netSettings.LocalPlayerPrefab.name, spawnPoint.position, spawnPoint.rotation, 0);
         }
-
         
-        private void InstantiateFocusedModuleHolder(Transform spawnPoint)
-        {
-            Debug.LogFormat("#NetRoomManager#---------------Instantiating Focused Module Holder");
-            
-            GameObject temp = PhotonNetwork.Instantiate(netSettings.FocusedModuleHolderPrefab.name, 
-                spawnPoint.position, spawnPoint.rotation, 1);
-            
-            netEvents.OnFocusedModuleReady(temp.transform);
-        }
         
         
         /// <summary>

@@ -29,8 +29,5 @@ namespace HYDAC.SOCS.NET
         [Tooltip("The prefab to use for representing the player")]
         [SerializeField] private GameObject localPlayerPrefab;
         public GameObject LocalPlayerPrefab => localPlayerPrefab;
-
-        [SerializeField] private GameObject focusedModuleHolderPrefab;
-        public GameObject FocusedModuleHolderPrefab => focusedModuleHolderPrefab;
     }
 }

@@ -1,3 +1,4 @@
+using HYDAC.Scripts.MOD;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
@@ -17,13 +18,13 @@ namespace HYDAC.Scripts
         
         [SerializeField] private AssetReference modelPrefabRefToLoad;
         [SerializeField] private Transform machineWorldTransform;
+        [SerializeField] private Transform focusedModuleHolderTransform = null;
 
         private bool _isNetworkScene = false;
         private bool _isInitialised = false;
         
         private GameObject _loadedModel = null;
         
-        private Transform _focusedModuleHolderTransform = null;
         private AssetReference _currentModuleReference = null;
         private Transform _currentModuleTransform = null;
 
@@ -36,7 +37,6 @@ namespace HYDAC.Scripts
             if (!_isNetworkScene) return;
             
             netEvents.ELocalUserReady += OnLocalUserReady;
-            netEvents.EFocusedModuleHolderReady += OnFocusModuleHolderReady;
         }
         
         
@@ -50,16 +50,6 @@ namespace HYDAC.Scripts
             { 
                 LoadModel();  
             }
-        }
-        
-        
-        private void OnFocusModuleHolderReady(Transform holderTransform)
-        {
-            Debug.Log("#AddressableManager#-------------Setting Focused Module Holder");
-            
-            _focusedModuleHolderTransform = holderTransform;
-            
-            netEvents.EFocusedModuleHolderReady -= OnFocusModuleHolderReady;
         }
 
 
@@ -95,17 +85,15 @@ namespace HYDAC.Scripts
             
             _currentModuleReference = moduleInfo.HighPolyReference;
             
-            _currentModuleReference.InstantiateAsync(_focusedModuleHolderTransform).Completed += (handle) =>
+            _currentModuleReference.InstantiateAsync(focusedModuleHolderTransform).Completed += (handle) =>
             {
                 Debug.Log("#AddressableManager#-------------Module Instantiated");
                 
                 _currentModuleTransform = handle.Result.transform;
-                _currentModuleTransform.position = _focusedModuleHolderTransform.position;
-                _currentModuleTransform.rotation = _focusedModuleHolderTransform.rotation;
+                _currentModuleTransform.position = focusedModuleHolderTransform.position;
+                _currentModuleTransform.rotation = focusedModuleHolderTransform.rotation;
             };
         }
-        
-        
 
         private void LoadModel()
         {
@@ -116,6 +104,8 @@ namespace HYDAC.Scripts
                 _loadedModel = loadedAsset.Result;
                 _loadedModel.transform.position = machineWorldTransform.position;
                 _loadedModel.transform.rotation = machineWorldTransform.rotation;
+
+                assemblyEvents.OnModelLoaded(_loadedModel.GetComponent<BaseAssembly>().Info as SAssemblyInfo);
             };
         }
 

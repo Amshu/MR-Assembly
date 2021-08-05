@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HYDAC.Scripts.MOD.SInfo;
 using HYDAC.SOCS;
 using UnityEngine;
@@ -7,23 +8,22 @@ namespace HYDAC.Scripts.MOD
     public class BaseAssembly : AUnit
     {
         [SerializeField] private SocAssemblyEvents assemblyEvents = null;
-        
-        private SModuleInfo _currentModule = null;
-        
+
         // CAUTION: Take care while accessing SAssembly members in Awake -> AssemblyInfo has code to run first
-        
-        private void Awake()
-        {
-            _currentModule = null;
-        }
 
         private void OnEnable()
         {
+            List<SModuleInfo> modules = new List<SModuleInfo>();
+            
             var assemblyModules = transform.GetComponentsInChildren<AssemblyModule>();
+            
             foreach (var module in assemblyModules)
             {
                 module.EOnClicked += OnAssemblyModuleClicked;
+                modules.Add(module.Info as SModuleInfo);
             }
+            
+            ((SAssemblyInfo) info).SetModules(modules.ToArray());
         }
 
         private void OnDisable()
@@ -37,9 +37,7 @@ namespace HYDAC.Scripts.MOD
 
         private void OnAssemblyModuleClicked(SModuleInfo module)
         {
-            _currentModule = module;
-            
-            assemblyEvents.OnCurrentModuleChange(module);
+            assemblyEvents.OnRequestChangeModule(module);
         }
     }
 }
