@@ -20,8 +20,8 @@ namespace HYDAC.Scripts.MOD
 
         private void Start()
         {
-            BoundsControl _boundsControl = GetComponentInParent<BoundsControl>();
-            _boundsControl.BoundsOverride = GetComponent<BoxCollider>();
+            BoundsControl boundsControl = GetComponentInParent<BoundsControl>();
+            boundsControl.BoundsOverride = GetComponent<BoxCollider>();
         }
 
 

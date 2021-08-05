@@ -24,5 +24,14 @@ namespace HYDAC.SOCS.NET
         
         [SerializeField] private bool isRoomOpen = true;
         public bool IsRoomOpen => isRoomOpen;
+
+
+        [Space] 
+        [Tooltip("The prefab to use for representing the player")]
+        [SerializeField] private GameObject localPlayerPrefab;
+        public GameObject LocalPlayerPrefab => localPlayerPrefab;
+
+        [SerializeField] private GameObject focusedModuleHolderPrefab;
+        public GameObject FocusedModuleHolderPrefab => focusedModuleHolderPrefab;
     }
 }

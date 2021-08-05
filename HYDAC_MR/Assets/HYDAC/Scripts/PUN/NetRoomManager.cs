@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using Photon.Pun;
@@ -10,7 +9,8 @@ using HYDAC.SOCS.NET;
 namespace HYDAC.Scripts.PUN
 {
     /// <summary>
-    /// This class is responsible for loading the main scene (Hydac_Factory.unity) and instantiating players into that scene.
+    /// This class is responsible for loading the main scene (Hydac_Factory.unity)
+    /// and instantiating players into that scene.
     /// </summary>
     public class NetRoomManager : MonoBehaviourPunCallbacks
     {
@@ -18,27 +18,41 @@ namespace HYDAC.Scripts.PUN
         [SerializeField] private SocNetEvents netEvents;
         
         [Space]
-        [Tooltip("The prefab to use for representing the player")]
-        [SerializeField] private GameObject playerPrefab;
         [SerializeField] private Transform playerSpawnPoint;
 
         [Space] 
-        [SerializeField] private GameObject focusedModuleHolderPrefab;
         [SerializeField] private Transform focusedModuleHolderSpawnPoint;
 
         #region Public and Private Methods
 
         private void Awake()
         {
+            netEvents.ENetRoomSetup += OnSetupNetRoom;
+        }
+
+        private void OnSetupNetRoom()
+        {
+            Debug.Log("#RoomManager#--------------Setting up room");
+            
             if (PhotonNetwork.IsMasterClient)
             {
-                InstantiateFocusedModuleHolder(focusedModuleHolderSpawnPoint);
+                Debug.Log("#RoomManager#--------------This is master client");
+                //InstantiateFocusedModuleHolder(focusedModuleHolderSpawnPoint);
+            }
+            else
+            {
+                
             }
             
             // Create local player
             InstantiateLocalPlayer(playerSpawnPoint);
+            
+            netEvents.ENetRoomSetup -= OnSetupNetRoom;
         }
 
+        #endregion
+
+        
         #region Photon Callbacks
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -49,10 +63,9 @@ namespace HYDAC.Scripts.PUN
                 return;
             }
             
-            if(newPlayer.IsLocal)
+            if(!newPlayer.IsLocal)
                 netEvents.OnPlayerJoined();
         }
-        
         
         public override void OnPlayerLeftRoom(Player otherPlayer)
         {
@@ -63,8 +76,7 @@ namespace HYDAC.Scripts.PUN
             
             netEvents.OnPlayerLeft();
         }
-        
-        
+
         /// <summary>
         /// Photon callback advises that local player has left room so reload launcher scene
         /// </summary>
@@ -83,14 +95,16 @@ namespace HYDAC.Scripts.PUN
 
             // Spawn a character for the local player
             // This gets synced by using PhotonNetwork.Instantiate
-            PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.position, spawnPoint.rotation, 0);
+            PhotonNetwork.Instantiate(netSettings.LocalPlayerPrefab.name, spawnPoint.position, spawnPoint.rotation, 0);
         }
 
+        
         private void InstantiateFocusedModuleHolder(Transform spawnPoint)
         {
             Debug.LogFormat("#NetRoomManager#---------------Instantiating Focused Module Holder");
             
-            GameObject temp = PhotonNetwork.Instantiate(focusedModuleHolderPrefab.name, spawnPoint.position, spawnPoint.rotation, 1);
+            GameObject temp = PhotonNetwork.Instantiate(netSettings.FocusedModuleHolderPrefab.name, 
+                spawnPoint.position, spawnPoint.rotation, 1);
             
             netEvents.OnFocusedModuleReady(temp.transform);
         }
@@ -103,13 +117,12 @@ namespace HYDAC.Scripts.PUN
         {
             if (!PhotonNetwork.IsMasterClient)
             {
-                Debug.LogError("#NetRoomManager#---------------Trying to load a level but we are not the master client");
+                Debug.LogError("#NetRoomManager#---------------Trying to " +
+                               "load a level but we are not the master client");
             }
 
             Debug.LogFormat("#NetRoomManager#---------------Loading Level {0}", PhotonNetwork.CurrentRoom);
             PhotonNetwork.LoadLevel(netSettings.NetworkSceneName);
         }
-        
-        #endregion
     }
 }

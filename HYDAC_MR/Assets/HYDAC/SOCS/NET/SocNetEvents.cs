@@ -30,7 +30,15 @@ namespace HYDAC.SOCS.NET
         {
             EJoinRoomFailed?.Invoke();
         }
-        
+
+
+
+        public event Action ENetRoomSetup;
+
+        internal void SetupNetRoom()
+        {
+            ENetRoomSetup?.Invoke();
+        }
         
 
         public event Action<Transform> ELocalUserReady;

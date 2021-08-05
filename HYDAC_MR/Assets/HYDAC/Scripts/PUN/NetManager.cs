@@ -13,11 +13,17 @@ namespace HYDAC.Scripts.PUN
     /// </summary>
     public class NetManager : MonoBehaviourPunCallbacks
     {
+        // Singleton instances
+        private static NetManager _instance;
+        public static NetManager Instance { get { return _instance; } }
+        
+        
         private const string PCTESTROOMNAME = "T_PCLauncher";
         private const string DEFAULTROOMNAME = "HYDAC_DRoomA";
         
-        [SerializeField] private SocNetSettings netSettings = null;
-        [SerializeField] private SocNetUI netUI = null;
+        [SerializeField] private SocNetSettings netSettings;
+        [SerializeField] private SocNetEvents netEvents;
+        [SerializeField] private SocNetUI netUI;
         
         #region Private and Public Attributes
 
@@ -33,6 +39,15 @@ namespace HYDAC.Scripts.PUN
         #region Unity Methods
         private void Awake()
         {
+            // Create a singleton
+            if (_instance != null && _instance != this)
+            {
+                Destroy(this.gameObject);
+            } else {
+                _instance = this;
+            }
+            
+            
             // Critical
             // This makes sure we can use PhotonNetwork.LoadLevel() on the master client 
             // and all clients in the same room sync their level automatically
@@ -51,9 +66,20 @@ namespace HYDAC.Scripts.PUN
                 return;
             }
 #endif
-            
+            // Subscribe to scene load
+            SceneManager.sceneLoaded += OnSceneLoaded;
+
             // Subscribe to UI events
             netUI.EUIRequestJoinRoom += OnUIRequestedJoinRoom;
+        }
+
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            Debug.Log("#NetManager#-------------Scene Loaded: " + scene.name);
+            
+            if(scene.name.Equals(netSettings.NetworkSceneName))
+                netEvents.SetupNetRoom();
         }
 
         #endregion
@@ -173,5 +199,7 @@ namespace HYDAC.Scripts.PUN
         }
         
         #endregion
+
+
     }
 }

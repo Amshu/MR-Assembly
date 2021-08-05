@@ -55,6 +55,8 @@ namespace HYDAC.Scripts
         
         private void OnFocusModuleHolderReady(Transform holderTransform)
         {
+            Debug.Log("#AddressableManager#-------------Setting Focused Module Holder");
+            
             _focusedModuleHolderTransform = holderTransform;
             
             netEvents.EFocusedModuleHolderReady -= OnFocusModuleHolderReady;
@@ -84,6 +86,8 @@ namespace HYDAC.Scripts
         {
             if (!_isInitialised) return;
 
+            Debug.Log("#AddressableManager#-------------Module Changed");
+            
             if (_currentModuleTransform != null)
             {
                 _currentModuleReference.ReleaseInstance(_currentModuleTransform.gameObject);
@@ -93,7 +97,7 @@ namespace HYDAC.Scripts
             
             _currentModuleReference.InstantiateAsync(_focusedModuleHolderTransform).Completed += (handle) =>
             {
-                Debug.Log("#AddressableManager#-------------Model Instantiated");
+                Debug.Log("#AddressableManager#-------------Module Instantiated");
                 
                 _currentModuleTransform = handle.Result.transform;
                 _currentModuleTransform.position = _focusedModuleHolderTransform.position;

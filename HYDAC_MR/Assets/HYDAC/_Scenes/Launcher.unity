@@ -760,9 +760,8 @@ GameObject:
   m_Component:
   - component: {fileID: 594330859}
   - component: {fileID: 594330860}
-  - component: {fileID: 594330861}
   m_Layer: 0
-  m_Name: Managers
+  m_Name: NetManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -795,26 +794,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   netSettings: {fileID: 11400000, guid: cf429891af513e24885b20e61403fef0, type: 2}
-  netUI: {fileID: 11400000, guid: c1faddd1ebb4b3946bf48fbd36582aa2, type: 2}
---- !u!114 &594330861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 594330858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188c8d4588c39bd4d8a04e7cad3c07dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   netEvents: {fileID: 11400000, guid: a45cb5bad37b0dd4da0dcb890b84c938, type: 2}
-  assemblyEvents: {fileID: 0}
-  modelPrefabRefToLoad:
-    m_AssetGUID: abd5eb0d4638493499f37585851bc892
-    m_SubObjectName: 
-    m_SubObjectType: 
-  machineWorldTransform: {fileID: 807467816}
+  netUI: {fileID: 11400000, guid: c1faddd1ebb4b3946bf48fbd36582aa2, type: 2}
 --- !u!1 &807467815
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +805,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 807467816}
+  - component: {fileID: 807467817}
   m_Layer: 0
   m_Name: ModelTransform
   m_TagString: Untagged
@@ -845,6 +827,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &807467817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807467815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188c8d4588c39bd4d8a04e7cad3c07dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  netEvents: {fileID: 11400000, guid: a45cb5bad37b0dd4da0dcb890b84c938, type: 2}
+  assemblyEvents: {fileID: 11400000, guid: ba06f5fa1a198854786cff79e379e528, type: 2}
+  modelPrefabRefToLoad:
+    m_AssetGUID: c79696c6da16ec142b29638cb6ae601a
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  machineWorldTransform: {fileID: 807467816}
 --- !u!1 &980045907
 GameObject:
   m_ObjectHideFlags: 0
