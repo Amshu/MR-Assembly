@@ -1,8 +1,9 @@
 using System;
-using HYDAC.Scripts.MOD.SInfo;
-using HYDAC.SOCS;
 using TMPro;
 using UnityEngine;
+
+using HYDAC.Scripts.SOCS;
+using HYDAC.Scripts.INFO;
 
 namespace HYDAC.Scripts
 {

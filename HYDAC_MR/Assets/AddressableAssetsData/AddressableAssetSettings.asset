@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
-  m_DefaultGroup: 6f03ed0194e8a054db2bc1027faf58ee
+  m_DefaultGroup: ee0517a6ae00cdf4fa2059332c6d2970
   m_OptimizeCatalogSize: 0
-  m_BuildRemoteCatalog: 0
+  m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
   m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 0
@@ -30,14 +30,18 @@ MonoBehaviour:
   m_MonoScriptBundleNaming: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: e467318fa5f306742a4dddf86383e782
   m_RemoteCatalogLoadPath:
-    m_Id: 
+    m_Id: fac44377faa601845bfb16acb87f65a5
   m_ContentStateBuildPath: 
   m_overridePlayerVersion: 
   m_GroupAssets:
   - {fileID: 11400000, guid: 75da06d1e50c4a0419ce2f0d8153cb40, type: 2}
+  - {fileID: 11400000, guid: 9ab29c90c9f2b9142a0ac0fa0c4c2e70, type: 2}
+  - {fileID: 11400000, guid: 5a6367ad49006704babca42bb3b409bd, type: 2}
   - {fileID: 11400000, guid: b4554fcef95c2d44bbee341d276aad73, type: 2}
+  - {fileID: 11400000, guid: dfacffedae03d044d9d1612270df9d4e, type: 2}
+  - {fileID: 11400000, guid: 06722917ac3474d429a659824e47fe9b, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -58,7 +62,21 @@ MonoBehaviour:
       - m_Id: e467318fa5f306742a4dddf86383e782
         m_Value: ServerData/[BuildTarget]
       - m_Id: fac44377faa601845bfb16acb87f65a5
-        m_Value: http://localhost/[BuildTarget]
+        m_Value: https://mrassemblydb.blob.core.windows.net/[BuildTarget]
+    - m_InheritedParent: 
+      m_Id: 8684c990c150ee34d8d54e499ec6c2fd
+      m_ProfileName: AzureBlob
+      m_Values:
+      - m_Id: 97376616cc5c3144d98ae98c5f479753
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: e0a8b5d030ba1254fbd9f510b26bb9a7
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: 8abb9f039452c4d40a2942a5edde11fc
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: e467318fa5f306742a4dddf86383e782
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: fac44377faa601845bfb16acb87f65a5
+        m_Value: https://mrassemblydb.blob.core.windows.net/[BuildTarget]
     m_ProfileEntryNames:
     - m_Id: 97376616cc5c3144d98ae98c5f479753
       m_Name: BuildTarget
@@ -78,8 +96,14 @@ MonoBehaviour:
     m_ProfileVersion: 1
   m_LabelTable:
     m_LabelNames:
-    - default
+    - Default
+    - Remote
+    - Scenes
+    - Settings
+    - Assembly
     - Module
+    - Info
+    - Prefab
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: daba48c9d193bf74ebd599192999b2f1, type: 2}

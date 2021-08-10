@@ -2,8 +2,8 @@
 using Photon.Pun;
 using Photon.Realtime;
 
-using HYDAC.SOCS.NET;
-using UnityEngine.SceneManagement;
+using HYDAC.Scripts.SOCS;
+using HYDAC.Scripts.SOCS.NET;
 
 namespace HYDAC.Scripts.PUN
 {
@@ -15,26 +15,18 @@ namespace HYDAC.Scripts.PUN
     {
         // Singleton instances
         private static NetManager _instance;
-        public static NetManager Instance { get { return _instance; } }
+
+        public bool connectOnStart;
         
-        
-        private const string PCTESTROOMNAME = "T_PCLauncher";
-        private const string DEFAULTROOMNAME = "HYDAC_DRoomA";
-        
-        [SerializeField] private SocNetSettings netSettings;
+        [SerializeField] private SocMainSettings settings;
         [SerializeField] private SocNetEvents netEvents;
         [SerializeField] private SocNetUI netUI;
         
-        #region Private and Public Attributes
-
-        // Private Attributes
         private RoomOptions _roomOptions;
 
         private bool _isConnecting;
         private string _networkRoomName;
         
-        #endregion
-
         
         #region Unity Methods
         private void Awake()
@@ -43,10 +35,11 @@ namespace HYDAC.Scripts.PUN
             if (_instance != null && _instance != this)
             {
                 Destroy(this.gameObject);
-            } else {
+            } 
+            else 
+            {
                 _instance = this;
             }
-            
             
             // Critical
             // This makes sure we can use PhotonNetwork.LoadLevel() on the master client 
@@ -55,31 +48,18 @@ namespace HYDAC.Scripts.PUN
             
             // Set default room options
             _roomOptions = new RoomOptions();
-            _roomOptions.MaxPlayers = netSettings.MaxPlayersPerRoom;
-            _roomOptions.IsVisible = netSettings.IsRoomVisible;
-            _roomOptions.IsOpen = netSettings.IsRoomOpen;
-
-#if UNITY_EDITOR
-            if (SceneManager.GetActiveScene().name.Equals(PCTESTROOMNAME))
+            _roomOptions.MaxPlayers = settings.MaxPlayersPerRoom;
+            _roomOptions.IsVisible = settings.IsRoomVisible;
+            _roomOptions.IsOpen = settings.IsRoomOpen;
+            
+            if (connectOnStart)
             {
-                OnUIRequestedJoinRoom(DEFAULTROOMNAME);
+                OnUIRequestedJoinRoom(settings.DefaultNetRoomName);
                 return;
             }
-#endif
-            // Subscribe to scene load
-            SceneManager.sceneLoaded += OnSceneLoaded;
 
             // Subscribe to UI events
             netUI.EUIRequestJoinRoom += OnUIRequestedJoinRoom;
-        }
-
-
-        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-        {
-            Debug.Log("#NetManager#-------------Scene Loaded: " + scene.name);
-            
-            if(scene.name.Equals(netSettings.NetworkSceneName))
-                netEvents.SetupNetRoom();
         }
 
         #endregion
@@ -107,7 +87,7 @@ namespace HYDAC.Scripts.PUN
             if(!PhotonNetwork.IsConnected)
             {
                 // Connect to the Photon Network (server) 
-                PhotonNetwork.GameVersion = netSettings.GameVersion;
+                PhotonNetwork.GameVersion = settings.GameVersion;
                 PhotonNetwork.ConnectUsingSettings();
             }
             else
@@ -121,19 +101,6 @@ namespace HYDAC.Scripts.PUN
         
         
         #region Photon Callbacks
-        
-        /// <summary>
-        /// ON JOIN ROOM REQUEST
-        /// --------------------
-        /// -> Connect to given room if connected to Photon network
-        /// </summary>
-        private void JoinRoom(string roomName)
-        {
-            if (!PhotonNetwork.IsConnected) return;
-            
-            PhotonNetwork.JoinOrCreateRoom(_networkRoomName, _roomOptions, TypedLobby.Default);
-        }
-        
         
         /// <summary>
         /// ON CONNECT TO PHOTON NETWORK
@@ -154,6 +121,19 @@ namespace HYDAC.Scripts.PUN
         
         
         /// <summary>
+        /// ON JOIN ROOM REQUEST
+        /// --------------------
+        /// -> Connect to given room if connected to Photon network
+        /// </summary>
+        private void JoinRoom(string roomName)
+        {
+            if (!PhotonNetwork.IsConnected) return;
+            
+            PhotonNetwork.JoinOrCreateRoom(_networkRoomName, _roomOptions, TypedLobby.Default);
+        }
+        
+
+        /// <summary>
         /// ON ROOM JOINED SUCCESSFULLY
         /// ---------------------------
         /// -> Set isConnecting to false and clear connecting room name
@@ -172,11 +152,7 @@ namespace HYDAC.Scripts.PUN
             // to sync our instance scene.
             if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
             {
-                Debug.Log("Loading VR Room");
-
-                // Critical
-                // Load the Room Level.
-                PhotonNetwork.LoadLevel(netSettings.NetworkSceneName);
+                netEvents.InvokeJoinedRoom(settings.NetworkSceneRef.AssetGUID);
             }
         }
         
@@ -184,6 +160,7 @@ namespace HYDAC.Scripts.PUN
         public override void OnDisconnected(DisconnectCause cause)
         {
             Debug.LogWarningFormat("#NETManager#-------------OnDisconnected(): {0}", cause.ToString());
+            netEvents.InvokeNetworkDisconnect();
         }
         
         
@@ -196,6 +173,8 @@ namespace HYDAC.Scripts.PUN
             // We failed to join a random room (room may not exist or room may be already full)
             // So, we create a new room.
             // PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = maxPlayersPerRoom });
+            
+            netEvents.InvokeJoinRoomFailed();
         }
         
         #endregion

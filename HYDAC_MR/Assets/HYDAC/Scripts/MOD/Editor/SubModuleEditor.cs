@@ -1,7 +1,8 @@
 ﻿using System;
-using HYDAC.Scripts.MOD.SInfo;
 using UnityEditor;
 using UnityEngine;
+
+using HYDAC.Scripts.INFO;
 
 namespace HYDAC.Scripts.MOD.Editor
 {

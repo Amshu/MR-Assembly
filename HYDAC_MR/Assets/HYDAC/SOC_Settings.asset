@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 032d4da8934147c99cf7faf0ea855d6a, type: 3}
+  m_Name: SOC_Settings
+  m_EditorClassIdentifier: 
+  gameVersion: 1
+  menuSceneRef:
+    m_AssetGUID: f45b2f62db083484a8585e00ad2b0a06
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  networkSceneRef:
+    m_AssetGUID: be179a70608774747b4ff2121d5dcff2
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  maxPlayersPerRoom: 4
+  isRoomVisible: 1
+  isRoomOpen: 1
+  localPlayerPrefab: {fileID: 7517533932637659900, guid: 36f866750126e9b4687a6af7b215f5ae, type: 3}
+  defaultNetRoomName: HYDAC_DRoomA

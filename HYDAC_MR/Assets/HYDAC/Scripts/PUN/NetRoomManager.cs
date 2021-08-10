@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 
-using HYDAC.SOCS.NET;
+using HYDAC.Scripts.SOCS;
+using HYDAC.Scripts.SOCS.NET;
 
 namespace HYDAC.Scripts.PUN
 {
@@ -14,7 +15,7 @@ namespace HYDAC.Scripts.PUN
     /// </summary>
     public class NetRoomManager : MonoBehaviourPunCallbacks
     {
-        [SerializeField] private SocNetSettings netSettings;
+        [SerializeField] private SocMainSettings settings;
         [SerializeField] private SocNetEvents netEvents;
         
         [Space]
@@ -82,7 +83,7 @@ namespace HYDAC.Scripts.PUN
 
             // Spawn a character for the local player
             // This gets synced by using PhotonNetwork.Instantiate
-            PhotonNetwork.Instantiate(netSettings.LocalPlayerPrefab.name, spawnPoint.position, spawnPoint.rotation, 0);
+            PhotonNetwork.Instantiate(settings.LocalPlayerPrefab.name, spawnPoint.position, spawnPoint.rotation, 0);
         }
         
         
@@ -99,7 +100,7 @@ namespace HYDAC.Scripts.PUN
             }
 
             Debug.LogFormat("#NetRoomManager#---------------Loading Level {0}", PhotonNetwork.CurrentRoom);
-            PhotonNetwork.LoadLevel(netSettings.NetworkSceneName);
+            PhotonNetwork.LoadLevel(settings.NetworkSceneRef.SubObjectName);
         }
     }
 }

@@ -1,22 +1,11 @@
 using System;
-using HYDAC.Scripts.MOD.SInfo;
 using UnityEngine;
 using Microsoft.MixedReality.Toolkit.UI;
 
+using HYDAC.Scripts.INFO;
+
 namespace HYDAC.Scripts.MOD
 {
-    public interface IBaseModule
-    {
-        void ToggleFocus(bool toggle);
-        
-        /// <summary>
-        ///  This is for the part in focus 
-        /// </summary>
-        void Reset();
-
-        string GetName();
-    }
-    
     public class AssemblyModule : AUnit
     {
         internal event Action<SModuleInfo> EOnClicked;

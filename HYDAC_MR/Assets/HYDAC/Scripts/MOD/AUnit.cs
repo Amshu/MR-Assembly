@@ -1,5 +1,6 @@
-using HYDAC.Scripts.MOD.SInfo;
 using UnityEngine;
+
+using HYDAC.Scripts.INFO;
 
 namespace HYDAC.Scripts.MOD
 {
