@@ -65,7 +65,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 16526572b35ecaa4ba781a0bff18ab12, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: ed007ecac5cf2974eb1b4f92fe854754, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -358,7 +358,6 @@ GameObject:
   - component: {fileID: 5500125940377785027}
   - component: {fileID: 5909312542109807262}
   - component: {fileID: 6158362366899212950}
-  - component: {fileID: 9163150451372941936}
   m_Layer: 0
   m_Name: Logo
   m_TagString: Untagged
@@ -407,7 +406,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 58d0c01dcfa2b2e419568a3f9672c04d, type: 2}
+  - {fileID: 2100000, guid: dc2d9e3368a5ce749a079b643926da8a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -429,20 +428,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &9163150451372941936
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6245533577140399296}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &6271043766351667849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,7 +1010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6271043767512474814
 Transform:
   m_ObjectHideFlags: 0
@@ -1067,7 +1052,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 13a6bafb89ca6414895d965b2fdb2041, type: 2}
+  - {fileID: 2100000, guid: ff361a4fb745a7b46b386cfc893fd237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1148,7 +1133,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 762ee309ef36e42418a2f1eb12102129, type: 2}
+  - {fileID: 2100000, guid: ff361a4fb745a7b46b386cfc893fd237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1265,7 +1250,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 762ee309ef36e42418a2f1eb12102129, type: 2}
+  - {fileID: 2100000, guid: ff361a4fb745a7b46b386cfc893fd237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1304,7 +1289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6271043768414219877
 Transform:
   m_ObjectHideFlags: 0
@@ -1346,7 +1331,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 13a6bafb89ca6414895d965b2fdb2041, type: 2}
+  - {fileID: 2100000, guid: ff361a4fb745a7b46b386cfc893fd237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1826,6 +1811,10 @@ PrefabInstance:
       propertyPath: iconQuadTexture
       value: 
       objectReference: {fileID: 2800000, guid: 559e1da0e65611c4f93ec931e1e6a8a2, type: 3}
+    - target: {fileID: 8462050131385742261, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
 --- !u!4 &664969865720406406 stripped
@@ -1868,6 +1857,10 @@ PrefabInstance:
       propertyPath: iconQuadTexture
       value: 
       objectReference: {fileID: 2800000, guid: bb1b4a9241fba2042a81428e917afd5d, type: 3}
+    - target: {fileID: 8462050131385742261, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
 --- !u!4 &2845152976040362351 stripped
@@ -1942,26 +1935,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5460029072799427638, guid: c3396594699edcf4bab10accda067603, type: 3}
-      propertyPath: m_text
-      value: Create Room
-      objectReference: {fileID: 0}
-    - target: {fileID: 5460029072799427638, guid: c3396594699edcf4bab10accda067603, type: 3}
-      propertyPath: m_fontSize
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5460029072799427638, guid: c3396594699edcf4bab10accda067603, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: a15c149b8c585f64c83622ed3a2b89eb, type: 2}
-    - target: {fileID: 5460029072799427638, guid: c3396594699edcf4bab10accda067603, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 830385235976933498, guid: a15c149b8c585f64c83622ed3a2b89eb, type: 2}
-    - target: {fileID: 5460029072799427657, guid: c3396594699edcf4bab10accda067603, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 830385235976933498, guid: a15c149b8c585f64c83622ed3a2b89eb, type: 2}
     - target: {fileID: 7818068611932257547, guid: c3396594699edcf4bab10accda067603, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1982,15 +1955,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_HUI_Room
       objectReference: {fileID: 0}
-    - target: {fileID: 7928660730878087505, guid: c3396594699edcf4bab10accda067603, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3396594699edcf4bab10accda067603, type: 3}
 --- !u!4 &8561220927118758903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4635813803826178738, guid: c3396594699edcf4bab10accda067603, type: 3}
+  m_PrefabInstance: {fileID: 3934502326473374021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6382282267891820564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7928660730878087505, guid: c3396594699edcf4bab10accda067603, type: 3}
   m_PrefabInstance: {fileID: 3934502326473374021}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4075204687872428206
@@ -2024,6 +1998,10 @@ PrefabInstance:
       propertyPath: iconQuadTexture
       value: 
       objectReference: {fileID: 2800000, guid: ed2f699f32ec17f4cad3423d2c449119, type: 3}
+    - target: {fileID: 8462050131385742261, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
 --- !u!4 &3828676908358077516 stripped
@@ -2090,6 +2068,26 @@ PrefabInstance:
       propertyPath: iconSet
       value: 
       objectReference: {fileID: 11400000, guid: 327c1bc604b1fcb459cfcf93a406e8f8, type: 2}
+    - target: {fileID: 7705431104546712736, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705431104546712736, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6382282267891820564}
+    - target: {fileID: 7705431104546712736, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705431104546712736, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462050131385742261, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0609d943a01dbd44a31aefa6a11f50c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
 --- !u!4 &5301111352724458984 stripped
@@ -2160,6 +2158,30 @@ PrefabInstance:
       propertyPath: iconQuadTexture
       value: 
       objectReference: {fileID: 2800000, guid: 7de780622ddab5e49b73d5d7a806faf9, type: 3}
+    - target: {fileID: 7705431104546712736, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705431104546712736, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6382282267891820564}
+    - target: {fileID: 7705431104546712736, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705431104546712736, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705431104546712736, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462050131385742261, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0609d943a01dbd44a31aefa6a11f50c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
 --- !u!4 &4762605072022290928 stripped
@@ -2245,14 +2267,9 @@ PrefabInstance:
     - target: {fileID: 6326842415924641645, guid: 9215a7c858170d74fb2257375d5feaf1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 953a8fb0a5367fb49acf2307d2a79ea6, type: 2}
+      objectReference: {fileID: 2100000, guid: ed007ecac5cf2974eb1b4f92fe854754, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9215a7c858170d74fb2257375d5feaf1, type: 3}
---- !u!23 &56942278675932595 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6326842415924641645, guid: 9215a7c858170d74fb2257375d5feaf1, type: 3}
-  m_PrefabInstance: {fileID: 6271043766784744158}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6856098396003027087 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 586303850521236049, guid: 9215a7c858170d74fb2257375d5feaf1, type: 3}
@@ -2261,6 +2278,11 @@ Transform:
 --- !u!1 &4168764721356755755 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7988634196090784245, guid: 9215a7c858170d74fb2257375d5feaf1, type: 3}
+  m_PrefabInstance: {fileID: 6271043766784744158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &56942278675932595 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6326842415924641645, guid: 9215a7c858170d74fb2257375d5feaf1, type: 3}
   m_PrefabInstance: {fileID: 6271043766784744158}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6271043767746560601
@@ -2529,6 +2551,10 @@ PrefabInstance:
       propertyPath: iconQuadTexture
       value: 
       objectReference: {fileID: 2800000, guid: 937867e9be7912d4a903cd401ee0a959, type: 3}
+    - target: {fileID: 8462050131385742261, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
 --- !u!4 &5924210626257036883 stripped
@@ -2611,6 +2637,22 @@ PrefabInstance:
       propertyPath: iconQuadTexture
       value: 
       objectReference: {fileID: 2800000, guid: ac8550a474419054d9621216812fd098, type: 3}
+    - target: {fileID: 7705431104546712736, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705431104546712736, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6382282267891820564}
+    - target: {fileID: 7705431104546712736, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705431104546712736, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7815426756059462649, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
       propertyPath: m_Size.x
       value: 5.12
@@ -2627,6 +2669,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8462050131385742261, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0609d943a01dbd44a31aefa6a11f50c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f72ca8f5be6ea4abc2f007f9b04aa9, type: 3}
 --- !u!4 &7933090172073692074 stripped
