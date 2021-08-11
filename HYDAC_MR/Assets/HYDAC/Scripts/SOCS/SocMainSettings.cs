@@ -34,7 +34,7 @@ namespace HYDAC.Scripts.SOCS
         [SerializeField] private GameObject localPlayerPrefab;
         public GameObject LocalPlayerPrefab => localPlayerPrefab;
 
-        [Header("Debug Settings")] [Space] 
+        [Header("Debug Settings")] [Space]
         [SerializeField] private string defaultNetRoomName;
         public string DefaultNetRoomName => defaultNetRoomName;
     }

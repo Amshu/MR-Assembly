@@ -147,13 +147,15 @@ namespace HYDAC.Scripts.PUN
             _isConnecting = false;
             _networkRoomName = "";
             
-            // Critical
-            // We only load if we are the first player, else we rely on `PhotonNetwork.AutomaticallySyncScene` 
-            // to sync our instance scene.
-            if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
-            {
-                netEvents.InvokeJoinedRoom(settings.NetworkSceneRef.AssetGUID);
-            }
+            netEvents.InvokeJoinedRoom(settings.NetworkSceneRef.AssetGUID);
+            
+            // // Critical
+            // // We only load if we are the first player, else we rely on `PhotonNetwork.AutomaticallySyncScene` 
+            // // to sync our instance scene.
+            // if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+            // {
+            //     netEvents.InvokeJoinedRoom(settings.NetworkSceneRef.AssetGUID);
+            // }
         }
         
         

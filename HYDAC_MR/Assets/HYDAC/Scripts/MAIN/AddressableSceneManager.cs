@@ -34,7 +34,7 @@ namespace HYDAC.Scripts.MAIN
 
         private void OnRoomJoined(string addressableKey)
         {
-            throw new System.NotImplementedException();
+            LoadLevel(addressableKey);
         }
 
 
@@ -44,6 +44,7 @@ namespace HYDAC.Scripts.MAIN
             {
                 Debug.Log("#AddressableSceneManager#----------------Initialised");
 
+                
                 _isInitialised = true;
             
                 // Load menu scene once Addressables is initialised
