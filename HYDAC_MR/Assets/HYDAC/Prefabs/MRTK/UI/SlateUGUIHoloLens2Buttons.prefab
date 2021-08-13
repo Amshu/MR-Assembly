@@ -220,7 +220,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
-  m_textAlignment: 257
+  m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -420,7 +420,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
-  m_textAlignment: 257
+  m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -567,8 +567,8 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 513
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -842,7 +842,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8883898227533591967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1001,6 +1001,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2887137240106937465, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3223503682983743344, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
       propertyPath: m_textInfo.lineCount
       value: 0
@@ -1145,6 +1165,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
 --- !u!224 &2344299674531601139 stripped
@@ -1159,6 +1195,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5683824606877233120}
     m_Modifications:
+    - target: {fileID: 4905960049946218014, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 4905960049946218014, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 4905960049946218014, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4905960049946218014, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5234426576715676736, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1270,6 +1322,22 @@ PrefabInstance:
     - target: {fileID: 5234426576715676748, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
       propertyPath: m_Name
       value: PressableButtonUnityUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234426577528310582, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234426577528310582, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234426577528310582, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234426577528310582, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
@@ -1667,6 +1735,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5683824606877233120}
     m_Modifications:
+    - target: {fileID: 7392010626911569726, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392010626911569726, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392010626911569726, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392010626911569726, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7648415161697908064, guid: c31734863d3bf254191878828a9e17e6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1779,6 +1863,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressableButtonUnityUICircular (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7648415162504249878, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648415162504249878, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648415162504249878, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648415162504249878, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c31734863d3bf254191878828a9e17e6, type: 3}
 --- !u!224 &4575146981308153596 stripped
@@ -1804,6 +1904,26 @@ PrefabInstance:
     - target: {fileID: 687907946893789939, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
       propertyPath: m_LocalScale.z
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2887137240106937465, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3223503682983743344, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
       propertyPath: m_textInfo.lineCount
@@ -1949,6 +2069,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
 --- !u!224 &5666186147431753799 stripped
@@ -1974,6 +2110,26 @@ PrefabInstance:
     - target: {fileID: 687907946893789939, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
       propertyPath: m_LocalScale.z
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2887137240106937465, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3223503682983743344, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
       propertyPath: m_textInfo.lineCount
@@ -2119,6 +2275,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
 --- !u!224 &5734189727407907018 stripped
@@ -2133,6 +2305,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5683824606877233120}
     m_Modifications:
+    - target: {fileID: 7392010626911569726, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392010626911569726, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392010626911569726, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392010626911569726, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7648415161697908064, guid: c31734863d3bf254191878828a9e17e6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -2244,6 +2432,22 @@ PrefabInstance:
     - target: {fileID: 7648415161697908076, guid: c31734863d3bf254191878828a9e17e6, type: 3}
       propertyPath: m_Name
       value: PressableButtonUnityUICircular
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648415162504249878, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648415162504249878, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648415162504249878, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648415162504249878, guid: c31734863d3bf254191878828a9e17e6, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c31734863d3bf254191878828a9e17e6, type: 3}
@@ -3139,6 +3343,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5683824606877233120}
     m_Modifications:
+    - target: {fileID: 4905960049946218014, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 4905960049946218014, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 4905960049946218014, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4905960049946218014, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5234426576715676736, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -3251,6 +3471,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressableButtonUnityUI (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5234426577528310582, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234426577528310582, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234426577528310582, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234426577528310582, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df89e360642c6fc46abbc1c2656856f6, type: 3}
 --- !u!224 &4456319918300965918 stripped
@@ -3276,6 +3512,26 @@ PrefabInstance:
     - target: {fileID: 687907946893789939, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
       propertyPath: m_LocalScale.z
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309568241771858520, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2887137240106937465, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3223503682983743344, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
       propertyPath: m_textInfo.lineCount
@@ -3420,6 +3676,22 @@ PrefabInstance:
     - target: {fileID: 5171175689000978014, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
       propertyPath: m_LocalScale.z
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703145284943914786, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f626628bde0879488068de0e9f25f8d, type: 3}

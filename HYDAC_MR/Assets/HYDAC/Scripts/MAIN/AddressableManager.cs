@@ -1,9 +1,7 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.SceneManagement;
 
 using HYDAC.Scripts.INFO;
 using HYDAC.Scripts.MOD;
@@ -44,10 +42,7 @@ namespace HYDAC.Scripts.MAIN
 
             _isInitialised = true;
             
-            if (_isNetworkScene)
-            { 
-                LoadModel();  
-            }
+            LoadModel();
         }
 
 

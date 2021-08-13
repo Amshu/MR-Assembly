@@ -612,7 +612,7 @@ MonoBehaviour:
   assemblyEvents: {fileID: 11400000, guid: ba06f5fa1a198854786cff79e379e528, type: 2}
   netEvents: {fileID: 11400000, guid: a45cb5bad37b0dd4da0dcb890b84c938, type: 2}
   modelPrefabRefToLoad:
-    m_AssetGUID: c79696c6da16ec142b29638cb6ae601a
+    m_AssetGUID: c007820ecb377374a90d84ebf5857c59
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
@@ -869,7 +869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aaa5ef6c04bbef4c94763e601a45b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 0}
+  settings: {fileID: 11400000, guid: 5bc6afe6ed5648659716ee37b2aea24b, type: 2}
   netEvents: {fileID: 11400000, guid: a45cb5bad37b0dd4da0dcb890b84c938, type: 2}
   playerSpawnPoint: {fileID: 0}
 --- !u!4 &1344979312
@@ -887,11 +887,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1353476933 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5036397145824847023, guid: c79696c6da16ec142b29638cb6ae601a, type: 3}
-  m_PrefabInstance: {fileID: 1868938017}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1645750187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,7 +1168,7 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1353476933}
+  - {fileID: 1868938018}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -1742,6 +1737,11 @@ PrefabInstance:
       objectReference: {fileID: 114927192352316934, guid: 34ee3cfe920741640a78b895a3aff696, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c79696c6da16ec142b29638cb6ae601a, type: 3}
+--- !u!4 &1868938018 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1868938017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8862055294972898
 GameObject:
   m_ObjectHideFlags: 0
