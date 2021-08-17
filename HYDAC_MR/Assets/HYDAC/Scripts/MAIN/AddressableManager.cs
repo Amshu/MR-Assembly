@@ -1,28 +1,23 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 using HYDAC.Scripts.INFO;
-using HYDAC.Scripts.MOD;
 using HYDAC.Scripts.SOCS;
-using HYDAC.Scripts.SOCS.NET;
 
 namespace HYDAC.Scripts.MAIN
 {
     public class AddressableManager : MonoBehaviour
     {
         [SerializeField] private SocAssemblyEvents assemblyEvents;
-        [SerializeField] private SocNetEvents netEvents;
-
-        [SerializeField] private AssetReference modelPrefabRefToLoad;
+        
+        [Space]
         [SerializeField] private Transform machineWorldTransform;
         [SerializeField] private Transform focusedModuleHolderTransform;
 
-        private bool _isNetworkScene;
         private bool _isInitialised;
-        
-        private GameObject _loadedModel;
         
         private AssetReference _currentModuleReference;
         private Transform _currentModuleTransform;
@@ -32,19 +27,54 @@ namespace HYDAC.Scripts.MAIN
             Addressables.InitializeAsync();
             Addressables.InitializeAsync().Completed += OnAddressablesInitialised;
 
+            assemblyEvents.EAssemblySelected += OnAssemblySelected;
             assemblyEvents.ECurrentModuleChange += OnCurrentModuleChange;
         }
 
-
+        
         private void OnAddressablesInitialised(AsyncOperationHandle<IResourceLocator> obj)
         {
             Debug.Log("#AddressableManager#-------------Initialised");
 
             _isInitialised = true;
-            
-            LoadModel();
+        }
+        
+        
+        private void OnAssemblySelected(SCatalogueInfo info)
+        {
+            StartCoroutine(DownloadAssemblyDependencies(info.AssemblyFolderKey));
         }
 
+        
+        IEnumerator DownloadAssemblyDependencies(string assetFolderKey)
+        {
+            AsyncOperationHandle<long> downloadSize = Addressables.GetDownloadSizeAsync(assetFolderKey);
+            
+            Debug.Log("#AddressableManager#-------------Download size: " + downloadSize.Result);
+
+            AsyncOperationHandle handle = Addressables.DownloadDependenciesAsync(assetFolderKey, true);
+            handle.Completed += OnDownloadComplete;
+            
+            while (!handle.IsDone)
+            {
+                Debug.Log("#AddressableManager#-------------Download progress " + handle.PercentComplete);
+                
+                yield return new WaitForSeconds(1f);
+            }
+        } 
+        
+        
+        private void OnDownloadComplete(AsyncOperationHandle obj) 
+        {
+            Debug.Log("#AddressableManager#-------------Loading asset");
+            AsyncOperationHandle handle = Addressables.InstantiateAsync(assemblyEvents.CurrentCatalogue.AssemblyPrefab, machineWorldTransform);
+
+            handle.Completed += operationHandle =>
+            {
+                Debug.Log("#AddressableManager#-------------Assembly intantiated");
+            };
+        }
+        
 
         public void OnCurrentModuleChange(SModuleInfo moduleInfo)
         {
@@ -70,19 +100,19 @@ namespace HYDAC.Scripts.MAIN
         }
 
         
-        private void LoadModel()
-        {
-            modelPrefabRefToLoad.InstantiateAsync().Completed += (loadedAsset) =>
-            {
-                Debug.Log("#AddressableManager#-------------Model Instantiated");
-                
-                _loadedModel = loadedAsset.Result;
-                _loadedModel.transform.position = machineWorldTransform.position;
-                _loadedModel.transform.rotation = machineWorldTransform.rotation;
-
-                assemblyEvents.OnModelLoaded(_loadedModel.GetComponent<BaseAssembly>().Info as SAssemblyInfo);
-            };
-        }
+        // private void LoadModel()
+        // {
+        //     modelPrefabRefToLoad.InstantiateAsync().Completed += (loadedAsset) =>
+        //     {
+        //         Debug.Log("#AddressableManager#-------------Model Instantiated");
+        //         
+        //         _loadedModel = loadedAsset.Result;
+        //         _loadedModel.transform.position = machineWorldTransform.position;
+        //         _loadedModel.transform.rotation = machineWorldTransform.rotation;
+        //
+        //         //assemblyEvents.OnModelLoaded(_loadedModel.GetComponent<BaseAssembly>().Info as SAssemblyInfo);
+        //     };
+        // }
 
         
         private void OnDestroy()
@@ -91,8 +121,8 @@ namespace HYDAC.Scripts.MAIN
             
             assemblyEvents.ECurrentModuleChange -= OnCurrentModuleChange;
             
-            if(_loadedModel)
-                modelPrefabRefToLoad.ReleaseInstance(_loadedModel);
+            //if(_loadedModel)
+                //modelPrefabRefToLoad.ReleaseInstance(_loadedModel);
         }
     }
 }

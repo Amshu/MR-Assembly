@@ -3,11 +3,14 @@ using UnityEngine;
 using Microsoft.MixedReality.Toolkit.UI;
 
 using HYDAC.Scripts.INFO;
+using UnityEngine.AddressableAssets;
 
 namespace HYDAC.Scripts.MOD
 {
     public class AssemblyModule : AUnit
     {
+        private SModuleInfo MInfo => info as SModuleInfo;
+
         internal event Action<SModuleInfo> EOnClicked;
         
         private Interactable _interactable = null;
@@ -15,17 +18,25 @@ namespace HYDAC.Scripts.MOD
 
         private void Awake()
         {
-            _interactable = GetComponent<Interactable>();
+            if(MInfo.isViewable)
+                _interactable = GetComponent<Interactable>();
+        }
+
+        private void Start()
+        {
+            Addressables.InstantiateAsync(MInfo.LowPolyReference, transform);
         }
 
         private void OnEnable()
         {
-            _interactable.OnClick.AddListener(OnInteractableClicked);
+            if(MInfo.isViewable)
+                _interactable.OnClick.AddListener(OnInteractableClicked);
         }
         
         private void OnDisable()
         {
-            _interactable.OnClick.RemoveListener(OnInteractableClicked);
+            if(MInfo.isViewable)
+                _interactable.OnClick.RemoveListener(OnInteractableClicked);
         }
 
         private void OnInteractableClicked()

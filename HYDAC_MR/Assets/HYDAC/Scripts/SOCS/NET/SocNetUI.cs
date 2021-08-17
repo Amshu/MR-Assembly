@@ -12,6 +12,7 @@ namespace HYDAC.Scripts.SOCS.NET
         public event Action<string> EUIRequestJoinRoom;
         public void OnUIRequestJoinRoom(string roomName)
         {
+            Debug.Log("#SocNetUI#-----------Join Room requested");
             EUIRequestJoinRoom?.Invoke(roomName);
         }
 

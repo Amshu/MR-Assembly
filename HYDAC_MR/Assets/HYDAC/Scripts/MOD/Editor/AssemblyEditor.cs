@@ -34,7 +34,7 @@ namespace HYDAC.Scripts.MOD.Editor
 
             if (GUILayout.Button("Create Assembly Info"))
             {
-                SAssemblyInfo info = ScriptableObject.CreateInstance<SAssemblyInfo>();
+                SCatalogueInfo info = ScriptableObject.CreateInstance<SCatalogueInfo>();
 
                 info.ID = Convert.ToInt32(ID);
                 info.iname = myScript.gameObject.name;

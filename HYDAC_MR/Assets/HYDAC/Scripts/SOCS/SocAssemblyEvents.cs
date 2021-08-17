@@ -11,19 +11,19 @@ namespace HYDAC.Scripts.SOCS
         public bool IsInitialised = false;
         
         
-        private SAssemblyInfo _currentAssembly = null;
-        public SAssemblyInfo CurrentAssembly => _currentAssembly;
+        private SCatalogueInfo _currentCatalogue = null;
+        public SCatalogueInfo CurrentCatalogue => _currentCatalogue;
         
         
         private SModuleInfo _currentFocusedModule = null;
         public SModuleInfo CurrentFocusedModule => _currentFocusedModule;
         
         
-        public event Action<SAssemblyInfo> EAssemblyLoad;
-        internal void OnModelLoaded(SAssemblyInfo info)
+        public event Action<SCatalogueInfo> EAssemblySelected;
+        internal void OnAssemblySelected(SCatalogueInfo info)
         {
-            _currentAssembly = info;
-            EAssemblyLoad?.Invoke(info);
+            _currentCatalogue = info;
+            EAssemblySelected?.Invoke(info);
         }
         
         
@@ -53,7 +53,7 @@ namespace HYDAC.Scripts.SOCS
 
             IsInitialised = true;
             
-            _currentAssembly = null;
+            _currentCatalogue = null;
             _currentFocusedModule = null;
         }
     }

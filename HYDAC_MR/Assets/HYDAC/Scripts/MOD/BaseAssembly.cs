@@ -36,7 +36,7 @@ namespace HYDAC.Scripts.MOD
                 modules.Add(module.Info as SModuleInfo);
             }
             
-            ((SAssemblyInfo) info).SetModules(modules.ToArray());
+            //((SAssemblyInfo) info).SetModules(modules.ToArray());
         }
 
         private void OnDisable()
