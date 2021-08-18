@@ -34,7 +34,7 @@ namespace HYDAC.Scripts.MAIN
 
         private void OnRoomJoined(string addressableKey)
         {
-            LoadLevel(addressableKey);
+            LoadLevel(addressableKey, true);
         }
 
 
@@ -48,7 +48,7 @@ namespace HYDAC.Scripts.MAIN
                 _isInitialised = true;
             
                 // Load menu scene once Addressables is initialised
-                LoadLevel(settings.MenuSceneRef.AssetGUID);
+                LoadLevel(settings.MenuSceneRef.AssetGUID, false);
             };
         }
         
@@ -59,7 +59,7 @@ namespace HYDAC.Scripts.MAIN
         }
 
         
-        private void LoadLevel(string addressableAssetKey)
+        private void LoadLevel(string addressableAssetKey, bool isNetRoom)
         {
             if (!_isInitialised) return;
 
@@ -73,6 +73,9 @@ namespace HYDAC.Scripts.MAIN
                 Debug.Log("#MenuLevelLoader#----------------Loaded scene");
                 _clearPreviousScene = true;
                 _currentScene = asyncHandle.Result;
+                
+                if(isNetRoom)
+                    netEvents.SetupNetRoom();
             };
         }
 

@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AddressableAssets;
 
 using Photon.Pun;
 using Photon.Realtime;
-
+using ExitGames.Client.Photon;
 using HYDAC.Scripts.SOCS;
 using HYDAC.Scripts.SOCS.NET;
 
@@ -13,12 +14,15 @@ namespace HYDAC.Scripts.PUN
     /// This class is responsible for loading the main scene (Hydac_Factory.unity)
     /// and instantiating players into that scene.
     /// </summary>
-    public class NetRoomManager : MonoBehaviourPunCallbacks
+    public class NetRoomManager : MonoBehaviourPunCallbacks, IOnEventCallback
     {
-        [SerializeField] private SocMainSettings settings;
         [SerializeField] private SocNetEvents netEvents;
-        
-        [Space]
+        [SerializeField] private SocMainSettings settings;
+
+        [Space] 
+        [SerializeField] private int customManualInstantiationEventCode;
+        [SerializeField] private AssetReference playerPrefab;
+        [SerializeField] private GameObject netPlayerPrefab;
         [SerializeField] private Transform playerSpawnPoint;
 
         #region Public and Private Methods
@@ -28,6 +32,18 @@ namespace HYDAC.Scripts.PUN
             netEvents.ENetRoomSetup += OnSetupNetRoom;
         }
 
+        public override void OnEnable()
+        {
+            base.OnEnable();
+            PhotonNetwork.AddCallbackTarget(this);
+        }
+
+        public override void OnDisable()
+        {
+            base.OnDisable();
+            PhotonNetwork.RemoveCallbackTarget(this);
+        }
+        
         private void OnSetupNetRoom()
         {
             Debug.Log("#RoomManager#--------------Setting up room");
@@ -37,6 +53,7 @@ namespace HYDAC.Scripts.PUN
             
             netEvents.ENetRoomSetup -= OnSetupNetRoom;
         }
+
 
         #endregion
 
@@ -80,27 +97,60 @@ namespace HYDAC.Scripts.PUN
         private void InstantiateLocalPlayer(Transform spawnPoint)
         {
             Debug.LogFormat("#NetRoomManager#---------------Instantiating LocalPlayer");
-
-            // Spawn a character for the local player
-            // This gets synced by using PhotonNetwork.Instantiate
-            PhotonNetwork.Instantiate(settings.LocalPlayerPrefab.name, spawnPoint.position, spawnPoint.rotation, 0);
+            
+            PhotonNetwork.Instantiate(netPlayerPrefab.name, spawnPoint.position, spawnPoint.rotation, 0);
+            
+            // Addressables.InstantiateAsync(playerPrefab, spawnPoint).Completed += handle =>
+            // {
+            //     GameObject player = handle.Result;
+            //     
+            //     // Spawn a character for the local player
+            //     // This gets synced by using PhotonNetwork.Instantiate
+            //     //PhotonNetwork.Instantiate(settings.LocalPlayerPrefab.name, spawnPoint.position, spawnPoint.rotation, 0);
+            //     PhotonView photonViewComponent = player.GetComponent<PhotonView>();
+            //
+            //     if (PhotonNetwork.AllocateViewID(photonViewComponent))
+            //     {
+            //         object[] data = new object[]
+            //         {
+            //             player.transform.position, player.transform.rotation, photonViewComponent.ViewID
+            //         };
+            //
+            //         RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+            //         {
+            //             Receivers = ReceiverGroup.Others,
+            //             CachingOption = EventCaching.AddToRoomCache
+            //         };
+            //
+            //         SendOptions sendOptions = new SendOptions
+            //         {
+            //             Reliability = true
+            //         };
+            //
+            //         PhotonNetwork.RaiseEvent((byte) customManualInstantiationEventCode, data, raiseEventOptions, sendOptions);
+            //     }
+            //     else
+            //     {
+            //         Debug.LogError("Failed to allocate a ViewId.");
+            //
+            //         Destroy(player);
+            //     }
+            // };
         }
-        
-        
-        
-        /// <summary>
-        /// Loads the VR room Scene after a connection is made to the Photon Server (via the Launcher)
-        /// </summary>
-        private void LoadArena()
-        {
-            if (!PhotonNetwork.IsMasterClient)
-            {
-                Debug.LogError("#NetRoomManager#---------------Trying to " +
-                               "load a level but we are not the master client");
-            }
 
-            Debug.LogFormat("#NetRoomManager#---------------Loading Level {0}", PhotonNetwork.CurrentRoom);
-            PhotonNetwork.LoadLevel(settings.NetworkSceneRef.SubObjectName);
+        public void OnEvent(EventData photonEvent)
+        {
+            if (photonEvent.Code == customManualInstantiationEventCode)
+            {
+                object[] data = (object[]) photonEvent.CustomData;
+                
+                Addressables.InstantiateAsync(playerPrefab, (Vector3) data[0], (Quaternion) data[1]).Completed += handle =>
+                {
+                    GameObject player = handle.Result;
+                    PhotonView photonViewComponent = player.GetComponent<PhotonView>();
+                    photonViewComponent.ViewID = (int) data[2];
+                };
+            }
         }
     }
 }

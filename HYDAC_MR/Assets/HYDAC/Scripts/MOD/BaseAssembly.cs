@@ -18,8 +18,6 @@ namespace HYDAC.Scripts.MOD
         [SerializeField] private SocAssemblyEvents assemblyEvents;
         [SerializeField] private AssemblyModule[] modules;
 
-        [SerializeField] private SocGameEvent _changeModuleEvent;
-
         // CAUTION: Take care while accessing SAssembly members in Awake -> AssemblyInfo has code to run first
 
         private void OnEnable()
@@ -86,9 +84,7 @@ namespace HYDAC.Scripts.MOD
                 if (module.Info.ID == moduleID)
                 {
                     Debug.Log("#BaseAssembly#------------ModuleFound: " + module.Info.iname);
-                    //assemblyEvents.OnCurrentModuleChange((SModuleInfo)module.Info);
-                    _changeModuleEvent.Raise((SModuleInfo)module.Info);
-                    
+                    assemblyEvents.OnCurrentModuleChange((SModuleInfo)module.Info);
                     return;
                 }
             }

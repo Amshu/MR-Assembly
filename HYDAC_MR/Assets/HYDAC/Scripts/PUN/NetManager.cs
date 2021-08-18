@@ -4,6 +4,7 @@ using Photon.Realtime;
 
 using HYDAC.Scripts.SOCS;
 using HYDAC.Scripts.SOCS.NET;
+using UnityEngine.AddressableAssets;
 
 namespace HYDAC.Scripts.PUN
 {
@@ -86,9 +87,19 @@ namespace HYDAC.Scripts.PUN
             
             if(!PhotonNetwork.IsConnected)
             {
-                // Connect to the Photon Network (server) 
-                PhotonNetwork.GameVersion = settings.GameVersion;
-                PhotonNetwork.ConnectUsingSettings();
+                // Add to network pool
+                DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
+                if (pool != null)
+                {
+                    Addressables.LoadAssetAsync<GameObject>(settings.LocalPlayerPrefab).Completed += handle =>
+                    {
+                        pool.ResourceCache.Add(handle.Result.name, handle.Result);
+                        
+                        // Connect to the Photon Network (server) 
+                        PhotonNetwork.GameVersion = settings.GameVersion;
+                        PhotonNetwork.ConnectUsingSettings();
+                    };
+                }
             }
             else
             {

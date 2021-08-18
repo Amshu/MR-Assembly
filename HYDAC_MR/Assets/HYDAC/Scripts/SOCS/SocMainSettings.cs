@@ -31,8 +31,8 @@ namespace HYDAC.Scripts.SOCS
 
         [Space] 
         [Tooltip("The prefab to use for representing the player")]
-        [SerializeField] private GameObject localPlayerPrefab;
-        public GameObject LocalPlayerPrefab => localPlayerPrefab;
+        [SerializeField] private AssetReference localPlayerPrefab;
+        public AssetReference LocalPlayerPrefab => localPlayerPrefab;
 
         [Header("Debug Settings")] [Space]
         [SerializeField] private string defaultNetRoomName;
