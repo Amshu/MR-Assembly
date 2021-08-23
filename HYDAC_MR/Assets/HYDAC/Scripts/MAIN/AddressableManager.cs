@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
@@ -94,6 +93,10 @@ namespace HYDAC.Scripts.MAIN
             yield return new WaitUntil(() => catalogueHandle.Task.IsCompleted);
             
             assemblyEvents.SetCatalogue(fetchedCatalogueList.ToArray());
+
+            // Load Level
+            // LoadLevel(settings.SceneList[1].AssetGUID, true);
+
 
             //Use this only when the objects are no longer needed
             //Addressables.Release(intersectionWithMultipleKeys);

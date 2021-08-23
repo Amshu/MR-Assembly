@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 1be9ef936b98a6f41b29e714b9e0f4f6, type: 2}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.60317075, g: 0.60317117, b: 0.60316753, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: f8e0545f99926b74680b0bfb87a634c4, type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: a287dd996bdb19a49839d1564bb693b3, type: 2}
+  m_LightingDataAsset: {fileID: 0}
+  m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -586,6 +586,7 @@ GameObject:
   - component: {fileID: 594330859}
   - component: {fileID: 594330860}
   - component: {fileID: 594330862}
+  - component: {fileID: 594330861}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -620,10 +621,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0c6e824e97082041964bd3e8da3c20e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectOnStart: 0
+  connectOnStart: 1
   settings: {fileID: 11400000, guid: 5bc6afe6ed5648659716ee37b2aea24b, type: 2}
   netEvents: {fileID: 11400000, guid: a45cb5bad37b0dd4da0dcb890b84c938, type: 2}
   netUI: {fileID: 11400000, guid: c1faddd1ebb4b3946bf48fbd36582aa2, type: 2}
+--- !u!114 &594330861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594330858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188c8d4588c39bd4d8a04e7cad3c07dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 5bc6afe6ed5648659716ee37b2aea24b, type: 2}
+  assemblyEvents: {fileID: 11400000, guid: ba06f5fa1a198854786cff79e379e528, type: 2}
+  netEvents: {fileID: 11400000, guid: a45cb5bad37b0dd4da0dcb890b84c938, type: 2}
+  machineWorldTransform: {fileID: 0}
+  focusedModuleHolderTransform: {fileID: 0}
+  hyboxMaxiInfo: {fileID: 0}
 --- !u!114 &594330862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,7 +656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   netEvents: {fileID: 11400000, guid: a45cb5bad37b0dd4da0dcb890b84c938, type: 2}
-  settings: {fileID: 0}
+  settings: {fileID: 11400000, guid: 5bc6afe6ed5648659716ee37b2aea24b, type: 2}
   customManualInstantiationEventCode: 501
   playerPrefab:
     m_AssetGUID: 36f866750126e9b4687a6af7b215f5ae

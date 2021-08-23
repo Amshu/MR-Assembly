@@ -22,28 +22,28 @@ namespace HYDAC.Scripts.UI
 
         private void OnEnable()
         {
-            if (_isInitialised && assemblyEvents.Catalogue.Length < 1)
-            {
-                Debug.LogError("#UICatalogue#---------Catalogue fetch returned empty or Catalogue already initialised");
-                return;
-            }
+            //if (_isInitialised && assemblyEvents.Catalogue.Length < 1)
+            //{
+            //    Debug.LogError("#UICatalogue#---------Catalogue fetch returned empty or Catalogue already initialised");
+            //    return;
+            //}
                 
-            // Load catalogue
-            StartCoroutine(InstantiateCatalogueUI(assemblyEvents.Catalogue));
+            //// Load catalogue
+            //StartCoroutine(InstantiateCatalogueUI(assemblyEvents.Catalogue));
         }
 
         private void OnDisable()
         {
-            for (int i = 0; i < _buttonTransforms.Length; i++)
-            {
-                bool check = Addressables.ReleaseInstance(_buttonTransforms[i].gameObject);
-                if (!check)
-                {
-                    Debug.LogError("#UICatalogue#---------Releasing button failed: " + _buttonTransforms[i].name);
-                }
-            }
+            //for (int i = 0; i < _buttonTransforms.Length; i++)
+            //{
+            //    bool check = Addressables.ReleaseInstance(_buttonTransforms[i].gameObject);
+            //    if (!check)
+            //    {
+            //        Debug.LogError("#UICatalogue#---------Releasing button failed: " + _buttonTransforms[i].name);
+            //    }
+            //}
 
-            _buttonTransforms = null;
+            //_buttonTransforms = null;
         }
 
         IEnumerator InstantiateCatalogueUI(SCatalogueInfo[] catalogue)
