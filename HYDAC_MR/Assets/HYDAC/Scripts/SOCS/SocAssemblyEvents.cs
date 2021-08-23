@@ -8,42 +8,50 @@ namespace HYDAC.Scripts.SOCS
     [CreateAssetMenu(menuName = "Socks/Assembly/Events", fileName = "SOC_AssemblyEvents")]
     public class SocAssemblyEvents: ScriptableObject
     {
-        public bool IsInitialised = false;
+        public bool IsInitialised;
+
+        public SCatalogueInfo[] Catalogue { get; private set; }
         
         
-        private SCatalogueInfo _currentCatalogue = null;
-        public SCatalogueInfo CurrentCatalogue => _currentCatalogue;
+        // Current selected machine from catalogue
+        public SCatalogueInfo CurrentCatalogue { get; private set; }
+
+
+        // Current selected module
+        public SModuleInfo CurrentFocusedModule { get; private set; }
+
+
+        // Current state of selected module        
+        public bool IsDisassembled { get; }
+
+
+
+        internal void SetCatalogue(SCatalogueInfo[] infos)
+        {
+            Catalogue = infos;
+        }
         
         
-        private SModuleInfo _currentFocusedModule = null;
-        public SModuleInfo CurrentFocusedModule => _currentFocusedModule;
         
-        
+        // On Assembly selected event and method
         public event Action<SCatalogueInfo> EAssemblySelected;
         internal void OnAssemblySelected(SCatalogueInfo info)
         {
-            _currentCatalogue = info;
+            CurrentCatalogue = info;
             EAssemblySelected?.Invoke(info);
         }
         
         
-        public event Action<SModuleInfo> ECurrentModuleChange;
+        // On module 
+        public event Action<SModuleInfo> EModuleSelected;
 
-        internal void OnCurrentModuleChange(SModuleInfo info)
+        internal void OnModuleSelected(SModuleInfo info)
         {
             Debug.Log("#SocAssemblyEvents#------------OnChangeModule:" + info.iname);
 
-            _currentFocusedModule = info;
+            CurrentFocusedModule = info;
 
-            ECurrentModuleChange.Invoke(info);
-
-            // if (ECurrentModuleChange != null)
-            // {
-            //     Debug.Log("#SocAssemblyEvents#------------Invoking");
-            //
-            // }
-            // else
-            //     Debug.Log("#SocAssemblyEvents#------------Null listeners");
+            if (EModuleSelected != null) EModuleSelected.Invoke(info);
         }
 
         
@@ -53,8 +61,8 @@ namespace HYDAC.Scripts.SOCS
 
             IsInitialised = true;
             
-            _currentCatalogue = null;
-            _currentFocusedModule = null;
+            CurrentCatalogue = null;
+            CurrentFocusedModule = null;
         }
     }
 }

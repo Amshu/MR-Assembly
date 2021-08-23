@@ -27,7 +27,7 @@ namespace HYDAC.Scripts
 
         private void OnEnable()
         {
-            assemblyEvents.ECurrentModuleChange += OnCurrentModuleChanged;
+            assemblyEvents.EModuleSelected += OnModuleChanged;
         
             socUI.EUIRequestFocusOff += OnUIRequestFocusOff;
             socUI.EUIRequestToggleInfoUI += OnUIRequestToggleInfoUI;
@@ -35,14 +35,14 @@ namespace HYDAC.Scripts
 
         private void OnDisable()
         {
-            assemblyEvents.ECurrentModuleChange -= OnCurrentModuleChanged;
+            assemblyEvents.EModuleSelected -= OnModuleChanged;
         
             socUI.EUIRequestFocusOff -= OnUIRequestFocusOff;
             socUI.EUIRequestToggleInfoUI -= OnUIRequestToggleInfoUI;
         }
 
 
-        private void OnCurrentModuleChanged(SModuleInfo newModule)
+        private void OnModuleChanged(SModuleInfo newModule)
         {
             idText.text = newModule.ID.ToString();
             nameText.text = newModule.iname;

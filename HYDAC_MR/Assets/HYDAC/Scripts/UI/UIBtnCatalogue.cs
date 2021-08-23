@@ -43,6 +43,11 @@ namespace HYDAC.Scripts.UI
                 productButton.onClick.RemoveListener(OnButtonClicked);
             
             _parent.gameObject.SetActive(false);
+            
+            info = null;
+
+            nameText.text = "";
+            productImage.sprite = null;
         }
     }
 }

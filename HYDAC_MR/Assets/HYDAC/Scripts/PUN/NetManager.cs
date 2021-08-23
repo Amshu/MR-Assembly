@@ -76,6 +76,7 @@ namespace HYDAC.Scripts.PUN
         /// -> Set the name of the room the user is trying to connect into
         /// 
         /// -> Check if connected to Photon Network
+        ///     -> Load player prefab and add it to the network pool
         ///     -> If not connected to Photon Network using settings
         ///     -> Room is joined when OnConnectedToMaster()
         /// </summary>
@@ -158,7 +159,7 @@ namespace HYDAC.Scripts.PUN
             _isConnecting = false;
             _networkRoomName = "";
             
-            netEvents.InvokeJoinedRoom(settings.NetworkSceneRef.AssetGUID);
+            netEvents.InvokeJoinedRoom(settings.SceneList[1].AssetGUID);
             
             // // Critical
             // // We only load if we are the first player, else we rely on `PhotonNetwork.AutomaticallySyncScene` 

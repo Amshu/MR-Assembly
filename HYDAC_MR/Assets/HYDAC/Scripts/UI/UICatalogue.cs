@@ -6,49 +6,73 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 using HYDAC.Scripts.INFO;
+using HYDAC.Scripts.SOCS;
 
 namespace HYDAC.Scripts.UI
 {
     public class UICatalogue : MonoBehaviour
     {
-        [SerializeField] private string catalogueLabel;
+        [SerializeField] private SocAssemblyEvents assemblyEvents;
+        
         [Space] [SerializeField] private AssetReference catalogueButtonPrefab;
         [SerializeField] private Transform catalogueButtonParent;
 
-        private List<ASInfo> _catalogue = new List<ASInfo>();
+        private bool _isInitialised;
+        private Transform[] _buttonTransforms;
 
-        private void Awake()
+        private void OnEnable()
         {
-            // Load catalogue
-            StartCoroutine(LoadCatalogueFromRemote());
-        }
-
-        IEnumerator LoadCatalogueFromRemote()
-        {
-            //This will load the assets that match the given keys and populate the Result
-            //with only objects that match both of the provided keys
-            AsyncOperationHandle<IList<SCatalogueInfo>> intersectionWithMultipleKeys =
-                Addressables.LoadAssetsAsync<SCatalogueInfo>("Catalogue",
-                    AddToCatalogue);
-
-            yield return intersectionWithMultipleKeys;
-
-            //Use this only when the objects are no longer needed
-            //Addressables.Release(intersectionWithMultipleKeys);
-        }
-
-        private void AddToCatalogue(SCatalogueInfo info)
-        {
-            Debug.Log("UICatalogue#------------Loaded info of: " + info.iname);
-
-            // Add to list
-            _catalogue.Add(info);
-
-            // Create UI button and fill in info
-            Addressables.InstantiateAsync(catalogueButtonPrefab, catalogueButtonParent).Completed += handle =>
+            if (_isInitialised && assemblyEvents.Catalogue.Length < 1)
             {
-                handle.Result.GetComponentInChildren<UIBtnCatalogue>().Initialize(info, transform); 
-            };
+                Debug.LogError("#UICatalogue#---------Catalogue fetch returned empty or Catalogue already initialised");
+                return;
+            }
+                
+            // Load catalogue
+            StartCoroutine(InstantiateCatalogueUI(assemblyEvents.Catalogue));
+        }
+
+        private void OnDisable()
+        {
+            for (int i = 0; i < _buttonTransforms.Length; i++)
+            {
+                bool check = Addressables.ReleaseInstance(_buttonTransforms[i].gameObject);
+                if (!check)
+                {
+                    Debug.LogError("#UICatalogue#---------Releasing button failed: " + _buttonTransforms[i].name);
+                }
+            }
+
+            _buttonTransforms = null;
+        }
+
+        IEnumerator InstantiateCatalogueUI(SCatalogueInfo[] catalogue)
+        {
+            List<Transform> buttonTransforms = new List<Transform>();
+            
+            for (int i = 0; i < catalogue.Length; i++)
+            {
+                // Create UI button and fill in info
+                AsyncOperationHandle<GameObject> buttonLoadingHandle =
+                    Addressables.InstantiateAsync(catalogueButtonPrefab, catalogueButtonParent);
+
+                buttonLoadingHandle.Completed += handle =>
+                {
+                    if (handle.Status == AsyncOperationStatus.Succeeded)
+                    {
+                        buttonTransforms.Add(handle.Result.transform);
+                        buttonLoadingHandle.Result.GetComponentInChildren<UIBtnCatalogue>().Initialize(catalogue[i], transform);
+                    }
+                    else
+                    {
+                        Debug.LogError("#UICatalogue#---------Instantiating button failed");
+                    }
+                };
+                
+                yield return new WaitUntil(() => buttonLoadingHandle.Task.IsCompleted);
+            }
+
+            _buttonTransforms = buttonTransforms.ToArray();
         }
     }
 }

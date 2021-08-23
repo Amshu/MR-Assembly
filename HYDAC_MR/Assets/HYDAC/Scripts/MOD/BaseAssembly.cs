@@ -13,7 +13,8 @@ namespace HYDAC.Scripts.MOD
     public class BaseAssembly : AUnit
     {
         // If you have multiple custom events, it is recommended to define them in the used class
-        public const byte ONModuleChangeEventCode = 1;
+        public const byte OnModuleChangeEventCode = 1;
+
         
         [SerializeField] private SocAssemblyEvents assemblyEvents;
         [SerializeField] private AssemblyModule[] modules;
@@ -56,7 +57,7 @@ namespace HYDAC.Scripts.MOD
             
             // You would have to set the Receivers to All in order to receive this event on the local client as well
             RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All }; 
-            PhotonNetwork.RaiseEvent(ONModuleChangeEventCode, content, raiseEventOptions, SendOptions.SendReliable);
+            PhotonNetwork.RaiseEvent(OnModuleChangeEventCode, content, raiseEventOptions, SendOptions.SendReliable);
         }
         
         private void OnPUNEvent(EventData photonEvent)
@@ -64,9 +65,10 @@ namespace HYDAC.Scripts.MOD
             Debug.Log("#BaseAssembly#------------Network event received");
 
             byte eventCode = photonEvent.Code;
-            if (eventCode == ONModuleChangeEventCode)
+            
+            if (eventCode == OnModuleChangeEventCode)
             {
-                Debug.Log("#BaseAssembly#------------ONModuleChangeEventCode");
+                Debug.Log("#BaseAssembly#------------OnModuleChangeEventCode");
 
                 int moduleID = (int)photonEvent.CustomData;
 
@@ -84,7 +86,7 @@ namespace HYDAC.Scripts.MOD
                 if (module.Info.ID == moduleID)
                 {
                     Debug.Log("#BaseAssembly#------------ModuleFound: " + module.Info.iname);
-                    assemblyEvents.OnCurrentModuleChange((SModuleInfo)module.Info);
+                    assemblyEvents.OnModuleSelected((SModuleInfo)module.Info);
                     return;
                 }
             }

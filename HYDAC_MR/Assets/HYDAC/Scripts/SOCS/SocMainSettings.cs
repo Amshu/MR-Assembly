@@ -10,13 +10,15 @@ namespace HYDAC.Scripts.SOCS
         [SerializeField] private string gameVersion = "1"; // Set to 1 by default, unless we need to make breaking changes on a project that is Live.
         public string GameVersion => gameVersion;
         
-        [SerializeField] private AssetReference menuSceneRef;
-        public AssetReference MenuSceneRef => menuSceneRef;
+        [Tooltip("List of all the scenes in order they are required to be loaded")]
+        [SerializeField] private AssetReference[] sceneList;
+        public AssetReference[] SceneList => sceneList;
 
-        [SerializeField] private AssetReference networkSceneRef;
-        public AssetReference NetworkSceneRef => networkSceneRef;
-        
-        
+        [Tooltip("Label of the Catalogue asset group")] 
+        [SerializeField] private string catalogueAssetGroupLabel;
+        public string CatalogueAssetGroupLabel => catalogueAssetGroupLabel;
+
+
         [Header("Network Settings")] [Space]
         [Tooltip("The maximum number of players per room. When a room is full, it can't be joined by new players, and so new room will be created. MAX 20 users")]
         [SerializeField] private byte maxPlayersPerRoom = 4;
