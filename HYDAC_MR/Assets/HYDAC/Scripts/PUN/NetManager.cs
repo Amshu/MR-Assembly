@@ -104,16 +104,29 @@ namespace HYDAC.Scripts.PUN
             }
             else
             {
-                JoinRoom(roomName);
+                OnRequestJoinRoom(roomName);
             }
         }
-        
+
+
+        /// <summary>
+        /// ON JOIN ROOM REQUEST
+        /// --------------------
+        /// -> Connect to given room if connected to Photon network
+        /// </summary>
+        private void OnRequestJoinRoom(string roomName)
+        {
+            if (!PhotonNetwork.IsConnected) return;
+
+            PhotonNetwork.JoinOrCreateRoom(_networkRoomName, _roomOptions, TypedLobby.Default);
+        }
+
         #endregion
 
-        
-        
+
+
         #region Photon Callbacks
-        
+
         /// <summary>
         /// ON CONNECT TO PHOTON NETWORK
         /// ----------------------------
@@ -124,26 +137,23 @@ namespace HYDAC.Scripts.PUN
         {
             Debug.Log("#NETManager#-------------OnConnectedToMaster()");
 
+            netEvents.OnNetConnect();
+
             // Check if we are wanting to connect (prevent looping when we disconnect from a room)
             if (_isConnecting)
             {
-                JoinRoom(_networkRoomName);
+                OnRequestJoinRoom(_networkRoomName);
             }
         }
-        
-        
-        /// <summary>
-        /// ON JOIN ROOM REQUEST
-        /// --------------------
-        /// -> Connect to given room if connected to Photon network
-        /// </summary>
-        private void JoinRoom(string roomName)
+
+
+        public override void OnDisconnected(DisconnectCause cause)
         {
-            if (!PhotonNetwork.IsConnected) return;
-            
-            PhotonNetwork.JoinOrCreateRoom(_networkRoomName, _roomOptions, TypedLobby.Default);
+            Debug.LogWarningFormat("#NETManager#-------------OnDisconnected(): {0}", cause.ToString());
+
+            netEvents.OnNetDisconnect();
         }
-        
+
 
         /// <summary>
         /// ON ROOM JOINED SUCCESSFULLY
@@ -156,41 +166,61 @@ namespace HYDAC.Scripts.PUN
         {
             Debug.LogFormat("#NETManager#-------------OnJoinedRoom(): {0}, {1}", _networkRoomName, PhotonNetwork.ServerAddress);
 
+            // Leave room if there are more than the max players
+            if(PhotonNetwork.CurrentRoom.PlayerCount >= settings.MaxPlayersPerRoom)
+            {
+                Debug.LogFormat("#NETManager#-------------Too many players in room. Leaving room");
+
+                PhotonNetwork.LeaveRoom();
+
+                return;
+            }
+
             _isConnecting = false;
             _networkRoomName = "";
-            
-            netEvents.InvokeJoinedRoom(settings.SceneList[1].AssetGUID);
-            
-            // // Critical
-            // // We only load if we are the first player, else we rely on `PhotonNetwork.AutomaticallySyncScene` 
-            // // to sync our instance scene.
-            // if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
-            // {
-            //     netEvents.InvokeJoinedRoom(settings.NetworkSceneRef.AssetGUID);
-            // }
+
+            netEvents.OnNetJoinRoom(PhotonNetwork.CurrentRoom);
         }
-        
-        
-        public override void OnDisconnected(DisconnectCause cause)
+
+
+        public override void OnLeftRoom()
         {
-            Debug.LogWarningFormat("#NETManager#-------------OnDisconnected(): {0}", cause.ToString());
-            netEvents.InvokeNetworkDisconnect();
+            Debug.LogWarningFormat("#NETManager#-------------OnLeftRoom");
+
+            netEvents.OnNetLeftRoom();
         }
-        
         
         
         public override void OnJoinRandomFailed(short returnCode, string message)
         {
             Debug.LogErrorFormat("#NETManager#-------------OnJoinRandomFailed(): {0} - {1}", returnCode, message);
-
-            // Critical
-            // We failed to join a random room (room may not exist or room may be already full)
-            // So, we create a new room.
-            // PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = maxPlayersPerRoom });
             
-            netEvents.InvokeJoinRoomFailed();
+            netEvents.OnNetJoinRoomFailed();
         }
-        
+
+
+        public override void OnPlayerEnteredRoom(Player newPlayer)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                //LoadArena();  // NOTE: Enable if we want to "reload" scene each time a new player joins / leaves
+                return;
+            }
+
+            if (!newPlayer.IsLocal)
+                netEvents.OnNetPlayerJoinedRoom(PhotonNetwork.CurrentRoom.PlayerCount);
+        }
+
+        public override void OnPlayerLeftRoom(Player otherPlayer)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                return;
+            }
+
+            netEvents.OnNetPlayerLeftRoom();
+        }
+
         #endregion
 
 

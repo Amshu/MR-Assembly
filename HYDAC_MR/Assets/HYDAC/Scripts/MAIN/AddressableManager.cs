@@ -151,7 +151,7 @@ namespace HYDAC.Scripts.MAIN
         }
         
         
-        private void OnRoomJoined(string obj)
+        private void OnRoomJoined(NetStructInfo roomInfo)
         {
             LoadLevel(settings.SceneList[0].AssetGUID, true);
         }
