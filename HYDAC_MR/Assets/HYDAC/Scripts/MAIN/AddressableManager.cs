@@ -67,7 +67,7 @@ namespace HYDAC.Scripts.MAIN
             _isInitialised = true;
 
             // Load menu scene once Addressables is initialised
-            LoadLevel(settings.SceneList[1].AssetGUID, false);
+            LoadLevel(settings.SceneList[0].AssetGUID, false);
             
             StartCoroutine(RequestCatalogueFromRemote());
         }
@@ -153,7 +153,7 @@ namespace HYDAC.Scripts.MAIN
         
         private void OnRoomJoined(string obj)
         {
-            LoadLevel(settings.SceneList[1].AssetGUID, true);
+            LoadLevel(settings.SceneList[0].AssetGUID, true);
         }
         
         
