@@ -5,6 +5,7 @@ using Photon.Realtime;
 using HYDAC.Scripts.SOCS;
 using HYDAC.Scripts.SOCS.NET;
 using UnityEngine.AddressableAssets;
+using System;
 
 namespace HYDAC.Scripts.PUN
 {
@@ -18,11 +19,12 @@ namespace HYDAC.Scripts.PUN
         private static NetManager _instance;
 
         public bool connectOnStart;
-        
-        [SerializeField] private SocMainSettings settings;
+
+        [SerializeField] private SocNetSettings settings;
         [SerializeField] private SocNetEvents netEvents;
         [SerializeField] private SocNetUI netUI;
-        
+        [SerializeField] private Transform[] playerSpawnPoints;
+
         private RoomOptions _roomOptions;
 
         private bool _isConnecting;
@@ -52,21 +54,28 @@ namespace HYDAC.Scripts.PUN
             _roomOptions.MaxPlayers = settings.MaxPlayersPerRoom;
             _roomOptions.IsVisible = settings.IsRoomVisible;
             _roomOptions.IsOpen = settings.IsRoomOpen;
-            
-            if (connectOnStart)
-            {
-                OnUIRequestedJoinRoom(settings.DefaultNetRoomName);
-                return;
-            }
 
             // Subscribe to UI events
             netUI.EUIRequestJoinRoom += OnUIRequestedJoinRoom;
+
+            
+
+            if (connectOnStart)
+            {
+                netEvents.TestNetworkAutoJoin += OnTestAutoJoin;
+                return;
+            }
+        }
+
+        private void OnTestAutoJoin()
+        {
+            OnUIRequestedJoinRoom(settings.DefaultNetRoomName);
         }
 
         #endregion
 
-        
-        
+
+
         #region Connection Methods
 
         /// <summary>
@@ -88,6 +97,8 @@ namespace HYDAC.Scripts.PUN
             
             if(!PhotonNetwork.IsConnected)
             {
+                Debug.Log("#NETManager#-------------Adding player prefab to Photon pool");
+
                 // Add to network pool
                 DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
                 if (pool != null)
@@ -95,7 +106,9 @@ namespace HYDAC.Scripts.PUN
                     Addressables.LoadAssetAsync<GameObject>(settings.LocalPlayerPrefab).Completed += handle =>
                     {
                         pool.ResourceCache.Add(handle.Result.name, handle.Result);
-                        
+
+                        Debug.Log("#NETManager#-------------Connecting to server");
+
                         // Connect to the Photon Network (server) 
                         PhotonNetwork.GameVersion = settings.GameVersion;
                         PhotonNetwork.ConnectUsingSettings();
@@ -171,13 +184,17 @@ namespace HYDAC.Scripts.PUN
             {
                 Debug.LogFormat("#NETManager#-------------Too many players in room. Leaving room");
 
-                PhotonNetwork.LeaveRoom();
+                PhotonNetwork.LeaveRoom(); 
 
                 return;
             }
 
             _isConnecting = false;
             _networkRoomName = "";
+
+            Transform playerSpawn = playerSpawnPoints[PhotonNetwork.CurrentRoom.PlayerCount];
+
+            PhotonNetwork.Instantiate("NetworkedPlayer_PUN", playerSpawn.position, playerSpawn.rotation, 0);
 
             netEvents.OnNetJoinRoom(PhotonNetwork.CurrentRoom);
         }

@@ -28,7 +28,7 @@ public class UINetInfo : MonoBehaviour
 
     private void OnEnable()
     {
-        netEvents.EJoinRoom += OnJoinedRoom;
+        netEvents.EJoinedRoom += OnJoinedRoom;
     }
 
     private void OnJoinedRoom(NetStructInfo netInfo)
@@ -38,7 +38,7 @@ public class UINetInfo : MonoBehaviour
 
     private void OnDisable()
     {
-        netEvents.EJoinRoom -= OnJoinedRoom;
+        netEvents.EJoinedRoom -= OnJoinedRoom;
     }
 
     public void ShowNetworkDetails()

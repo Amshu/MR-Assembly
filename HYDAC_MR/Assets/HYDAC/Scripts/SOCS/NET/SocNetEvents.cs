@@ -35,9 +35,9 @@ namespace HYDAC.Scripts.SOCS.NET
         private NetStructInfo _netInfo = new NetStructInfo();
         public NetStructInfo NetInfo => _netInfo;
 
-        public event Action<NetStructInfo> ENetworkConnect;
-        public event Action<NetStructInfo> ENetworkDisconnect;
-        public event Action<NetStructInfo> EJoinRoom;
+        public event Action<NetStructInfo> ENetworkConnected;
+        public event Action<NetStructInfo> ENetworkDisconnected;
+        public event Action<NetStructInfo> EJoinedRoom;
         public event Action<NetStructInfo> ELeftRoom;
         public event Action<NetStructInfo> EJoinRoomFailed;
 
@@ -45,20 +45,26 @@ namespace HYDAC.Scripts.SOCS.NET
         public event Action<NetStructInfo> EPlayerLeft;
 
 
+        public event Action TestNetworkAutoJoin;
+        public void AutoJoinCheck()
+        {
+            TestNetworkAutoJoin?.Invoke();
+        }
+
         #region PhotonNetwork Callbacks
 
         internal void OnNetConnect()
         {
             NetInfo.Reset();
 
-            ENetworkConnect?.Invoke(_netInfo);
+            ENetworkConnected?.Invoke(_netInfo);
         }
 
         internal void OnNetDisconnect()
         {
             _netInfo.isConnected = false;
 
-            ENetworkDisconnect?.Invoke(_netInfo);
+            ENetworkDisconnected?.Invoke(_netInfo);
         }
 
         internal void OnNetJoinRoom(RoomInfo roomInfo)
@@ -67,7 +73,7 @@ namespace HYDAC.Scripts.SOCS.NET
             _netInfo.roomName = roomInfo.Name;
             _netInfo.playerCount = roomInfo.PlayerCount;
 
-            EJoinRoom?.Invoke(_netInfo);
+            EJoinedRoom?.Invoke(_netInfo);
         }
 
         internal void OnNetLeftRoom()

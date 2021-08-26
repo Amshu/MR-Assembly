@@ -9,15 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 032d4da8934147c99cf7faf0ea855d6a, type: 3}
-  m_Name: SOC_Settings
+  m_Script: {fileID: 11500000, guid: 4fb6a82428367be4ca8e6d382d9c4583, type: 3}
+  m_Name: SOC_AddSettings
   m_EditorClassIdentifier: 
-  gameVersion: 1
+  assetList:
+  - Default
+  - Env1
+  - Catalogue
   sceneList:
-  - m_AssetGUID: 1cf06356dff937f4798eebf8798ea474
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
   - m_AssetGUID: f4b11a75a67dff94e849c45584186026
     m_SubObjectName: 
     m_SubObjectType: 
@@ -26,13 +25,14 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  catalogueAssetGroupLabel: Catalogue
-  maxPlayersPerRoom: 4
-  isRoomVisible: 1
-  isRoomOpen: 1
+  defaultEnvironment:
+    m_AssetGUID: 1cf06356dff937f4798eebf8798ea474
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  catalogueLabel: Catalogue
   localPlayerPrefab:
     m_AssetGUID: 36f866750126e9b4687a6af7b215f5ae
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  defaultNetRoomName: HYDAC_MR_DRoomA
