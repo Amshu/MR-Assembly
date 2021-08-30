@@ -97,23 +97,21 @@ namespace HYDAC.Scripts.PUN
             
             if(!PhotonNetwork.IsConnected)
             {
-                Debug.Log("#NETManager#-------------Adding player prefab to Photon pool");
+                //Connect to the Photon Network(server)
+                PhotonNetwork.GameVersion = settings.GameVersion;
+                PhotonNetwork.ConnectUsingSettings();
+
+                //Debug.Log("#NETManager#-------------Adding player prefab to Photon pool");
 
                 // Add to network pool
-                DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
-                if (pool != null)
-                {
-                    Addressables.LoadAssetAsync<GameObject>(settings.LocalPlayerPrefab).Completed += handle =>
-                    {
-                        pool.ResourceCache.Add(handle.Result.name, handle.Result);
-
-                        Debug.Log("#NETManager#-------------Connecting to server");
-
-                        // Connect to the Photon Network (server) 
-                        PhotonNetwork.GameVersion = settings.GameVersion;
-                        PhotonNetwork.ConnectUsingSettings();
-                    };
-                }
+                //DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
+                //if (pool != null)
+                //{
+                //    Addressables.LoadAssetAsync<GameObject>(settings.LocalPlayerPrefab).Completed += handle =>
+                //    {
+                //        pool.ResourceCache.Add(handle.Result.name, handle.Result);
+                //    };
+                //}
             }
             else
             {
@@ -192,9 +190,9 @@ namespace HYDAC.Scripts.PUN
             _isConnecting = false;
             _networkRoomName = "";
 
-            Transform playerSpawn = playerSpawnPoints[PhotonNetwork.CurrentRoom.PlayerCount];
+            //Transform playerSpawn = playerSpawnPoints[PhotonNetwork.CurrentRoom.PlayerCount];
 
-            PhotonNetwork.Instantiate("NetworkedPlayer_PUN", playerSpawn.position, playerSpawn.rotation, 0);
+            //PhotonNetwork.Instantiate("NetworkedPlayer_PUN", playerSpawn.position, playerSpawn.rotation, 0);
 
             netEvents.OnNetJoinRoom(PhotonNetwork.CurrentRoom);
         }

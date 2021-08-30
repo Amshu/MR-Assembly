@@ -10,7 +10,6 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 using HYDAC.Scripts.SOCS;
 using HYDAC.Scripts.SOCS.NET;
-using System;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
 namespace HYDAC.Scripts.ADD
@@ -24,8 +23,11 @@ namespace HYDAC.Scripts.ADD
         private bool _isInitialised;
 
         private IList<IResourceLocation> OnStartLoadedAssetsLocations = new List<IResourceLocation>();
+
         private SceneInstance _currentScene = default;
         private SceneInstance _currentEnvironment = default;
+
+        private IList<GameObject> loadedNetworkedPrefabs = new List<GameObject>();
 
         private AddressablesNetLoader _netLoader;
 
@@ -38,6 +40,7 @@ namespace HYDAC.Scripts.ADD
             Addressables.InitializeAsync();
             Addressables.InitializeAsync().Completed += OnAddressablesInitialised;
 
+            netEvents.ENetworkConnected += OnNetworkConnected;
             netEvents.EJoinedRoom += OnRoomJoined;
         }
 
@@ -85,10 +88,33 @@ namespace HYDAC.Scripts.ADD
         }
 
 
+        private void OnNetworkConnected(NetStructInfo obj)
+        {
+            Debug.Log("Preparing network pool");
+
+            // Load network objects
+            PreparePhotonPool();
+        }
+
+        private async Task PreparePhotonPool()
+        {
+            loadedNetworkedPrefabs = await AddressableLocationLoader.LoadAssetReferences(settings.NetworkPrefabs);
+
+            Debug.Log("Network prefabs loaded " + loadedNetworkedPrefabs.Count);
+            foreach (var go in loadedNetworkedPrefabs)
+            {
+                Debug.Log("Network prefab loaded: " + go.name);
+            }
+        }
+
+
+
         private void OnRoomJoined(NetStructInfo obj)
         {
             // Load network scene
             LoadNetworkScene();
+
+            LoadNetworkObjects();
         }
 
         private async Task LoadNetworkScene()
@@ -96,6 +122,11 @@ namespace HYDAC.Scripts.ADD
             await AddressablesSceneLoader.UnloadScene(_currentScene);
 
             _currentScene = await AddressablesSceneLoader.LoadScene(settings.SceneList[1], true);
+        }
+
+        private async Task LoadNetworkObjects()
+        {
+            //await 
         }
 
 

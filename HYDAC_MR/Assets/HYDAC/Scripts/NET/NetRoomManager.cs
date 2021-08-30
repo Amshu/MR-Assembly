@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
 using Photon.Pun;
-using HYDAC.Scripts.SOCS.NET;
+using UnityEngine.AddressableAssets;
+using System.Threading.Tasks;
+
 
 namespace HYDAC.Scripts.PUN
 {
@@ -11,19 +13,26 @@ namespace HYDAC.Scripts.PUN
     /// </summary>
     public class NetRoomManager : MonoBehaviour
     {
-        [SerializeField] private SocNetEvents netEvents;
+        [SerializeField] AssetReference[] refs;
 
-        [Space] 
-        [SerializeField] private GameObject netPlayerPrefab;
-        [SerializeField] private Transform[] playerSpawnPoints;
-        
-
-
-
-        private void InstantiateLocalPlayer(Transform spawnPoint)
+        private void Awake()
         {
-            Debug.LogFormat("#NetRoomManager#---------------Instantiating LocalPlayer");
-            
+            LoadObjects();
+        }
+
+        private async Task LoadObjects()
+        {
+            if (!PhotonNetwork.IsMasterClient) return;
+
+            DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
+
+            foreach (var reference in refs)
+            {
+                var handle = await Addressables.LoadAssetAsync<GameObject>(reference).Task;
+                pool.ResourceCache.Add(handle.name, handle);
+
+                PhotonNetwork.Instantiate(handle.name, handle.transform.position, handle.transform.rotation, 1);
+            }
         }
     }
 }

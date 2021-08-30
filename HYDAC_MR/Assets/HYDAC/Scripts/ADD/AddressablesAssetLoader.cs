@@ -13,7 +13,7 @@ namespace HYDAC.Scripts.ADD
         {
             var unloadedLocations = await Addressables.LoadResourceLocationsAsync(label).Task;
 
-            foreach(var location in unloadedLocations)
+            foreach (var location in unloadedLocations)
             {
                 loadedLocations.Add(location);
             }
@@ -21,7 +21,7 @@ namespace HYDAC.Scripts.ADD
 
         internal static async Task LoadLabels(string[] labels, IList<IResourceLocation> loadedLocations)
         {
-            foreach(var label in labels)
+            foreach (var label in labels)
             {
                 IList<IResourceLocation> locationsOfLabel = new List<IResourceLocation>();
 
@@ -33,6 +33,30 @@ namespace HYDAC.Scripts.ADD
                     loadedLocations.Add(location);
             }
         }
-    }
 
+
+
+        internal static async Task<GameObject> LoadFromReference(AssetReference assetRef)
+        {
+            var loadedGameObject = await assetRef.LoadAssetAsync<GameObject>().Task;
+
+            return loadedGameObject;
+        }
+
+        internal static async Task<IList<GameObject>>LoadAssetReferences(AssetReference[] assetrefs)
+        {
+            IList<GameObject> loadedGameObjects = new List<GameObject>();
+
+            foreach (var assetRef in assetrefs)
+            {
+                IList<GameObject> gameObjectsOfReferences = new List<GameObject>();
+
+                loadedGameObjects.Add(await LoadFromReference(assetRef));
+
+                Debug.Log("#AddressableLocationLoader#-------Loaded asset: " + assetRef.AssetGUID);
+            }
+
+            return loadedGameObjects;
+        }
+    }
 }

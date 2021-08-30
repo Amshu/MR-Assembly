@@ -27,7 +27,7 @@ namespace HYDAC.Scripts.SOCS
 
         [Space]
         [Tooltip("The prefab to use for representing the player")]
-        [SerializeField] private AssetReference localPlayerPrefab;
-        public AssetReference LocalPlayerPrefab => localPlayerPrefab;
+        [SerializeField] private AssetReference[] networkObjects;
+        public AssetReference[] NetworkObjects => networkObjects;
     }
 } 
