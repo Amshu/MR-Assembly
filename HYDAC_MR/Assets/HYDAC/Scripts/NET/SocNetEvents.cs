@@ -1,5 +1,6 @@
 ﻿using Photon.Realtime;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HYDAC.Scripts.NET
@@ -28,13 +29,6 @@ namespace HYDAC.Scripts.NET
         }
     }
 
-    public struct NetObjectStruct
-    {
-        public string obName;
-        public Vector3 spawnPosition;
-        public Quaternion spawnRotation;
-    }
-
 
     [CreateAssetMenu(menuName = "Socks/Net/NetEvents", fileName = "SOC_NetEvents")]
     public class SocNetEvents : ScriptableObject
@@ -42,7 +36,8 @@ namespace HYDAC.Scripts.NET
         private NetStructInfo _netInfo = new NetStructInfo();
         public NetStructInfo NetInfo => _netInfo;
 
-        public NetObjectStruct[] NetObjectsStructs;
+        internal string LocalPlayerPrefabName;
+        internal List<GameObject> NetObjectPrefabs = new List<GameObject>();
 
         public event Action<NetStructInfo> ENetworkConnected;
         public event Action<NetStructInfo> ENetworkDisconnected;
@@ -121,14 +116,6 @@ namespace HYDAC.Scripts.NET
         internal void InvokePreparePUNPool(bool toPrepare)
         {
             EPreparePUNPool?.Invoke(toPrepare);
-        }
-
-        public event Action<GameObject[]> EPUNPoolPrepared;
-        internal void InvokePUNPoolPrepared(GameObject[] preparedPools)
-        {
-            Debug.Log("##------------- " + preparedPools.Length);
-
-            EPUNPoolPrepared?.Invoke(preparedPools);
         }
 
 

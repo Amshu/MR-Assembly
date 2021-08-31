@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
+
 using Photon.Pun;
 using Photon.Realtime;
-using System.Collections.Generic;
-using System;
-using System.Collections;
 
 namespace HYDAC.Scripts.NET
 {
@@ -25,6 +23,7 @@ namespace HYDAC.Scripts.NET
 
         private RoomOptions _roomOptions;
 
+        DefaultPool _punPool;
         private bool _isConnecting;
         private string _networkRoomName;
 
@@ -52,7 +51,8 @@ namespace HYDAC.Scripts.NET
             _roomOptions.IsVisible = settings.IsRoomVisible;
             _roomOptions.IsOpen = settings.IsRoomOpen;
 
-            netEvents.EPUNPoolPrepared += OnPUNPoolPrepared;
+            _punPool = PhotonNetwork.PrefabPool as DefaultPool;
+
             // Subscribe to UI events
             netUI.EUIRequestJoinRoom += OnUIRequestedJoinRoom;
 
@@ -61,45 +61,25 @@ namespace HYDAC.Scripts.NET
         }
 
 
-        private void OnPUNPoolPrepared(GameObject[] preparedPool)
+        public void AddLocalPlayerPrefabToPool(GameObject go)
         {
-            Debug.Log("#NETManager#--------Loaded objects received: " + preparedPool.Length);
-
-            StartCoroutine(AddToProtonPool(preparedPool));
+            _punPool.ResourceCache.Add(go.name, go);
+            netEvents.LocalPlayerPrefabName = go.name;
         }
 
-
-        IEnumerator AddToProtonPool(GameObject[] preparedPool)
+        public void AddToProtonPool(GameObject go, int totalNetObjectsToAdd)
         {
-            DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
+            _punPool.ResourceCache.Add(go.name, go);
+            netEvents.NetObjectPrefabs.Add(go);
 
-            List<NetObjectStruct> netObjStructs = new List<NetObjectStruct>();
-            NetObjectStruct netObject = new NetObjectStruct();
-
-            foreach (var go in preparedPool)
+            if (netEvents.NetObjectPrefabs.Count == totalNetObjectsToAdd)
             {
-                Debug.Log("#NETManager#-------------asdasdasd");
+                Debug.Log("#NETManager#-------------Added objects to PUN Pool " + netEvents.NetObjectPrefabs.Count + "\n. Connecting....");
 
-                pool.ResourceCache.Add(go.name, go);
-
-                yield return new WaitForSeconds(0.1f);
-
-                netObject.obName = go.name;
-                netObject.spawnPosition = go.transform.position;
-                netObject.spawnRotation = go.transform.rotation;
-
-                netObjStructs.Add(netObject);
+                //Connect to the Photon Network(server)
+                PhotonNetwork.GameVersion = settings.GameVersion;
+                PhotonNetwork.ConnectUsingSettings();
             }
-
-            yield return new WaitForSeconds(0.1f);
-
-            netEvents.NetObjectsStructs = netObjStructs.ToArray();
-
-            Debug.Log("#NETManager#-------------Added objects to PUN Pool. Connecting....");
-
-            //Connect to the Photon Network(server)
-            PhotonNetwork.GameVersion = settings.GameVersion;
-            PhotonNetwork.ConnectUsingSettings();
         }
 
 

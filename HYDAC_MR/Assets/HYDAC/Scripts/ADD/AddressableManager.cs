@@ -16,6 +16,7 @@ using HYDAC.Scripts.NET;
 
 namespace HYDAC.Scripts.ADD
 {
+    [RequireComponent(typeof(NetManager))]
     public class AddressableManager : MonoBehaviour
     {
         [SerializeField] private SocAddressablesSettings settings;
@@ -29,13 +30,16 @@ namespace HYDAC.Scripts.ADD
         private SceneInstance _currentScene = default;
         private SceneInstance _currentEnvironment = default;
 
-        private IList<GameObject> loadedNetworkedPrefabs = new List<GameObject>();
+        private NetManager _netManager;
+        private IList<GameObject> _loadedNetworkedPrefabs = new List<GameObject>();
 
         private void Awake()
         {
             // Initialise Addressables
             Addressables.InitializeAsync();
             Addressables.InitializeAsync().Completed += OnAddressablesInitialised;
+
+            _netManager = GetComponent<NetManager>();
 
             netEvents.EPreparePUNPool += OnPreparePunPool;
             netEvents.EJoinedRoom += OnRoomJoined;
@@ -98,15 +102,21 @@ namespace HYDAC.Scripts.ADD
 
         private async Task PreparePhotonPool()
         {
-            loadedNetworkedPrefabs = await AddressableLocationLoader.LoadAssetReferences(settings.NetworkPrefabs);
+            // First load in the local player prefab
+            GameObject localPlayer = await AddressableLocationLoader.LoadFromReference(settings.LocalPlayerPrefab);
+            _loadedNetworkedPrefabs.Add(localPlayer);
 
-            Debug.Log("#AddressableManager#-------------Network prefabs loaded " + loadedNetworkedPrefabs.Count);
+            _netManager.AddLocalPlayerPrefabToPool(localPlayer);
 
+            // Then load in all the other network objects
+            _loadedNetworkedPrefabs = await AddressableLocationLoader.LoadAssetReferences(settings.NetworkPrefabs);
 
+            Debug.Log("#AddressableManager#-------------Network prefabs loaded " + _loadedNetworkedPrefabs.Count);
 
-
-            // Send confirmation to netManager
-            netEvents.InvokePUNPoolPrepared(loadedNetworkedPrefabs.ToArray());
+            foreach (GameObject go in _loadedNetworkedPrefabs)
+            {
+                _netManager.AddToProtonPool(go, _loadedNetworkedPrefabs.Count);
+            }
         }
 
 

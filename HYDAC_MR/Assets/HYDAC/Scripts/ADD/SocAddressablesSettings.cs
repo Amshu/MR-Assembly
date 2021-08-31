@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace HYDAC.Scripts.ADD
 {
@@ -24,11 +22,12 @@ namespace HYDAC.Scripts.ADD
         public string CatalogueLabel => catalogueLabel;
 
         [Space]
+        [Tooltip("The player prefab which needs to be added to Photon pool")]
+        [SerializeField] private AssetReference localPlayerPrefab;
+        public AssetReference LocalPlayerPrefab => localPlayerPrefab;
+
         [Tooltip("The prefabs that are networked which needs to be added to Photon pool")]
         [SerializeField] private AssetReference[] networkPrefabs;
         public AssetReference[] NetworkPrefabs => networkPrefabs;
-
-
-        private IList<IResourceLocation> NetObjects = new List<IResourceLocation>();
     }
 }

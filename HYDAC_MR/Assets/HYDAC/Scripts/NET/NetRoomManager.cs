@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Photon.Pun;
+using System.Collections.Generic;
 
 namespace HYDAC.Scripts.NET
 {
@@ -11,19 +12,26 @@ namespace HYDAC.Scripts.NET
     {
         [SerializeField] SocNetEvents netEvents;
 
+        private GameObject _localPlayer;
+
         private void Start()
         {
+            _localPlayer = PhotonNetwork.Instantiate(netEvents.LocalPlayerPrefabName,
+                Vector3.zero, Quaternion.identity);
+
             if (!PhotonNetwork.IsMasterClient) return;
 
-            InstantiatePoolObjects(netEvents.NetObjectsStructs);
+            InstantiatePoolObjects(netEvents.NetObjectPrefabs);
         }
 
-        private void InstantiatePoolObjects(NetObjectStruct[] prefabNames)
+        private void InstantiatePoolObjects(List<GameObject> prefabs)
         {
-            foreach(var objectStruct in prefabNames)
+            foreach(var go in prefabs)
             {
-                PhotonNetwork.Instantiate(objectStruct.obName, objectStruct.spawnPosition, objectStruct.spawnRotation);
-            } 
+                PhotonNetwork.Instantiate(go.name, go.transform.position, go.transform.rotation);
+            }
+
+            netEvents.NetObjectPrefabs.Clear();
         }
     }
 }
