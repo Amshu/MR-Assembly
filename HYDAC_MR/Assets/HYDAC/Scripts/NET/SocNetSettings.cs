@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace HYDAC.Scripts.SOCS
+namespace HYDAC.Scripts.NET
 {
     [CreateAssetMenu(menuName = "Socks/Settings/Network", fileName = "SOC_NetSettings")]
     public class SocNetSettings: ScriptableObject

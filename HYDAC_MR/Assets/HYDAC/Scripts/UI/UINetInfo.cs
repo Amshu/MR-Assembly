@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 using TMPro;
 
-using HYDAC.Scripts.SOCS.NET;
+using HYDAC.Scripts.NET;
 using System;
 
 public class UINetInfo : MonoBehaviour

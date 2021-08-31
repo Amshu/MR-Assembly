@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-
-using HYDAC.Scripts.SOCS;
-using HYDAC.Scripts.SOCS.NET;
-using UnityEngine.AddressableAssets;
+using System.Collections.Generic;
 using System;
+using System.Collections;
 
-namespace HYDAC.Scripts.PUN
+namespace HYDAC.Scripts.NET
 {
     /// <summary>
     /// This class is responsible for creating a room on Photon Network (if master client: first player to connect) or else joining the room
@@ -20,7 +18,7 @@ namespace HYDAC.Scripts.PUN
 
         public bool connectOnStart;
 
-        [SerializeField] private SocNetSettings settings;
+        [SerializeField] private SocNetSettings settings; 
         [SerializeField] private SocNetEvents netEvents;
         [SerializeField] private SocNetUI netUI;
         [SerializeField] private Transform[] playerSpawnPoints;
@@ -29,8 +27,7 @@ namespace HYDAC.Scripts.PUN
 
         private bool _isConnecting;
         private string _networkRoomName;
-        
-        
+
         #region Unity Methods
         private void Awake()
         {
@@ -55,17 +52,56 @@ namespace HYDAC.Scripts.PUN
             _roomOptions.IsVisible = settings.IsRoomVisible;
             _roomOptions.IsOpen = settings.IsRoomOpen;
 
+            netEvents.EPUNPoolPrepared += OnPUNPoolPrepared;
             // Subscribe to UI events
             netUI.EUIRequestJoinRoom += OnUIRequestedJoinRoom;
 
-            
-
             if (connectOnStart)
-            {
                 netEvents.TestNetworkAutoJoin += OnTestAutoJoin;
-                return;
-            }
         }
+
+
+        private void OnPUNPoolPrepared(GameObject[] preparedPool)
+        {
+            Debug.Log("#NETManager#--------Loaded objects received: " + preparedPool.Length);
+
+            StartCoroutine(AddToProtonPool(preparedPool));
+        }
+
+
+        IEnumerator AddToProtonPool(GameObject[] preparedPool)
+        {
+            DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
+
+            List<NetObjectStruct> netObjStructs = new List<NetObjectStruct>();
+            NetObjectStruct netObject = new NetObjectStruct();
+
+            foreach (var go in preparedPool)
+            {
+                Debug.Log("#NETManager#-------------asdasdasd");
+
+                pool.ResourceCache.Add(go.name, go);
+
+                yield return new WaitForSeconds(0.1f);
+
+                netObject.obName = go.name;
+                netObject.spawnPosition = go.transform.position;
+                netObject.spawnRotation = go.transform.rotation;
+
+                netObjStructs.Add(netObject);
+            }
+
+            yield return new WaitForSeconds(0.1f);
+
+            netEvents.NetObjectsStructs = netObjStructs.ToArray();
+
+            Debug.Log("#NETManager#-------------Added objects to PUN Pool. Connecting....");
+
+            //Connect to the Photon Network(server)
+            PhotonNetwork.GameVersion = settings.GameVersion;
+            PhotonNetwork.ConnectUsingSettings();
+        }
+
 
         private void OnTestAutoJoin()
         {
@@ -94,28 +130,11 @@ namespace HYDAC.Scripts.PUN
             // Set connecting flag - we are wanting to connect
             _isConnecting = true;
             _networkRoomName = roomName;
-            
+
             if(!PhotonNetwork.IsConnected)
             {
-                //Connect to the Photon Network(server)
-                PhotonNetwork.GameVersion = settings.GameVersion;
-                PhotonNetwork.ConnectUsingSettings();
-
-                //Debug.Log("#NETManager#-------------Adding player prefab to Photon pool");
-
-                // Add to network pool
-                //DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
-                //if (pool != null)
-                //{
-                //    Addressables.LoadAssetAsync<GameObject>(settings.LocalPlayerPrefab).Completed += handle =>
-                //    {
-                //        pool.ResourceCache.Add(handle.Result.name, handle.Result);
-                //    };
-                //}
-            }
-            else
-            {
-                OnRequestJoinRoom(roomName);
+                // Prepare pool if not connected to the network before
+                netEvents.InvokePreparePUNPool(true);
             }
         }
 

@@ -53,7 +53,7 @@ namespace HYDAC.Scripts.ADD
 
                 loadedGameObjects.Add(await LoadFromReference(assetRef));
 
-                Debug.Log("#AddressableLocationLoader#-------Loaded asset: " + assetRef.AssetGUID);
+                // Debug.Log("#AddressableLocationLoader#-------Loaded asset: " + assetRef.AssetGUID);
             }
 
             return loadedGameObjects;

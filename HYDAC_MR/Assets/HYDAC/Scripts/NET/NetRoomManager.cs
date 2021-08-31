@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
-
 using Photon.Pun;
-using UnityEngine.AddressableAssets;
-using System.Threading.Tasks;
 
-
-namespace HYDAC.Scripts.PUN
+namespace HYDAC.Scripts.NET
 {
     /// <summary>
     /// This class is responsible for loading the main scene (Hydac_Factory.unity)
@@ -13,26 +9,21 @@ namespace HYDAC.Scripts.PUN
     /// </summary>
     public class NetRoomManager : MonoBehaviour
     {
-        [SerializeField] AssetReference[] refs;
+        [SerializeField] SocNetEvents netEvents;
 
-        private void Awake()
-        {
-            LoadObjects();
-        }
-
-        private async Task LoadObjects()
+        private void Start()
         {
             if (!PhotonNetwork.IsMasterClient) return;
 
-            DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
+            InstantiatePoolObjects(netEvents.NetObjectsStructs);
+        }
 
-            foreach (var reference in refs)
+        private void InstantiatePoolObjects(NetObjectStruct[] prefabNames)
+        {
+            foreach(var objectStruct in prefabNames)
             {
-                var handle = await Addressables.LoadAssetAsync<GameObject>(reference).Task;
-                pool.ResourceCache.Add(handle.name, handle);
-
-                PhotonNetwork.Instantiate(handle.name, handle.transform.position, handle.transform.rotation, 1);
-            }
+                PhotonNetwork.Instantiate(objectStruct.obName, objectStruct.spawnPosition, objectStruct.spawnRotation);
+            } 
         }
     }
 }

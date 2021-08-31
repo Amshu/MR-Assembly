@@ -1,16 +1,18 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Linq;
 
 using UnityEngine;
 
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
+
 using UnityEngine.ResourceManagement.ResourceLocations;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 
 using HYDAC.Scripts.SOCS;
-using HYDAC.Scripts.SOCS.NET;
-using UnityEngine.ResourceManagement.ResourceProviders;
+using HYDAC.Scripts.NET;
 
 namespace HYDAC.Scripts.ADD
 {
@@ -29,18 +31,13 @@ namespace HYDAC.Scripts.ADD
 
         private IList<GameObject> loadedNetworkedPrefabs = new List<GameObject>();
 
-        private AddressablesNetLoader _netLoader;
-
         private void Awake()
         {
-            // Get References
-            _netLoader = GetComponent<AddressablesNetLoader>();
-
             // Initialise Addressables
             Addressables.InitializeAsync();
             Addressables.InitializeAsync().Completed += OnAddressablesInitialised;
 
-            netEvents.ENetworkConnected += OnNetworkConnected;
+            netEvents.EPreparePUNPool += OnPreparePunPool;
             netEvents.EJoinedRoom += OnRoomJoined;
         }
 
@@ -88,33 +85,35 @@ namespace HYDAC.Scripts.ADD
         }
 
 
-        private void OnNetworkConnected(NetStructInfo obj)
+        private void OnPreparePunPool(bool toPrepare)
         {
-            Debug.Log("Preparing network pool");
+            if (toPrepare)
+            {
+                Debug.Log("#AddressableManager#-------------Preparing network pool");
 
-            // Load network objects
-            PreparePhotonPool();
+                // Load network objects
+                PreparePhotonPool();
+            }
         }
 
         private async Task PreparePhotonPool()
         {
             loadedNetworkedPrefabs = await AddressableLocationLoader.LoadAssetReferences(settings.NetworkPrefabs);
 
-            Debug.Log("Network prefabs loaded " + loadedNetworkedPrefabs.Count);
-            foreach (var go in loadedNetworkedPrefabs)
-            {
-                Debug.Log("Network prefab loaded: " + go.name);
-            }
-        }
+            Debug.Log("#AddressableManager#-------------Network prefabs loaded " + loadedNetworkedPrefabs.Count);
 
+
+
+
+            // Send confirmation to netManager
+            netEvents.InvokePUNPoolPrepared(loadedNetworkedPrefabs.ToArray());
+        }
 
 
         private void OnRoomJoined(NetStructInfo obj)
         {
             // Load network scene
             LoadNetworkScene();
-
-            LoadNetworkObjects();
         }
 
         private async Task LoadNetworkScene()
@@ -122,11 +121,6 @@ namespace HYDAC.Scripts.ADD
             await AddressablesSceneLoader.UnloadScene(_currentScene);
 
             _currentScene = await AddressablesSceneLoader.LoadScene(settings.SceneList[1], true);
-        }
-
-        private async Task LoadNetworkObjects()
-        {
-            //await 
         }
 
 
