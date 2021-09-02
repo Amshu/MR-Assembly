@@ -1,75 +1,86 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
 using HYDAC.Scripts.INFO;
-using HYDAC.Scripts.SOCS;
+using HYDAC.Scripts.MOD;
 
 namespace HYDAC.Scripts.UI
 {
     public class UICatalogue : MonoBehaviour
     {
+        [SerializeField] private string catalogueLabel;
+
         [SerializeField] private SocAssemblyEvents assemblyEvents;
-        
+        [SerializeField] private SocAssemblyUI assemblyUI;
+
         [Space] [SerializeField] private AssetReference catalogueButtonPrefab;
         [SerializeField] private Transform catalogueButtonParent;
 
-        private bool _isInitialised;
         private Transform[] _buttonTransforms;
 
         private void OnEnable()
         {
-            //if (_isInitialised && assemblyEvents.Catalogue.Length < 1)
-            //{
-            //    Debug.LogError("#UICatalogue#---------Catalogue fetch returned empty or Catalogue already initialised");
-            //    return;
-            //}
-                
-            //// Load catalogue
-            //StartCoroutine(InstantiateCatalogueUI(assemblyEvents.Catalogue));
+            assemblyUI.EToggleCatalogueUI += OnToggleUI;
         }
 
         private void OnDisable()
         {
-            //for (int i = 0; i < _buttonTransforms.Length; i++)
-            //{
-            //    bool check = Addressables.ReleaseInstance(_buttonTransforms[i].gameObject);
-            //    if (!check)
-            //    {
-            //        Debug.LogError("#UICatalogue#---------Releasing button failed: " + _buttonTransforms[i].name);
-            //    }
-            //}
+            assemblyUI.EToggleCatalogueUI -= OnToggleUI;
 
-            //_buttonTransforms = null;
+            for (int i = 0; i < _buttonTransforms.Length; i++)
+            {
+                bool check = Addressables.ReleaseInstance(_buttonTransforms[i].gameObject);
+                if (!check)
+                {
+                    Debug.LogError("#UICatalogue#---------Releasing button failed: " + _buttonTransforms[i].name);
+                }
+            }
+
+            _buttonTransforms = null;
         }
 
-        IEnumerator InstantiateCatalogueUI(SCatalogueInfo[] catalogue)
+
+        private void OnToggleUI(bool toggle)
         {
+            Debug.Log("Test");
+
+            if (toggle)
+            {
+                transform.GetChild(0).gameObject.SetActive(true);
+
+                // Load catalogue
+                InstantiateCatalogueUI();
+            }
+            else
+                transform.GetChild(0).gameObject.SetActive(false);
+        }
+
+
+        private async Task InstantiateCatalogueUI()
+        {
+            // Load Catalogue
+            List<SCatalogueInfo> catalogue = new List<SCatalogueInfo>();
+
+            await Addressables.LoadAssetsAsync<SCatalogueInfo>(catalogueLabel, (result) =>
+            {
+                Debug.Log("#UICatalogue#-------------Catalogue found: " + result.iname);
+                catalogue.Add(result);
+            }).Task;
+
+            assemblyEvents.SetCatalogue(catalogue.ToArray());
+
             List<Transform> buttonTransforms = new List<Transform>();
-            
-            for (int i = 0; i < catalogue.Length; i++)
+
+            for (int i = 0; i < catalogue.Count; i++)
             {
                 // Create UI button and fill in info
-                AsyncOperationHandle<GameObject> buttonLoadingHandle =
-                    Addressables.InstantiateAsync(catalogueButtonPrefab, catalogueButtonParent);
+                var button = await Addressables.InstantiateAsync(catalogueButtonPrefab, catalogueButtonParent).Task;
 
-                buttonLoadingHandle.Completed += handle =>
-                {
-                    if (handle.Status == AsyncOperationStatus.Succeeded)
-                    {
-                        buttonTransforms.Add(handle.Result.transform);
-                        buttonLoadingHandle.Result.GetComponentInChildren<UIBtnCatalogue>().Initialize(catalogue[i], transform);
-                    }
-                    else
-                    {
-                        Debug.LogError("#UICatalogue#---------Instantiating button failed");
-                    }
-                };
-                
-                yield return new WaitUntil(() => buttonLoadingHandle.Task.IsCompleted);
+                buttonTransforms.Add(button.transform);
+                button.GetComponentInChildren<UIBtnCatalogue>().Initialize(catalogue[i], transform);
             }
 
             _buttonTransforms = buttonTransforms.ToArray();

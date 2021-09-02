@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Linq;
 
 using UnityEngine;
 
@@ -11,8 +10,8 @@ using UnityEngine.ResourceManagement.ResourceLocations;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
-using HYDAC.Scripts.SOCS;
 using HYDAC.Scripts.NET;
+using UnityEngine.SceneManagement;
 
 namespace HYDAC.Scripts.ADD
 {
@@ -21,17 +20,11 @@ namespace HYDAC.Scripts.ADD
     {
         [SerializeField] private SocAddressablesSettings settings;
         [SerializeField] private SocNetEvents netEvents;
-        [SerializeField] private SocAssemblyEvents assemblyEvents;
 
-        private bool _isInitialised;
-
-        private IList<IResourceLocation> OnStartLoadedAssetsLocations = new List<IResourceLocation>();
+        private IList<IResourceLocation> _onStartLoadedAssetsLocations = new List<IResourceLocation>();
 
         private SceneInstance _currentScene = default;
         private SceneInstance _currentEnvironment = default;
-
-        private NetManager _netManager;
-        private IList<GameObject> _loadedNetworkedPrefabs = new List<GameObject>();
 
         private void Awake()
         {
@@ -39,21 +32,14 @@ namespace HYDAC.Scripts.ADD
             Addressables.InitializeAsync();
             Addressables.InitializeAsync().Completed += OnAddressablesInitialised;
 
-            _netManager = GetComponent<NetManager>();
-
-            netEvents.EPreparePUNPool += OnPreparePunPool;
             netEvents.EJoinedRoom += OnRoomJoined;
         }
-
 
         private void OnDestroy()
         {
             Addressables.InitializeAsync().Completed -= OnAddressablesInitialised;
 
-            //assemblyEvents.EModuleSelected -= OnModuleSelected;
-
-            //if(_loadedModel)
-            //modelPrefabRefToLoad.ReleaseInstance(_loadedModel);
+            netEvents.EJoinedRoom -= OnRoomJoined;
         }
 
 
@@ -68,8 +54,6 @@ namespace HYDAC.Scripts.ADD
         {
             Debug.Log("#AddressableManager#-------------Initialised");
 
-            _isInitialised = true;
-
             SetupOnStart();
         }
         
@@ -77,48 +61,18 @@ namespace HYDAC.Scripts.ADD
         private async Task SetupOnStart()
         {
             // First load all the assets
-            await AddressableLocationLoader.LoadLabels(settings.AssetsToLoadOnStart, OnStartLoadedAssetsLocations);
+            await AddressableLoader.LoadLabels(settings.LoadAssets_OnStart, _onStartLoadedAssetsLocations);
+
+            Debug.Log("#AddressableManager#-------------Loaded OnStartLocations: " + _onStartLoadedAssetsLocations.Count);
 
             // Then load local scene
-            _currentScene =  await AddressablesSceneLoader.LoadScene(settings.SceneList[0], true);
+            _currentScene =  await AddressablesSceneLoader.LoadScene(settings.List_Scene[0], true);
 
             // Then load environment
-            _currentEnvironment = await AddressablesSceneLoader.LoadScene(settings.DefaultEnvironment, true);
+            _currentEnvironment = await AddressablesSceneLoader.LoadScene(settings.Env_Default, true);
 
             netEvents.AutoJoinCheck();
         }
-
-
-        private void OnPreparePunPool(bool toPrepare)
-        {
-            if (toPrepare)
-            {
-                Debug.Log("#AddressableManager#-------------Preparing network pool");
-
-                // Load network objects
-                PreparePhotonPool();
-            }
-        }
-
-        private async Task PreparePhotonPool()
-        {
-            // First load in the local player prefab
-            GameObject localPlayer = await AddressableLocationLoader.LoadFromReference(settings.LocalPlayerPrefab);
-            _loadedNetworkedPrefabs.Add(localPlayer);
-
-            _netManager.AddLocalPlayerPrefabToPool(localPlayer);
-
-            // Then load in all the other network objects
-            _loadedNetworkedPrefabs = await AddressableLocationLoader.LoadAssetReferences(settings.NetworkPrefabs);
-
-            Debug.Log("#AddressableManager#-------------Network prefabs loaded " + _loadedNetworkedPrefabs.Count);
-
-            foreach (GameObject go in _loadedNetworkedPrefabs)
-            {
-                _netManager.AddToProtonPool(go, _loadedNetworkedPrefabs.Count);
-            }
-        }
-
 
         private void OnRoomJoined(NetStructInfo obj)
         {
@@ -130,20 +84,10 @@ namespace HYDAC.Scripts.ADD
         {
             await AddressablesSceneLoader.UnloadScene(_currentScene);
 
-            _currentScene = await AddressablesSceneLoader.LoadScene(settings.SceneList[1], true);
+            _currentScene = await AddressablesSceneLoader.LoadScene(settings.List_Scene[1], true);
+
+            SceneManager.SetActiveScene(_currentScene.Scene);
         }
-
-
-        //private void OnDownloadComplete(AsyncOperationHandle obj)
-        //{
-        //    Debug.Log("#AddressableManager#-------------Loading asset");
-        //    AsyncOperationHandle handle = Addressables.InstantiateAsync(assemblyEvents.CurrentCatalogue.AssemblyPrefab, machineWorldTransform);
-
-        //    handle.Completed += operationHandle =>
-        //    {
-        //        Debug.Log("#AddressableManager#-------------Assembly intantiated");
-        //    };
-        //}
 
 
         //private void OnPUNEvent(EventData photonEvent)
@@ -155,19 +99,6 @@ namespace HYDAC.Scripts.ADD
         //        Debug.Log("#BaseAssembly#------------OnMachineSelectedEventCode");
 
         //        int moduleID = (int)photonEvent.CustomData;
-        //    }
-        //}
-
-
-
-        //private void OnAssemblySelected(SCatalogueInfo info)
-        //{
-        //    int content = info.ID;
-
-        //    if (PhotonNetwork.IsMasterClient)
-        //    {
-        //        RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All, CachingOption = EventCaching.AddToRoomCache}; 
-        //        PhotonNetwork.RaiseEvent(OnMachineSelectedEventCode, content, raiseEventOptions, SendOptions.SendReliable);
         //    }
         //}
 

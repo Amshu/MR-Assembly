@@ -52,7 +52,7 @@ public class UINetInfo : MonoBehaviour
         isConnectedText.text = netInfo.isConnected.ToString();
         inRoomText.text = netInfo.inRoom.ToString();
         roomNameText.text = netInfo.roomName;
-        playerCountText.text = netInfo.playerCount.ToString();
+        playerCountText.text = netInfo.userCount.ToString();
         isMasterClientText.text = netInfo.isMasterClient.ToString();
         playerNameText.text = netInfo.localPlayerName;
 

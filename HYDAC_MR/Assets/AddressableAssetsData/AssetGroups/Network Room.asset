@@ -18,15 +18,38 @@ MonoBehaviour:
   m_GUID: 432f97b5e7290924f9a7255bc66f0c5a
   m_SerializeEntries:
   - m_GUID: 36f866750126e9b4687a6af7b215f5ae
-    m_Address: NetworkedPlayer_PUN
+    m_Address: PUNPlayer
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - NetRoom
+    m_SerializedLabels: []
   - m_GUID: 2165a3ea0c7aa8f4680cf8632d1dbc16
     m_Address: NetRoom
     m_ReadOnly: 0
     m_SerializedLabels:
     - NetRoom
+  - m_GUID: 71b9aa7d328adbd49b17fdf368bc208d
+    m_Address: AssemblyManager
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 92a51797095100f4f9bc0a444be9793d
+    m_Address: FocusedModuleHolder
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 91f25031e278252488fffae25b9a9955
+    m_Address: FreeWall
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 450f5bd570481164db9e140e632972f5
+    m_Address: P_UI_Instructions
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a72e262a9b26d144f9c8b76803aaa506
+    m_Address: Platform
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6420cae30d88abd41abff84a31e00d6d
+    m_Address: Slate
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 34eeb89f8bcfe2648ae1ec6b50fbc09f, type: 2}
   m_SchemaSet:

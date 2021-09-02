@@ -1,6 +1,5 @@
 ﻿using Photon.Realtime;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace HYDAC.Scripts.NET
@@ -10,7 +9,7 @@ namespace HYDAC.Scripts.NET
         public bool isConnected;
         public bool inRoom;
         public string roomName;
-        public int playerCount;
+        public int userCount;
 
         public bool isMasterClient;
         public string localPlayerName;
@@ -21,7 +20,7 @@ namespace HYDAC.Scripts.NET
             this.isConnected = true;
             this.inRoom = false;
             this.roomName = "";
-            this.playerCount = 0;
+            this.userCount = 0;
 
             this.isMasterClient = false;
             this.localPlayerName = "";
@@ -36,9 +35,6 @@ namespace HYDAC.Scripts.NET
         private NetStructInfo _netInfo = new NetStructInfo();
         public NetStructInfo NetInfo => _netInfo;
 
-        internal string LocalPlayerPrefabName;
-        internal List<GameObject> NetObjectPrefabs = new List<GameObject>();
-
         public event Action<NetStructInfo> ENetworkConnected;
         public event Action<NetStructInfo> ENetworkDisconnected;
         public event Action<NetStructInfo> EJoinedRoom;
@@ -47,6 +43,12 @@ namespace HYDAC.Scripts.NET
 
         public event Action<NetStructInfo> EPlayerJoined;
         public event Action<NetStructInfo> EPlayerLeft;
+
+
+        private void OnEnable()
+        {
+            _netInfo = new NetStructInfo();
+        }
 
 
         public event Action TestNetworkAutoJoin;
@@ -76,7 +78,7 @@ namespace HYDAC.Scripts.NET
         {
             _netInfo.inRoom = true;
             _netInfo.roomName = roomInfo.Name;
-            _netInfo.playerCount = roomInfo.PlayerCount;
+            _netInfo.userCount = roomInfo.PlayerCount;
 
             EJoinedRoom?.Invoke(_netInfo);
         }
@@ -85,7 +87,7 @@ namespace HYDAC.Scripts.NET
         {
             _netInfo.inRoom = false;
             _netInfo.roomName = "";
-            _netInfo.playerCount = 0;
+            _netInfo.userCount = 0;
 
             ELeftRoom?.Invoke(_netInfo);
         }
@@ -97,26 +99,19 @@ namespace HYDAC.Scripts.NET
 
         internal void OnNetPlayerJoinedRoom(int numberOfPlayers)
         {
-            _netInfo.playerCount = numberOfPlayers;
+            _netInfo.userCount = numberOfPlayers;
 
             EPlayerJoined?.Invoke(_netInfo);
         }
 
         internal void OnNetPlayerLeftRoom()
         {
-            _netInfo.playerCount--;
+            _netInfo.userCount--;
 
             EPlayerLeft?.Invoke(_netInfo);
         }
 
         #endregion
-
-
-        public event Action<bool> EPreparePUNPool;
-        internal void InvokePreparePUNPool(bool toPrepare)
-        {
-            EPreparePUNPool?.Invoke(toPrepare);
-        }
 
 
         public event Action ENetRoomSetup;

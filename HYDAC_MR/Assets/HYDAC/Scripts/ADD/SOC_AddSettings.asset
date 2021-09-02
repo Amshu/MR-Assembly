@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb6a82428367be4ca8e6d382d9c4583, type: 3}
   m_Name: SOC_AddSettings
   m_EditorClassIdentifier: 
-  assetList:
+  List_assets:
   - Default
-  - Env1
-  - Catalogue
-  sceneList:
+  label_Catalogue: Catalogue
+  list_Scene:
   - m_AssetGUID: f4b11a75a67dff94e849c45584186026
     m_SubObjectName: 
     m_SubObjectType: 
@@ -25,19 +24,18 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  defaultEnvironment:
+  env_Default:
     m_AssetGUID: 1cf06356dff937f4798eebf8798ea474
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  catalogueLabel: Catalogue
-  localPlayerPrefab:
+  prefab_LocalPlayer:
     m_AssetGUID: 36f866750126e9b4687a6af7b215f5ae
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  networkPrefabs:
-  - m_AssetGUID: 6420cae30d88abd41abff84a31e00d6d
+  prefabs_PhotonPool:
+  - m_AssetGUID: 71b9aa7d328adbd49b17fdf368bc208d
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
@@ -45,11 +43,15 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  - m_AssetGUID: a72e262a9b26d144f9c8b76803aaa506
+  - m_AssetGUID: 91f25031e278252488fffae25b9a9955
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   - m_AssetGUID: 450f5bd570481164db9e140e632972f5
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 6420cae30d88abd41abff84a31e00d6d
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

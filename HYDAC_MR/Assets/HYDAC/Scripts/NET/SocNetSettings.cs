@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace HYDAC.Scripts.NET
@@ -21,13 +22,30 @@ namespace HYDAC.Scripts.NET
         [SerializeField] private bool isRoomOpen = true;
         public bool IsRoomOpen => isRoomOpen;
 
+        [Space]
+        [Tooltip("The player prefab which needs to be added to Photon pool")]
+        [SerializeField] private AssetReference asset_LocalPlayer;
+        public AssetReference Asset_LocalPlayer => asset_LocalPlayer;
+
+        [Tooltip("The prefabs that are networked which needs to be added to Photon pool")]
+        [SerializeField] private AssetReference[] assets_PhotonPool;
+        public AssetReference[] Assets_PhotonPool => assets_PhotonPool;
+
+
         [Header("Debug Settings")] [Space]
         [SerializeField] private string defaultNetRoomName;
         public string DefaultNetRoomName => defaultNetRoomName;
 
-        [Space]
-        [Tooltip("The prefab to use for representing the player")]
-        [SerializeField] private AssetReference[] networkObjects;
-        public AssetReference[] NetworkObjects => networkObjects;
+        public string LocalPlayerPrefabname;
+        public PUNPoolObjectStruct[] PUNPoolObjectStructs;
+    }
+
+    [Serializable]
+    public struct PUNPoolObjectStruct
+    {
+        public string name;
+        public Transform transform;
+        public Vector3 spawnPosition;
+        public Quaternion spawnRotation;
     }
 } 

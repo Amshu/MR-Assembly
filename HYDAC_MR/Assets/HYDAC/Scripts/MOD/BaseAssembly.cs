@@ -5,7 +5,6 @@ using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 
-using HYDAC.Scripts.SOCS;
 using HYDAC.Scripts.INFO;
 
 namespace HYDAC.Scripts.MOD

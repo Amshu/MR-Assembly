@@ -1,13 +1,11 @@
 using Microsoft.MixedReality.Toolkit.UI.BoundsControl;
 using UnityEngine;
 
-using HYDAC.Scripts.SOCS;
-
 namespace HYDAC.Scripts.MOD
 {
     public class FocusedModule : AUnit
     {
-        [SerializeField] private SocModuleUI socUI = null;
+        [SerializeField] private SocAssemblyUI socUI = null;
         [SerializeField] private SubModule[] subModules;
 
         private bool _isAssembled = true;

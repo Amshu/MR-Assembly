@@ -1,44 +1,35 @@
-using System;
 using TMPro;
 using UnityEngine;
 
-using HYDAC.Scripts.SOCS;
+using HYDAC.Scripts.MOD;
 using HYDAC.Scripts.INFO;
 
 namespace HYDAC.Scripts
 {
     public class ModuleHolderUI : MonoBehaviour
     {
-        [SerializeField] private SocModuleUI socUI = null;
-        [SerializeField] private SocAssemblyEvents assemblyEvents = null;
+        [SerializeField] private SocAssemblyUI socUI;
+        [SerializeField] private SocAssemblyEvents assemblyEvents;
 
         [Space] [Header("Info UI")] 
-        [SerializeField] private TextMeshProUGUI idText = null;
-        [SerializeField] private TextMeshProUGUI nameText = null;
-        [SerializeField] private TextMeshProUGUI descriptionText = null;
-
-
-        private GameObject currentModule = null;
-    
-        private void Awake()
-        {
-        
-        }
+        [SerializeField] private TextMeshProUGUI idText;
+        [SerializeField] private TextMeshProUGUI nameText;
+        [SerializeField] private TextMeshProUGUI descriptionText;
 
         private void OnEnable()
         {
             assemblyEvents.EModuleSelected += OnModuleChanged;
         
-            socUI.EUIRequestFocusOff += OnUIRequestFocusOff;
-            socUI.EUIRequestToggleInfoUI += OnUIRequestToggleInfoUI;
+            //socUI.EUIRequestFocusOff += OnUIRequestFocusOff;
+            //socUI.EUIRequestToggleInfoUI += OnUIRequestToggleInfoUI;
         }
 
         private void OnDisable()
         {
             assemblyEvents.EModuleSelected -= OnModuleChanged;
         
-            socUI.EUIRequestFocusOff -= OnUIRequestFocusOff;
-            socUI.EUIRequestToggleInfoUI -= OnUIRequestToggleInfoUI;
+            //socUI.EUIRequestFocusOff -= OnUIRequestFocusOff;
+            //socUI.EUIRequestToggleInfoUI -= OnUIRequestToggleInfoUI;
         }
 
 
@@ -49,15 +40,15 @@ namespace HYDAC.Scripts
             descriptionText.text = newModule.description;
         }
 
-        private void OnUIRequestToggleInfoUI()
-        {
-            throw new NotImplementedException();
-        }
+        //private void OnUIRequestToggleInfoUI()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        private void OnUIRequestFocusOff()
-        {
-            throw new NotImplementedException();
-        }
+        //private void OnUIRequestFocusOff()
+        //{
+        //    throw new NotImplementedException();
+        //}
     
         private void Reset()
         {

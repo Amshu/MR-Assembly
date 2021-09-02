@@ -25,9 +25,6 @@ namespace HYDAC.Scripts.MOD
         private Vector3 _mAssembledPosition = Vector3.zero;
 
         //private RealtimeTransform _realtimeTransform = null;
-        
-        private float _mLastOwnershipChangeTime = 0f;
-        private bool _mHasOwnership = false;
 
         private void Awake()
         {

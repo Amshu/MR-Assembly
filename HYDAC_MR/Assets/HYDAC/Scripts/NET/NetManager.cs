@@ -2,6 +2,9 @@
 
 using Photon.Pun;
 using Photon.Realtime;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using HYDAC.Scripts.ADD;
 
 namespace HYDAC.Scripts.NET
 {
@@ -19,13 +22,14 @@ namespace HYDAC.Scripts.NET
         [SerializeField] private SocNetSettings settings; 
         [SerializeField] private SocNetEvents netEvents;
         [SerializeField] private SocNetUI netUI;
-        [SerializeField] private Transform[] playerSpawnPoints;
 
-        private RoomOptions _roomOptions;
-
-        DefaultPool _punPool;
         private bool _isConnecting;
         private string _networkRoomName;
+        private RoomOptions _roomOptions;
+
+        private DefaultPool _punPool;
+        private GameObject _localPlayerPrefab;
+        private IList<GameObject> _loadedNetworkedPrefab = new List<GameObject>();
 
         #region Unity Methods
         private void Awake()
@@ -60,36 +64,12 @@ namespace HYDAC.Scripts.NET
                 netEvents.TestNetworkAutoJoin += OnTestAutoJoin;
         }
 
-
-        public void AddLocalPlayerPrefabToPool(GameObject go)
-        {
-            _punPool.ResourceCache.Add(go.name, go);
-            netEvents.LocalPlayerPrefabName = go.name;
-        }
-
-        public void AddToProtonPool(GameObject go, int totalNetObjectsToAdd)
-        {
-            _punPool.ResourceCache.Add(go.name, go);
-            netEvents.NetObjectPrefabs.Add(go);
-
-            if (netEvents.NetObjectPrefabs.Count == totalNetObjectsToAdd)
-            {
-                Debug.Log("#NETManager#-------------Added objects to PUN Pool " + netEvents.NetObjectPrefabs.Count + "\n. Connecting....");
-
-                //Connect to the Photon Network(server)
-                PhotonNetwork.GameVersion = settings.GameVersion;
-                PhotonNetwork.ConnectUsingSettings();
-            }
-        }
-
+        #endregion
 
         private void OnTestAutoJoin()
         {
             OnUIRequestedJoinRoom(settings.DefaultNetRoomName);
         }
-
-        #endregion
-
 
 
         #region Connection Methods
@@ -111,10 +91,34 @@ namespace HYDAC.Scripts.NET
             _isConnecting = true;
             _networkRoomName = roomName;
 
+            // If not connected yet
             if(!PhotonNetwork.IsConnected)
             {
-                // Prepare pool if not connected to the network before
-                netEvents.InvokePreparePUNPool(true);
+                PreparePhotonPoolNConnect();
+            }
+        }
+
+
+        private async Task PreparePhotonPoolNConnect()
+        {
+            // First load in the local player prefab
+            _localPlayerPrefab = await AddressableLoader.LoadFromReference(settings.Asset_LocalPlayer);
+
+            // Add to pool
+            _punPool.ResourceCache.Add(_localPlayerPrefab.name, _localPlayerPrefab);
+
+            // Then load in all the other network objects
+            _loadedNetworkedPrefab = await AddressableLoader.LoadAssetReferences(settings.Assets_PhotonPool);
+            foreach (GameObject go in _loadedNetworkedPrefab)
+            {
+                _punPool.ResourceCache.Add(go.name, go);
+
+                if(go.Equals(_loadedNetworkedPrefab[_loadedNetworkedPrefab.Count - 1]))
+                {
+                    //Connect to the Photon Network(server)
+                    PhotonNetwork.GameVersion = settings.GameVersion;
+                    PhotonNetwork.ConnectUsingSettings();
+                }
             }
         }
 
@@ -189,10 +193,6 @@ namespace HYDAC.Scripts.NET
             _isConnecting = false;
             _networkRoomName = "";
 
-            //Transform playerSpawn = playerSpawnPoints[PhotonNetwork.CurrentRoom.PlayerCount];
-
-            //PhotonNetwork.Instantiate("NetworkedPlayer_PUN", playerSpawn.position, playerSpawn.rotation, 0);
-
             netEvents.OnNetJoinRoom(PhotonNetwork.CurrentRoom);
         }
 
@@ -236,7 +236,5 @@ namespace HYDAC.Scripts.NET
         }
 
         #endregion
-
-
     }
 }

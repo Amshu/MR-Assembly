@@ -7,7 +7,7 @@ using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace HYDAC.Scripts.ADD
 {
-    public static class AddressableLocationLoader
+    public static class AddressableLoader
     {
         internal static async Task LoadFromLabel(string label, IList<IResourceLocation> loadedLocations)
         {
@@ -33,8 +33,6 @@ namespace HYDAC.Scripts.ADD
                     loadedLocations.Add(location);
             }
         }
-
-
 
         internal static async Task<GameObject> LoadFromReference(AssetReference assetRef)
         {

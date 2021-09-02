@@ -1,18 +1,16 @@
-﻿using System;
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 using TMPro;
 
 using HYDAC.Scripts.INFO;
-using HYDAC.Scripts.SOCS;
+using HYDAC.Scripts.MOD;
 
 namespace HYDAC.Scripts.UI
 {
     public class UIBtnCatalogue : MonoBehaviour
     {
-        [SerializeField] private SocAssemblyEvents assemblyEvents;
+        [SerializeField] private SocAssemblyUI assemblyUI;
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private Image productImage;
         [SerializeField] private Button productButton;
@@ -36,8 +34,8 @@ namespace HYDAC.Scripts.UI
         private void OnButtonClicked()
         {
             Debug.Log("#UIBtnCatalogue#------------Catalogue n=button clicked: " + info.iname);
-            
-            assemblyEvents.OnAssemblySelected(info);
+
+            assemblyUI.InvokeUIAssemblySelect(info);
             
             if(info.isLoadable)
                 productButton.onClick.RemoveListener(OnButtonClicked);
