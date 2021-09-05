@@ -11,7 +11,6 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
 using HYDAC.Scripts.NET;
-using UnityEngine.SceneManagement;
 
 namespace HYDAC.Scripts.ADD
 {
@@ -86,7 +85,7 @@ namespace HYDAC.Scripts.ADD
 
             _currentScene = await AddressablesSceneLoader.LoadScene(settings.List_Scene[1], true);
 
-            SceneManager.SetActiveScene(_currentScene.Scene);
+            //SceneManager.SetActiveScene(_currentScene.Scene);
         }
 
 

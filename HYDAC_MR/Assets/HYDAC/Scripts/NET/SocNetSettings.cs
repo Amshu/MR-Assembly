@@ -22,30 +22,50 @@ namespace HYDAC.Scripts.NET
         [SerializeField] private bool isRoomOpen = true;
         public bool IsRoomOpen => isRoomOpen;
 
+
         [Space]
         [Tooltip("The player prefab which needs to be added to Photon pool")]
-        [SerializeField] private AssetReference asset_LocalPlayer;
-        public AssetReference Asset_LocalPlayer => asset_LocalPlayer;
+        [SerializeField] private PUNPoolObject playerNetHeadPrefab;
+        public PUNPoolObject PlayerNetHeadPrefab => playerNetHeadPrefab;
 
+        [SerializeField] private PUNPoolObject playerNetLeftPrefab;
+        public PUNPoolObject PlayerNetLeftPrefab => playerNetLeftPrefab;
+
+        [SerializeField] private PUNPoolObject playerNetRightPrefab;
+        public PUNPoolObject PlayerNetRightPrefab => playerNetRightPrefab;
+
+
+        [Space]
         [Tooltip("The prefabs that are networked which needs to be added to Photon pool")]
-        [SerializeField] private AssetReference[] assets_PhotonPool;
-        public AssetReference[] Assets_PhotonPool => assets_PhotonPool;
+        [SerializeField] private PUNPoolObject[] netObjects;
+        public PUNPoolObject[] NetObjects => netObjects;
 
-
-        [Header("Debug Settings")] [Space]
+        [Space]
+        [Header("Debug Settings")]
         [SerializeField] private string defaultNetRoomName;
         public string DefaultNetRoomName => defaultNetRoomName;
-
-        public string LocalPlayerPrefabname;
-        public PUNPoolObjectStruct[] PUNPoolObjectStructs;
     }
 
+
     [Serializable]
-    public struct PUNPoolObjectStruct
+    public class PUNPoolObject
     {
+        public AssetReference assetReference;
+        public bool toLoadOnStart;
+
+        [Space]
+        [HideInInspector]
         public string name;
-        public Transform transform;
+        [HideInInspector]
         public Vector3 spawnPosition;
+        [HideInInspector]
         public Quaternion spawnRotation;
+
+        public void SetSpawnValues(string nameValue, Vector3 pos, Quaternion rot)
+        {
+            this.name = nameValue;
+            this.spawnPosition = pos;
+            this.spawnRotation = rot;
+        }
     }
 } 

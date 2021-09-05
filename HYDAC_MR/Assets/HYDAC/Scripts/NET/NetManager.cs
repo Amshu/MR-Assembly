@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+
+using UnityEngine;
 
 using Photon.Pun;
 using Photon.Realtime;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
 using HYDAC.Scripts.ADD;
 
 namespace HYDAC.Scripts.NET
@@ -94,33 +96,44 @@ namespace HYDAC.Scripts.NET
             // If not connected yet
             if(!PhotonNetwork.IsConnected)
             {
-                PreparePhotonPoolNConnect();
+                StartCoroutine(PreparePhotonPoolNConnect());
             }
         }
 
-
-        private async Task PreparePhotonPoolNConnect()
+        IEnumerator PreparePhotonPoolNConnect()
         {
-            // First load in the local player prefab
-            _localPlayerPrefab = await AddressableLoader.LoadFromReference(settings.Asset_LocalPlayer);
+            AddObjectToPhotonPool(settings.PlayerNetHeadPrefab);
+            AddObjectToPhotonPool(settings.PlayerNetLeftPrefab);
+            AddObjectToPhotonPool(settings.PlayerNetRightPrefab);
 
-            // Add to pool
-            _punPool.ResourceCache.Add(_localPlayerPrefab.name, _localPlayerPrefab);
-
-            // Then load in all the other network objects
-            _loadedNetworkedPrefab = await AddressableLoader.LoadAssetReferences(settings.Assets_PhotonPool);
-            foreach (GameObject go in _loadedNetworkedPrefab)
+            // Then load and add all the other networked objects
+            PUNPoolObject[] poolObjects = settings.NetObjects;
+            foreach(PUNPoolObject poolObject in poolObjects)
             {
-                _punPool.ResourceCache.Add(go.name, go);
-
-                if(go.Equals(_loadedNetworkedPrefab[_loadedNetworkedPrefab.Count - 1]))
-                {
-                    //Connect to the Photon Network(server)
-                    PhotonNetwork.GameVersion = settings.GameVersion;
-                    PhotonNetwork.ConnectUsingSettings();
-                }
+                AddObjectToPhotonPool(poolObject);
             }
+
+            yield return new WaitForSeconds(2.0f);
+
+            //Connect to the Photon Network(server)
+            PhotonNetwork.GameVersion = settings.GameVersion;
+            PhotonNetwork.ConnectUsingSettings();
         }
+
+        private async void AddObjectToPhotonPool(PUNPoolObject poolObject)
+        {
+            // First load in the local player prefabs and add them to the pool
+            var netObject = await AddressableLoader.LoadFromReference(poolObject.assetReference);
+
+            _punPool.ResourceCache.Add(netObject.name, netObject);
+
+            poolObject.SetSpawnValues(netObject.name, netObject.transform.position, netObject.transform.rotation);
+
+            _loadedNetworkedPrefab.Add(netObject);
+
+            Debug.Log("#NETManager#-------------Loaded NetObject to PUN pool: " + netObject.name);
+        }
+
 
 
         /// <summary>

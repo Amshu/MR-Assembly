@@ -18,11 +18,11 @@ namespace HYDAC.Scripts.PUN
 
         // Private Attributes
         private int _Index;
-        private NetPlayerManager _netPlayerMgr;
+        private DEP_NetPlayerManager _netPlayerMgr;
 
         private void Awake()
         {
-            _netPlayerMgr = GetComponentInParent<NetPlayerManager>();
+            _netPlayerMgr = GetComponentInParent<DEP_NetPlayerManager>();
             _Index = 0;
         }
 

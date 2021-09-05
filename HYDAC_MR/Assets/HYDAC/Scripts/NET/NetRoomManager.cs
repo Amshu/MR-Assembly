@@ -1,12 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-using UnityEngine;
+﻿using UnityEngine;
 
 using Photon.Pun;
-using Photon.Realtime;
-using UnityEngine.AddressableAssets;
-using HYDAC.Scripts.ADD;
 
 namespace HYDAC.Scripts.NET
 {
@@ -43,18 +37,21 @@ namespace HYDAC.Scripts.NET
 
         private void SetupMasterClient()
         {
-            Debug.Log("Test--------" + settings.PUNPoolObjectStructs.Length);
+            Debug.Log("Test--------" + settings.NetObjects.Length);
 
-            CreateObjects_PhotonPool(settings.PUNPoolObjectStructs);
+            CreateObjects_PhotonPool(settings.NetObjects);
         }
 
-        private void CreateObjects_PhotonPool(PUNPoolObjectStruct[] prefabs)
+        private void CreateObjects_PhotonPool(PUNPoolObject[] netObjects)
         {
-            foreach (var prefabInfo in prefabs)
+            foreach (var netObject in netObjects)
             {
-                Debug.Log("#NetRoomManager#---------Instantiating network object: " + prefabInfo.name);
+                if (netObject.toLoadOnStart)
+                {
+                    Debug.Log("#NetRoomManager#---------Instantiating network object: " + netObject.name);
 
-                PhotonNetwork.Instantiate(prefabInfo.name, prefabInfo.transform.position, prefabInfo.transform.rotation);
+                    PhotonNetwork.Instantiate(netObject.name, netObject.spawnPosition, netObject.spawnRotation);
+                }
             }
         }
 
@@ -63,10 +60,11 @@ namespace HYDAC.Scripts.NET
             // The total number of players in network room when joined
             int userRank = netEvents.NetInfo.userCount;
 
-            // Create local player prefab
-            _localPlayer = PhotonNetwork.Instantiate(settings.LocalPlayerPrefabname,
-                spawnpoints_Players[userRank].position,
-                spawnpoints_Players[userRank].rotation);
+            // First create the head
+            Transform headTransform = Camera.main.transform;
+            var gameObject = PhotonNetwork.Instantiate(settings.PlayerNetHeadPrefab.name, headTransform.position, headTransform.rotation);
+            gameObject.transform.parent = headTransform;
+
         }
 
 

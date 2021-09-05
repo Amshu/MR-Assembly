@@ -21,6 +21,13 @@ namespace HYDAC.Scripts.UI
 
         private Transform[] _buttonTransforms;
 
+
+        private void Awake()
+        {
+            // Load catalogue
+            InstantiateCatalogueUI();
+        }
+
         private void OnEnable()
         {
             assemblyUI.EToggleCatalogueUI += OnToggleUI;
@@ -42,7 +49,6 @@ namespace HYDAC.Scripts.UI
             _buttonTransforms = null;
         }
 
-
         private void OnToggleUI(bool toggle)
         {
             Debug.Log("Test");
@@ -51,13 +57,11 @@ namespace HYDAC.Scripts.UI
             {
                 transform.GetChild(0).gameObject.SetActive(true);
 
-                // Load catalogue
-                InstantiateCatalogueUI();
+                
             }
             else
                 transform.GetChild(0).gameObject.SetActive(false);
         }
-
 
         private async Task InstantiateCatalogueUI()
         {

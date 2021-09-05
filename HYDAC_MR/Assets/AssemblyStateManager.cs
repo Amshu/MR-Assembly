@@ -29,23 +29,20 @@ namespace HYDAC.Scripts.MOD
             _isMasterClient = PhotonNetwork.IsMasterClient;
             _photonView = GetComponent<PhotonView>();
 
-            if (PhotonNetwork.IsMasterClient)
+            // This scenario if the master client had already loaded the model in the local scene
+            if (PhotonNetwork.IsMasterClient && events_Assembly.IsInitialised)
             {
-                if (events_Assembly.IsInitialised)
-                {
-                    int currentAssemblyID = events_Assembly.CurrentCatalogue.ID;
-                    _photonView.RPC("OnAssemblySelectedRPC", RpcTarget.All, new object[] { currentAssemblyID });
+                int currentAssemblyID = events_Assembly.CurrentCatalogue.ID;
+                _photonView.RPC("OnAssemblySelectedRPC", RpcTarget.All, new object[] { currentAssemblyID });
 
-                    // Disable catalogue UI
-                    assemblyUI.InvokeToggleCatalogueUI(false);
-                }
-                else
-                {
-                    // Enable catalogue UI
-                    assemblyUI.InvokeToggleCatalogueUI(true);
-                }
+                // Disable catalogue UI
+                assemblyUI.InvokeToggleCatalogueUI(false);
             }
-
+            else
+            {
+                // Enable catalogue UI
+                assemblyUI.InvokeToggleCatalogueUI(true);
+            }
         }
 
         private void OnEnable()

@@ -16,52 +16,80 @@ MonoBehaviour:
   maxPlayersPerRoom: 4
   isRoomVisible: 1
   isRoomOpen: 1
-  asset_LocalPlayer:
-    m_AssetGUID: 36f866750126e9b4687a6af7b215f5ae
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  assets_PhotonPool:
-  - m_AssetGUID: 71b9aa7d328adbd49b17fdf368bc208d
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: 92a51797095100f4f9bc0a444be9793d
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: 450f5bd570481164db9e140e632972f5
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: 6420cae30d88abd41abff84a31e00d6d
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: 91f25031e278252488fffae25b9a9955
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  playerNetHeadPrefab:
+    assetReference:
+      m_AssetGUID: 40a6c37f2066246408229dd6b53594c2
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    toLoadOnStart: 0
+    name: P_NET_PUNPlayer 1
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0, w: 1}
+  playerNetLeftPrefab:
+    assetReference:
+      m_AssetGUID: 86b49951fa228a94889733655fe6eaec
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    toLoadOnStart: 0
+    name: P_NET_PUNPlayer 2
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0, w: 1}
+  playerNetRightPrefab:
+    assetReference:
+      m_AssetGUID: aa9b994b8472de0469783b1a207e4c07
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    toLoadOnStart: 0
+    name: P_NET_PUNPlayer 3
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0, w: 1}
+  netObjects:
+  - assetReference:
+      m_AssetGUID: 71b9aa7d328adbd49b17fdf368bc208d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    toLoadOnStart: 1
+    name: P_NET_AssemblyManager
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0, w: 1}
+  - assetReference:
+      m_AssetGUID: 92a51797095100f4f9bc0a444be9793d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    toLoadOnStart: 1
+    name: FocusedModuleHolder
+    spawnPosition: {x: -1.77, y: 1.422, z: -3.53}
+    spawnRotation: {x: 0, y: 0.9238796, z: -0, w: -0.38268325}
+  - assetReference:
+      m_AssetGUID: 450f5bd570481164db9e140e632972f5
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    toLoadOnStart: 1
+    name: P_UI_Instructions
+    spawnPosition: {x: 0, y: 3.91, z: -4.92}
+    spawnRotation: {x: 0, y: 1, z: 0, w: 0}
+  - assetReference:
+      m_AssetGUID: 6420cae30d88abd41abff84a31e00d6d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    toLoadOnStart: 1
+    name: Slate
+    spawnPosition: {x: 1.8, y: 0.862, z: -3.301}
+    spawnRotation: {x: -0, y: -0.92387956, z: -0, w: -0.38268355}
+  - assetReference:
+      m_AssetGUID: 91f25031e278252488fffae25b9a9955
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    toLoadOnStart: 1
+    name: FreeWall
+    spawnPosition: {x: 0, y: 1.131, z: -5}
+    spawnRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
   defaultNetRoomName: HYDAC_MR_DRoomA
-  LocalPlayerPrefabname: P_NET_PUNPlayer
-  PUNPoolObjectStructs:
-  - name: P_NET_AssemblyManager
-    transform: {fileID: 7128256886421973473, guid: 71b9aa7d328adbd49b17fdf368bc208d, type: 3}
-    spawnPosition: {x: 0, y: 0, z: 0}
-    spawnRotation: {x: 0, y: 0, z: 0, w: 0}
-  - name: FocusedModuleHolder
-    transform: {fileID: 6750968615936745758, guid: 92a51797095100f4f9bc0a444be9793d, type: 3}
-    spawnPosition: {x: 0, y: 0, z: 0}
-    spawnRotation: {x: 0, y: 0, z: 0, w: 0}
-  - name: P_UI_Instructions
-    transform: {fileID: 1163681151108580207, guid: 450f5bd570481164db9e140e632972f5, type: 3}
-    spawnPosition: {x: 0, y: 0, z: 0}
-    spawnRotation: {x: 0, y: 0, z: 0, w: 0}
-  - name: Slate
-    transform: {fileID: 2331113418295607793, guid: 6420cae30d88abd41abff84a31e00d6d, type: 3}
-    spawnPosition: {x: 0, y: 0, z: 0}
-    spawnRotation: {x: 0, y: 0, z: 0, w: 0}
-  - name: FreeWall
-    transform: {fileID: 8570594274259145197, guid: 91f25031e278252488fffae25b9a9955, type: 3}
-    spawnPosition: {x: 0, y: 0, z: 0}
-    spawnRotation: {x: 0, y: 0, z: 0, w: 0}
