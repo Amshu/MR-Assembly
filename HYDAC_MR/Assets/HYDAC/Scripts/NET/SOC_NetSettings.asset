@@ -23,27 +23,17 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     toLoadOnStart: 0
-    name: P_NET_PUNPlayer 1
+    name: P_NET_PUNPlayerHead
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnRotation: {x: 0, y: 0, z: 0, w: 1}
-  playerNetLeftPrefab:
+  playerNetHandsPrefab:
     assetReference:
-      m_AssetGUID: 86b49951fa228a94889733655fe6eaec
+      m_AssetGUID: 4df53bb889b81e545b043c1ef374eb7c
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     toLoadOnStart: 0
-    name: P_NET_PUNPlayer 2
-    spawnPosition: {x: 0, y: 0, z: 0}
-    spawnRotation: {x: 0, y: 0, z: 0, w: 1}
-  playerNetRightPrefab:
-    assetReference:
-      m_AssetGUID: aa9b994b8472de0469783b1a207e4c07
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
-    toLoadOnStart: 0
-    name: P_NET_PUNPlayer 3
+    name: P_NET_OculusHands
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnRotation: {x: 0, y: 0, z: 0, w: 1}
   netObjects:

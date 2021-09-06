@@ -103,8 +103,7 @@ namespace HYDAC.Scripts.NET
         IEnumerator PreparePhotonPoolNConnect()
         {
             AddObjectToPhotonPool(settings.PlayerNetHeadPrefab);
-            AddObjectToPhotonPool(settings.PlayerNetLeftPrefab);
-            AddObjectToPhotonPool(settings.PlayerNetRightPrefab);
+            AddObjectToPhotonPool(settings.PlayerNetHandsPrefab);
 
             // Then load and add all the other networked objects
             PUNPoolObject[] poolObjects = settings.NetObjects;

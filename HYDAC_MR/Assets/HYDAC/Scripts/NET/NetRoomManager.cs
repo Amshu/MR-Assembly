@@ -65,6 +65,9 @@ namespace HYDAC.Scripts.NET
             var gameObject = PhotonNetwork.Instantiate(settings.PlayerNetHeadPrefab.name, headTransform.position, headTransform.rotation);
             gameObject.transform.parent = headTransform;
 
+            // Then the hands
+            PhotonNetwork.Instantiate(settings.PlayerNetHandsPrefab.name, Vector3.zero, Quaternion.identity);
+
         }
 
 

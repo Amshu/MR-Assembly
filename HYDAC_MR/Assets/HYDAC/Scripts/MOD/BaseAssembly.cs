@@ -13,7 +13,6 @@ namespace HYDAC.Scripts.MOD
     {
         // If you have multiple custom events, it is recommended to define them in the used class
         public const byte OnModuleChangeEventCode = 1;
-
         
         [SerializeField] private SocAssemblyEvents assemblyEvents;
         [SerializeField] private AssemblyModule[] modules;
@@ -22,7 +21,7 @@ namespace HYDAC.Scripts.MOD
 
         private void OnEnable()
         {
-            PhotonNetwork.NetworkingClient.EventReceived += OnPUNEvent;
+            //PhotonNetwork.NetworkingClient.EventReceived += OnPUNEvent;
 
             List<SModuleInfo> modules = new List<SModuleInfo>();
             
@@ -39,7 +38,7 @@ namespace HYDAC.Scripts.MOD
 
         private void OnDisable()
         {
-            PhotonNetwork.NetworkingClient.EventReceived -= OnPUNEvent;
+            //PhotonNetwork.NetworkingClient.EventReceived -= OnPUNEvent;
 
             var assemblyModules = transform.GetComponentsInChildren<AssemblyModule>();
             foreach (var module in assemblyModules)
@@ -55,40 +54,40 @@ namespace HYDAC.Scripts.MOD
             int content = module.ID;
             
             // You would have to set the Receivers to All in order to receive this event on the local client as well
-            RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All }; 
-            PhotonNetwork.RaiseEvent(OnModuleChangeEventCode, content, raiseEventOptions, SendOptions.SendReliable);
+            //RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All }; 
+            //PhotonNetwork.RaiseEvent(OnModuleChangeEventCode, content, raiseEventOptions, SendOptions.SendReliable);
         }
         
-        private void OnPUNEvent(EventData photonEvent)
-        {
-            Debug.Log("#BaseAssembly#------------Network event received");
+        //private void OnPUNEvent(EventData photonEvent)
+        //{
+        //    Debug.Log("#BaseAssembly#------------Network event received");
 
-            byte eventCode = photonEvent.Code;
+        //    byte eventCode = photonEvent.Code;
             
-            if (eventCode == OnModuleChangeEventCode)
-            {
-                Debug.Log("#BaseAssembly#------------OnModuleChangeEventCode");
+        //    if (eventCode == OnModuleChangeEventCode)
+        //    {
+        //        Debug.Log("#BaseAssembly#------------OnModuleChangeEventCode");
 
-                int moduleID = (int)photonEvent.CustomData;
+        //        int moduleID = (int)photonEvent.CustomData;
 
-                NetworkRequestChangeModule(moduleID);
-            }
-        }
+        //        NetworkRequestChangeModule(moduleID);
+        //    }
+        //}
         
-        private void NetworkRequestChangeModule(int moduleID)
-        {
-            Debug.Log("#BaseAssembly#------------NetworkRequestChangeModule: " + moduleID);
+        //private void NetworkRequestChangeModule(int moduleID)
+        //{
+        //    Debug.Log("#BaseAssembly#------------NetworkRequestChangeModule: " + moduleID);
             
-            foreach (AssemblyModule module in modules)
-            {
-                Debug.Log("#BaseAssembly#------------Test: " + module.Info.ID);
-                if (module.Info.ID == moduleID)
-                {
-                    Debug.Log("#BaseAssembly#------------ModuleFound: " + module.Info.iname);
-                    assemblyEvents.OnModuleSelected((SModuleInfo)module.Info);
-                    return;
-                }
-            }
-        }
+        //    foreach (AssemblyModule module in modules)
+        //    {
+        //        Debug.Log("#BaseAssembly#------------Test: " + module.Info.ID);
+        //        if (module.Info.ID == moduleID)
+        //        {
+        //            Debug.Log("#BaseAssembly#------------ModuleFound: " + module.Info.iname);
+        //            assemblyEvents.OnModuleSelected((SModuleInfo)module.Info);
+        //            return;
+        //        }
+        //    }
+        //}
     }
 }

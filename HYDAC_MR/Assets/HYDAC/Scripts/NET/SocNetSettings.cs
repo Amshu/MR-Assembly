@@ -28,11 +28,8 @@ namespace HYDAC.Scripts.NET
         [SerializeField] private PUNPoolObject playerNetHeadPrefab;
         public PUNPoolObject PlayerNetHeadPrefab => playerNetHeadPrefab;
 
-        [SerializeField] private PUNPoolObject playerNetLeftPrefab;
-        public PUNPoolObject PlayerNetLeftPrefab => playerNetLeftPrefab;
-
-        [SerializeField] private PUNPoolObject playerNetRightPrefab;
-        public PUNPoolObject PlayerNetRightPrefab => playerNetRightPrefab;
+        [SerializeField] private PUNPoolObject playerNetHandsPrefab;
+        public PUNPoolObject PlayerNetHandsPrefab => playerNetHandsPrefab;
 
 
         [Space]
