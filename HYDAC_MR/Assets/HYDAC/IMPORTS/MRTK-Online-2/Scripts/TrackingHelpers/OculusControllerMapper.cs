@@ -67,6 +67,8 @@ namespace prvncher.MRTK_Online.TrackingHelpers
             if (!InitializeTrackingReference())
                 return;
 
+            Debug.Log("----------");
+
             transform.position = _controllerAnchor.position;
             transform.rotation = _controllerAnchor.rotation;
         }

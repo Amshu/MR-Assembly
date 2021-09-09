@@ -51,7 +51,7 @@ namespace HYDAC.Scripts.UI
 
         private void OnToggleUI(bool toggle)
         {
-            Debug.Log("Test");
+            //Debug.Log("Test");
 
             if (toggle)
             {

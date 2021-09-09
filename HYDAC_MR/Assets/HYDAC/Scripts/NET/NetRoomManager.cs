@@ -37,7 +37,7 @@ namespace HYDAC.Scripts.NET
 
         private void SetupMasterClient()
         {
-            Debug.Log("Test--------" + settings.NetObjects.Length);
+            //Debug.Log("Test--------" + settings.NetObjects.Length);
 
             CreateObjects_PhotonPool(settings.NetObjects);
         }
