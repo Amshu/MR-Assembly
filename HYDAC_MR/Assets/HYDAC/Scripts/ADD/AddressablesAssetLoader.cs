@@ -19,6 +19,7 @@ namespace HYDAC.Scripts.ADD
             }
         }
 
+
         internal static async Task LoadLabels(string[] labels, IList<IResourceLocation> loadedLocations)
         {
             foreach (var label in labels)
@@ -41,6 +42,7 @@ namespace HYDAC.Scripts.ADD
             return loadedGameObject;
         }
 
+
         internal static async Task<IList<GameObject>>LoadAssetReferences(AssetReference[] assetrefs)
         {
             IList<GameObject> loadedGameObjects = new List<GameObject>();
@@ -55,6 +57,20 @@ namespace HYDAC.Scripts.ADD
             }
 
             return loadedGameObjects;
+        }
+
+
+        internal static async Task<GameObject> InstantiateFromReference(AssetReference assetRef, Transform parent)
+        {
+            var temp = await Addressables.InstantiateAsync(assetRef, parent).Task;
+
+            return temp;
+        }
+
+
+        internal static void ReleaseObject(GameObject assetObject)
+        {
+            Addressables.ReleaseInstance(assetObject);
         }
     }
 }

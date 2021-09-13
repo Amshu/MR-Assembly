@@ -58,7 +58,7 @@ namespace HYDAC.Scripts.MOD
 
         private void OnUIAssemblySelect(SCatalogueInfo assemblyInfo)
         {
-            _photonView.RPC("OnAssemblySelectedRPC", RpcTarget.AllBufferedViaServer, new object[] { assemblyInfo.ID });
+            _photonView.RPC("OnAssemblySelectedRPC", RpcTarget.AllBuffered, new object[] { assemblyInfo.ID });
         }
 
 

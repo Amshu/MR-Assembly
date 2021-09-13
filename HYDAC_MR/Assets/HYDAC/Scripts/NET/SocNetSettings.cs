@@ -51,7 +51,6 @@ namespace HYDAC.Scripts.NET
         public bool toLoadOnStart;
 
         [Space]
-        [HideInInspector]
         public string name;
         [HideInInspector]
         public Vector3 spawnPosition;

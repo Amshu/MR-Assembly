@@ -130,7 +130,7 @@ namespace HYDAC.Scripts.NET
 
             _loadedNetworkedPrefab.Add(netObject);
 
-            Debug.Log("#NETManager#-------------Loaded NetObject to PUN pool: " + netObject.name);
+            Debug.Log("#NETManager#-------------Loaded NetObject to PUN pool: " + netObject.name + " " + poolObject.name);
         }
 
 
@@ -193,7 +193,7 @@ namespace HYDAC.Scripts.NET
             Debug.LogFormat("#NETManager#-------------OnJoinedRoom(): {0}, {1}", _networkRoomName, PhotonNetwork.ServerAddress);
 
             // Leave room if there are more than the max players
-            if(PhotonNetwork.CurrentRoom.PlayerCount >= settings.MaxPlayersPerRoom)
+            if(PhotonNetwork.CurrentRoom.PlayerCount > settings.MaxPlayersPerRoom)
             {
                 Debug.LogFormat("#NETManager#-------------Too many players in room. Leaving room");
 

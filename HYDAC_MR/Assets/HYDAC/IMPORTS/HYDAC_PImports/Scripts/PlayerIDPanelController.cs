@@ -54,7 +54,7 @@ namespace HYDAC.Scripts.PUN
         public Material inactiveMaterial;
         public Material highlightedToggleMaterial;
         public Material inactiveToggleMaterial;
-        [FormerlySerializedAs("_PlayerMgr")] public DEP_NetPlayerManager netPlayerMgr;
+        //[FormerlySerializedAs("_PlayerMgr")] public DEP_NetPlayerManager netPlayerMgr;
 
         // Private Attributes
         private Color[] _PlayerColours;          // To be retested - had issues using color array in RPC

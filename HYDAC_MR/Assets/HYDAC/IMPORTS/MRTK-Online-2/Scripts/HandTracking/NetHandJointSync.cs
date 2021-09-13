@@ -5,7 +5,6 @@ using Microsoft.MixedReality.Toolkit.Input;
 using Microsoft.MixedReality.Toolkit;
 
 using Photon.Pun;
-using System;
 
 namespace com.HYDAC.Scripts.NET
 {
@@ -40,7 +39,16 @@ namespace com.HYDAC.Scripts.NET
         {
             _photonView = GetComponentInParent<PhotonView>();
 
+
+            MixedRealityHandTrackingProfile handProfile = null;
+            if (CoreServices.InputSystem?.InputSystemProfile != null)
+            {
+                handProfile = CoreServices.InputSystem.InputSystemProfile.HandTrackingProfile;
+                handProfile.EnableHandJointVisualization = false;
+            }
+
             mrtkHandjointService = CoreServices.GetInputSystemDataProvider<IMixedRealityHandJointService>();
+            
 
             if (_photonView.IsMine)
             {

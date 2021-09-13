@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SOC_NetSettings
   m_EditorClassIdentifier: 
   gameVersion: 1
-  maxPlayersPerRoom: 4
+  maxPlayersPerRoom: 10
   isRoomVisible: 1
   isRoomOpen: 1
   playerNetHeadPrefab:
@@ -23,7 +23,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     toLoadOnStart: 0
-    name: P_NET_PUNPlayerHead
+    name: P_NET_PlayerHead
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnRotation: {x: 0, y: 0, z: 0, w: 1}
   playerNetHandsPrefab:
@@ -33,7 +33,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     toLoadOnStart: 0
-    name: P_NET_OculusHands
+    name: P_NET_PlayerHands
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnRotation: {x: 0, y: 0, z: 0, w: 1}
   netObjects:
@@ -61,7 +61,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     toLoadOnStart: 1
-    name: P_UI_Instructions
+    name: P_NET_VideoPlayer
     spawnPosition: {x: 0, y: 3.91, z: -4.92}
     spawnRotation: {x: 0, y: 1, z: 0, w: 0}
   - assetReference:
@@ -70,16 +70,25 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     toLoadOnStart: 1
-    name: Slate
-    spawnPosition: {x: 1.8, y: 0.862, z: -3.301}
-    spawnRotation: {x: -0, y: -0.92387956, z: -0, w: -0.38268355}
+    name: P_NET_Schematic
+    spawnPosition: {x: 0, y: 1.862, z: -4.801}
+    spawnRotation: {x: -0, y: 1, z: -0, w: 0}
   - assetReference:
-      m_AssetGUID: 91f25031e278252488fffae25b9a9955
+      m_AssetGUID: ec8a819a8f3d1054cba46bf42d0b79eb
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     toLoadOnStart: 1
-    name: FreeWall
-    spawnPosition: {x: 0, y: 1.131, z: -5}
-    spawnRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  defaultNetRoomName: HYDAC_MR_DRoomA
+    name: P_NET_ImpactDrill
+    spawnPosition: {x: -3.5121, y: 1.2975, z: -0.533}
+    spawnRotation: {x: 0, y: 1, z: 0, w: 0}
+  - assetReference:
+      m_AssetGUID: d97d65b2f2cad454b9c8b9f675ab8ca7
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    toLoadOnStart: 1
+    name: P_NET_HMG4000
+    spawnPosition: {x: -3.183, y: 1.2339, z: -1.294}
+    spawnRotation: {x: 0, y: 1, z: 0, w: 0}
+  defaultNetRoomName: HYDAC_MR_DRoomB

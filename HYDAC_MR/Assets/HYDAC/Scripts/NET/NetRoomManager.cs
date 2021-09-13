@@ -38,11 +38,11 @@ namespace HYDAC.Scripts.NET
         private void SetupMasterClient()
         {
             //Debug.Log("Test--------" + settings.NetObjects.Length);
-
-            CreateObjects_PhotonPool(settings.NetObjects);
+            var objectToAddToPool = settings.NetObjects;
+            CreateObjects_PhotonPool(ref objectToAddToPool);
         }
 
-        private void CreateObjects_PhotonPool(PUNPoolObject[] netObjects)
+        private void CreateObjects_PhotonPool(ref PUNPoolObject[] netObjects)
         {
             foreach (var netObject in netObjects)
             {

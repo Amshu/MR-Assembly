@@ -25,7 +25,7 @@ namespace HYDAC.Scripts.PUN
 
         // Private Attributes
         private WristBandController _WristBand;
-        private DEP_NetPlayerManager _netPlayerMgr;
+        //private DEP_NetPlayerManager _netPlayerMgr;
         private bool _CanPressButton;
         private bool _LaserIsOn;
 
@@ -40,7 +40,7 @@ namespace HYDAC.Scripts.PUN
         #region Unity Methods
         private void Awake()
         {
-            _netPlayerMgr = GetComponentInParent<DEP_NetPlayerManager>();
+            //_netPlayerMgr = GetComponentInParent<DEP_NetPlayerManager>();
             _WristBand = GetComponentInParent<WristBandController>();
             _CanPressButton = true;
             _PanelOn = true;
