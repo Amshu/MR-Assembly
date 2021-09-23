@@ -73,7 +73,7 @@ namespace HYDAC.Scripts.ADD
             netEvents.AutoJoinCheck();
         }
 
-        private void OnRoomJoined(NetStructInfo obj)
+        private void OnRoomJoined(NetInfo obj)
         {
             // Load network scene
             LoadNetworkScene();

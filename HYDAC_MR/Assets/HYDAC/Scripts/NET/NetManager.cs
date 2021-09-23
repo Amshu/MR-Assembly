@@ -7,6 +7,7 @@ using Photon.Pun;
 using Photon.Realtime;
 
 using HYDAC.Scripts.ADD;
+using System.Threading.Tasks;
 
 namespace HYDAC.Scripts.NET
 {
@@ -27,9 +28,12 @@ namespace HYDAC.Scripts.NET
 
         private bool _isConnecting;
         private string _networkRoomName;
+
+        private Room _currentRoom;
         private RoomOptions _roomOptions;
 
         private DefaultPool _punPool;
+        private List<Player> _roomPlayers = new List<Player>();
         private GameObject _localPlayerPrefab;
         private IList<GameObject> _loadedNetworkedPrefab = new List<GameObject>();
 
@@ -53,6 +57,7 @@ namespace HYDAC.Scripts.NET
             
             // Set default room options
             _roomOptions = new RoomOptions();
+            _roomOptions.BroadcastPropsChangeToAll = true;
             _roomOptions.MaxPlayers = settings.MaxPlayersPerRoom;
             _roomOptions.IsVisible = settings.IsRoomVisible;
             _roomOptions.IsOpen = settings.IsRoomOpen;
@@ -102,35 +107,41 @@ namespace HYDAC.Scripts.NET
 
         IEnumerator PreparePhotonPoolNConnect()
         {
-            AddObjectToPhotonPool(settings.PlayerNetHeadPrefab);
-            AddObjectToPhotonPool(settings.PlayerNetHandsPrefab);
+            var playerHead = AddressableLoader.LoadFromReference(settings.PlayerNetHeadPrefab.assetReference);
+            yield return new WaitUntil(() => playerHead.IsCompleted);
+            _punPool.ResourceCache.Add(playerHead.Result.name, playerHead.Result);
+
+            var playerHands = AddressableLoader.LoadFromReference(settings.PlayerNetHandsPrefab.assetReference);
+            yield return new WaitUntil(() => playerHands.IsCompleted);
+            _punPool.ResourceCache.Add(playerHands.Result.name, playerHands.Result);
+
+            List<PUNPoolObject> loadedPoolObjects = new List<PUNPoolObject>();
 
             // Then load and add all the other networked objects
-            PUNPoolObject[] poolObjects = settings.NetObjects;
-            foreach(PUNPoolObject poolObject in poolObjects)
+            foreach (PUNPoolObject poolObject in settings.NetObjects)
             {
-                AddObjectToPhotonPool(poolObject);
+                var loadTask = AddressableLoader.LoadFromReference(poolObject.assetReference);
+                yield return new WaitUntil(()=>loadTask.IsCompleted);
+
+                var poolObjectPrefab = loadTask.Result;
+
+                _punPool.ResourceCache.Add(poolObjectPrefab.name, poolObjectPrefab);
+
+                poolObject.SetSpawnValues(poolObjectPrefab.name, poolObjectPrefab.transform.position, poolObjectPrefab.transform.rotation);
+
+                _loadedNetworkedPrefab.Add(loadTask.Result);
+                loadedPoolObjects.Add(poolObject);
+
+                Debug.Log("#NETManager#-------------Loaded NetObject to PUN pool: " + poolObject.name + " " + poolObject.name + " " + poolObject.spawnPosition);
             }
+
+            settings.SetNetObjects(loadedPoolObjects.ToArray());
 
             yield return new WaitForSeconds(2.0f);
 
             //Connect to the Photon Network(server)
             PhotonNetwork.GameVersion = settings.GameVersion;
             PhotonNetwork.ConnectUsingSettings();
-        }
-
-        private async void AddObjectToPhotonPool(PUNPoolObject poolObject)
-        {
-            // First load in the local player prefabs and add them to the pool
-            var netObject = await AddressableLoader.LoadFromReference(poolObject.assetReference);
-
-            _punPool.ResourceCache.Add(netObject.name, netObject);
-
-            poolObject.SetSpawnValues(netObject.name, netObject.transform.position, netObject.transform.rotation);
-
-            _loadedNetworkedPrefab.Add(netObject);
-
-            Debug.Log("#NETManager#-------------Loaded NetObject to PUN pool: " + netObject.name + " " + poolObject.name);
         }
 
 
@@ -190,12 +201,14 @@ namespace HYDAC.Scripts.NET
         /// </summary>
         public override void OnJoinedRoom()
         {
-            Debug.LogFormat("#NETManager#-------------OnJoinedRoom(): {0}, {1}", _networkRoomName, PhotonNetwork.ServerAddress);
+            Room currentRoom = PhotonNetwork.CurrentRoom;
+
+            Debug.LogFormat("#DEBUG##NETManager#-------------Joined Room: {0}, \n{1}", _networkRoomName, PhotonNetwork.ServerAddress);
 
             // Leave room if there are more than the max players
-            if(PhotonNetwork.CurrentRoom.PlayerCount > settings.MaxPlayersPerRoom)
+            if (currentRoom.PlayerCount > settings.MaxPlayersPerRoom)
             {
-                Debug.LogFormat("#NETManager#-------------Too many players in room. Leaving room");
+                Debug.LogFormat("#DEBUG##NETManager#-------------Room Full. Leaving room");
 
                 PhotonNetwork.LeaveRoom(); 
 
@@ -205,13 +218,15 @@ namespace HYDAC.Scripts.NET
             _isConnecting = false;
             _networkRoomName = "";
 
-            netEvents.OnNetJoinRoom(PhotonNetwork.CurrentRoom);
+            netEvents.OnNetJoinRoom(currentRoom.Name, currentRoom.PlayerCount);
         }
+
+       
 
 
         public override void OnLeftRoom()
         {
-            Debug.LogWarningFormat("#NETManager#-------------OnLeftRoom");
+            Debug.LogWarningFormat("#DEBUG##NETManager#-------------OnLeftRoom");
 
             netEvents.OnNetLeftRoom();
         }
@@ -219,7 +234,7 @@ namespace HYDAC.Scripts.NET
         
         public override void OnJoinRandomFailed(short returnCode, string message)
         {
-            Debug.LogErrorFormat("#NETManager#-------------OnJoinRandomFailed(): {0} - {1}", returnCode, message);
+            Debug.LogErrorFormat("#DEBUG##NETManager#-------------Unable to join Room. Error: {0} - {1}", returnCode, message);
             
             netEvents.OnNetJoinRoomFailed();
         }
@@ -233,8 +248,16 @@ namespace HYDAC.Scripts.NET
                 return;
             }
 
+            UserStructInfo newUser = new UserStructInfo();
+            newUser.UserID = newPlayer.ActorNumber;
+            newUser.UserName = "Player";
+            newUser.UserColor = Color.red; 
+            newUser.IsMod = (PhotonNetwork.MasterClient.Equals(newPlayer));
+
+            netEvents.NetInfo.AddUser(newUser);
+
             if (!newPlayer.IsLocal)
-                netEvents.OnNetPlayerJoinedRoom(PhotonNetwork.CurrentRoom.PlayerCount);
+                netEvents.OnNetPlayerJoinedRoom(PhotonNetwork.CountOfPlayers);
         }
 
         public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -244,7 +267,47 @@ namespace HYDAC.Scripts.NET
                 return;
             }
 
+            netEvents.NetInfo.RemoveUser(otherPlayer.ActorNumber);
+
             netEvents.OnNetPlayerLeftRoom();
+        }
+
+
+        public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
+        {
+            base.OnPlayerPropertiesUpdate(targetPlayer, changedProps);
+
+            // If the local player changed properties
+            if (targetPlayer.Equals(PhotonNetwork.LocalPlayer))
+            {
+
+            }
+            else
+            {
+                UserStructInfo newInfo = new UserStructInfo();
+                newInfo.UserID = targetPlayer.ActorNumber;
+
+                if (changedProps.ContainsKey("Mod"))
+                {
+                    newInfo.IsMod = (bool)changedProps["Mod"];
+                }
+                if (changedProps.ContainsKey("Name"))
+                {
+                    newInfo.UserName = (string)changedProps["Name"];
+                }
+                else if (changedProps.ContainsKey("ColorR"))
+                {
+                    Color newColor = Color.white;
+                    newColor.r = (float)changedProps["ColorR"];
+                    newColor.g = (float)changedProps["ColorG"];
+                    newColor.b = (float)changedProps["ColorB"];
+
+                    newInfo.UserColor = newColor;
+                }
+
+                netEvents.NetInfo.UpdateUserProperties(
+                        targetPlayer.ActorNumber, newInfo);
+            }
         }
 
         #endregion

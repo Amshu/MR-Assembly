@@ -21,5 +21,16 @@ namespace HYDAC.Scripts.NET
         {
             EUIUserNameChange?.Invoke(newName);
         }
+
+
+        public event Action EUIRequestPromote;
+        public void OnUIRequestPromote()
+        {
+            EUIRequestPromote?.Invoke();
+        }
+
+        public event Action EUserUpdate;
+
+        public event Action<string> EUserNameUpdate;
     }
 }

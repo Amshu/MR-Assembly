@@ -1,10 +1,19 @@
-﻿using Photon.Realtime;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HYDAC.Scripts.NET
 {
-    public struct NetStructInfo
+    public struct UserStructInfo
+    {
+        public int UserID;
+        public bool IsMod;
+
+        public string UserName;
+        public Color UserColor;
+    }
+
+    public class NetInfo
     {
         public bool isConnected;
         public bool inRoom;
@@ -14,6 +23,9 @@ namespace HYDAC.Scripts.NET
         public bool isMasterClient;
         public string localPlayerName;
         public Color localPlayerColour;
+
+        private List<UserStructInfo> usersInRoom = new List<UserStructInfo>();
+        public UserStructInfo[] UsersInRoom => usersInRoom.ToArray();
 
         public void Reset()
         {
@@ -26,28 +38,59 @@ namespace HYDAC.Scripts.NET
             this.localPlayerName = "";
             this.localPlayerColour = new Color(0, 0, 0);
         }
+
+        public void AddUser(UserStructInfo user)
+        {
+            if (usersInRoom.Contains(user))
+                return;
+
+            usersInRoom.Add(user);
+        }
+
+        public void RemoveUser(int userID)
+        {
+            if (usersInRoom.Exists(item => item.UserID == userID))
+            {
+                var userOnList = usersInRoom.Find(item => item.UserID == userID);
+                usersInRoom.Remove(userOnList);
+            }
+        }
+
+        public void UpdateUserProperties(int userID, UserStructInfo newInfo)
+        {
+            var oldInfo = usersInRoom.Find(item => item.UserID == userID);
+            int index = usersInRoom.IndexOf(oldInfo);
+
+            if (index != -1)
+                usersInRoom[index] = newInfo;
+        }
+
+        public UserStructInfo GetUserProperties(int userID)
+        {
+            return usersInRoom.Find(item => item.UserID == userID);
+        }
     }
 
 
     [CreateAssetMenu(menuName = "Socks/Net/NetEvents", fileName = "SOC_NetEvents")]
     public class SocNetEvents : ScriptableObject
     {
-        private NetStructInfo _netInfo = new NetStructInfo();
-        public NetStructInfo NetInfo => _netInfo;
+        private NetInfo _netInfo = new NetInfo();
+        public NetInfo NetInfo => _netInfo;
 
-        public event Action<NetStructInfo> ENetworkConnected;
-        public event Action<NetStructInfo> ENetworkDisconnected;
-        public event Action<NetStructInfo> EJoinedRoom;
-        public event Action<NetStructInfo> ELeftRoom;
-        public event Action<NetStructInfo> EJoinRoomFailed;
+        public event Action<NetInfo> ENetworkConnected;
+        public event Action<NetInfo> ENetworkDisconnected;
+        public event Action<NetInfo> EJoinedRoom;
+        public event Action<NetInfo> ELeftRoom;
+        public event Action<NetInfo> EJoinRoomFailed;
 
-        public event Action<NetStructInfo> EPlayerJoined;
-        public event Action<NetStructInfo> EPlayerLeft;
+        public event Action<NetInfo> EPlayerJoined;
+        public event Action<NetInfo> EPlayerLeft;
 
 
         private void OnEnable()
         {
-            _netInfo = new NetStructInfo();
+            _netInfo = new NetInfo();
         }
 
 
@@ -74,11 +117,11 @@ namespace HYDAC.Scripts.NET
             ENetworkDisconnected?.Invoke(_netInfo);
         }
 
-        internal void OnNetJoinRoom(RoomInfo roomInfo)
+        internal void OnNetJoinRoom(string roomName, int noOfUsersInRoom)
         {
             _netInfo.inRoom = true;
-            _netInfo.roomName = roomInfo.Name;
-            _netInfo.userCount = roomInfo.PlayerCount;
+            _netInfo.roomName = roomName;
+            _netInfo.userCount = noOfUsersInRoom;
 
             EJoinedRoom?.Invoke(_netInfo);
         }

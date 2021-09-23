@@ -31,7 +31,7 @@ public class UINetInfo : MonoBehaviour
         netEvents.EJoinedRoom += OnJoinedRoom;
     }
 
-    private void OnJoinedRoom(NetStructInfo netInfo)
+    private void OnJoinedRoom(NetInfo netInfo)
     {
         UpdateDetails(netInfo);
     }
@@ -47,7 +47,7 @@ public class UINetInfo : MonoBehaviour
         _canvas.enabled = true;
     }
 
-    private void UpdateDetails(NetStructInfo netInfo)
+    private void UpdateDetails(NetInfo netInfo)
     {
         isConnectedText.text = netInfo.isConnected.ToString();
         inRoomText.text = netInfo.inRoom.ToString();

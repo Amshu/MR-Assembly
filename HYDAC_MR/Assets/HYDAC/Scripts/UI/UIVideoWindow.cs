@@ -15,6 +15,8 @@ namespace HYDAC.Scripts.UI
         [SerializeField]
         SocAssemblyEvents assemblyEvents;
 
+        AssetReference currentVideoRef;
+
         private void OnEnable()
         {
             assemblyEvents.EModuleSelected += OnModuleSelect;
@@ -28,13 +30,19 @@ namespace HYDAC.Scripts.UI
         {
             videoPlayer.Stop();
 
+            currentVideoRef?.ReleaseAsset();
+
             if (moduleInfo.VideoReference != null)
-                LoadVideo(moduleInfo.VideoReference);
+            {
+                PlayVideo(moduleInfo.VideoReference);
+            }
         }
 
-        private async void LoadVideo(AssetReference assetRef)
+        private async void PlayVideo(AssetReference assetRef)
         {
             Debug.Log("#VideoPlayer#----------Video found. Playing....");
+
+            currentVideoRef = assetRef;
 
             videoPlayer.clip = await assetRef.LoadAssetAsync<VideoClip>().Task;
 

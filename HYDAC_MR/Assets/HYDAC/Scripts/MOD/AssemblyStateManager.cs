@@ -33,7 +33,7 @@ namespace HYDAC.Scripts.MOD
             if (PhotonNetwork.IsMasterClient && events_Assembly.IsInitialised)
             {
                 int currentAssemblyID = events_Assembly.CurrentCatalogue.ID;
-                _photonView.RPC("OnAssemblySelectedRPC", RpcTarget.All, new object[] { currentAssemblyID });
+                _photonView.RPC("OnAssemblySelectedRPC", RpcTarget.AllBuffered, new object[] { currentAssemblyID });
 
                 // Disable catalogue UI
                 assemblyUI.InvokeToggleCatalogueUI(false);
@@ -91,7 +91,7 @@ namespace HYDAC.Scripts.MOD
             await AddressableLoader.LoadLabels(label, _assemblyAssetsLocations);
 
             // Instantiate Assembly
-            var result = await Addressables.InstantiateAsync(assemblyPrefab, Vector3.zero, Quaternion.identity).Task;
+            var result = await Addressables.InstantiateAsync(assemblyPrefab, transform.position, transform.rotation).Task;
             _assembly = result.transform;
         }
     }

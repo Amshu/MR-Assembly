@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -41,6 +42,11 @@ namespace HYDAC.Scripts.NET
         [Header("Debug Settings")]
         [SerializeField] private string defaultNetRoomName;
         public string DefaultNetRoomName => defaultNetRoomName;
+
+        internal void SetNetObjects(PUNPoolObject[] newList)
+        {
+            netObjects = newList;
+        }
     }
 
 
@@ -52,9 +58,7 @@ namespace HYDAC.Scripts.NET
 
         [Space]
         public string name;
-        [HideInInspector]
         public Vector3 spawnPosition;
-        [HideInInspector]
         public Quaternion spawnRotation;
 
         public void SetSpawnValues(string nameValue, Vector3 pos, Quaternion rot)
