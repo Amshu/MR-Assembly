@@ -21,6 +21,7 @@ namespace HYDAC.Scripts.ADD
         [SerializeField] private SocNetEvents netEvents;
 
         private IList<IResourceLocation> _onStartLoadedAssetsLocations = new List<IResourceLocation>();
+        private List<IResourceLocation> _netRoomObjects = new List<IResourceLocation>();
 
         private SceneInstance _currentScene = default;
         private SceneInstance _currentEnvironment = default;
@@ -84,6 +85,8 @@ namespace HYDAC.Scripts.ADD
             await AddressablesSceneLoader.UnloadScene(_currentScene);
 
             _currentScene = await AddressablesSceneLoader.LoadScene(settings.List_Scene[1], true);
+
+            await AddressableLoader.LoadFromLabel("NetRoom", _netRoomObjects);
 
             //SceneManager.SetActiveScene(_currentScene.Scene);
         }
