@@ -35,10 +35,14 @@ namespace HYDAC.Scripts.MOD.Editor
 
             if (GUILayout.Button("Create SubModule Info"))
             {
-                AsSubModuleInfo info = ScriptableObject.CreateInstance<AsSubModuleInfo>();
+                SSubModuleInfo info = ScriptableObject.CreateInstance<SSubModuleInfo>();
+                
+                var id = myScript.transform.name.Substring(0, 2);
+                info.ID = Convert.ToInt32(id);
 
-                info.ID = Convert.ToInt32(ID);
-                info.iname = myScript.gameObject.name;
+                var name = myScript.transform.name.Substring(2);
+                info.iname = name;
+
                 info.description = Description;
                 
                 EditorUtility.SetDirty(info);

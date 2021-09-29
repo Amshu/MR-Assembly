@@ -1,14 +1,25 @@
 using Microsoft.MixedReality.Toolkit.UI.BoundsControl;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HYDAC.Scripts.MOD
 {
     public class FocusedModule : AUnit
     {
-        [SerializeField] private SocAssemblyUI socUI = null;
-        [SerializeField] private SubModule[] subModules;
+        [SerializeField] private SocAssemblyEvents assemblyEvents;
+        [SerializeField] private Transform rootTransform;
+        [SerializeField] private Transform disassembledRootTransform;
 
-        private bool _isAssembled = true;
+        [Header("Debug")]
+        [SerializeField] private int _subModulesCount;
+        [SerializeField] private SubModule[] _subModules;
+        [SerializeField] private Vector3[] _disassembledPositions;
+        [Space]
+        [SerializeField] private bool _isAssembled = true;
+
+        public Transform RootTransform => rootTransform;
+        public SubModule[] SubModules => _subModules;
+        public int SubModulesCount => _subModulesCount;
 
         private void Start()
         {
@@ -19,33 +30,89 @@ namespace HYDAC.Scripts.MOD
 
         private void OnEnable()
         {
-            socUI.EUIRequestModuleToggle += OnUIRequestModuleToggle;
+            assemblyEvents.EModuleExplode += OnExplosionToggleRequest;
         }
 
         private void OnDisable()
         {
-            socUI.EUIRequestModuleToggle -= OnUIRequestModuleToggle;
+            assemblyEvents.EModuleExplode -= OnExplosionToggleRequest;
         }
 
-        private void OnUIRequestModuleToggle()
+        public void ToggleExplosion(bool toggle)
         {
-            if (_isAssembled)
+            OnExplosionToggleRequest(toggle);
+        }
+
+
+        private void OnExplosionToggleRequest(bool toggle)
+        {
+            for (int i = 0; i < SubModulesCount; i++)
             {
-                foreach (var subModule in subModules)
+                if (toggle)
                 {
-                    subModule.OnDisassemble(0.3f);
+                    _subModules[i].OnDisassemble(0.3f, _disassembledPositions[i]);
+                    _isAssembled = false;
+                }
+                else
+                {
+                    _subModules[i].OnAssemble(0.3f);
+                    _isAssembled = true;
                 }
             }
-            else
+        }
+
+
+        public bool UpdateSubModules()
+        {
+            // Get the count of sub modules
+            _subModulesCount = rootTransform.childCount;
+
+            List<Vector3> disassembledPos = new List<Vector3>();
+            List<SubModule> subModules = new List<SubModule>();
+
+            // Ensure each module has an exploded transform
+            if (disassembledRootTransform.childCount != _subModulesCount)
             {
-                foreach (var subModule in subModules)
-                {
-                    subModule.OnAssembled(0.3f);
-                }
+                Debug.LogError("#FocusedModule#--------Error: HIERARCHY - Children count not same");
+                return false;
             }
 
-            _isAssembled = !_isAssembled;
+            for (int i = 0; i < disassembledRootTransform.childCount; i++)
+            {
+                var rootChild = rootTransform.GetChild(i);
+                var disassembledChild = disassembledRootTransform.GetChild(i);
+
+                // Add to list only if the disassembled transform has the same name as its counter part
+                if (disassembledChild.name.Contains(rootChild.name))
+                {
+                    disassembledPos.Add(disassembledChild.localPosition);
+                }
+                else
+                {
+                    Debug.LogError("#FocusedModule#--------Error: HIERARCHY - Check children names");
+                    return false;
+                }
+
+
+                // Check if child already has componenet
+                rootChild.TryGetComponent<SubModule>(out SubModule subModule);
+
+                if (subModule == null)
+                {
+                    // Add submodule component
+                    subModule = rootChild.gameObject.AddComponent<SubModule>();
+                }
+
+                subModules.Add(subModule);
+            }
+
+            _disassembledPositions = disassembledPos.ToArray();
+
+            _subModules = subModules.ToArray();
+
+            return true;
         }
+
 
         //void IFocusedModule.ChangePosition(int step)
         //{
@@ -53,28 +120,7 @@ namespace HYDAC.Scripts.MOD
         //ChangeCurrentUnitPosition((x));
         //}
 
-
-        // private void ToggleAssembly(bool toBeAssembled, float positionTimeChange)
-        //     {
-        //         currentModNo = (toBeAssembled) ?  0 : _subModules.Length - 1;
-        //         
-        //         foreach(ISubModule subModule in _subModules)
-        //         {
-        //             // If the current state is exploded then: 
-        //             // Assemble
-        //             if (toBeAssembled)
-        //             {
-        //                 subModule.Assemble(positionTimeChange);
-        //             }
-        //             // Disassemble
-        //             else
-        //             {
-        //                 subModule.Disassemble(positionTimeChange);
-        //             }
-        //         }
-        //     }
-        //     
-        //     
+    
         //     private void ChangeCurrentUnitPosition(int unitPosition)
         //     {
         //         Debug.Log("#AssemblyModule#-------------------------Changing assembly position to: " + unitPosition);

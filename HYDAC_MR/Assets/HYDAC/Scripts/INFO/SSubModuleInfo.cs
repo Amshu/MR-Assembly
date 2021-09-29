@@ -7,7 +7,7 @@ namespace HYDAC.Scripts.INFO
     /// of a given machine part such as:
     /// <c>partName</c><value>This is the name of the part in, partName.</value>
     /// </summary>
-    public class AsSubModuleInfo : ASInfo
+    public class SSubModuleInfo : ASInfo
     {
         public void PrintInfo()
         {

@@ -7,8 +7,7 @@ namespace HYDAC.Scripts.MOD
     [CreateAssetMenu(menuName = "Socks/Assembly/UI", fileName = "SOC_AssemblyUI")]
     public class SocAssemblyUI : ScriptableObject
     {
-        public event Action<SCatalogueInfo> EUIRequestAssemblySelect;
-        public event Action EUIRequestModuleToggle;
+
         public event Action EUIRequestToggleInfoUI;
         public event Action EUIRequestFocusOff;
 
@@ -19,14 +18,16 @@ namespace HYDAC.Scripts.MOD
             EToggleCatalogueUI?.Invoke(toggle);
         }
 
+        public event Action<SCatalogueInfo> EUIRequestAssemblySelect;
         public void InvokeUIAssemblySelect(SCatalogueInfo info)
         {
             EUIRequestAssemblySelect?.Invoke(info);
         }
 
-        public void OnUIRequestAssembleToggle()
+        public event Action<bool> EUIRequestModuleExplode;
+        public void InvokeUIModuleExplode(bool toggle)
         {
-            EUIRequestModuleToggle?.Invoke();
+            EUIRequestModuleExplode?.Invoke(toggle);
         }
         
         public void OnUIRequestToggleInfoUI()

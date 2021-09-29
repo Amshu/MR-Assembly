@@ -53,9 +53,8 @@ namespace HYDAC.Scripts.MOD
         }
         
         
-        // On module 
+        // On module selected
         public event Action<SModuleInfo> EModuleSelected;
-
         internal void OnModuleSelected(SModuleInfo info)
         {
             Debug.Log("#SocAssemblyEvents#------------OnChangeModule:" + info.iname);
@@ -64,5 +63,17 @@ namespace HYDAC.Scripts.MOD
 
             if (EModuleSelected != null) EModuleSelected.Invoke(info);
         }
+
+
+        // On module explode
+        public event Action<bool> EModuleExplode;
+        public void OnModuleExplode(bool toggle)
+        {
+            Debug.Log("#SocAssemblyEvents#------------OnModuleExplode: " + toggle);
+
+            EModuleExplode?.Invoke(toggle);
+        }
+
+
     }
 }
