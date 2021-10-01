@@ -39,6 +39,12 @@ public class PrefabLightmapData : MonoBehaviour
         Init();
     }
 
+
+    public void Initialize()
+    {
+        Init();
+    }
+
     void Init()
     {
         if (m_RendererInfo == null || m_RendererInfo.Length == 0)
@@ -54,14 +60,11 @@ public class PrefabLightmapData : MonoBehaviour
             bool exists = false;
             for (int j = 0; j < lightmaps.Length; j++)
             {
-
                 if (m_Lightmaps[i] == lightmaps[j].lightmapColor)
                 {
                     exists = true;
                     offsetsindexes[i] = j;
-
                 }
-
             }
             if (!exists)
             {

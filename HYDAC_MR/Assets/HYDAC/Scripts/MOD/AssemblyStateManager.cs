@@ -9,7 +9,6 @@ using Photon.Pun;
 
 using HYDAC.Scripts.ADD;
 using HYDAC.Scripts.INFO;
-using System;
 
 namespace HYDAC.Scripts.MOD
 {
@@ -104,6 +103,8 @@ namespace HYDAC.Scripts.MOD
             // Instantiate Assembly
             var result = await Addressables.InstantiateAsync(assemblyPrefab, transform.position, transform.rotation).Task;
             _assembly = result.transform;
+
+            result.GetComponent<PrefabLightmapData>().Initialize();
         }
     }
 }

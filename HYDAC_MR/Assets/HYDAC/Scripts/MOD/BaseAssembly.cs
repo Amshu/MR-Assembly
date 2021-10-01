@@ -12,8 +12,15 @@ namespace HYDAC.Scripts.MOD
         
         [SerializeField] private SocAssemblyEvents assemblyEvents;
         [SerializeField] private AssemblyModule[] modules;
+        [SerializeField] private GameObject modelPrefab;
 
         // CAUTION: Take care while accessing SAssembly members in Awake -> AssemblyInfo has code to run first
+
+        private void Start()
+        {
+            Instantiate(modelPrefab, transform);
+        }
+
 
         private void OnEnable()
         {

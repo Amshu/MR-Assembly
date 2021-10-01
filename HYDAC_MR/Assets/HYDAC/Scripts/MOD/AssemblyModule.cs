@@ -24,7 +24,7 @@ namespace HYDAC.Scripts.MOD
 
         private void Start()
         {
-            Addressables.InstantiateAsync(MInfo.LowPolyReference, transform);
+            //Addressables.InstantiateAsync(MInfo.LowPolyReference, transform);
         }
 
         private void OnEnable()
