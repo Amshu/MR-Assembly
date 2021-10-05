@@ -49,7 +49,7 @@ namespace HYDAC.Scripts.NET
             {
                 _instance = this;
             }
-            
+
             // Critical
             // This makes sure we can use PhotonNetwork.LoadLevel() on the master client 
             // and all clients in the same room sync their level automatically

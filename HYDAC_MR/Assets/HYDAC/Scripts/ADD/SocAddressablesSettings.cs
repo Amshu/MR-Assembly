@@ -18,5 +18,9 @@ namespace HYDAC.Scripts.ADD
 
         [SerializeField] private AssetReference env_Default;
         public AssetReference Env_Default => env_Default;
+
+
+        [SerializeField] private AssetReference handUI;
+        public AssetReference HandUI => handUI;
     }
 }

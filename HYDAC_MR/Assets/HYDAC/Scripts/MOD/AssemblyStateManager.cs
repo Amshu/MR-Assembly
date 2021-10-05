@@ -17,11 +17,15 @@ namespace HYDAC.Scripts.MOD
         [SerializeField] private SocAssemblyEvents assemblyEvents;
         [SerializeField] private SocAssemblyUI assemblyUI;
 
+        [SerializeField] private SocAssemblySettings settings;
+
         private PhotonView _photonView;
         private bool _isMasterClient;
 
         private IList<IResourceLocation> _assemblyAssetsLocations = new List<IResourceLocation>();
         private Transform _assembly;
+
+        private SModuleInfo currentSelectedModule;
 
         private void Awake()
         {
@@ -42,6 +46,9 @@ namespace HYDAC.Scripts.MOD
                 // Enable catalogue UI
                 assemblyUI.InvokeToggleCatalogueUI(true);
             }
+
+            Debug.Log("SOCAssemblyUI: " + assemblyUI.GetInstanceID());
+            Debug.Log("SOCAssemblyEvents: " + assemblyEvents.GetInstanceID());
         }
 
         private void OnEnable()
@@ -103,6 +110,8 @@ namespace HYDAC.Scripts.MOD
             // Instantiate Assembly
             var result = await Addressables.InstantiateAsync(assemblyPrefab, transform.position, transform.rotation).Task;
             _assembly = result.transform;
+
+            //_assembly.localPosition = new Vector3(0f, 0.815f, 0f);
 
             result.GetComponent<PrefabLightmapData>().Initialize();
         }

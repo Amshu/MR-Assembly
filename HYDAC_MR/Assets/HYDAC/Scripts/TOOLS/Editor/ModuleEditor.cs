@@ -104,19 +104,27 @@ namespace HYDAC.Scripts.MOD
             {
                 if (!myScript.UpdateSubModules()) return;
 
+                int previousId = 0;
+
+                int id;
+                string name;
+                SSubModuleInfo subModInfo = default;
+
                 for (int i = 0; i < myScript.SubModulesCount; i++)
                 {
                     var subModTransform = myScript.RootTransform.GetChild(i);
                     var subModule = myScript.SubModules[i];
 
-                    int id;
-                    string name;
-                    SSubModuleInfo subModInfo;
-
                     // Get id of submodule
                     try
                     {
                         id = Convert.ToInt32(subModTransform.name.Substring(0, 2));
+
+                        if (previousId == id && id != 0)
+                        {
+                            subModule.SetPartInfo(subModInfo);
+                            continue;
+                        }
                     }
                     catch (Exception e)
                     {
@@ -155,6 +163,8 @@ namespace HYDAC.Scripts.MOD
                     AssetDatabase.CreateAsset(subModInfo, fileURL);
 
                     subModule.SetPartInfo(subModInfo);
+
+                    previousId = i;
                 }
             }
         }

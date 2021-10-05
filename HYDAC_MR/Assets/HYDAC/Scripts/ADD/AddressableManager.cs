@@ -11,6 +11,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
 using HYDAC.Scripts.NET;
+using System.Collections;
 
 namespace HYDAC.Scripts.ADD
 {
@@ -25,6 +26,7 @@ namespace HYDAC.Scripts.ADD
 
         private SceneInstance _currentScene = default;
         private SceneInstance _currentEnvironment = default;
+        private Transform _handUI;
 
         private void Awake()
         {
@@ -70,6 +72,10 @@ namespace HYDAC.Scripts.ADD
 
             // Then load environment
             _currentEnvironment = await AddressablesSceneLoader.LoadScene(settings.Env_Default, true);
+
+            // Then load HandUI
+            var t = await AddressableLoader.InstantiateFromReference(settings.HandUI, null);
+            _handUI = t.transform;
 
             netEvents.AutoJoinCheck();
         }

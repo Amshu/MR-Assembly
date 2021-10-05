@@ -18,7 +18,7 @@ namespace HYDAC.Scripts.MOD
 
         private void Start()
         {
-            Instantiate(modelPrefab, transform);
+            Instantiate(modelPrefab, transform).transform.localPosition = new Vector3(0f, 0.815f, 0f);
         }
 
 
@@ -51,6 +51,8 @@ namespace HYDAC.Scripts.MOD
             int content = module.ID;
 
             assemblyEvents.OnModuleSelected(module);
+
+
         }
     }
 }

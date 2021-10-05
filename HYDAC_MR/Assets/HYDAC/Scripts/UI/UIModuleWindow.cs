@@ -47,6 +47,7 @@ namespace HYDAC.Scripts
             nameText.text = newModule.iname;
             descriptionText.text = newModule.description;
 
+            // Reset image UI
             image.sprite = null;
             if (newModule.ImageReference != null)
             {
@@ -59,7 +60,7 @@ namespace HYDAC.Scripts
 
         private async void LoadImage(AssetReference assetRef)
         {
-            image.sprite = await assetRef.LoadAssetAsync<Sprite>().Task;
+            //image.sprite = await assetRef.LoadAssetAsync<Sprite>().Task;
         }
 
 
@@ -71,6 +72,8 @@ namespace HYDAC.Scripts
             var temp = await AddressableLoader.InstantiateFromReference(newModule.HighPolyReference, transform);
 
             _currentModule = temp.transform;
+
+            _currentModule.localPosition = new Vector3(0, 0, 0);
         }
 
 

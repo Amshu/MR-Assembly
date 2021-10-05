@@ -1,4 +1,5 @@
 using Microsoft.MixedReality.Toolkit.UI.BoundsControl;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +26,10 @@ namespace HYDAC.Scripts.MOD
         {
             BoundsControl boundsControl = GetComponentInParent<BoundsControl>();
             boundsControl.BoundsOverride = GetComponent<BoxCollider>();
+
+            UpdateSubModules();
+
+            Debug.Log("SOCAssemblyEvents: " + assemblyEvents.GetInstanceID());
         }
 
 
@@ -46,6 +51,13 @@ namespace HYDAC.Scripts.MOD
 
         private void OnExplosionToggleRequest(bool toggle)
         {
+            StopAllCoroutines();
+            StartCoroutine(ExplodeModules(toggle));
+        }
+
+
+        IEnumerator ExplodeModules(bool toggle)
+        {
             for (int i = 0; i < SubModulesCount; i++)
             {
                 if (toggle)
@@ -58,7 +70,11 @@ namespace HYDAC.Scripts.MOD
                     _subModules[i].OnAssemble(0.3f);
                     _isAssembled = true;
                 }
+
+                yield return new WaitForSeconds(0.01f);
             }
+
+            yield return null;
         }
 
 
