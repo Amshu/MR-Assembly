@@ -31,6 +31,10 @@ namespace HYDAC.Scripts.NET
 
         public event Action EUserUpdate;
 
-        public event Action<string> EUserNameUpdate;
+        public event Action<UserStructInfo[]> EUserPropsUpdated;
+        public void OnPlayerPropertiesChange(UserStructInfo[] usersInRoom)
+        {
+            EUserPropsUpdated?.Invoke(usersInRoom);
+        }
     }
 }

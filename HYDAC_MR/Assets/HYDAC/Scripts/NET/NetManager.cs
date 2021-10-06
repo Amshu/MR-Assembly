@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using UnityEngine;
 
@@ -7,7 +6,8 @@ using Photon.Pun;
 using Photon.Realtime;
 
 using HYDAC.Scripts.ADD;
-using System.Threading.Tasks;
+using PHOTON = ExitGames.Client.Photon;
+using System.Collections;
 
 namespace HYDAC.Scripts.NET
 {
@@ -17,6 +17,12 @@ namespace HYDAC.Scripts.NET
     /// </summary>
     public class NetManager : MonoBehaviourPunCallbacks
     {
+        private const string PLAYERPROPS_NAME = "Name";
+        private const string PLAYERPROPS_MOD = "MOD";
+        private const string PLAYERPROPS_COLORR = "ColorR";
+        private const string PLAYERPROPS_COLORG = "ColorG";
+        private const string PLAYERPROPS_COLORB = "ColorB";
+
         // Singleton instances
         private static NetManager _instance;
 
@@ -242,19 +248,28 @@ namespace HYDAC.Scripts.NET
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
+            UserStructInfo newUser = new UserStructInfo();
+
+            // Set the player custom properties in Master Client only
             if (PhotonNetwork.IsMasterClient)
             {
-                //LoadArena();  // NOTE: Enable if we want to "reload" scene each time a new player joins / leaves
-                return;
+                newUser.UserID = newPlayer.ActorNumber;
+                newUser.UserName = "Player";
+                newUser.UserColor = Color.red;
+                newUser.IsMod = (newUser.UserID == 0) ? true : false;
+
+                // Create New Custom Properties
+                PHOTON.Hashtable playerProps = new PHOTON.Hashtable();
+                playerProps.Add(PLAYERPROPS_NAME, newUser.UserName);
+                playerProps.Add(PLAYERPROPS_MOD, newUser.IsMod);
+                playerProps.Add(PLAYERPROPS_COLORR, newUser.UserColor.r);
+                playerProps.Add(PLAYERPROPS_COLORG, newUser.UserColor.g);
+                playerProps.Add(PLAYERPROPS_COLORB, newUser.UserColor.b);
+
+                // Set new properties
+                newPlayer.SetCustomProperties(playerProps);
             }
 
-            UserStructInfo newUser = new UserStructInfo();
-            newUser.UserID = newPlayer.ActorNumber;
-            newUser.UserName = "Player";
-            newUser.UserColor = Color.red; 
-            newUser.IsMod = (PhotonNetwork.MasterClient.Equals(newPlayer));
-
-            netEvents.NetInfo.AddUser(newUser);
 
             if (!newPlayer.IsLocal)
                 netEvents.OnNetPlayerJoinedRoom(PhotonNetwork.CountOfPlayers);
@@ -277,36 +292,53 @@ namespace HYDAC.Scripts.NET
         {
             base.OnPlayerPropertiesUpdate(targetPlayer, changedProps);
 
-            // If the local player changed properties
+            // If the local player's properties were changed
             if (targetPlayer.Equals(PhotonNetwork.LocalPlayer))
             {
+                // Check what was changed
+
 
             }
+            // If other player's properties were changed
+            // ---- 
             else
             {
-                UserStructInfo newInfo = new UserStructInfo();
-                newInfo.UserID = targetPlayer.ActorNumber;
+                int userID = targetPlayer.ActorNumber;
 
-                if (changedProps.ContainsKey("Mod"))
+                UserStructInfo newInfo = new UserStructInfo();
+                newInfo.UserID = userID;
+
+                // If user info does not exist in userList
+                if (netEvents.NetInfo.UsersInRoom.Length - 1 == targetPlayer.ActorNumber)
                 {
-                    newInfo.IsMod = (bool)changedProps["Mod"];
+                    netEvents.NetInfo.AddUser(newInfo);
                 }
-                if (changedProps.ContainsKey("Name"))
+
+                newInfo = netEvents.NetInfo.UsersInRoom[userID];
+
+                // Check which properties changed and update
+                if (changedProps.ContainsKey(PLAYERPROPS_MOD))
                 {
-                    newInfo.UserName = (string)changedProps["Name"];
+                    newInfo.IsMod = (bool)changedProps[PLAYERPROPS_MOD];
                 }
-                else if (changedProps.ContainsKey("ColorR"))
+                if (changedProps.ContainsKey(PLAYERPROPS_NAME))
+                {
+                    newInfo.UserName = (string)changedProps[PLAYERPROPS_NAME];
+                }
+                if (changedProps.ContainsKey(PLAYERPROPS_COLORR) ||
+                        changedProps.ContainsKey(PLAYERPROPS_COLORG) ||
+                        changedProps.ContainsKey(PLAYERPROPS_COLORB))
                 {
                     Color newColor = Color.white;
-                    newColor.r = (float)changedProps["ColorR"];
-                    newColor.g = (float)changedProps["ColorG"];
-                    newColor.b = (float)changedProps["ColorB"];
+                    newColor.r = (float)changedProps[PLAYERPROPS_COLORR];
+                    newColor.g = (float)changedProps[PLAYERPROPS_COLORG];
+                    newColor.b = (float)changedProps[PLAYERPROPS_COLORB];
 
                     newInfo.UserColor = newColor;
                 }
 
-                netEvents.NetInfo.UpdateUserProperties(
-                        targetPlayer.ActorNumber, newInfo);
+                // Update user in list
+                netEvents.NetInfo.UpdateUserProperties(newInfo.UserID, newInfo);
             }
         }
 

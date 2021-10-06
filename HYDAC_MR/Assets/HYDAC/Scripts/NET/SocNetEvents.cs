@@ -84,9 +84,12 @@ namespace HYDAC.Scripts.NET
         public event Action<NetInfo> ELeftRoom;
         public event Action<NetInfo> EJoinRoomFailed;
 
-        public event Action<NetInfo> EPlayerJoined;
-        public event Action<NetInfo> EPlayerLeft;
+        public event Action<NetInfo> EUserJoined;
+        public event Action<NetInfo> EUserLeft;
 
+        public event Action<string> EUserNameChanged;
+        public event Action<Color> EUserColorChanged;
+        public event Action<bool> EUserModChanged;
 
         private void OnEnable()
         {
@@ -144,30 +147,18 @@ namespace HYDAC.Scripts.NET
         {
             _netInfo.userCount = numberOfPlayers;
 
-            EPlayerJoined?.Invoke(_netInfo);
+            EUserJoined?.Invoke(_netInfo);
         }
 
         internal void OnNetPlayerLeftRoom()
         {
             _netInfo.userCount--;
 
-            EPlayerLeft?.Invoke(_netInfo);
+            EUserLeft?.Invoke(_netInfo);
         }
 
         #endregion
 
 
-        public event Action ENetRoomSetup;
-        internal void SetupNetRoom()
-        {
-            ENetRoomSetup?.Invoke();
-        }
-        
-
-        public event Action<Transform> ELocalUserReady;
-        internal void OnPlayerReady(Transform playerTransform)
-        {
-            ELocalUserReady?.Invoke(playerTransform);
-        }
     }
 }
