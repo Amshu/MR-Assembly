@@ -1,11 +1,20 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 using HYDAC.Scripts.INFO;
+using System;
 
 namespace HYDAC.Scripts.MOD
 {
-    public class BaseAssembly : AUnit
+    public interface IAssembly
+    {
+        void OnToggleExplode(bool toggle);
+
+        void OnToggleExplodeSubModule(int id);
+
+        AssemblyModule[] GetAssemblyModules();
+    }
+
+    public class BaseAssembly : AUnit, IAssembly
     {
         // If you have multiple custom events, it is recommended to define them in the used class
         public const byte OnModuleChangeEventCode = 1;
@@ -14,6 +23,8 @@ namespace HYDAC.Scripts.MOD
         [SerializeField] private AssemblyModule[] modules;
         [SerializeField] private GameObject modelPrefab;
 
+        public event Action<SModuleInfo> OnModuleSelect;
+
         // CAUTION: Take care while accessing SAssembly members in Awake -> AssemblyInfo has code to run first
 
         private void Start()
@@ -21,38 +32,19 @@ namespace HYDAC.Scripts.MOD
             Instantiate(modelPrefab, transform).transform.localPosition = new Vector3(0f, 0.815f, 0f);
         }
 
-
-        private void OnEnable()
+        public void OnToggleExplode(bool toggle)
         {
-            List<SModuleInfo> modules = new List<SModuleInfo>();
-            
-            var assemblyModules = transform.GetComponentsInChildren<AssemblyModule>();
-            
-            foreach (var module in assemblyModules)
-            {
-                module.EOnClicked += OnAssemblyModuleClicked;
-                modules.Add(module.Info as SModuleInfo);
-            }
+            throw new NotImplementedException();
         }
 
-        private void OnDisable()
+        public void OnToggleExplodeSubModule(int id)
         {
-            var assemblyModules = transform.GetComponentsInChildren<AssemblyModule>();
-            foreach (var module in assemblyModules)
-            {
-                module.EOnClicked -= OnAssemblyModuleClicked;
-            }
+            throw new NotImplementedException();
         }
 
-        private void OnAssemblyModuleClicked(SModuleInfo module)
+        public AssemblyModule[] GetAssemblyModules()
         {
-            Debug.Log("#BaseAssembly#--------------OnAssemblyModuleClicked: " + module.iname);
-            
-            int content = module.ID;
-
-            assemblyEvents.OnModuleSelected(module);
-
-
+            return modules;
         }
     }
 }

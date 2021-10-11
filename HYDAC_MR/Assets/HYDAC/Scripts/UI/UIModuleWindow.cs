@@ -13,6 +13,8 @@ namespace HYDAC.Scripts
     {
         [SerializeField] private SocAssemblyUI socUI;
         [SerializeField] private SocAssemblyEvents assemblyEvents;
+        [Space]
+        [SerializeField] private Transform moduleRoot;
 
         [Space] [Header("Info UI")] 
         [SerializeField] private TextMeshProUGUI idText;
@@ -27,7 +29,7 @@ namespace HYDAC.Scripts
         private void OnEnable()
         {
             assemblyEvents.EModuleSelected += OnModuleChanged;
-        
+            
             //socUI.EUIRequestFocusOff += OnUIRequestFocusOff;
             //socUI.EUIRequestToggleInfoUI += OnUIRequestToggleInfoUI;
         }
@@ -54,6 +56,8 @@ namespace HYDAC.Scripts
                 LoadImage(newModule.ImageReference);
             }
 
+
+
             LoadNewModule(newModule);
         }
 
@@ -69,7 +73,7 @@ namespace HYDAC.Scripts
             if (_currentModule != null)
                 AddressableLoader.ReleaseObject(_currentModule.gameObject);
 
-            var temp = await AddressableLoader.InstantiateFromReference(newModule.HighPolyReference, transform);
+            var temp = await AddressableLoader.InstantiateFromReference(newModule.HighPolyReference, moduleRoot);
 
             _currentModule = temp.transform;
 

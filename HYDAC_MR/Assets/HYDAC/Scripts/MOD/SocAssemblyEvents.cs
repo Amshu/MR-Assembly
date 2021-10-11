@@ -8,6 +8,8 @@ namespace HYDAC.Scripts.MOD
     [CreateAssetMenu(menuName = "Socks/Assembly/Events", fileName = "SOC_AssemblyEvents")]
     public class SocAssemblyEvents: ScriptableObject
     {
+        public SModuleInfo[] Modules;
+
         public bool IsInitialised;
         public SCatalogueInfo[] Catalogue { get; private set; }
 

@@ -361,10 +361,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1683030516263999184}
+  - component: {fileID: 2735863193025862020}
+  - component: {fileID: 1801075703409728997}
   - component: {fileID: 2022261346728316011}
   - component: {fileID: 2022261346728316004}
-  - component: {fileID: 1801075703409728997}
-  - component: {fileID: 6006598210932707853}
   m_Layer: 0
   m_Name: HyBoxMaxi
   m_TagString: Untagged
@@ -397,6 +397,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &2735863193025862020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022261346728316010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &1801075703409728997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022261346728316010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6118850d218dd844a9209f7d7c24c307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: {fileID: 11400000, guid: 676b98bfba031a9478085ba2926ceb83, type: 2}
+  assemblyEvents: {fileID: 11400000, guid: ba06f5fa1a198854786cff79e379e528, type: 2}
+  modules:
+  - {fileID: 3368872373824184193}
+  - {fileID: 5338908409822406137}
+  - {fileID: 2612329825235116456}
+  - {fileID: 4242100817971356550}
+  - {fileID: 7451416583769558547}
+  - {fileID: 4233292772723817100}
+  - {fileID: 1419048209645549536}
+  - {fileID: 5831283619568794251}
+  modelPrefab: {fileID: 8037533778594586883, guid: e8dfe7d5166aa8b43a4d6930173e5be0, type: 3}
 --- !u!114 &2022261346728316011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,52 +561,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1801075703409728997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022261346728316010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6118850d218dd844a9209f7d7c24c307, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  info: {fileID: 11400000, guid: 676b98bfba031a9478085ba2926ceb83, type: 2}
-  assemblyEvents: {fileID: 11400000, guid: ba06f5fa1a198854786cff79e379e528, type: 2}
-  modules:
-  - {fileID: 3368872373824184193}
-  - {fileID: 5338908409822406137}
-  - {fileID: 2612329825235116456}
-  - {fileID: 4242100817971356550}
-  - {fileID: 7451416583769558547}
-  - {fileID: 4233292772723817100}
-  - {fileID: 1419048209645549536}
-  - {fileID: 5831283619568794251}
-  modelPrefab: {fileID: 8037533778594586883, guid: e8dfe7d5166aa8b43a4d6930173e5be0, type: 3}
---- !u!114 &6006598210932707853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022261346728316010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &2612329825235116462
 GameObject:
   m_ObjectHideFlags: 0

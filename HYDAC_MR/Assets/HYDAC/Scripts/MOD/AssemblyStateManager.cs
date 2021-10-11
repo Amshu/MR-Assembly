@@ -22,8 +22,8 @@ namespace HYDAC.Scripts.MOD
         private PhotonView _photonView;
         private bool _isMasterClient;
 
+        IAssembly _currentAssembly;
         private IList<IResourceLocation> _assemblyAssetsLocations = new List<IResourceLocation>();
-        private Transform _assembly;
 
         private SModuleInfo currentSelectedModule;
 
@@ -63,6 +63,37 @@ namespace HYDAC.Scripts.MOD
             assemblyUI.EUIRequestModuleExplode -= OnUIExplodeToggle;
         }
 
+
+        #region Module Functions
+
+        private void OnModuleSelect(SModuleInfo modInfo)
+        {
+            if (_photonView.IsMine)
+            {
+                Debug.Log("#AssemblyStateManager#---------RPC raising Module Select");
+
+                _photonView.RPC("OnModuleSelectRPC", RpcTarget.All, new object[] { modInfo.ID });
+            }
+        }
+        [PunRPC]
+        void OnModuleSelectRPC(int modID)
+        {
+            SModuleInfo selectedModule = new SModuleInfo();
+
+            // Look up module info
+            SModuleInfo[] modInfos = assemblyEvents.Modules;
+            foreach(var module in modInfos)
+            {
+                if (modID == module.ID)
+                    selectedModule = module;
+            }
+
+            Debug.Log("#AssemblyStateManager#---------RPC reveived - Module Selected: " + selectedModule.iname);
+
+            assemblyEvents.OnModuleSelected(selectedModule);
+        }
+
+
         private void OnUIExplodeToggle(bool toggle)
         {
             _photonView.RPC("OnModuleExplodeRPC", RpcTarget.All, new object[] { toggle });
@@ -75,9 +106,15 @@ namespace HYDAC.Scripts.MOD
             assemblyEvents.OnModuleExplode(toggle);
         }
 
+        #endregion
+
+
         private void OnUIAssemblySelect(SCatalogueInfo assemblyInfo)
         {
-            _photonView.RPC("OnAssemblySelectedRPC", RpcTarget.AllBuffered, new object[] { assemblyInfo.ID });
+            if (PhotonNetwork.IsMasterClient)
+            {
+                _photonView.RPC("OnAssemblySelectedRPC", RpcTarget.AllBuffered, new object[] { assemblyInfo.ID });
+            }
         }
         [PunRPC]
         void OnAssemblySelectedRPC(int assemblyID)
@@ -109,9 +146,23 @@ namespace HYDAC.Scripts.MOD
 
             // Instantiate Assembly
             var result = await Addressables.InstantiateAsync(assemblyPrefab, transform.position, transform.rotation).Task;
-            _assembly = result.transform;
+            _currentAssembly = result.GetComponent<IAssembly>();
 
-            //_assembly.localPosition = new Vector3(0f, 0.815f, 0f);
+            // Get Modules of Assembly
+            var assemblyModules = _currentAssembly.GetAssemblyModules();
+
+            SModuleInfo[] moduleInfos = new SModuleInfo[assemblyModules.Length];
+
+            for (int i = 0; i < assemblyModules.Length; i++)
+            {
+                // Register for the module OnClick event
+                assemblyModules[i].EOnClicked += OnModuleSelect;
+
+                moduleInfos[i] = (SModuleInfo)assemblyModules[i].Info;
+
+                // Set module infos in AssemblyEvents sock
+                assemblyEvents.Modules = moduleInfos;
+            }
 
             result.GetComponent<PrefabLightmapData>().Initialize();
         }
