@@ -478,9 +478,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info: {fileID: 11400000, guid: 7e4523d217a12504abca34cd8593327c, type: 2}
+  settings: {fileID: 11400000, guid: 08118398364f5764b957c78987adf711, type: 2}
   assemblyEvents: {fileID: 11400000, guid: ba06f5fa1a198854786cff79e379e528, type: 2}
   rootTransform: {fileID: 8067319088396544227}
-  disassembledRootTransform: {fileID: 7529568372595980107}
+  explodedRootTransform: {fileID: 7529568372595980107}
   _subModulesCount: 2
   _subModules:
   - {fileID: 3242448249863671015}
@@ -488,6 +489,7 @@ MonoBehaviour:
   _disassembledPositions:
   - {x: -0.0000719, y: 0.0002629, z: 0.0000315}
   - {x: -0, y: -0.00004055, z: 0}
+  _assembledPositions: []
   _isAssembled: 1
 --- !u!114 &7529568373493277691
 MonoBehaviour:

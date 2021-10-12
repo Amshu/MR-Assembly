@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &5262230500285267264
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5027806173512302610}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.12, y: 0.43, z: 0.24}
-  m_Center: {x: -0.0000000074505815, y: 0, z: -0.15}
 --- !u!1 &8835375169953714595
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,6 +18,7 @@ GameObject:
   - component: {fileID: 8835375169953714592}
   - component: {fileID: 8835375169953714593}
   - component: {fileID: 8835375169953714594}
+  - component: {fileID: 7852964599718476378}
   m_Layer: 0
   m_Name: P_NET_ImpactDrill
   m_TagString: Untagged
@@ -348,6 +336,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4001b763847e00849b9e57cb7161cc7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7852964599718476378
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8835375169953714595}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05563736, y: 0.14996684, z: 0.0830459}
+  m_Center: {x: 0.0005645752, y: -0.000000059604645, z: -0.052327126}
 --- !u!1001 &5262230500285267267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -445,11 +446,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e5490bf75b663d34eb13e6059e475717, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f642c770f03ff2f4291e5eabfbf46254, type: 3}
---- !u!1 &5027806173512302610 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f642c770f03ff2f4291e5eabfbf46254, type: 3}
-  m_PrefabInstance: {fileID: 5262230500285267267}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5660333959415323304 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f642c770f03ff2f4291e5eabfbf46254, type: 3}

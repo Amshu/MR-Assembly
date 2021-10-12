@@ -7,20 +7,30 @@ namespace HYDAC.Scripts.MOD
 {
     public class FocusedModule : AUnit
     {
+        [SerializeField] private SocAssemblySettings settings;
         [SerializeField] private SocAssemblyEvents assemblyEvents;
         [SerializeField] private Transform rootTransform;
-        [SerializeField] private Transform disassembledRootTransform;
+        [SerializeField] private Transform explodedRootTransform;
 
         [Header("Debug")]
         [SerializeField] private int _subModulesCount;
         [SerializeField] private SubModule[] _subModules;
         [SerializeField] private Vector3[] _disassembledPositions;
+        [SerializeField] private Vector3[] _assembledPositions;
+
         [Space]
         [SerializeField] private bool _isAssembled = true;
+        [SerializeField] private bool _isBusy = false;
 
+
+
+
+        // For Editor Script
         public Transform RootTransform => rootTransform;
         public SubModule[] SubModules => _subModules;
         public int SubModulesCount => _subModulesCount;
+
+
 
         private void Start()
         {
@@ -51,57 +61,72 @@ namespace HYDAC.Scripts.MOD
 
         private void OnExplosionToggleRequest(bool toggle)
         {
+            if (_isBusy) return;
+
             StopAllCoroutines();
             StartCoroutine(ExplodeModules(toggle));
+
+            _isBusy = true;
         }
 
 
         IEnumerator ExplodeModules(bool toggle)
         {
-            for (int i = 0; i < SubModulesCount; i++)
+            var t = 0f;
+
+            while (t < 1)
             {
-                if (toggle)
+                t += Time.deltaTime / settings.ExplodeTime;
+
+                for (int i = 0; i < _subModulesCount; i++)
                 {
-                    _subModules[i].OnDisassemble(0.3f, _disassembledPositions[i]);
-                    _isAssembled = false;
-                }
-                else
-                {
-                    _subModules[i].OnAssemble(0.3f);
-                    _isAssembled = true;
+                    var currentTransform = rootTransform.GetChild(i);
+                    var currentPos = currentTransform.localPosition;
+
+                    var endPos = (toggle) ? _disassembledPositions[i] : _assembledPositions[i];
+
+                    currentTransform.localPosition = Vector3.Lerp(currentPos, endPos, t);
                 }
 
-                yield return new WaitForSeconds(0.01f);
+                yield return null;
             }
+
+            _isAssembled = toggle;
+            _isBusy = false;
 
             yield return null;
         }
 
-
+        /// <summary>
+        /// Get all the submodules and their exploded/imploded transforms
+        /// </summary>
+        /// <returns></returns>
         public bool UpdateSubModules()
         {
             // Get the count of sub modules
             _subModulesCount = rootTransform.childCount;
 
-            List<Vector3> disassembledPos = new List<Vector3>();
+            List<Vector3> implodedPos = new List<Vector3>();
+            List<Vector3> explodedPos = new List<Vector3>();
             List<SubModule> subModules = new List<SubModule>();
 
             // Ensure each module has an exploded transform
-            if (disassembledRootTransform.childCount != _subModulesCount)
+            if (explodedRootTransform.childCount != _subModulesCount)
             {
                 Debug.LogError("#FocusedModule#--------Error: HIERARCHY - Children count not same");
                 return false;
             }
 
-            for (int i = 0; i < disassembledRootTransform.childCount; i++)
+            for (int i = 0; i < explodedRootTransform.childCount; i++)
             {
                 var rootChild = rootTransform.GetChild(i);
-                var disassembledChild = disassembledRootTransform.GetChild(i);
+                var explodedRootChild = explodedRootTransform.GetChild(i);
 
                 // Add to list only if the disassembled transform has the same name as its counter part
-                if (disassembledChild.name.Contains(rootChild.name))
+                if (explodedRootChild.name.Contains(rootChild.name))
                 {
-                    disassembledPos.Add(disassembledChild.localPosition);
+                    explodedPos.Add(explodedRootChild.localPosition);
+                    implodedPos.Add(rootChild.localPosition);
                 }
                 else
                 {
@@ -112,7 +137,6 @@ namespace HYDAC.Scripts.MOD
 
                 // Check if child already has componenet
                 rootChild.TryGetComponent<SubModule>(out SubModule subModule);
-
                 if (subModule == null)
                 {
                     // Add submodule component
@@ -122,8 +146,8 @@ namespace HYDAC.Scripts.MOD
                 subModules.Add(subModule);
             }
 
-            _disassembledPositions = disassembledPos.ToArray();
-
+            _assembledPositions = implodedPos.ToArray();
+            _disassembledPositions = explodedPos.ToArray();
             _subModules = subModules.ToArray();
 
             return true;
