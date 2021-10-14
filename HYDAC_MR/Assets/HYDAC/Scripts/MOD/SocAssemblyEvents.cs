@@ -6,29 +6,25 @@ using HYDAC.Scripts.INFO;
 namespace HYDAC.Scripts.MOD
 {
     [CreateAssetMenu(menuName = "Socks/Assembly/Events", fileName = "SOC_AssemblyEvents")]
-    public class SocAssemblyEvents: ScriptableObject
+    public class SocAssemblyEvents : ScriptableObject
     {
         public SModuleInfo[] Modules;
-
         public bool IsInitialised;
+
         public SCatalogueInfo[] Catalogue { get; private set; }
 
-        
         // Current selected machine from catalogue
         public SCatalogueInfo CurrentCatalogue { get; private set; }
-
-
         // Current selected module
-        public SModuleInfo CurrentFocusedModule { get; private set; }
+        public SModuleInfo CurrentModule { get; private set; }
+        // Current selected subModule
+        public SSubModuleInfo CurrentSubModule { get; private set; }
 
-
-        // Current state of selected module        
-        public bool IsDisassembled { get; }
 
         private void Awake()
         {
             CurrentCatalogue = null;
-            CurrentFocusedModule = null;
+            CurrentModule = null;
 
             IsInitialised = false;
         }
@@ -48,22 +44,22 @@ namespace HYDAC.Scripts.MOD
         public event Action<SCatalogueInfo> EAssemblySelected;
         internal void OnAssemblySelected(SCatalogueInfo info)
         {
-            IsInitialised = true; 
+            IsInitialised = true;
 
             CurrentCatalogue = info;
             EAssemblySelected?.Invoke(info);
         }
-        
-        
+
+
         // On module selected
         public event Action<SModuleInfo> EModuleSelected;
         internal void OnModuleSelected(SModuleInfo info)
         {
             Debug.Log("#SocAssemblyEvents#------------OnChangeModule:" + info.iname);
 
-            CurrentFocusedModule = info;
+            CurrentModule = info;
 
-            if (EModuleSelected != null) EModuleSelected.Invoke(info);
+            EModuleSelected?.Invoke(info);
         }
 
 
@@ -77,5 +73,15 @@ namespace HYDAC.Scripts.MOD
         }
 
 
+        // On Sub-Module selected
+        public event Action<SSubModuleInfo> ESubModuleSelected;
+        internal void OnSubModuleSelected(SSubModuleInfo info)
+        {
+            Debug.Log("#SocAssemblyEvents#------------OnSelectSubModule:" + info.iname);
+
+            CurrentSubModule = info;
+
+            ESubModuleSelected?.Invoke(info);
+        }
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   ID: 2
   iname: Valves
   description: Module Description
-  isViewable: 1
+  IsViewable: 1
   lowPolyReference:
     m_AssetGUID: 378b6f10c3fe9684e991d3d951a0196d
     m_SubObjectName: 
@@ -37,3 +37,10 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  subModules:
+  - {fileID: 11400000, guid: 231ae948101e7354584a31721ff754aa, type: 2}
+  - {fileID: 11400000, guid: ff6f2947c24941e4abbeabc1b66c5b83, type: 2}
+  - {fileID: 11400000, guid: d96f38a1b5dcca346bdb0729dee6f252, type: 2}
+  - {fileID: 11400000, guid: bbeb1263490e26949959a45559c1d52c, type: 2}
+  - {fileID: 11400000, guid: a5a563d16cd46124e82a485047aa75ca, type: 2}
+  - {fileID: 11400000, guid: c6d4e53b4df612d409da217436793ab2, type: 2}

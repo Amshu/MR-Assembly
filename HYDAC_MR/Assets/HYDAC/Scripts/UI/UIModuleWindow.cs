@@ -6,6 +6,10 @@ using HYDAC.Scripts.MOD;
 using HYDAC.Scripts.INFO;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
+using System.Collections;
+using System.Collections.Generic;
+using Microsoft.MixedReality.Toolkit.UI;
+using System;
 
 namespace HYDAC.Scripts
 {
@@ -15,6 +19,11 @@ namespace HYDAC.Scripts
         [SerializeField] private SocAssemblyEvents assemblyEvents;
         [Space]
         [SerializeField] private Transform moduleRoot;
+        [Space]
+        [SerializeField] private Transform subModuleUIRoot;
+        [SerializeField] private GameObject subModuleUIBtnPrefab;
+        private Transform[] _subModuleUIs;
+
 
         [Space] [Header("Info UI")] 
         [SerializeField] private TextMeshProUGUI idText;
@@ -22,7 +31,8 @@ namespace HYDAC.Scripts
         [SerializeField] private TextMeshProUGUI descriptionText;
         [SerializeField] private Image image;
 
-        Transform _currentModule;
+        SModuleInfo _currentModule;
+        Transform _currentModuleTransform;
 
         Sprite _imageSprite;
 
@@ -45,39 +55,72 @@ namespace HYDAC.Scripts
 
         private void OnModuleChanged(SModuleInfo newModule)
         {
-            idText.text = newModule.ID.ToString();
-            nameText.text = newModule.iname;
-            descriptionText.text = newModule.description;
+            StartCoroutine(LoadModuleAsset(newModule));
+        }
 
-            // Reset image UI
-            image.sprite = null;
-            if (newModule.ImageReference != null)
+        IEnumerator LoadModuleAsset(SModuleInfo newModule)
+        {
+            // Clear cahce if present
+            if (_currentModule != null)
             {
-                LoadImage(newModule.ImageReference);
+                AddressableLoader.ReleaseObject(_currentModuleTransform.gameObject);
+
+                foreach (var uiButton in _subModuleUIs)
+                    Destroy(uiButton.gameObject);
+
+                _subModuleUIs = null;
             }
 
+            // Load asset
+            var assetLoading = AddressableLoader.InstantiateFromReference(newModule.HighPolyReference, moduleRoot);
+            yield return new WaitUntil(() => assetLoading.IsCompleted);
 
+            // Set references
+            _currentModuleTransform = assetLoading.Result.transform;
+            _currentModuleTransform.localPosition = new Vector3(0, 0, 0);
+            _currentModule = _currentModuleTransform.GetComponent<FocusedModule>().Info as SModuleInfo;
 
-            LoadNewModule(newModule);
+            // Initiate UI
+            //--------------------
+            
+            // Change Title text
+            idText.text = newModule.ID.ToString();
+            nameText.text = newModule.iname;
+
+            //descriptionText.text = newModule.description;
+
+            //// Reset image UI
+            //image.sprite = null;
+            //if (newModule.ImageReference != null)
+            //{
+            //    LoadImage(newModule.ImageReference);
+            //}
+
+            // Only if ModuleInfo is viewable
+            if(newModule.IsViewable)
+            {
+                List<Transform> uiButtons = new List<Transform>();
+
+                // Update Submodule List
+                for (int i = 0; i < _currentModule.SubModules.Length; i++)
+                {
+                    // Spawn UI
+
+                    var uiButton = Instantiate(subModuleUIBtnPrefab, subModuleUIRoot);
+
+                    // Get UI script reference and initialise it
+                    uiButtons.Add(uiButton.transform);
+                    uiButton.GetComponent<UIBtnSubModule>().Intitialise(_currentModule.SubModules[i]);
+                }
+
+                _subModuleUIs = uiButtons.ToArray();
+            }
         }
 
 
         private async void LoadImage(AssetReference assetRef)
         {
             //image.sprite = await assetRef.LoadAssetAsync<Sprite>().Task;
-        }
-
-
-        private async void LoadNewModule(SModuleInfo newModule)
-        {
-            if (_currentModule != null)
-                AddressableLoader.ReleaseObject(_currentModule.gameObject);
-
-            var temp = await AddressableLoader.InstantiateFromReference(newModule.HighPolyReference, moduleRoot);
-
-            _currentModule = temp.transform;
-
-            _currentModule.localPosition = new Vector3(0, 0, 0);
         }
 
 

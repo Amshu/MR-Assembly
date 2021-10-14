@@ -29,13 +29,11 @@ namespace HYDAC.Scripts.UI
         private void OnModuleSelect(SModuleInfo moduleInfo)
         {
             videoPlayer.Stop();
-
             currentVideoRef?.ReleaseAsset();
 
-            if (moduleInfo.VideoReference != null)
-            {
-                PlayVideo(moduleInfo.VideoReference);
-            }
+            if (!moduleInfo.HasVideo) return;
+
+            PlayVideo(moduleInfo.VideoReference);
         }
 
         private async void PlayVideo(AssetReference assetRef)
@@ -44,8 +42,11 @@ namespace HYDAC.Scripts.UI
 
             currentVideoRef = assetRef;
 
-            videoPlayer.clip = await assetRef.LoadAssetAsync<VideoClip>().Task;
+            var loadingTask = await assetRef.LoadAssetAsync<VideoClip>().Task;
 
+            if (loadingTask == null) return;
+
+            videoPlayer.clip = loadingTask;
             videoPlayer.Play();
         }
     }        

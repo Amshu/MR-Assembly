@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 
 using HYDAC.Scripts.INFO;
+using System.Collections.Generic;
 
 namespace HYDAC.Scripts.MOD
 {
@@ -21,6 +22,9 @@ namespace HYDAC.Scripts.MOD
             DrawDefaultInspector();
             
             myScript = (FocusedModule)target;
+
+            if ((myScript.Info as SModuleInfo).isStatic) return;
+
 
             GUILayout.Label(new GUIContent(HydacLogo, Documentation));
             GUILayout.Label(new GUIContent("DEBUG CONTROLS\n=============="));
@@ -68,7 +72,7 @@ namespace HYDAC.Scripts.MOD
 
             InitializeModule();
 
-            UpdateSubModule();
+            UpdateModule();
         }
 
         private void InitializeModule()
@@ -86,7 +90,7 @@ namespace HYDAC.Scripts.MOD
 
                 //EditorUtility.SetDirty(modInfo);
 
-                string fileName = "MInfo_" + modInfo.ID + "_" + modInfo.iname + ".asset";
+                string fileName = "MInfo_" + modInfo.ID.ToString("D2") + "_" + modInfo.iname + ".asset";
                 modInfo.name = fileName;
 
                 string folderURL = AssetDatabase.GetAssetPath(_folderToSaveTo.GetInstanceID());
@@ -98,42 +102,52 @@ namespace HYDAC.Scripts.MOD
             }
         }
 
-        private void UpdateSubModule()
+        private void UpdateModule()
         {
             if (GUILayout.Button("\nUPDATE MODULE\n-------------\n"))
             {
+                // Check if prefab is set up previously
                 if (!myScript.UpdateSubModules()) return;
 
-                int previousId = 0;
+                // Previous sub module ID
+                int previousId = -1;
 
+                // Loop Variables
                 int id;
                 string name;
                 SSubModuleInfo subModInfo = default;
+                List<SSubModuleInfo> subModuleInfos = new List<SSubModuleInfo>();
 
                 for (int i = 0; i < myScript.SubModulesCount; i++)
                 {
-                    var subModTransform = myScript.RootTransform.GetChild(i);
+                    //Debug.Log("Previous ID: " + previousId + " , Current ID: " + i);
+
+                    var subModuleTransform = myScript.RootTransform.GetChild(i);
                     var subModule = myScript.SubModules[i];
 
-                    // Get id of submodule
+                    // Get ID of sub module
                     try
                     {
-                        id = Convert.ToInt32(subModTransform.name.Substring(0, 2));
+                        // Get ID of sub module
+                        id = Convert.ToInt32(subModuleTransform.name.Substring(0, 2));
 
+                        // If ID is same then set the previous subModule and skip to next iteration
                         if (previousId == id && id != 0)
                         {
+                            Debug.Log("Same sub module id: " + subModuleTransform.name);
+
                             subModule.SetPartInfo(subModInfo);
                             continue;
                         }
                     }
-                    catch (Exception e)
+                    catch
                     {
-                        Debug.LogError("FocusedModuleEditor#--------Error: " + subModTransform.name + " - ID");
+                        Debug.LogError("FocusedModuleEditor#--------Error: " + subModuleTransform.name + " - ID");
                         return;
                     }
 
                     // Get name of submodule
-                    name = subModTransform.name.Substring(3);
+                    name = subModuleTransform.name.Substring(3);
 
                     subModInfo = ScriptableObject.CreateInstance<SSubModuleInfo>();
                     subModInfo.ID = id;
@@ -163,9 +177,13 @@ namespace HYDAC.Scripts.MOD
                     AssetDatabase.CreateAsset(subModInfo, fileURL);
 
                     subModule.SetPartInfo(subModInfo);
+                    subModuleInfos.Add(subModInfo);
 
                     previousId = i;
                 }
+
+                // Get the submodules on the Module info
+                (myScript.Info as SModuleInfo).SetSubModules(subModuleInfos.ToArray());
             }
         }
     }

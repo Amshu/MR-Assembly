@@ -17,7 +17,7 @@ namespace HYDAC.Scripts.MOD
 
         private void Awake()
         {
-            if(MInfo.isViewable)
+            if(MInfo.IsViewable)
                 _interactable = GetComponent<Interactable>();
         }
 
@@ -28,13 +28,13 @@ namespace HYDAC.Scripts.MOD
 
         private void OnEnable()
         {
-            if(MInfo.isViewable)
+            if(MInfo.IsViewable)
                 _interactable.OnClick.AddListener(OnInteractableClicked);
         }
         
         private void OnDisable()
         {
-            if(MInfo.isViewable)
+            if(MInfo.IsViewable)
                 _interactable.OnClick.RemoveListener(OnInteractableClicked);
         }
 

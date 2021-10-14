@@ -1,4 +1,6 @@
+using HYDAC.Scripts.INFO;
 using Microsoft.MixedReality.Toolkit.UI.BoundsControl;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,14 +25,12 @@ namespace HYDAC.Scripts.MOD
         [SerializeField] private bool _isBusy = false;
 
 
-
-
+#if UNITY_EDITOR
         // For Editor Script
         public Transform RootTransform => rootTransform;
         public SubModule[] SubModules => _subModules;
         public int SubModulesCount => _subModulesCount;
-
-
+#endif
 
         private void Start()
         {
@@ -38,19 +38,20 @@ namespace HYDAC.Scripts.MOD
             boundsControl.BoundsOverride = GetComponent<BoxCollider>();
 
             UpdateSubModules();
-
-            Debug.Log("SOCAssemblyEvents: " + assemblyEvents.GetInstanceID());
         }
 
 
         private void OnEnable()
         {
             assemblyEvents.EModuleExplode += OnExplosionToggleRequest;
+            assemblyEvents.ESubModuleSelected += OnSubModuleSelected;
         }
+
 
         private void OnDisable()
         {
             assemblyEvents.EModuleExplode -= OnExplosionToggleRequest;
+            assemblyEvents.ESubModuleSelected -= OnSubModuleSelected;
         }
 
         public void ToggleExplosion(bool toggle)
@@ -61,16 +62,16 @@ namespace HYDAC.Scripts.MOD
 
         private void OnExplosionToggleRequest(bool toggle)
         {
-            if (_isBusy) return;
+            if (_isBusy || (info as SModuleInfo).isStatic) return;
 
             StopAllCoroutines();
-            StartCoroutine(ExplodeModules(toggle));
+            StartCoroutine(ToggleExplosion(toggle, -1));
 
             _isBusy = true;
         }
 
 
-        IEnumerator ExplodeModules(bool toggle)
+        IEnumerator ToggleExplosion(bool toggle, int subMododuleID = -1)
         {
             var t = 0f;
 
@@ -83,8 +84,20 @@ namespace HYDAC.Scripts.MOD
                     var currentTransform = rootTransform.GetChild(i);
                     var currentPos = currentTransform.localPosition;
 
-                    var endPos = (toggle) ? _disassembledPositions[i] : _assembledPositions[i];
+                    Vector3 endPos = new Vector3();
 
+                    // If there was no sub module selected then toggle explosion
+                    if(subMododuleID == -1)
+                    {
+                        endPos = (toggle) ? _disassembledPositions[i] : _assembledPositions[i];
+                    }
+                    // If a submodule was selected then explode only the selected module
+                    else
+                    {
+                        endPos = (_subModules[i].Info.ID == subMododuleID) ? _disassembledPositions[i] : _assembledPositions[i];
+                    }
+
+                    // Lerp
                     currentTransform.localPosition = Vector3.Lerp(currentPos, endPos, t);
                 }
 
@@ -97,26 +110,43 @@ namespace HYDAC.Scripts.MOD
             yield return null;
         }
 
+
+
+        private void OnSubModuleSelected(SSubModuleInfo selectedSubModule)
+        {
+            if (_isBusy || (info as SModuleInfo).isStatic) return;
+
+            StopAllCoroutines();
+            StartCoroutine(ToggleExplosion(false, selectedSubModule.ID));
+
+            _isBusy = true;
+        }
+
+
         /// <summary>
         /// Get all the submodules and their exploded/imploded transforms
         /// </summary>
         /// <returns></returns>
         public bool UpdateSubModules()
         {
+            if ((info as SModuleInfo).isStatic) return false;
+
             // Get the count of sub modules
             _subModulesCount = rootTransform.childCount;
 
             List<Vector3> implodedPos = new List<Vector3>();
             List<Vector3> explodedPos = new List<Vector3>();
+
             List<SubModule> subModules = new List<SubModule>();
 
-            // Ensure each module has an exploded transform
+            // Ensure each sub module has an exploded transform
             if (explodedRootTransform.childCount != _subModulesCount)
             {
                 Debug.LogError("#FocusedModule#--------Error: HIERARCHY - Children count not same");
                 return false;
             }
 
+            // Iterate through each submodule
             for (int i = 0; i < explodedRootTransform.childCount; i++)
             {
                 var rootChild = rootTransform.GetChild(i);
@@ -135,7 +165,7 @@ namespace HYDAC.Scripts.MOD
                 }
 
 
-                // Check if child already has componenet
+                // Check if child already has component
                 rootChild.TryGetComponent<SubModule>(out SubModule subModule);
                 if (subModule == null)
                 {
@@ -148,6 +178,7 @@ namespace HYDAC.Scripts.MOD
 
             _assembledPositions = implodedPos.ToArray();
             _disassembledPositions = explodedPos.ToArray();
+
             _subModules = subModules.ToArray();
 
             return true;

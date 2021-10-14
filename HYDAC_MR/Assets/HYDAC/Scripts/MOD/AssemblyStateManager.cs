@@ -25,7 +25,8 @@ namespace HYDAC.Scripts.MOD
         IAssembly _currentAssembly;
         private IList<IResourceLocation> _assemblyAssetsLocations = new List<IResourceLocation>();
 
-        private SModuleInfo currentSelectedModule;
+        private SModuleInfo _currentSelectedModule;
+        private SSubModuleInfo _currentSelectedSubModule;
 
         private void Awake()
         {
@@ -55,12 +56,18 @@ namespace HYDAC.Scripts.MOD
         {
             assemblyUI.EUIRequestAssemblySelect += OnUIAssemblySelect;
             assemblyUI.EUIRequestModuleExplode += OnUIExplodeToggle;
+
+            assemblyUI.EUIRequestSubModuleSelect += OnSubmoduleSelect;
         }
+
+
 
         private void OnDisable()
         {
             assemblyUI.EUIRequestAssemblySelect -= OnUIAssemblySelect;
             assemblyUI.EUIRequestModuleExplode -= OnUIExplodeToggle;
+
+            assemblyUI.EUIRequestSubModuleSelect -= OnSubmoduleSelect;
         }
 
 
@@ -70,7 +77,7 @@ namespace HYDAC.Scripts.MOD
         {
             if (_photonView.IsMine)
             {
-                Debug.Log("#AssemblyStateManager#---------RPC raising Module Select");
+                Debug.Log("#AssemblyStateManager#---------RPC RAISING - Module Selected: " + modInfo.ID);
 
                 _photonView.RPC("OnModuleSelectRPC", RpcTarget.All, new object[] { modInfo.ID });
             }
@@ -85,27 +92,59 @@ namespace HYDAC.Scripts.MOD
             foreach(var module in modInfos)
             {
                 if (modID == module.ID)
+                {
                     selectedModule = module;
+                    _currentSelectedModule = selectedModule;
+                }
             }
 
-            Debug.Log("#AssemblyStateManager#---------RPC reveived - Module Selected: " + selectedModule.iname);
+            Debug.Log("#AssemblyStateManager#---------RPC RECEIVED - Module Selected: " + _currentSelectedModule.iname);
 
-            assemblyEvents.OnModuleSelected(selectedModule);
+            assemblyEvents.OnModuleSelected(_currentSelectedModule);
         }
 
 
         private void OnUIExplodeToggle(bool toggle)
         {
+            Debug.Log("#AssemblyStateManager#---------RPC RAISING - Module Explode: " + toggle);
+
             _photonView.RPC("OnModuleExplodeRPC", RpcTarget.All, new object[] { toggle });
         }
         [PunRPC]
         void OnModuleExplodeRPC(bool toggle)
         {
-            Debug.Log("#AssemblyStateManager#---------RPC reveived - Module Explode: " + toggle);
+            Debug.Log("#AssemblyStateManager#---------RPC RECEIVED - Module Explode: " + toggle);
 
             assemblyEvents.OnModuleExplode(toggle);
         }
 
+
+        private void OnSubmoduleSelect(SSubModuleInfo subModInfo)
+        {
+            Debug.Log("#AssemblyStateManager#---------RPC RAISING - Sub Module Select: " + subModInfo.ID);
+
+            _photonView.RPC("OnSubModuleSelectRPC", RpcTarget.All, new object[] { subModInfo.ID });
+        }
+        [PunRPC]
+        void OnSubModuleSelectRPC(int subModID)
+        {
+            SSubModuleInfo selectedSubModule = new SSubModuleInfo();
+
+            // Look up module info
+            SSubModuleInfo[] subModInfos = assemblyEvents.CurrentModule.SubModules;
+            foreach (var module in subModInfos)
+            {
+                if (subModID == module.ID)
+                {
+                    selectedSubModule = module;
+                    _currentSelectedSubModule = selectedSubModule;
+                }
+            }
+
+            Debug.Log("#AssemblyStateManager#---------RPC RECEIVED - Sub Module Select: " + _currentSelectedSubModule.ID);
+
+            assemblyEvents.OnSubModuleSelected(_currentSelectedSubModule);
+        }
         #endregion
 
 
@@ -113,30 +152,26 @@ namespace HYDAC.Scripts.MOD
         {
             if (PhotonNetwork.IsMasterClient)
             {
+                Debug.Log("#AssemblyStateManager#---------RPC RAISING - Assembly Selected: " + assemblyInfo.ID);
+
                 _photonView.RPC("OnAssemblySelectedRPC", RpcTarget.AllBuffered, new object[] { assemblyInfo.ID });
             }
         }
         [PunRPC]
         void OnAssemblySelectedRPC(int assemblyID)
         {
-            Debug.Log("#AssemblyStateManager#---------RPC reveived - Assembly Selected: " + assemblyID);
+            Debug.Log("#AssemblyStateManager#---------RPC RECEIVED - Assembly Selected: " + assemblyID);
 
             foreach (var catalogueEntry in assemblyEvents.Catalogue)
             {
                 if (catalogueEntry.ID == assemblyID)
                 {
-                    OnAssemblySelected(catalogueEntry);
+                    LoadAssemblyAssets(new string[] { catalogueEntry.AssemblyFolderKey }, catalogueEntry.AssemblyPrefab);
                 }
 
                 // Disable catalogue UI
                 assemblyUI.InvokeToggleCatalogueUI(false);
             }
-        }
-
-
-        private void OnAssemblySelected(SCatalogueInfo assemblyInfo)
-        {
-            LoadAssemblyAssets(new string[] { assemblyInfo.AssemblyFolderKey }, assemblyInfo.AssemblyPrefab);
         }
 
         private async Task LoadAssemblyAssets(string[] label, AssetReference assemblyPrefab)

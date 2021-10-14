@@ -141,7 +141,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7dcd798daf721fc488c22baa70a0a921, type: 2}
   - {fileID: 2100000, guid: d82372b688d065e4bbfb5af67b6f2503, type: 2}
   - {fileID: 2100000, guid: 7dcd798daf721fc488c22baa70a0a921, type: 2}
   - {fileID: 2100000, guid: 9552e0b5aee8a72438406adf6c83ab0f, type: 2}
@@ -1696,9 +1696,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eba812d98e2e242448028faf9d42ad58, type: 2}
-  - {fileID: 2100000, guid: d82372b688d065e4bbfb5af67b6f2503, type: 2}
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 6b7f3d4784d26fe4ba5b1cecdb733285, type: 2}
+  - {fileID: 2100000, guid: 7dcd798daf721fc488c22baa70a0a921, type: 2}
+  - {fileID: 2100000, guid: 7dcd798daf721fc488c22baa70a0a921, type: 2}
   - {fileID: 2100000, guid: 391b6b2f350eed44da2c6c4b43599c6e, type: 2}
   - {fileID: 2100000, guid: c2912418959bc3d449cf8014dc071719, type: 2}
   - {fileID: 2100000, guid: fcf63146f8cc6464ca133fd032bead40, type: 2}
@@ -1949,7 +1949,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eba812d98e2e242448028faf9d42ad58, type: 2}
+  - {fileID: 2100000, guid: fcf63146f8cc6464ca133fd032bead40, type: 2}
   - {fileID: 2100000, guid: c2912418959bc3d449cf8014dc071719, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -2526,7 +2526,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7260047582475664313}
-  - component: {fileID: 12262992530913508}
+  - component: {fileID: 5900191519164662055}
   m_Layer: 0
   m_Name: P_OptBkd_HyboxMaxi
   m_TagString: Untagged
@@ -2559,7 +2559,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &12262992530913508
+--- !u!114 &5900191519164662055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2577,7 +2577,7 @@ MonoBehaviour:
     lightmapOffsetScale: {x: 0.14387791, y: 0.14387791, z: 0.21445611, w: 0.6127562}
   - renderer: {fileID: 4069015620049104482}
     lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.082179695, y: 0.082179695, z: 0.37104708, w: 0.7588983}
+    lightmapOffsetScale: {x: 0.082179695, y: 0.082179695, z: 0.37104708, w: 0.8536249}
   - renderer: {fileID: 4842016178382682766}
     lightmapIndex: 0
     lightmapOffsetScale: {x: 0.02658645, y: 0.02658645, z: 0.44948232, w: 0.44010034}
@@ -2586,16 +2586,16 @@ MonoBehaviour:
     lightmapOffsetScale: {x: 0.02658645, y: 0.02658645, z: 0.452412, w: 0.44010034}
   - renderer: {fileID: 5631690474405882297}
     lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.08392626, y: 0.08392626, z: 0.4996402, w: 0.44960958}
+    lightmapOffsetScale: {x: 0.08392626, y: 0.08392626, z: 0.57921755, w: 0.44960958}
   - renderer: {fileID: 1796691321805099248}
     lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.023212368, y: 0.023212368, z: 0.30790955, w: 0.96216226}
+    lightmapOffsetScale: {x: 0.023212368, y: 0.023212368, z: 0.46074176, w: 0.68239117}
   - renderer: {fileID: 5368691572665017717}
     lightmapIndex: 0
     lightmapOffsetScale: {x: 0.22048673, y: 0.22048673, z: -0.002799479, w: 0.44969982}
   - renderer: {fileID: 1605381683270695189}
     lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.051932257, y: 0.051932257, z: 0.6336442, w: 0.45107752}
+    lightmapOffsetScale: {x: 0.051932257, y: 0.051932257, z: 0.32035556, w: 0.88953996}
   - renderer: {fileID: 3059341363550321215}
     lightmapIndex: 0
     lightmapOffsetScale: {x: 0.043134578, y: 0.043134578, z: 0.43413836, w: 0.4320806}
@@ -2610,13 +2610,13 @@ MonoBehaviour:
     lightmapOffsetScale: {x: 0.20340125, y: 0.20340125, z: 0.44690713, w: 0.24280557}
   - renderer: {fileID: 6971316808093240971}
     lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.074677676, y: 0.074677676, z: 0.46284634, w: 0.4094993}
+    lightmapOffsetScale: {x: 0.074677676, y: 0.074677676, z: 0.48628384, w: 0.4094993}
   - renderer: {fileID: 7362794535597296648}
     lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.046076868, y: 0.046076868, z: 0.8540806, w: 0.4494603}
+    lightmapOffsetScale: {x: 0.046076868, y: 0.046076868, z: 0.9446246, w: 0.4494603}
   - renderer: {fileID: 3355229413803424463}
     lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.017793037, y: 0.017793037, z: 0.35041356, w: 0.7936299}
+    lightmapOffsetScale: {x: 0.017793037, y: 0.017793037, z: 0.35041356, w: 0.7775166}
   - renderer: {fileID: 6295307645032309443}
     lightmapIndex: 0
     lightmapOffsetScale: {x: 0.22248016, y: 0.22248016, z: -0.0057196105, w: 0.66401476}
@@ -2631,19 +2631,13 @@ MonoBehaviour:
     lightmapOffsetScale: {x: 0.03011841, y: 0.03011841, z: 0.9379054, w: 0.22475027}
   - renderer: {fileID: 6046987653717277983}
     lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.074677676, y: 0.074677676, z: 0.48628384, w: 0.4094993}
+    lightmapOffsetScale: {x: 0.074677676, y: 0.074677676, z: 0.46284634, w: 0.4094993}
   - renderer: {fileID: 5999248369941059092}
     lightmapIndex: 0
     lightmapOffsetScale: {x: 0.048898734, y: 0.048898734, z: 0.5646992, w: 0.41971797}
   - renderer: {fileID: 7069982534795528445}
     lightmapIndex: 0
     lightmapOffsetScale: {x: 0.046988603, y: 0.046988603, z: 0.67623687, w: 0.4207657}
-  - renderer: {fileID: 0}
-    lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.026048882, y: 0.026048882, z: 0.97694296, w: 0.28731513}
-  - renderer: {fileID: 0}
-    lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.023366913, y: 0.023366913, z: 0.7089726, w: 0.43006393}
   - renderer: {fileID: 658311540718193932}
     lightmapIndex: 0
     lightmapOffsetScale: {x: 0.010975343, y: 0.010975343, z: 0.99162, w: 0.08822786}
@@ -2661,10 +2655,10 @@ MonoBehaviour:
     lightmapOffsetScale: {x: 0.11039309, y: 0.11039309, z: 0.59712374, w: 0.3842331}
   - renderer: {fileID: 6661680226956560418}
     lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.105598606, y: 0.105598606, z: 0.10441924, w: 0.88267}
+    lightmapOffsetScale: {x: 0.105598606, y: 0.105598606, z: 0.21588951, w: 0.8895661}
   - renderer: {fileID: 58316847403979518}
     lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.09795788, y: 0.09795788, z: 0.3664001, w: 0.58316666}
+    lightmapOffsetScale: {x: 0.09795788, y: 0.09795788, z: 0.3664001, w: 0.6778932}
   m_Lightmaps:
   - {fileID: 2800000, guid: 7ee39b81e028f1644b0ea3fc0486118b, type: 3}
   m_LightmapsDir:

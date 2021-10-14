@@ -29,7 +29,14 @@ namespace HYDAC.Scripts.MOD
         {
             EUIRequestModuleExplode?.Invoke(toggle);
         }
-        
+
+        public event Action<SSubModuleInfo> EUIRequestSubModuleSelect;
+        public void InvokeUISubModuleSelect(SSubModuleInfo info)
+        {
+            EUIRequestSubModuleSelect?.Invoke(info);
+        }
+
+
         public void OnUIRequestToggleInfoUI()
         {
             EUIRequestToggleInfoUI?.Invoke();
