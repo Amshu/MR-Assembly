@@ -237,7 +237,7 @@ Transform:
   m_GameObject: {fileID: 1767342737908881846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.003, y: -0.22, z: 0}
-  m_LocalScale: {x: 0.012, y: 0.0115, z: 0.01}
+  m_LocalScale: {x: 0.0067, y: 0.0067, z: 0.01}
   m_Children: []
   m_Father: {fileID: 4296764657512167493}
   m_RootOrder: 0
@@ -282,12 +282,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: be4deb5ad95785e42954cb7b3a86bafe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06a20f171b7854d4eb14892803f315cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 32.674118, y: 32.02}
+  m_Size: {x: 58.37, y: 57.22996}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -304,8 +304,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 33.39311, y: 33.329117, z: 2.65}
-  m_Center: {x: 0.15236802, y: -0.09626167, z: 0.000060995415}
+  m_Size: {x: 64.576836, y: 59.42592, z: 0.76337373}
+  m_Center: {x: 0.011014702, y: 0.045097888, z: 0.23588803}
 --- !u!1 &2880621953227427273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2671,7 +2671,6 @@ GameObject:
   - component: {fileID: 4296764657512167494}
   - component: {fileID: 4296764657512167544}
   - component: {fileID: 382664393006293266}
-  - component: {fileID: 4296764657512167546}
   - component: {fileID: 5167386329959178538}
   - component: {fileID: 2786545106714458803}
   - component: {fileID: 2527586241778223040}
@@ -2793,19 +2792,6 @@ MonoBehaviour:
   useFixedVerticalPosition: 1
   fixedVerticalPosition: -0.2
   orientToReferenceDirection: 0
---- !u!65 &4296764657512167546
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4296764657512167492}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5276667, y: 0.39814812, z: 0.01}
-  m_Center: {x: 0.0013426781, y: -0.2161608, z: 0}
 --- !u!114 &5167386329959178538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2833,7 +2819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 4296764657512167492}
-  boundsOverride: {fileID: 4296764657512167546}
+  boundsOverride: {fileID: 0}
   boundsCalculationMethod: 0
   activation: 3
   flattenAxis: 4

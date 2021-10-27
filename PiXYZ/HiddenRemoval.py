@@ -1,3 +1,5 @@
+modelID = scene.getSelectedOccurrences()
+
 # Hidden Removal
 _ret_ = algo.hiddenRemoval(modelID, 0, 4096, 16, 90.000000, False, 1)
 

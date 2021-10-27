@@ -43,8 +43,8 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     toLoadOnStart: 1
-    name: P_NET_LockAndTag
-    spawnPosition: {x: -2.284, y: 1.242, z: -0.446}
+    name: P_NET_ModuleViewer
+    spawnPosition: {x: 0, y: 1.5, z: -2.5}
     spawnRotation: {x: 0, y: 1, z: 0, w: 0}
   - assetReference:
       m_AssetGUID: 71b9aa7d328adbd49b17fdf368bc208d
@@ -54,7 +54,7 @@ MonoBehaviour:
     toLoadOnStart: 1
     name: P_NET_AssemblyManager
     spawnPosition: {x: 0, y: 0, z: 0}
-    spawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    spawnRotation: {x: 0, y: 1, z: 0, w: 0}
   - assetReference:
       m_AssetGUID: 2b8719ef8773a714393ec0faf7ccf4f9
       m_SubObjectName: 
@@ -62,7 +62,7 @@ MonoBehaviour:
       m_EditorAssetChanged: 0
     toLoadOnStart: 1
     name: P_NET_TSchematic
-    spawnPosition: {x: 2.587, y: 3.399, z: -0.022}
+    spawnPosition: {x: 2.722, y: 3.399, z: -0.022}
     spawnRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   - assetReference:
       m_AssetGUID: ec8a819a8f3d1054cba46bf42d0b79eb
@@ -83,12 +83,12 @@ MonoBehaviour:
     spawnPosition: {x: -2.572, y: 1.3277, z: -0.446}
     spawnRotation: {x: 0, y: 1, z: 0, w: 0}
   - assetReference:
-      m_AssetGUID: 5e3ba528f89463f4fbbacd8203dbb0ad
+      m_AssetGUID: a98222d2fcc517849a2461220497f28c
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     toLoadOnStart: 1
-    name: P_NET_LockAndTag
-    spawnPosition: {x: -2.284, y: 1.242, z: -0.446}
+    name: P_NET_SwitchSystem
+    spawnPosition: {x: -0.0001, y: 0.8151, z: 0.0008}
     spawnRotation: {x: 0, y: 1, z: 0, w: 0}
   defaultNetRoomName: HYDAC_MR_DRoomA
