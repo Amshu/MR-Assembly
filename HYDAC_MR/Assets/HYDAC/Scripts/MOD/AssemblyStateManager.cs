@@ -177,7 +177,7 @@ namespace HYDAC.Scripts.MOD
         private async Task LoadAssemblyAssets(string[] label, AssetReference assemblyPrefab)
         {
             // Load assembly dependencies
-            await AddressableLoader.LoadLabels(label, _assemblyAssetsLocations);
+            _assemblyAssetsLocations = await AddressableLoader.LoadLabels(label);
 
             // Instantiate Assembly
             var result = await Addressables.InstantiateAsync(assemblyPrefab, transform.position, transform.rotation).Task;

@@ -26,7 +26,7 @@ namespace HYDAC.Scripts
 
 
         [Space] [Header("Info UI")] 
-        [SerializeField] private TextMeshProUGUI idText;
+        //[SerializeField] private TextMeshProUGUI idText;
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI descriptionText;
         [SerializeField] private Image image;
@@ -84,7 +84,6 @@ namespace HYDAC.Scripts
             //--------------------
             
             // Change Title text
-            idText.text = newModule.ID.ToString();
             nameText.text = newModule.iname;
 
             //descriptionText.text = newModule.description;
