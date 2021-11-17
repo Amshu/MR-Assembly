@@ -37,19 +37,22 @@ public class MainLoader : MonoBehaviour
     /// <summary>
     /// ON ADDRESSABLES INITIALISED
     /// ---------------------------
-    ///     -> Set initialised to true
-    ///     -> Load catalogue
+    ///     -> Load Assets
     /// </summary>
-    /// <param name="obj"></param>
     private void OnAddressablesInitialised(AsyncOperationHandle<IResourceLocator> obj)
     {
         Debug.Log("#MainLoader#-------------Initialised");
 
-        StartCoroutine(LoadAssets());
+        StartCoroutine(ApplicationStart());
     }
 
 
-    IEnumerator LoadAssets()
+    /// <summary>
+    ///  -> Load all assets that are flagged LoadOnStart
+    ///  -> Load Main Scene and set it as active
+    ///  -> Disable loading sphere
+    /// </summary>
+    IEnumerator ApplicationStart()
     {
         var labelsToLoad = settings.LoadAssets_OnStart;
 
@@ -71,6 +74,10 @@ public class MainLoader : MonoBehaviour
         loadingSphere.SetActive(false);
     }
 
+    /// <summary>
+    ///  -> Load assets and update progress slider
+    /// </summary>
+    /// <param name="label">To load assets tagged with the passed string</param>
     private IEnumerator LoadAssetsFromLabel(string label)
     {
         var isDone = false;

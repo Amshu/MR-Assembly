@@ -180,7 +180,6 @@ GameObject:
   - component: {fileID: 3296823582033359567}
   - component: {fileID: 2342673343085063889}
   - component: {fileID: 2237471792310565684}
-  - component: {fileID: 1828726127723331106}
   m_Layer: 0
   m_Name: 06_HYFC01
   m_TagString: Untagged
@@ -253,19 +252,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1828726127723331106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828726127723331117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c0da6895f942ff4899cc379ebeef122, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  info: {fileID: 11400000, guid: c6d4e53b4df612d409da217436793ab2, type: 2}
 --- !u!1 &2483531138935541182
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +347,7 @@ MonoBehaviour:
   - {fileID: 2832119290636372045}
   - {fileID: 2178209665637705700}
   - {fileID: 2974812079455392238}
-  - {fileID: 1828726127723331106}
+  - {fileID: 0}
   _disassembledPositions:
   - {x: 0.0000652, y: 0, z: 0}
   - {x: 0.0000372, y: 0, z: 0}

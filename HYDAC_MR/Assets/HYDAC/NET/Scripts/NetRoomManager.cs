@@ -9,7 +9,7 @@ namespace HYDAC.Scripts.NET
     /// This class is responsible for loading the main scene (Hydac_Factory.unity)
     /// and instantiating players into that scene.
     /// </summary>
-    public class NetRoomManager : MonoBehaviourPunCallbacks
+    public class NetRoomManager : MonoBehaviour
     {
         private const string CATALOGUE = "CatalogueID";
         

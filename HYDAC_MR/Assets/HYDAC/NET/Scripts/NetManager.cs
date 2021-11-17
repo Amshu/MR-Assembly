@@ -158,7 +158,7 @@ namespace HYDAC.Scripts.NET
         /// <summary>
         /// ON ROOM JOINED SUCCESSFULLY
         /// ---------------------------
-        /// -> Set isConnecting to false and clear connecting room name
+        /// -> Set current room name
         /// -> Check if the user is host
         ///     -> If so then load level
         /// </summary>

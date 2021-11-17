@@ -9,22 +9,22 @@ namespace HYDAC.Scripts.ADD
     {
         [SerializeField] private SocAddressablesSettings settings;
 
-        Transform _mainManager;
-
         private SceneInstance _currentEnvironment = default;
+
+        private Transform _netManager;
 
         private void Awake()
         {
-            LoadScene();
+            LoadManagerAndScene();
         }
 
-        private async void LoadScene()
+        private async void LoadManagerAndScene()
         {
             // Then load environment
             _currentEnvironment = await AddressablesSceneLoader.LoadScene(settings.Env_Default, true);
 
             var loadedManager = await AddressableLoader.LoadFromReference(settings.NetManager);
-            _mainManager = Instantiate(loadedManager).transform;
+            _netManager = Instantiate(loadedManager).transform;
         }
     }
 }
